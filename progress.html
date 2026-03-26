@@ -1,11 +1,138 @@
-<h1>Progress Tracking</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Progress | Tenerife Glow Ritual</title>
+  <meta
+    name="description"
+    content="Track your skin progress, consistency, and monthly photos in Tenerife Glow Ritual."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <div class="brand-wrap">
+        <div class="brand-mark"></div>
+        <div>
+          <p class="eyebrow">Island Skin Journey</p>
+          <h1 class="brand-title">Tenerife Glow Ritual</h1>
+        </div>
+      </div>
 
-<section>
-  <h2>Upload Photo</h2>
-  <input type="file">
-</section>
+      <nav class="topnav">
+        <a href="index.html">Home</a>
+        <a href="daily.html">Daily</a>
+        <a href="monthly.html">Monthly</a>
+        <a href="progress.html" class="active">Progress</a>
+      </nav>
+    </header>
 
-<section>
-  <h2>Notes</h2>
-  <textarea></textarea>
-</section>
+    <main class="content-stack">
+      <section class="page-hero">
+        <div>
+          <p class="eyebrow">Progress</p>
+          <h2 class="page-title">Your glow journey</h2>
+          <p class="page-subtitle">
+            Track consistency, keep your visual checkpoints, and notice what is changing with softness.
+          </p>
+        </div>
+        <div class="hero-meta">
+          <span class="pill">Streaks</span>
+          <span class="pill">Photo tracking</span>
+          <span class="pill">Visible progress</span>
+        </div>
+      </section>
+
+      <section class="two-col-layout">
+        <div class="content-stack">
+          <section class="card">
+            <div class="card-header">
+              <p class="eyebrow">Rhythm</p>
+              <h3>Progress stats</h3>
+            </div>
+
+            <div class="stat-grid">
+              <div class="stat-box">
+                <span class="stat-number">7</span>
+                <span class="stat-label">Day streak</span>
+              </div>
+              <div class="stat-box">
+                <span class="stat-number">18</span>
+                <span class="stat-label">Completed days</span>
+              </div>
+              <div class="stat-box">
+                <span class="stat-number">60%</span>
+                <span class="stat-label">Consistency</span>
+              </div>
+            </div>
+
+            <p class="support-text">
+              Some days are softer than others. What matters is that you keep coming back.
+            </p>
+          </section>
+
+          <section class="card">
+            <div class="card-header">
+              <p class="eyebrow">Upload</p>
+              <h3>Skin checkpoints</h3>
+            </div>
+
+            <div class="upload-grid">
+              <label class="upload-box">
+                <span>Day 1</span>
+                <input type="file" />
+              </label>
+              <label class="upload-box">
+                <span>Day 7</span>
+                <input type="file" />
+              </label>
+              <label class="upload-box">
+                <span>Day 14</span>
+                <input type="file" />
+              </label>
+              <label class="upload-box">
+                <span>Day 30</span>
+                <input type="file" />
+              </label>
+            </div>
+          </section>
+        </div>
+
+        <div class="content-stack">
+          <section class="card">
+            <div class="card-header">
+              <p class="eyebrow">Photo guide</p>
+              <h3>For consistent comparison</h3>
+            </div>
+
+            <ul class="info-list">
+              <li>Use natural light near a window</li>
+              <li>Keep the same angle and distance</li>
+              <li>No makeup, no filters</li>
+              <li>Hair tied back if possible</li>
+              <li>Use a neutral expression</li>
+            </ul>
+          </section>
+
+          <section class="card">
+            <div class="card-header">
+              <p class="eyebrow">Observations</p>
+              <h3>What are you noticing?</h3>
+            </div>
+
+            <textarea class="styled-textarea" rows="10" placeholder="Hydration, texture, glow, sensitivity, breakouts..."></textarea>
+          </section>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
