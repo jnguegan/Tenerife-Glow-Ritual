@@ -550,3 +550,21 @@ blockquote {
     grid-template-columns: 1fr;
   }
 }
+.card,
+.hero-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover,
+.hero-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 28px 60px rgba(84, 66, 49, 0.12);
+}
+
+.topnav a {
+  transition: all 0.2s ease;
+}
+
+.topnav a:active {
+  transform: scale(0.96);
+}
