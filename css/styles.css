@@ -1,0 +1,18 @@
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #FAF8F4;
+  color: #333;
+  padding: 20px;
+}
+
+h1, h2 {
+  font-family: 'Playfair Display', serif;
+}
+
+section {
+  margin-bottom: 20px;
+}
+
+textarea {
+  width: 100%;
+}
