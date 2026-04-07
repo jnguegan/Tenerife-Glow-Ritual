@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Daily Ritual | Tenerife Glow Ritual</title>
+  <title>Ritual Diario | Tenerife Glow Ritual</title>
   <meta
     name="description"
-    content="Daily skincare ritual, somatic support, and schedule planning for Tenerife Glow Ritual."
+    content="Vista previa del ritual diario de Tenerife Glow Ritual. Skincare, apoyo somático y estructura calmada para tu día."
   />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -22,33 +22,60 @@
       <div class="brand-wrap">
         <div class="brand-mark"></div>
         <div>
-          <p class="eyebrow">Island Skin Journey</p>
-          <h1 class="brand-title">Tenerife Glow Ritual</h1>
+          <p class="eyebrow" data-i18n="brand.eyebrow">Ritual de Piel de la Isla</p>
+          <h1 class="brand-title" data-i18n="brand.title">Tenerife Glow Ritual</h1>
         </div>
       </div>
 
-      <nav class="topnav">
-  <a href="index.html">Home</a>
-  <a href="daily.html">Daily</a>
-  <a href="monthly.html">Monthly</a>
-  <a href="progress.html">Progress</a>
-  <a href="products.html">Products</a>
-</nav>
+      <div class="header-actions">
+        <div class="language-switcher" aria-label="Selector de idioma">
+          <button class="lang-btn active" data-lang="es" type="button">ES</button>
+          <button class="lang-btn" data-lang="en" type="button">EN</button>
+          <button class="lang-btn" data-lang="fr" type="button">FR</button>
+          <button class="lang-btn" data-lang="de" type="button">DE</button>
+        </div>
+
+        <nav class="topnav" aria-label="Navegación principal">
+          <a href="index.html" data-i18n="nav.home">Inicio</a>
+          <a href="products.html" data-i18n="nav.products">Productos</a>
+          <a href="daily.html" class="active" data-i18n="nav.daily">Diario</a>
+          <a href="monthly.html" data-i18n="nav.monthly">Mensual</a>
+          <a href="progress.html" data-i18n="nav.progress">Progreso</a>
+          <a href="login.html" class="nav-link-secondary" data-i18n="nav.login">Iniciar sesión</a>
+          <a href="signup.html" class="nav-link-cta" data-i18n="nav.start">Empieza tu Ritual</a>
+        </nav>
+      </div>
     </header>
 
     <main class="content-stack">
       <section class="page-hero">
         <div>
-          <p class="eyebrow">Daily Page</p>
-          <h2 class="page-title">Day 12 · Block Alisio</h2>
-          <p class="page-subtitle">
-            A calm structure for your skincare, body awareness, and real-life schedule.
+          <p class="eyebrow" data-i18n="dailyPreview.eyebrow">Vista previa diaria</p>
+          <h2 class="page-title" data-i18n="dailyPreview.title">Ejemplo de Ritual Diario · Bloque Alisio</h2>
+          <p class="page-subtitle" data-i18n="dailyPreview.subtitle">
+            Así se ve la estructura diaria dentro de Tenerife Glow Ritual: skincare, apoyo somático y organización suave para la vida real.
           </p>
         </div>
         <div class="hero-meta">
-          <span class="pill">Morning + Night</span>
-          <span class="pill">Somatic Reset</span>
-          <span class="pill">10-Line Schedule</span>
+          <span class="pill" data-i18n="dailyPreview.meta1">Mañana + Noche</span>
+          <span class="pill" data-i18n="dailyPreview.meta2">Reset Somático</span>
+          <span class="pill" data-i18n="dailyPreview.meta3">Plan Diario</span>
+        </div>
+      </section>
+
+      <section class="card cta-card">
+        <div class="card-header">
+          <p class="eyebrow" data-i18n="dailyBanner.eyebrow">Experiencia miembro</p>
+          <h3 data-i18n="dailyBanner.title">Esta es una vista previa del flujo diario</h3>
+        </div>
+
+        <p class="support-text" data-i18n="dailyBanner.text">
+          Crea tu cuenta para guardar tu ritual, marcar tus hábitos, registrar notas y acceder a tu plan personalizado.
+        </p>
+
+        <div class="hero-actions">
+          <a href="signup.html" class="btn btn-primary" data-i18n="dailyBanner.primary">Crear cuenta</a>
+          <a href="login.html" class="btn btn-secondary" data-i18n="dailyBanner.secondary">Iniciar sesión</a>
         </div>
       </section>
 
@@ -56,47 +83,47 @@
         <div class="content-stack">
           <section class="card">
             <div class="card-header">
-              <p class="eyebrow">Morning Ritual</p>
-              <h3>Start soft</h3>
+              <p class="eyebrow" data-i18n="dailyMorning.eyebrow">Ritual de mañana</p>
+              <h3 data-i18n="dailyMorning.title">Empieza con suavidad</h3>
             </div>
 
             <div class="check-grid">
-              <label class="check-item"><input type="checkbox" /> <span>Cleanser</span></label>
-              <label class="check-item"><input type="checkbox" /> <span>Hydration</span></label>
-              <label class="check-item"><input type="checkbox" /> <span>Antioxidant</span></label>
-              <label class="check-item"><input type="checkbox" /> <span>Moisturizer</span></label>
-              <label class="check-item"><input type="checkbox" /> <span>SPF</span></label>
+              <label class="check-item"><input type="checkbox" /> <span data-i18n="dailyMorning.step1">Limpiador</span></label>
+              <label class="check-item"><input type="checkbox" /> <span data-i18n="dailyMorning.step2">Hidratación</span></label>
+              <label class="check-item"><input type="checkbox" /> <span data-i18n="dailyMorning.step3">Antioxidante</span></label>
+              <label class="check-item"><input type="checkbox" /> <span data-i18n="dailyMorning.step4">Crema hidratante</span></label>
+              <label class="check-item"><input type="checkbox" /> <span data-i18n="dailyMorning.step5">Protección solar</span></label>
             </div>
           </section>
 
           <section class="card">
             <div class="card-header">
-              <p class="eyebrow">Night Ritual</p>
-              <h3>Repair gently</h3>
+              <p class="eyebrow" data-i18n="dailyNight.eyebrow">Ritual de noche</p>
+              <h3 data-i18n="dailyNight.title">Repara con calma</h3>
             </div>
 
             <div class="check-grid">
-              <label class="check-item"><input type="checkbox" /> <span>Double cleanse</span></label>
-              <label class="check-item"><input type="checkbox" /> <span>Hydration</span></label>
-              <label class="check-item"><input type="checkbox" /> <span>Active of the week</span></label>
-              <label class="check-item"><input type="checkbox" /> <span>Nourishing cream</span></label>
+              <label class="check-item"><input type="checkbox" /> <span data-i18n="dailyNight.step1">Doble limpieza</span></label>
+              <label class="check-item"><input type="checkbox" /> <span data-i18n="dailyNight.step2">Hidratación</span></label>
+              <label class="check-item"><input type="checkbox" /> <span data-i18n="dailyNight.step3">Activo de la semana</span></label>
+              <label class="check-item"><input type="checkbox" /> <span data-i18n="dailyNight.step4">Crema nutritiva</span></label>
             </div>
           </section>
 
           <section class="card">
             <div class="card-header">
-              <p class="eyebrow">Words for today</p>
-              <h3>Affirmation & reflection</h3>
+              <p class="eyebrow" data-i18n="dailyWords.eyebrow">Palabras para hoy</p>
+              <h3 data-i18n="dailyWords.title">Afirmación y reflexión</h3>
             </div>
 
             <div class="field-group">
-              <label class="field-label">Affirmation</label>
-              <div class="soft-panel">Today I choose softness, even in busy moments.</div>
+              <label class="field-label" data-i18n="dailyWords.affLabel">Afirmación</label>
+              <div class="soft-panel" data-i18n="dailyWords.affText">Hoy elijo suavidad, incluso en los momentos ocupados.</div>
             </div>
 
             <div class="field-group">
-              <label class="field-label">Night reflection</label>
-              <textarea class="styled-textarea" rows="4" placeholder="What felt calmer today?"></textarea>
+              <label class="field-label" data-i18n="dailyWords.reflectionLabel">Reflexión nocturna</label>
+              <textarea class="styled-textarea" rows="4" placeholder="¿Qué se sintió más calmado hoy?" data-i18n-placeholder="dailyWords.reflectionPlaceholder"></textarea>
             </div>
           </section>
         </div>
@@ -104,44 +131,43 @@
         <div class="content-stack">
           <section class="card">
             <div class="card-header">
-              <p class="eyebrow">Body + skin</p>
-              <h3>Somatic ritual</h3>
+              <p class="eyebrow" data-i18n="dailySomatic.eyebrow">Cuerpo + piel</p>
+              <h3 data-i18n="dailySomatic.title">Ritual somático</h3>
             </div>
 
-            <p class="ritual-text">
-              Relax your jaw, drop your shoulders, and take one slow breath in through the nose
-              and out through the mouth.
+            <p class="ritual-text" data-i18n="dailySomatic.text">
+              Relaja la mandíbula, baja los hombros y toma una respiración lenta por la nariz, soltando suavemente por la boca.
             </p>
 
             <div class="mini-tags">
-              <span>Breath</span>
-              <span>Jaw release</span>
-              <span>Calm</span>
+              <span data-i18n="dailySomatic.tag1">Respira</span>
+              <span data-i18n="dailySomatic.tag2">Mandíbula</span>
+              <span data-i18n="dailySomatic.tag3">Calma</span>
             </div>
           </section>
 
           <section class="card">
             <div class="card-header">
-              <p class="eyebrow">Inside support</p>
-              <h3>Nutricosmetic focus</h3>
+              <p class="eyebrow" data-i18n="dailyInside.eyebrow">Apoyo interno</p>
+              <h3 data-i18n="dailyInside.title">Enfoque nutricosmético</h3>
             </div>
 
-            <div class="soft-panel">Water with cucumber + a handful of berries.</div>
+            <div class="soft-panel" data-i18n="dailyInside.text">Agua con pepino + un puñado de frutos rojos.</div>
 
             <div class="field-group">
-              <label class="field-label">Today’s intention</label>
-              <input class="styled-input" type="text" value="Move through the day with steadiness." />
+              <label class="field-label" data-i18n="dailyInside.intentLabel">Intención de hoy</label>
+              <input class="styled-input" type="text" value="Atravesar el día con estabilidad." data-i18n-value="dailyInside.intentValue" />
             </div>
           </section>
 
           <section class="card">
             <div class="card-header">
-              <p class="eyebrow">Your day</p>
-              <h3>Schedule</h3>
+              <p class="eyebrow" data-i18n="dailySchedule.eyebrow">Tu día</p>
+              <h3 data-i18n="dailySchedule.title">Estructura diaria</h3>
             </div>
 
             <div class="schedule-list">
-              <div class="schedule-row"><input class="time-input" type="text" placeholder="08:00" /><input class="task-input" type="text" placeholder="Gym / appointment / reminder" /></div>
+              <div class="schedule-row"><input class="time-input" type="text" placeholder="08:00" /><input class="task-input" type="text" placeholder="Gimnasio / cita / recordatorio" data-i18n-placeholder="dailySchedule.placeholder" /></div>
               <div class="schedule-row"><input class="time-input" type="text" placeholder="09:00" /><input class="task-input" type="text" /></div>
               <div class="schedule-row"><input class="time-input" type="text" placeholder="10:00" /><input class="task-input" type="text" /></div>
               <div class="schedule-row"><input class="time-input" type="text" placeholder="11:00" /><input class="task-input" type="text" /></div>
@@ -156,28 +182,30 @@
 
           <section class="card">
             <div class="card-header">
-              <p class="eyebrow">Consistency</p>
-              <h3>Habit check</h3>
+              <p class="eyebrow" data-i18n="dailyHabit.eyebrow">Constancia</p>
+              <h3 data-i18n="dailyHabit.title">Chequeo de hábitos</h3>
             </div>
 
             <div class="habit-grid">
-              <label class="check-item"><input type="checkbox" /> <span>Morning routine</span></label>
-              <label class="check-item"><input type="checkbox" /> <span>Night routine</span></label>
-              <label class="check-item"><input type="checkbox" /> <span>Hydration</span></label>
-              <label class="check-item"><input type="checkbox" /> <span>Nutricosmetics</span></label>
-              <label class="check-item"><input type="checkbox" /> <span>Somatic ritual</span></label>
-              <label class="check-item"><input type="checkbox" /> <span>Movement</span></label>
-              <label class="check-item"><input type="checkbox" /> <span>Rest</span></label>
+              <label class="check-item"><input type="checkbox" /> <span data-i18n="dailyHabit.item1">Rutina de mañana</span></label>
+              <label class="check-item"><input type="checkbox" /> <span data-i18n="dailyHabit.item2">Rutina de noche</span></label>
+              <label class="check-item"><input type="checkbox" /> <span data-i18n="dailyHabit.item3">Hidratación</span></label>
+              <label class="check-item"><input type="checkbox" /> <span data-i18n="dailyHabit.item4">Nutricosmética</span></label>
+              <label class="check-item"><input type="checkbox" /> <span data-i18n="dailyHabit.item5">Ritual somático</span></label>
+              <label class="check-item"><input type="checkbox" /> <span data-i18n="dailyHabit.item6">Movimiento</span></label>
+              <label class="check-item"><input type="checkbox" /> <span data-i18n="dailyHabit.item7">Descanso</span></label>
             </div>
 
             <div class="field-group">
-              <label class="field-label">Body awareness notes</label>
-              <textarea class="styled-textarea" rows="5" placeholder="How does your body feel today?"></textarea>
+              <label class="field-label" data-i18n="dailyHabit.notesLabel">Notas de conciencia corporal</label>
+              <textarea class="styled-textarea" rows="5" placeholder="¿Cómo se siente tu cuerpo hoy?" data-i18n-placeholder="dailyHabit.notesPlaceholder"></textarea>
             </div>
           </section>
         </div>
       </section>
     </main>
   </div>
+
+  <script src="js/i18n.js"></script>
 </body>
 </html>
