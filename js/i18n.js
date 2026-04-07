@@ -264,13 +264,26 @@ function applyTranslations(lang) {
     }
   });
 
+  document.querySelectorAll("[data-i18n-placeholder]").forEach((element) => {
+    const key = element.getAttribute("data-i18n-placeholder");
+    if (selected[key]) {
+      element.setAttribute("placeholder", selected[key]);
+    }
+  });
+
+  document.querySelectorAll("[data-i18n-value]").forEach((element) => {
+    const key = element.getAttribute("data-i18n-value");
+    if (selected[key]) {
+      element.value = selected[key];
+    }
+  });
+
   document.querySelectorAll(".lang-btn").forEach((btn) => {
     btn.classList.toggle("active", btn.dataset.lang === lang);
   });
 
   localStorage.setItem("tgr-language", lang);
 }
-
 document.addEventListener("DOMContentLoaded", () => {
   const savedLanguage = localStorage.getItem("tgr-language") || "es";
   applyTranslations(savedLanguage);
