@@ -206,7 +206,10 @@
 
  <script src="js/i18n.js"></script>
 <script>
-  const isLoggedIn = false; // change to true to simulate member state
+ 
+  const isLoggedIn = localStorage.getItem("tgr-auth") === "true";
+
+const onboardingData = JSON.parse(localStorage.getItem("tgr-onboarding-data") || "{}");
 
   document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll('.preview-only').forEach(el => {
