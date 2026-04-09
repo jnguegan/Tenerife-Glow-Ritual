@@ -181,7 +181,65 @@ const translations = {
 "monthlyNext.eyebrow": "Siguiente fase",
 "monthlyNext.title": "Preparación para el próximo mes",
 "monthlyNext.text": "Al final de cada ciclo, el miembro puede revisar su progreso, ajustar su ritual y recibir una recomendación suave para continuar.",
-"monthlyNext.link": "Explorar productos recomendados"
+"monthlyNext.link": "Explorar productos recomendados",
+    "progressPreview.eyebrow": "Vista previa de progreso",
+"progressPreview.title": "Ejemplo de Seguimiento · Evolución del Ritual",
+"progressPreview.subtitle": "Así se visualiza el progreso dentro de Tenerife Glow Ritual: constancia, evolución visible, notas y observación calmada del proceso.",
+"progressPreview.meta1": "Seguimiento Visual",
+"progressPreview.meta2": "Constancia",
+"progressPreview.meta3": "Reflexión",
+
+"progressBanner.eyebrow": "Experiencia miembro",
+"progressBanner.title": "Esta es una vista previa del seguimiento de tu evolución",
+"progressBanner.text": "Crea tu cuenta para guardar fotos, registrar cambios, seguir tu constancia y construir una visión real de tu progreso mes a mes.",
+"progressBanner.primary": "Crear cuenta",
+"progressBanner.secondary": "Iniciar sesión",
+
+"progressVisual.eyebrow": "Evolución visual",
+"progressVisual.title": "Comparación del recorrido",
+"progressVisual.before": "Foto inicial",
+"progressVisual.current": "Foto de seguimiento",
+"progressVisual.text": "El sistema permite observar cambios graduales con una mirada amable, sin presión y con continuidad.",
+
+"progressStats.eyebrow": "Resumen",
+"progressStats.title": "Tu ritmo visible",
+"progressStats.stat1": "Días seguidos",
+"progressStats.stat2": "Días completados",
+"progressStats.stat3": "Constancia",
+"progressStats.text": "Pequeños pasos repetidos con calma construyen resultados sostenibles y visibles en el tiempo.",
+
+"progressNotes.eyebrow": "Observaciones",
+"progressNotes.title": "Notas sobre la piel y el bienestar",
+"progressNotes.label1": "Lo que estoy notando",
+"progressNotes.label2": "Qué me está funcionando",
+"progressNotes.placeholder1": "¿Qué cambios sientes o ves esta semana?",
+"progressNotes.placeholder2": "¿Qué parte del ritual se siente más alineada?",
+
+"progressCheckin.eyebrow": "Chequeo",
+"progressCheckin.title": "Indicadores suaves",
+"progressCheckin.item1": "La piel se siente más equilibrada",
+"progressCheckin.item2": "Hay más constancia en la rutina",
+"progressCheckin.item3": "Me noto más conectado/a al ritual",
+"progressCheckin.item4": "Mi energía diaria está más estable",
+
+"progressPhotos.eyebrow": "Seguimiento visual",
+"progressPhotos.title": "Espacios para fotos",
+"progressPhotos.box1Title": "Inicio",
+"progressPhotos.box1Text": "Añadir foto inicial",
+"progressPhotos.box2Title": "Actual",
+"progressPhotos.box2Text": "Añadir foto actual",
+
+"progressReflection.eyebrow": "Reflexión",
+"progressReflection.title": "Cómo se siente este proceso",
+"progressReflection.text": "El progreso no siempre es lineal. Este espacio ayuda a reconocer cambios suaves, hábitos que se sostienen y mejoras que aparecen con el tiempo.",
+"progressReflection.tag1": "Observación",
+"progressReflection.tag2": "Continuidad",
+"progressReflection.tag3": "Evolución",
+
+"progressNext.eyebrow": "Siguiente paso",
+"progressNext.title": "Seguir con intención",
+"progressNext.text": "A partir del seguimiento, el miembro puede mantener su ritual actual, ajustar el ritmo o descubrir productos recomendados para continuar.",
+"progressNext.link": "Ver productos recomendados"
   },
 
   en: {
@@ -366,7 +424,65 @@ const translations = {
 "monthlyNext.eyebrow": "Next phase",
 "monthlyNext.title": "Preparing for the next month",
 "monthlyNext.text": "At the end of each cycle, the member can review progress, adjust the ritual, and receive a gentle recommendation to continue.",
-"monthlyNext.link": "Explore recommended products"
+"monthlyNext.link": "Explore recommended products",
+    "progressPreview.eyebrow": "Progress preview",
+"progressPreview.title": "Example Tracking · Ritual Evolution",
+"progressPreview.subtitle": "This is how progress appears inside Tenerife Glow Ritual: consistency, visible evolution, notes, and calm observation of the process.",
+"progressPreview.meta1": "Visual Tracking",
+"progressPreview.meta2": "Consistency",
+"progressPreview.meta3": "Reflection",
+
+"progressBanner.eyebrow": "Member experience",
+"progressBanner.title": "This is a preview of your progress tracking",
+"progressBanner.text": "Create your account to save photos, record changes, track consistency, and build a real view of your progress month by month.",
+"progressBanner.primary": "Create account",
+"progressBanner.secondary": "Log in",
+
+"progressVisual.eyebrow": "Visual evolution",
+"progressVisual.title": "Journey comparison",
+"progressVisual.before": "Starting photo",
+"progressVisual.current": "Progress photo",
+"progressVisual.text": "The system helps you observe gradual changes with kindness, without pressure, and with continuity.",
+
+"progressStats.eyebrow": "Summary",
+"progressStats.title": "Your visible rhythm",
+"progressStats.stat1": "Day streak",
+"progressStats.stat2": "Completed days",
+"progressStats.stat3": "Consistency",
+"progressStats.text": "Small steps repeated calmly build sustainable and visible results over time.",
+
+"progressNotes.eyebrow": "Observations",
+"progressNotes.title": "Skin and wellness notes",
+"progressNotes.label1": "What I am noticing",
+"progressNotes.label2": "What is working for me",
+"progressNotes.placeholder1": "What changes do you feel or see this week?",
+"progressNotes.placeholder2": "Which part of the ritual feels most aligned?",
+
+"progressCheckin.eyebrow": "Check-in",
+"progressCheckin.title": "Gentle indicators",
+"progressCheckin.item1": "My skin feels more balanced",
+"progressCheckin.item2": "There is more consistency in the routine",
+"progressCheckin.item3": "I feel more connected to the ritual",
+"progressCheckin.item4": "My daily energy feels more stable",
+
+"progressPhotos.eyebrow": "Visual tracking",
+"progressPhotos.title": "Photo spaces",
+"progressPhotos.box1Title": "Start",
+"progressPhotos.box1Text": "Add starting photo",
+"progressPhotos.box2Title": "Current",
+"progressPhotos.box2Text": "Add current photo",
+
+"progressReflection.eyebrow": "Reflection",
+"progressReflection.title": "How this process feels",
+"progressReflection.text": "Progress is not always linear. This space helps recognize gentle changes, habits that stay consistent, and improvements that appear over time.",
+"progressReflection.tag1": "Observation",
+"progressReflection.tag2": "Continuity",
+"progressReflection.tag3": "Evolution",
+
+"progressNext.eyebrow": "Next step",
+"progressNext.title": "Continue with intention",
+"progressNext.text": "From this tracking, the member can maintain the current ritual, adjust the rhythm, or discover recommended products to continue.",
+"progressNext.link": "View recommended products"
   },
 
   fr: {
@@ -521,7 +637,65 @@ const translations = {
 "monthlyNext.eyebrow": "Phase suivante",
 "monthlyNext.title": "Préparation du mois suivant",
 "monthlyNext.text": "À la fin de chaque cycle, le membre peut revoir ses progrès, ajuster son rituel et recevoir une recommandation douce pour continuer.",
-"monthlyNext.link": "Explorer les produits recommandés"
+"monthlyNext.link": "Explorer les produits recommandés",
+    "progressPreview.eyebrow": "Aperçu des progrès",
+"progressPreview.title": "Exemple de suivi · Évolution du rituel",
+"progressPreview.subtitle": "Voici comment les progrès apparaissent dans Tenerife Glow Ritual : régularité, évolution visible, notes et observation apaisée du processus.",
+"progressPreview.meta1": "Suivi visuel",
+"progressPreview.meta2": "Régularité",
+"progressPreview.meta3": "Réflexion",
+
+"progressBanner.eyebrow": "Expérience membre",
+"progressBanner.title": "Ceci est un aperçu du suivi de votre évolution",
+"progressBanner.text": "Créez votre compte pour enregistrer des photos, noter les changements, suivre votre régularité et construire une vision réelle de vos progrès mois après mois.",
+"progressBanner.primary": "Créer un compte",
+"progressBanner.secondary": "Se connecter",
+
+"progressVisual.eyebrow": "Évolution visuelle",
+"progressVisual.title": "Comparaison du parcours",
+"progressVisual.before": "Photo initiale",
+"progressVisual.current": "Photo de suivi",
+"progressVisual.text": "Le système permet d’observer les changements progressifs avec bienveillance, sans pression et avec continuité.",
+
+"progressStats.eyebrow": "Résumé",
+"progressStats.title": "Votre rythme visible",
+"progressStats.stat1": "Jours de suite",
+"progressStats.stat2": "Jours complétés",
+"progressStats.stat3": "Régularité",
+"progressStats.text": "De petits gestes répétés avec calme construisent des résultats durables et visibles dans le temps.",
+
+"progressNotes.eyebrow": "Observations",
+"progressNotes.title": "Notes sur la peau et le bien-être",
+"progressNotes.label1": "Ce que je remarque",
+"progressNotes.label2": "Ce qui fonctionne pour moi",
+"progressNotes.placeholder1": "Quels changements ressentez-vous ou voyez-vous cette semaine ?",
+"progressNotes.placeholder2": "Quelle partie du rituel semble la plus alignée ?",
+
+"progressCheckin.eyebrow": "Bilan",
+"progressCheckin.title": "Indicateurs doux",
+"progressCheckin.item1": "La peau semble plus équilibrée",
+"progressCheckin.item2": "Il y a plus de régularité dans la routine",
+"progressCheckin.item3": "Je me sens plus connecté(e) au rituel",
+"progressCheckin.item4": "Mon énergie quotidienne est plus stable",
+
+"progressPhotos.eyebrow": "Suivi visuel",
+"progressPhotos.title": "Espaces photo",
+"progressPhotos.box1Title": "Départ",
+"progressPhotos.box1Text": "Ajouter la photo initiale",
+"progressPhotos.box2Title": "Actuel",
+"progressPhotos.box2Text": "Ajouter la photo actuelle",
+
+"progressReflection.eyebrow": "Réflexion",
+"progressReflection.title": "Comment ce processus se ressent",
+"progressReflection.text": "Les progrès ne sont pas toujours linéaires. Cet espace aide à reconnaître les changements doux, les habitudes qui tiennent et les améliorations qui apparaissent avec le temps.",
+"progressReflection.tag1": "Observation",
+"progressReflection.tag2": "Continuité",
+"progressReflection.tag3": "Évolution",
+
+"progressNext.eyebrow": "Étape suivante",
+"progressNext.title": "Continuer avec intention",
+"progressNext.text": "À partir de ce suivi, le membre peut maintenir son rituel actuel, ajuster son rythme ou découvrir des produits recommandés pour continuer.",
+"progressNext.link": "Voir les produits recommandés"
   },
 
   de: {
@@ -676,7 +850,65 @@ const translations = {
 "monthlyNext.eyebrow": "Nächste Phase",
 "monthlyNext.title": "Vorbereitung auf den nächsten Monat",
 "monthlyNext.text": "Am Ende jedes Zyklus kann das Mitglied den Fortschritt überprüfen, das Ritual anpassen und eine sanfte Empfehlung zum Weitermachen erhalten.",
-"monthlyNext.link": "Empfohlene Produkte entdecken"
+"monthlyNext.link": "Empfohlene Produkte entdecken",
+    "progressPreview.eyebrow": "Fortschrittsvorschau",
+"progressPreview.title": "Beispiel Tracking · Ritualentwicklung",
+"progressPreview.subtitle": "So erscheint Fortschritt in Tenerife Glow Ritual: Beständigkeit, sichtbare Entwicklung, Notizen und ruhige Beobachtung des Prozesses.",
+"progressPreview.meta1": "Visuelles Tracking",
+"progressPreview.meta2": "Beständigkeit",
+"progressPreview.meta3": "Reflexion",
+
+"progressBanner.eyebrow": "Mitgliedererlebnis",
+"progressBanner.title": "Dies ist eine Vorschau deiner Fortschrittsverfolgung",
+"progressBanner.text": "Erstelle dein Konto, um Fotos zu speichern, Veränderungen festzuhalten, Beständigkeit zu verfolgen und Monat für Monat ein echtes Bild deines Fortschritts aufzubauen.",
+"progressBanner.primary": "Konto erstellen",
+"progressBanner.secondary": "Anmelden",
+
+"progressVisual.eyebrow": "Visuelle Entwicklung",
+"progressVisual.title": "Vergleich der Entwicklung",
+"progressVisual.before": "Ausgangsfoto",
+"progressVisual.current": "Fortschrittsfoto",
+"progressVisual.text": "Das System hilft dir, schrittweise Veränderungen freundlich, ohne Druck und mit Kontinuität zu beobachten.",
+
+"progressStats.eyebrow": "Zusammenfassung",
+"progressStats.title": "Dein sichtbarer Rhythmus",
+"progressStats.stat1": "Tage in Folge",
+"progressStats.stat2": "Abgeschlossene Tage",
+"progressStats.stat3": "Beständigkeit",
+"progressStats.text": "Kleine Schritte, ruhig wiederholt, führen mit der Zeit zu nachhaltigen und sichtbaren Ergebnissen.",
+
+"progressNotes.eyebrow": "Beobachtungen",
+"progressNotes.title": "Notizen zu Haut und Wohlbefinden",
+"progressNotes.label1": "Was ich bemerke",
+"progressNotes.label2": "Was für mich funktioniert",
+"progressNotes.placeholder1": "Welche Veränderungen spürst oder siehst du diese Woche?",
+"progressNotes.placeholder2": "Welcher Teil des Rituals fühlt sich am stimmigsten an?",
+
+"progressCheckin.eyebrow": "Check-in",
+"progressCheckin.title": "Sanfte Indikatoren",
+"progressCheckin.item1": "Die Haut fühlt sich ausgeglichener an",
+"progressCheckin.item2": "Es gibt mehr Beständigkeit in der Routine",
+"progressCheckin.item3": "Ich fühle mich stärker mit dem Ritual verbunden",
+"progressCheckin.item4": "Meine tägliche Energie ist stabiler",
+
+"progressPhotos.eyebrow": "Visuelles Tracking",
+"progressPhotos.title": "Fotobereiche",
+"progressPhotos.box1Title": "Start",
+"progressPhotos.box1Text": "Ausgangsfoto hinzufügen",
+"progressPhotos.box2Title": "Aktuell",
+"progressPhotos.box2Text": "Aktuelles Foto hinzufügen",
+
+"progressReflection.eyebrow": "Reflexion",
+"progressReflection.title": "Wie sich dieser Prozess anfühlt",
+"progressReflection.text": "Fortschritt ist nicht immer linear. Dieser Bereich hilft, sanfte Veränderungen, beständige Gewohnheiten und Verbesserungen zu erkennen, die mit der Zeit sichtbar werden.",
+"progressReflection.tag1": "Beobachtung",
+"progressReflection.tag2": "Kontinuität",
+"progressReflection.tag3": "Entwicklung",
+
+"progressNext.eyebrow": "Nächster Schritt",
+"progressNext.title": "Mit Intention weitermachen",
+"progressNext.text": "Ausgehend von diesem Tracking kann das Mitglied das aktuelle Ritual beibehalten, den Rhythmus anpassen oder empfohlene Produkte entdecken, um weiterzumachen.",
+"progressNext.link": "Empfohlene Produkte ansehen"
   }
 };
 
