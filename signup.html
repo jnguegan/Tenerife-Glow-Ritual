@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Crear cuenta | Tenerife Glow Ritual</title>
+  <meta
+    name="description"
+    content="Crea tu cuenta en Tenerife Glow Ritual para comenzar tu ritual diario, seguir tu progreso y organizar tu plan mensual."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <div class="brand-wrap">
+        <div class="brand-mark"></div>
+        <div>
+          <p class="eyebrow" data-i18n="brand.eyebrow">Ritual de Piel de la Isla</p>
+          <h1 class="brand-title" data-i18n="brand.title">Tenerife Glow Ritual</h1>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <div class="language-switcher" aria-label="Selector de idioma">
+          <button class="lang-btn active" data-lang="es" type="button">ES</button>
+          <button class="lang-btn" data-lang="en" type="button">EN</button>
+          <button class="lang-btn" data-lang="fr" type="button">FR</button>
+          <button class="lang-btn" data-lang="de" type="button">DE</button>
+        </div>
+
+        <nav class="topnav" aria-label="Navegación principal">
+          <a href="index.html" data-i18n="nav.home">Inicio</a>
+          <a href="products.html" data-i18n="nav.products">Productos</a>
+          <a href="daily.html" data-i18n="nav.daily">Diario</a>
+          <a href="monthly.html" data-i18n="nav.monthly">Mensual</a>
+          <a href="progress.html" data-i18n="nav.progress">Progreso</a>
+          <a href="login.html" class="nav-link-secondary" data-i18n="nav.login">Iniciar sesión</a>
+          <a href="signup.html" class="active nav-link-cta" data-i18n="nav.start">Empieza tu Ritual</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="content-stack">
+      <section class="page-hero">
+        <div>
+          <p class="eyebrow" data-i18n="signupHero.eyebrow">Comienza</p>
+          <h2 class="page-title" data-i18n="signupHero.title">Crea tu espacio dentro del ritual</h2>
+          <p class="page-subtitle" data-i18n="signupHero.subtitle">
+            Abre tu cuenta para guardar tu ritual diario, seguir tu progreso, organizar tu plan mensual y conectar tu selección de productos.
+          </p>
+        </div>
+      </section>
+
+      <section class="two-col-layout">
+        <section class="card">
+          <div class="card-header">
+            <p class="eyebrow" data-i18n="signupForm.eyebrow">Crear cuenta</p>
+            <h3 data-i18n="signupForm.title">Empieza tu Ritual</h3>
+          </div>
+
+          <form class="content-stack" id="signupForm">
+            <div class="field-group">
+              <label class="field-label" for="fullName" data-i18n="signupForm.nameLabel">Nombre completo</label>
+              <input
+                id="fullName"
+                name="fullName"
+                class="styled-input"
+                type="text"
+                placeholder="Tu nombre completo"
+                data-i18n-placeholder="signupForm.namePlaceholder"
+                autocomplete="name"
+              />
+            </div>
+
+            <div class="field-group">
+              <label class="field-label" for="signupEmail" data-i18n="signupForm.emailLabel">Correo electrónico</label>
+              <input
+                id="signupEmail"
+                name="email"
+                class="styled-input"
+                type="email"
+                placeholder="tu@email.com"
+                data-i18n-placeholder="signupForm.emailPlaceholder"
+                autocomplete="email"
+              />
+            </div>
+
+            <div class="field-group">
+              <label class="field-label" for="signupPassword" data-i18n="signupForm.passwordLabel">Contraseña</label>
+              <input
+                id="signupPassword"
+                name="password"
+                class="styled-input"
+                type="password"
+                placeholder="Crea una contraseña"
+                data-i18n-placeholder="signupForm.passwordPlaceholder"
+                autocomplete="new-password"
+              />
+            </div>
+
+            <div class="field-group">
+              <label class="field-label" for="skinGoal" data-i18n="signupForm.goalLabel">Objetivo principal</label>
+              <input
+                id="skinGoal"
+                name="skinGoal"
+                class="styled-input"
+                type="text"
+                placeholder="Luminosidad, hidratación, equilibrio..."
+                data-i18n-placeholder="signupForm.goalPlaceholder"
+              />
+            </div>
+
+            <div class="check-grid">
+              <label class="check-item">
+                <input type="checkbox" />
+                <span data-i18n="signupForm.terms">Acepto los términos y condiciones</span>
+              </label>
+              <label class="check-item">
+                <input type="checkbox" />
+                <span data-i18n="signupForm.newsletter">Quiero recibir novedades y recomendaciones del ritual</span>
+              </label>
+            </div>
+
+            <div class="hero-actions">
+              <button type="submit" class="btn btn-primary" data-i18n="signupForm.primary">Crear cuenta</button>
+              <a href="login.html" class="btn btn-secondary" data-i18n="signupForm.secondary">Ya tengo cuenta</a>
+            </div>
+
+            <p class="support-text" data-i18n="signupForm.support">
+              Tu cuenta será el punto de partida para una experiencia calmada, premium y personalizada.
+            </p>
+          </form>
+        </section>
+
+        <section class="card">
+          <div class="card-header">
+            <p class="eyebrow" data-i18n="signupBenefits.eyebrow">Lo que desbloqueas</p>
+            <h3 data-i18n="signupBenefits.title">Una experiencia conectada</h3>
+          </div>
+
+          <div class="check-grid">
+            <div class="soft-panel" data-i18n="signupBenefits.item1">Tu ritual diario con estructura y seguimiento</div>
+            <div class="soft-panel" data-i18n="signupBenefits.item2">Tu plan mensual con hitos y continuidad</div>
+            <div class="soft-panel" data-i18n="signupBenefits.item3">Tu progreso con notas, fotos y evolución visible</div>
+            <div class="soft-panel" data-i18n="signupBenefits.item4">Tus productos guardados y futuras recomendaciones</div>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label" data-i18n="signupBenefits.quoteLabel">Promesa del ritual</label>
+            <div class="soft-panel" data-i18n="signupBenefits.quoteText">
+              Menos ruido. Más estructura. Más constancia visible.
+            </div>
+          </div>
+        </section>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/i18n.js"></script>
+</body>
+</html>
