@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Progress | Tenerife Glow Ritual</title>
+  <title>Progreso | Tenerife Glow Ritual</title>
   <meta
     name="description"
-    content="Track your skin progress, consistency, and monthly photos in Tenerife Glow Ritual."
+    content="Vista previa del seguimiento de progreso de Tenerife Glow Ritual. Evolución visual, consistencia y reflexión para acompañar tu ritual."
   />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -22,34 +22,60 @@
       <div class="brand-wrap">
         <div class="brand-mark"></div>
         <div>
-          <p class="eyebrow">Island Skin Journey</p>
-          <h1 class="brand-title">Tenerife Glow Ritual</h1>
+          <p class="eyebrow" data-i18n="brand.eyebrow">Ritual de Piel de la Isla</p>
+          <h1 class="brand-title" data-i18n="brand.title">Tenerife Glow Ritual</h1>
         </div>
       </div>
 
-     <nav class="topnav">
-  <a href="index.html">Home</a>
-  <a href="daily.html">Daily</a>
-  <a href="monthly.html">Monthly</a>
-  <a href="progress.html" class="active">Progress</a>
-  <a href="products.html">Products</a>
-       
-      </nav>
+      <div class="header-actions">
+        <div class="language-switcher" aria-label="Selector de idioma">
+          <button class="lang-btn active" data-lang="es" type="button">ES</button>
+          <button class="lang-btn" data-lang="en" type="button">EN</button>
+          <button class="lang-btn" data-lang="fr" type="button">FR</button>
+          <button class="lang-btn" data-lang="de" type="button">DE</button>
+        </div>
+
+        <nav class="topnav" aria-label="Navegación principal">
+          <a href="index.html" data-i18n="nav.home">Inicio</a>
+          <a href="products.html" data-i18n="nav.products">Productos</a>
+          <a href="daily.html" data-i18n="nav.daily">Diario</a>
+          <a href="monthly.html" data-i18n="nav.monthly">Mensual</a>
+          <a href="progress.html" class="active" data-i18n="nav.progress">Progreso</a>
+          <a href="login.html" class="nav-link-secondary" data-i18n="nav.login">Iniciar sesión</a>
+          <a href="signup.html" class="nav-link-cta" data-i18n="nav.start">Empieza tu Ritual</a>
+        </nav>
+      </div>
     </header>
 
     <main class="content-stack">
       <section class="page-hero">
         <div>
-          <p class="eyebrow">Progress</p>
-          <h2 class="page-title">Your glow journey</h2>
-          <p class="page-subtitle">
-            Track consistency, keep your visual checkpoints, and notice what is changing with softness.
+          <p class="eyebrow" data-i18n="progressPreview.eyebrow">Vista previa de progreso</p>
+          <h2 class="page-title" data-i18n="progressPreview.title">Ejemplo de Seguimiento · Evolución del Ritual</h2>
+          <p class="page-subtitle" data-i18n="progressPreview.subtitle">
+            Así se visualiza el progreso dentro de Tenerife Glow Ritual: constancia, evolución visible, notas y observación calmada del proceso.
           </p>
         </div>
         <div class="hero-meta">
-          <span class="pill">Streaks</span>
-          <span class="pill">Photo tracking</span>
-          <span class="pill">Visible progress</span>
+          <span class="pill" data-i18n="progressPreview.meta1">Seguimiento Visual</span>
+          <span class="pill" data-i18n="progressPreview.meta2">Constancia</span>
+          <span class="pill" data-i18n="progressPreview.meta3">Reflexión</span>
+        </div>
+      </section>
+
+      <section class="card cta-card">
+        <div class="card-header">
+          <p class="eyebrow" data-i18n="progressBanner.eyebrow">Experiencia miembro</p>
+          <h3 data-i18n="progressBanner.title">Esta es una vista previa del seguimiento de tu evolución</h3>
+        </div>
+
+        <p class="support-text" data-i18n="progressBanner.text">
+          Crea tu cuenta para guardar fotos, registrar cambios, seguir tu constancia y construir una visión real de tu progreso mes a mes.
+        </p>
+
+        <div class="hero-actions">
+          <a href="signup.html" class="btn btn-primary" data-i18n="progressBanner.primary">Crear cuenta</a>
+          <a href="login.html" class="btn btn-secondary" data-i18n="progressBanner.secondary">Iniciar sesión</a>
         </div>
       </section>
 
@@ -57,53 +83,60 @@
         <div class="content-stack">
           <section class="card">
             <div class="card-header">
-              <p class="eyebrow">Rhythm</p>
-              <h3>Progress stats</h3>
+              <p class="eyebrow" data-i18n="progressVisual.eyebrow">Evolución visual</p>
+              <h3 data-i18n="progressVisual.title">Comparación del recorrido</h3>
             </div>
 
-            <div class="stat-grid">
-              <div class="stat-box">
-                <span class="stat-number">7</span>
-                <span class="stat-label">Day streak</span>
-              </div>
-              <div class="stat-box">
-                <span class="stat-number">18</span>
-                <span class="stat-label">Completed days</span>
-              </div>
-              <div class="stat-box">
-                <span class="stat-number">60%</span>
-                <span class="stat-label">Consistency</span>
-              </div>
+            <div class="results-grid">
+              <div class="photo-placeholder" data-i18n="progressVisual.before">Foto inicial</div>
+              <div class="photo-placeholder" data-i18n="progressVisual.current">Foto de seguimiento</div>
             </div>
 
-            <p class="support-text">
-              Some days are softer than others. What matters is that you keep coming back.
+            <p class="support-text" data-i18n="progressVisual.text">
+              El sistema permite observar cambios graduales con una mirada amable, sin presión y con continuidad.
             </p>
           </section>
 
           <section class="card">
             <div class="card-header">
-              <p class="eyebrow">Upload</p>
-              <h3>Skin checkpoints</h3>
+              <p class="eyebrow" data-i18n="progressStats.eyebrow">Resumen</p>
+              <h3 data-i18n="progressStats.title">Tu ritmo visible</h3>
             </div>
 
-            <div class="upload-grid">
-              <label class="upload-box">
-                <span>Day 1</span>
-                <input type="file" />
-              </label>
-              <label class="upload-box">
-                <span>Day 7</span>
-                <input type="file" />
-              </label>
-              <label class="upload-box">
-                <span>Day 14</span>
-                <input type="file" />
-              </label>
-              <label class="upload-box">
-                <span>Day 30</span>
-                <input type="file" />
-              </label>
+            <div class="stat-grid">
+              <div class="stat-box">
+                <span class="stat-number">7</span>
+                <span class="stat-label" data-i18n="progressStats.stat1">Días seguidos</span>
+              </div>
+              <div class="stat-box">
+                <span class="stat-number">18</span>
+                <span class="stat-label" data-i18n="progressStats.stat2">Días completados</span>
+              </div>
+              <div class="stat-box">
+                <span class="stat-number">60%</span>
+                <span class="stat-label" data-i18n="progressStats.stat3">Constancia</span>
+              </div>
+            </div>
+
+            <p class="support-text" data-i18n="progressStats.text">
+              Pequeños pasos repetidos con calma construyen resultados sostenibles y visibles en el tiempo.
+            </p>
+          </section>
+
+          <section class="card">
+            <div class="card-header">
+              <p class="eyebrow" data-i18n="progressNotes.eyebrow">Observaciones</p>
+              <h3 data-i18n="progressNotes.title">Notas sobre la piel y el bienestar</h3>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label" data-i18n="progressNotes.label1">Lo que estoy notando</label>
+              <textarea class="styled-textarea" rows="4" placeholder="¿Qué cambios sientes o ves esta semana?" data-i18n-placeholder="progressNotes.placeholder1"></textarea>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label" data-i18n="progressNotes.label2">Qué me está funcionando</label>
+              <textarea class="styled-textarea" rows="4" placeholder="¿Qué parte del ritual se siente más alineada?" data-i18n-placeholder="progressNotes.placeholder2"></textarea>
             </div>
           </section>
         </div>
@@ -111,30 +144,70 @@
         <div class="content-stack">
           <section class="card">
             <div class="card-header">
-              <p class="eyebrow">Photo guide</p>
-              <h3>For consistent comparison</h3>
+              <p class="eyebrow" data-i18n="progressCheckin.eyebrow">Chequeo</p>
+              <h3 data-i18n="progressCheckin.title">Indicadores suaves</h3>
             </div>
 
-            <ul class="info-list">
-              <li>Use natural light near a window</li>
-              <li>Keep the same angle and distance</li>
-              <li>No makeup, no filters</li>
-              <li>Hair tied back if possible</li>
-              <li>Use a neutral expression</li>
-            </ul>
+            <div class="habit-grid">
+              <label class="check-item"><input type="checkbox" /> <span data-i18n="progressCheckin.item1">La piel se siente más equilibrada</span></label>
+              <label class="check-item"><input type="checkbox" /> <span data-i18n="progressCheckin.item2">Hay más constancia en la rutina</span></label>
+              <label class="check-item"><input type="checkbox" /> <span data-i18n="progressCheckin.item3">Me noto más conectado/a al ritual</span></label>
+              <label class="check-item"><input type="checkbox" /> <span data-i18n="progressCheckin.item4">Mi energía diaria está más estable</span></label>
+            </div>
           </section>
 
           <section class="card">
             <div class="card-header">
-              <p class="eyebrow">Observations</p>
-              <h3>What are you noticing?</h3>
+              <p class="eyebrow" data-i18n="progressPhotos.eyebrow">Seguimiento visual</p>
+              <h3 data-i18n="progressPhotos.title">Espacios para fotos</h3>
             </div>
 
-            <textarea class="styled-textarea" rows="10" placeholder="Hydration, texture, glow, sensitivity, breakouts..."></textarea>
+            <div class="upload-grid">
+              <div class="upload-box">
+                <span data-i18n="progressPhotos.box1Title">Inicio</span>
+                <div class="photo-placeholder" data-i18n="progressPhotos.box1Text">Añadir foto inicial</div>
+              </div>
+              <div class="upload-box">
+                <span data-i18n="progressPhotos.box2Title">Actual</span>
+                <div class="photo-placeholder" data-i18n="progressPhotos.box2Text">Añadir foto actual</div>
+              </div>
+            </div>
+          </section>
+
+          <section class="card">
+            <div class="card-header">
+              <p class="eyebrow" data-i18n="progressReflection.eyebrow">Reflexión</p>
+              <h3 data-i18n="progressReflection.title">Cómo se siente este proceso</h3>
+            </div>
+
+            <div class="soft-panel" data-i18n="progressReflection.text">
+              El progreso no siempre es lineal. Este espacio ayuda a reconocer cambios suaves, hábitos que se sostienen y mejoras que aparecen con el tiempo.
+            </div>
+
+            <div class="mini-tags">
+              <span data-i18n="progressReflection.tag1">Observación</span>
+              <span data-i18n="progressReflection.tag2">Continuidad</span>
+              <span data-i18n="progressReflection.tag3">Evolución</span>
+            </div>
+          </section>
+
+          <section class="card">
+            <div class="card-header">
+              <p class="eyebrow" data-i18n="progressNext.eyebrow">Siguiente paso</p>
+              <h3 data-i18n="progressNext.title">Seguir con intención</h3>
+            </div>
+
+            <p class="support-text" data-i18n="progressNext.text">
+              A partir del seguimiento, el miembro puede mantener su ritual actual, ajustar el ritmo o descubrir productos recomendados para continuar.
+            </p>
+
+            <a class="card-link" href="products.html" data-i18n="progressNext.link">Ver productos recomendados</a>
           </section>
         </div>
       </section>
     </main>
   </div>
+
+  <script src="js/i18n.js"></script>
 </body>
 </html>
