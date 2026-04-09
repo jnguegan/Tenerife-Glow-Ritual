@@ -126,13 +126,25 @@
   <script src="js/i18n.js"></script>
 
   <script>
+    
     document.getElementById("onboardingForm").addEventListener("submit", function(e) {
-      e.preventDefault();
+  e.preventDefault();
 
-      localStorage.setItem("tgr-onboarding-complete", "true");
+  const form = e.target;
 
-      window.location.href = "index.html";
-    });
+  const data = {
+    skinType: form.skinType.value,
+    goal: form.goal.value,
+    time: form.time.value,
+    level: form.level.value,
+    notes: form.querySelector("textarea").value
+  };
+
+  localStorage.setItem("tgr-onboarding-data", JSON.stringify(data));
+  localStorage.setItem("tgr-onboarding-complete", "true");
+
+  window.location.href = "index.html";
+});
   </script>
 </body>
 </html>
