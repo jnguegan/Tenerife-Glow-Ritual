@@ -1,9 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Products | Tenerife Glow Ritual</title>
+  <title>Productos | Tenerife Glow Ritual</title>
+  <meta
+    name="description"
+    content="Descubre la colección de productos de Tenerife Glow Ritual. Skincare premium, wellness y selección guiada para una piel luminosa."
+  />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -15,41 +19,66 @@
 <body>
   <div class="page-shell">
 
-    <!-- TOPBAR -->
     <header class="topbar">
       <div class="brand-wrap">
         <div class="brand-mark"></div>
         <div>
-          <p class="eyebrow">Island Skin Journey</p>
-          <h1 class="brand-title">Tenerife Glow Ritual</h1>
+          <p class="eyebrow" data-i18n="brand.eyebrow">Ritual de Piel de la Isla</p>
+          <h1 class="brand-title" data-i18n="brand.title">Tenerife Glow Ritual</h1>
         </div>
       </div>
 
-      <nav class="topnav">
-        <a href="index.html">Home</a>
-        <a href="daily.html">Daily</a>
-        <a href="monthly.html">Monthly</a>
-        <a href="progress.html">Progress</a>
-        <a href="products.html" class="active">Products</a>
-      </nav>
+      <div class="header-actions">
+        <div class="language-switcher" aria-label="Selector de idioma">
+          <button class="lang-btn active" data-lang="es" type="button">ES</button>
+          <button class="lang-btn" data-lang="en" type="button">EN</button>
+          <button class="lang-btn" data-lang="fr" type="button">FR</button>
+          <button class="lang-btn" data-lang="de" type="button">DE</button>
+        </div>
+
+        <nav class="topnav" aria-label="Navegación principal">
+          <a href="index.html" data-i18n="nav.home">Inicio</a>
+          <a href="daily.html" data-i18n="nav.daily">Diario</a>
+          <a href="monthly.html" data-i18n="nav.monthly">Mensual</a>
+          <a href="progress.html" data-i18n="nav.progress">Progreso</a>
+          <a href="products.html" class="active" data-i18n="nav.products">Productos</a>
+          <a href="login.html" class="nav-link-secondary" data-i18n="nav.login">Iniciar sesión</a>
+          <a href="signup.html" class="nav-link-cta" data-i18n="nav.start">Empieza tu Ritual</a>
+        </nav>
+      </div>
     </header>
 
     <main class="content-stack">
 
-      <!-- HERO -->
+      <section class="card cta-card">
+        <div class="card-header">
+          <p class="eyebrow" data-i18n="productsPreview.eyebrow">Vista previa de colección</p>
+          <h3 data-i18n="productsPreview.title">Explora la selección de productos del ritual</h3>
+        </div>
+
+        <p class="support-text" data-i18n="productsPreview.text">
+          Esta página muestra la colección y el universo del ritual. Crea tu cuenta para guardar productos, recibir recomendaciones y conectar tu selección con tu rutina.
+        </p>
+
+        <div class="hero-actions">
+          <a href="signup.html" class="btn btn-primary" data-i18n="productsPreview.primary">Crear cuenta</a>
+          <a href="login.html" class="btn btn-secondary" data-i18n="productsPreview.secondary">Iniciar sesión</a>
+        </div>
+      </section>
+
       <section class="hero-card products-hero">
         <div class="hero-copy">
-          <p class="eyebrow">Curated Collection</p>
-          <h2>Clinical beauty, island softness.</h2>
-          <p class="hero-text">
-            Explore the skincare and wellness essentials behind Tenerife Glow Ritual —
-            selected to support hydration, glow, barrier care, and daily consistency.
+          <p class="eyebrow" data-i18n="productsHero.eyebrow">Colección Curada</p>
+          <h2 data-i18n="productsHero.title">Belleza clínica, suavidad de isla.</h2>
+          <p class="hero-text" data-i18n="productsHero.text">
+            Explora los esenciales de skincare y wellness detrás de Tenerife Glow Ritual —
+            seleccionados para apoyar hidratación, luminosidad, cuidado de la barrera y constancia diaria.
           </p>
 
           <div class="hero-meta">
-            <span class="pill">SPA favourites</span>
-            <span class="pill">Dermocosmetic</span>
-            <span class="pill">Wellness-led</span>
+            <span class="pill" data-i18n="productsHero.meta1">Favoritos de SPA</span>
+            <span class="pill" data-i18n="productsHero.meta2">Dermocosmética</span>
+            <span class="pill" data-i18n="productsHero.meta3">Wellness guiado</span>
           </div>
         </div>
 
@@ -58,30 +87,29 @@
         </div>
       </section>
 
-      <!-- BRAND -->
       <section class="two-col-layout">
 
         <section class="card">
           <div class="card-header">
-            <p class="eyebrow">Brand Story</p>
-            <h3>From Beverly Hills to your ritual</h3>
+            <p class="eyebrow" data-i18n="productsBrand.eyebrow">Historia de Marca</p>
+            <h3 data-i18n="productsBrand.title">De Beverly Hills a tu ritual</h3>
           </div>
 
           <div class="product-feature-list">
 
             <div class="product-feature-item">
-              <img src="assets/images/brand/doctor-1.jpg" class="product-feature-img">
+              <img src="assets/images/brand/doctor-1.jpg" class="product-feature-img" alt="Fórmulas guiadas por expertos">
               <div>
-                <h4>Expert-led formulas</h4>
-                <p>Clinical expertise meets luxury skincare.</p>
+                <h4 data-i18n="productsBrand.item1Title">Fórmulas guiadas por expertos</h4>
+                <p data-i18n="productsBrand.item1Text">La experiencia clínica se une al skincare de lujo.</p>
               </div>
             </div>
 
             <div class="product-feature-item">
-              <img src="assets/images/brand/doctor-2.jpg" class="product-feature-img">
+              <img src="assets/images/brand/doctor-2.jpg" class="product-feature-img" alt="Línea retail de spa">
               <div>
-                <h4>SPA retail line</h4>
-                <p>Aligned with your in-clinic treatments.</p>
+                <h4 data-i18n="productsBrand.item2Title">Línea retail de spa</h4>
+                <p data-i18n="productsBrand.item2Text">Alineada con tus tratamientos en clínica.</p>
               </div>
             </div>
 
@@ -90,98 +118,99 @@
 
         <section class="card">
           <div class="card-header">
-            <p class="eyebrow">Skin Discovery</p>
-            <h3>Understand before treating</h3>
+            <p class="eyebrow" data-i18n="productsDiscovery.eyebrow">Descubrimiento de Piel</p>
+            <h3 data-i18n="productsDiscovery.title">Comprender antes de tratar</h3>
           </div>
 
-          <img src="assets/images/ui/skin-analysis-1.jpg" class="product-img">
+          <img src="assets/images/ui/skin-analysis-1.jpg" class="product-img" alt="Análisis de piel">
 
-          <p class="support-text">
-            Better skincare decisions start with better understanding.
+          <p class="support-text" data-i18n="productsDiscovery.text">
+            Las mejores decisiones de skincare empiezan con una mejor comprensión.
           </p>
         </section>
 
       </section>
 
-      <!-- SKINCARE -->
       <section class="page-hero">
-        <h2 class="page-title">Skincare Essentials</h2>
+        <h2 class="page-title" data-i18n="productsSkincare.title">Esenciales de Skincare</h2>
       </section>
 
       <section class="dashboard-grid products-grid">
 
         <article class="card">
-          <h3>Cleanser</h3>
-          <img src="assets/images/skincare/cleanser.jpg" class="product-img">
+          <h3 data-i18n="productsSkincare.item1">Limpiador</h3>
+          <img src="assets/images/skincare/cleanser.jpg" class="product-img" alt="Limpiador">
         </article>
 
         <article class="card">
-          <h3>Toner</h3>
-          <img src="assets/images/skincare/toner.jpg" class="product-img">
+          <h3 data-i18n="productsSkincare.item2">Tónico</h3>
+          <img src="assets/images/skincare/toner.jpg" class="product-img" alt="Tónico">
         </article>
 
         <article class="card">
-          <h3>Serum</h3>
-          <img src="assets/images/skincare/serum.jpg" class="product-img">
+          <h3 data-i18n="productsSkincare.item3">Sérum</h3>
+          <img src="assets/images/skincare/serum.jpg" class="product-img" alt="Sérum">
         </article>
 
         <article class="card">
-          <h3>Moisturizer</h3>
-          <img src="assets/images/skincare/moisturizer.jpg" class="product-img">
+          <h3 data-i18n="productsSkincare.item4">Hidratante</h3>
+          <img src="assets/images/skincare/moisturizer.jpg" class="product-img" alt="Hidratante">
         </article>
 
         <article class="card">
-          <h3>SPF</h3>
-          <img src="assets/images/skincare/spf.jpg" class="product-img">
+          <h3 data-i18n="productsSkincare.item5">Protección Solar</h3>
+          <img src="assets/images/skincare/spf.jpg" class="product-img" alt="Protección Solar">
         </article>
 
         <article class="card">
-          <h3>Mask</h3>
-          <img src="assets/images/skincare/mask.jpg" class="product-img">
+          <h3 data-i18n="productsSkincare.item6">Mascarilla</h3>
+          <img src="assets/images/skincare/mask.jpg" class="product-img" alt="Mascarilla">
         </article>
 
       </section>
 
-      <!-- SUPPLEMENTS -->
       <section class="page-hero">
-        <h2 class="page-title">Wellness Products</h2>
+        <h2 class="page-title" data-i18n="productsWellness.title">Productos Wellness</h2>
       </section>
 
       <section class="dashboard-grid products-grid-three">
 
         <article class="card">
-          <h3>Daily Ritual</h3>
-          <img src="assets/images/products/daily-ritual.jpg" class="product-img">
+          <h3 data-i18n="productsWellness.item1">Ritual Diario</h3>
+          <img src="assets/images/products/daily-ritual.jpg" class="product-img" alt="Ritual Diario">
         </article>
 
         <article class="card">
-          <h3>Radiance</h3>
-          <img src="assets/images/products/radiance.jpg" class="product-img">
+          <h3 data-i18n="productsWellness.item2">Radiance</h3>
+          <img src="assets/images/products/radiance.jpg" class="product-img" alt="Radiance">
         </article>
 
         <article class="card">
-          <h3>Restore</h3>
-          <img src="assets/images/products/restore.jpg" class="product-img">
+          <h3 data-i18n="productsWellness.item3">Restore</h3>
+          <img src="assets/images/products/restore.jpg" class="product-img" alt="Restore">
         </article>
 
       </section>
 
-      <!-- ACCESSORIES + RESULTS -->
       <section class="two-col-layout">
 
         <section class="card">
-          <h3>Accessories</h3>
-          <img src="assets/images/accessories/accessories.jpg" class="product-img">
+          <div class="card-header">
+            <h3 data-i18n="productsAccessories.title">Accesorios</h3>
+          </div>
+          <img src="assets/images/accessories/accessories.jpg" class="product-img" alt="Accesorios">
         </section>
 
         <section class="card">
-          <h3>Results</h3>
+          <div class="card-header">
+            <h3 data-i18n="productsResults.title">Resultados</h3>
+          </div>
 
           <div class="results-grid">
-            <img src="assets/images/results/before-after-1.jpg" class="result-img">
-            <img src="assets/images/results/before-after-2.jpg" class="result-img">
-            <img src="assets/images/results/before-after-3.jpg" class="result-img">
-            <img src="assets/images/results/before-after-4.jpg" class="result-img">
+            <img src="assets/images/results/before-after-1.jpg" class="result-img" alt="Resultado 1">
+            <img src="assets/images/results/before-after-2.jpg" class="result-img" alt="Resultado 2">
+            <img src="assets/images/results/before-after-3.jpg" class="result-img" alt="Resultado 3">
+            <img src="assets/images/results/before-after-4.jpg" class="result-img" alt="Resultado 4">
           </div>
 
         </section>
@@ -190,5 +219,7 @@
 
     </main>
   </div>
+
+  <script src="js/i18n.js"></script>
 </body>
 </html>
