@@ -278,7 +278,14 @@ const translations = {
 "productsWellness.item3": "Restore",
 
 "productsAccessories.title": "Accesorios",
-"productsResults.title": "Resultados"
+"productsResults.title": "Resultados",
+    "indexQuick.products": "Productos",
+"indexQuick.dailyMember": "Completar ritual de hoy",
+"indexQuick.dailyPreview": "Ver ejemplo diario",
+"indexQuick.monthlyMember": "Continuar plan mensual",
+"indexQuick.monthlyPreview": "Explorar plan mensual",
+"indexQuick.progressMember": "Ver mi progreso",
+"indexQuick.progressPreview": "Explorar seguimiento"
   },
 
   en: {
@@ -560,7 +567,14 @@ const translations = {
 "productsWellness.item3": "Restore",
 
 "productsAccessories.title": "Accessories",
-"productsResults.title": "Results"
+"productsResults.title": "Results",
+    "indexQuick.products": "Products",
+"indexQuick.dailyMember": "Complete today’s ritual",
+"indexQuick.dailyPreview": "View daily example",
+"indexQuick.monthlyMember": "Continue monthly plan",
+"indexQuick.monthlyPreview": "Explore monthly plan",
+"indexQuick.progressMember": "View my progress",
+"indexQuick.progressPreview": "Explore tracking"
   },
 
   fr: {
@@ -812,7 +826,14 @@ const translations = {
 "productsWellness.item3": "Restore",
 
 "productsAccessories.title": "Accessoires",
-"productsResults.title": "Résultats"
+"productsResults.title": "Résultats",
+    "indexQuick.products": "Produits",
+"indexQuick.dailyMember": "Compléter le rituel du jour",
+"indexQuick.dailyPreview": "Voir un exemple quotidien",
+"indexQuick.monthlyMember": "Continuer le plan mensuel",
+"indexQuick.monthlyPreview": "Explorer le plan mensuel",
+"indexQuick.progressMember": "Voir mes progrès",
+"indexQuick.progressPreview": "Explorer le suivi"
   },
 
   de: {
@@ -1064,7 +1085,14 @@ const translations = {
 "productsWellness.item3": "Restore",
 
 "productsAccessories.title": "Accessoires",
-"productsResults.title": "Ergebnisse"
+"productsResults.title": "Ergebnisse",
+    "indexQuick.products": "Produkte",
+"indexQuick.dailyMember": "Heutiges Ritual abschließen",
+"indexQuick.dailyPreview": "Tagesbeispiel ansehen",
+"indexQuick.monthlyMember": "Monatsplan fortsetzen",
+"indexQuick.monthlyPreview": "Monatsplan entdecken",
+"indexQuick.progressMember": "Meinen Fortschritt ansehen",
+"indexQuick.progressPreview": "Tracking entdecken"
   }
 };
 
