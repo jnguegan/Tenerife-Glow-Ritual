@@ -337,7 +337,39 @@ const translations = {
 "signupBenefits.item3": "Tu progreso con notas, fotos y evolución visible",
 "signupBenefits.item4": "Tus productos guardados y futuras recomendaciones",
 "signupBenefits.quoteLabel": "Promesa del ritual",
-"signupBenefits.quoteText": "Menos ruido. Más estructura. Más constancia visible."
+"signupBenefits.quoteText": "Menos ruido. Más estructura. Más constancia visible.",
+"onboarding.heroEyebrow": "Comienza tu ritual",
+"onboarding.title": "Diseñemos tu rutina",
+"onboarding.subtitle": "Responde unas preguntas rápidas para crear tu ritual personalizado.",
+
+"onboarding.skinType": "Tipo de piel",
+"onboarding.skin.normal": "Normal",
+"onboarding.skin.dry": "Seca",
+"onboarding.skin.oily": "Grasa",
+"onboarding.skin.combination": "Mixta",
+"onboarding.skin.sensitive": "Sensible",
+
+"onboarding.goal": "Objetivo principal",
+"onboarding.goal.glow": "Luminosidad",
+"onboarding.goal.hydration": "Hidratación",
+"onboarding.goal.antiage": "Anti-edad",
+"onboarding.goal.acne": "Acné",
+"onboarding.goal.balance": "Equilibrio",
+
+"onboarding.time": "Tiempo diario disponible",
+"onboarding.time.short": "5 minutos",
+"onboarding.time.medium": "10 minutos",
+"onboarding.time.long": "20 minutos",
+
+"onboarding.level": "Nivel de rutina",
+"onboarding.level.basic": "Básico",
+"onboarding.level.intermediate": "Intermedio",
+"onboarding.level.advanced": "Avanzado",
+
+"onboarding.notes": "Notas (opcional)",
+"onboarding.notesPlaceholder": "Sensibilidad, productos actuales, etc...",
+
+"onboarding.submit": "Crear mi ritual",
   },
 
   en: {
@@ -678,7 +710,39 @@ const translations = {
 "signupBenefits.item3": "Your progress with notes, photos, and visible evolution",
 "signupBenefits.item4": "Your saved products and future recommendations",
 "signupBenefits.quoteLabel": "Ritual promise",
-"signupBenefits.quoteText": "Less noise. More structure. More visible consistency."
+"signupBenefits.quoteText": "Less noise. More structure. More visible consistency.",
+"onboarding.heroEyebrow": "Start your ritual",
+"onboarding.title": "Let’s design your routine",
+"onboarding.subtitle": "Answer a few quick questions to create your personalized ritual.",
+
+"onboarding.skinType": "Skin type",
+"onboarding.skin.normal": "Normal",
+"onboarding.skin.dry": "Dry",
+"onboarding.skin.oily": "Oily",
+"onboarding.skin.combination": "Combination",
+"onboarding.skin.sensitive": "Sensitive",
+
+"onboarding.goal": "Main goal",
+"onboarding.goal.glow": "Glow",
+"onboarding.goal.hydration": "Hydration",
+"onboarding.goal.antiage": "Anti-aging",
+"onboarding.goal.acne": "Acne",
+"onboarding.goal.balance": "Balance",
+
+"onboarding.time": "Daily time available",
+"onboarding.time.short": "5 minutes",
+"onboarding.time.medium": "10 minutes",
+"onboarding.time.long": "20 minutes",
+
+"onboarding.level": "Routine level",
+"onboarding.level.basic": "Basic",
+"onboarding.level.intermediate": "Intermediate",
+"onboarding.level.advanced": "Advanced",
+
+"onboarding.notes": "Notes (optional)",
+"onboarding.notesPlaceholder": "Sensitivity, current products, etc...",
+
+"onboarding.submit": "Create my ritual",
   },
 
   fr: {
@@ -989,7 +1053,39 @@ const translations = {
 "signupBenefits.item3": "Vos progrès avec notes, photos et évolution visible",
 "signupBenefits.item4": "Vos produits enregistrés et futures recommandations",
 "signupBenefits.quoteLabel": "Promesse du rituel",
-"signupBenefits.quoteText": "Moins de bruit. Plus de structure. Plus de régularité visible."
+"signupBenefits.quoteText": "Moins de bruit. Plus de structure. Plus de régularité visible.",
+"onboarding.heroEyebrow": "Commencez votre rituel",
+"onboarding.title": "Créons votre routine",
+"onboarding.subtitle": "Répondez à quelques questions pour créer votre rituel personnalisé.",
+
+"onboarding.skinType": "Type de peau",
+"onboarding.skin.normal": "Normale",
+"onboarding.skin.dry": "Sèche",
+"onboarding.skin.oily": "Grasse",
+"onboarding.skin.combination": "Mixte",
+"onboarding.skin.sensitive": "Sensible",
+
+"onboarding.goal": "Objectif principal",
+"onboarding.goal.glow": "Éclat",
+"onboarding.goal.hydration": "Hydratation",
+"onboarding.goal.antiage": "Anti-âge",
+"onboarding.goal.acne": "Acné",
+"onboarding.goal.balance": "Équilibre",
+
+"onboarding.time": "Temps quotidien disponible",
+"onboarding.time.short": "5 minutes",
+"onboarding.time.medium": "10 minutes",
+"onboarding.time.long": "20 minutes",
+
+"onboarding.level": "Niveau de routine",
+"onboarding.level.basic": "Basique",
+"onboarding.level.intermediate": "Intermédiaire",
+"onboarding.level.advanced": "Avancé",
+
+"onboarding.notes": "Notes (optionnel)",
+"onboarding.notesPlaceholder": "Sensibilité, produits actuels, etc...",
+
+"onboarding.submit": "Créer mon rituel",
   },
 
   de: {
@@ -1300,7 +1396,39 @@ const translations = {
 "signupBenefits.item3": "Dein Fortschritt mit Notizen, Fotos und sichtbarer Entwicklung",
 "signupBenefits.item4": "Deine gespeicherten Produkte und zukünftigen Empfehlungen",
 "signupBenefits.quoteLabel": "Ritualversprechen",
-"signupBenefits.quoteText": "Weniger Lärm. Mehr Struktur. Mehr sichtbare Beständigkeit."
+"signupBenefits.quoteText": "Weniger Lärm. Mehr Struktur. Mehr sichtbare Beständigkeit.",
+"onboarding.heroEyebrow": "Beginne dein Ritual",
+"onboarding.title": "Lass uns deine Routine erstellen",
+"onboarding.subtitle": "Beantworte ein paar Fragen, um dein persönliches Ritual zu erstellen.",
+
+"onboarding.skinType": "Hauttyp",
+"onboarding.skin.normal": "Normal",
+"onboarding.skin.dry": "Trocken",
+"onboarding.skin.oily": "Fettig",
+"onboarding.skin.combination": "Mischhaut",
+"onboarding.skin.sensitive": "Empfindlich",
+
+"onboarding.goal": "Hauptziel",
+"onboarding.goal.glow": "Strahlkraft",
+"onboarding.goal.hydration": "Feuchtigkeit",
+"onboarding.goal.antiage": "Anti-Aging",
+"onboarding.goal.acne": "Akne",
+"onboarding.goal.balance": "Balance",
+
+"onboarding.time": "Tägliche Zeit",
+"onboarding.time.short": "5 Minuten",
+"onboarding.time.medium": "10 Minuten",
+"onboarding.time.long": "20 Minuten",
+
+"onboarding.level": "Routine-Level",
+"onboarding.level.basic": "Einfach",
+"onboarding.level.intermediate": "Mittel",
+"onboarding.level.advanced": "Fortgeschritten",
+
+"onboarding.notes": "Notizen (optional)",
+"onboarding.notesPlaceholder": "Empfindlichkeit, aktuelle Produkte, etc...",
+
+"onboarding.submit": "Mein Ritual erstellen",
   }
 };
 
