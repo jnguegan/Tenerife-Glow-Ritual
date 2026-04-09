@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Iniciar sesión | Tenerife Glow Ritual</title>
+  <meta
+    name="description"
+    content="Accede a tu cuenta de Tenerife Glow Ritual para continuar tu ritual diario, seguir tu progreso y gestionar tu plan."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <div class="brand-wrap">
+        <div class="brand-mark"></div>
+        <div>
+          <p class="eyebrow" data-i18n="brand.eyebrow">Ritual de Piel de la Isla</p>
+          <h1 class="brand-title" data-i18n="brand.title">Tenerife Glow Ritual</h1>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <div class="language-switcher" aria-label="Selector de idioma">
+          <button class="lang-btn active" data-lang="es" type="button">ES</button>
+          <button class="lang-btn" data-lang="en" type="button">EN</button>
+          <button class="lang-btn" data-lang="fr" type="button">FR</button>
+          <button class="lang-btn" data-lang="de" type="button">DE</button>
+        </div>
+
+        <nav class="topnav" aria-label="Navegación principal">
+          <a href="index.html" data-i18n="nav.home">Inicio</a>
+          <a href="products.html" data-i18n="nav.products">Productos</a>
+          <a href="daily.html" data-i18n="nav.daily">Diario</a>
+          <a href="monthly.html" data-i18n="nav.monthly">Mensual</a>
+          <a href="progress.html" data-i18n="nav.progress">Progreso</a>
+          <a href="login.html" class="active nav-link-secondary" data-i18n="nav.login">Iniciar sesión</a>
+          <a href="signup.html" class="nav-link-cta" data-i18n="nav.start">Empieza tu Ritual</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="content-stack">
+      <section class="page-hero">
+        <div>
+          <p class="eyebrow" data-i18n="loginHero.eyebrow">Acceso miembro</p>
+          <h2 class="page-title" data-i18n="loginHero.title">Vuelve a tu ritual</h2>
+          <p class="page-subtitle" data-i18n="loginHero.subtitle">
+            Inicia sesión para continuar tu ritual diario, revisar tu progreso y seguir tu plan mensual con calma y constancia.
+          </p>
+        </div>
+      </section>
+
+      <section class="two-col-layout">
+        <section class="card">
+          <div class="card-header">
+            <p class="eyebrow" data-i18n="loginForm.eyebrow">Iniciar sesión</p>
+            <h3 data-i18n="loginForm.title">Accede a tu cuenta</h3>
+          </div>
+
+          <form class="content-stack" id="loginForm">
+            <div class="field-group">
+              <label class="field-label" for="email" data-i18n="loginForm.emailLabel">Correo electrónico</label>
+              <input
+                id="email"
+                name="email"
+                class="styled-input"
+                type="email"
+                placeholder="tu@email.com"
+                data-i18n-placeholder="loginForm.emailPlaceholder"
+                autocomplete="email"
+              />
+            </div>
+
+            <div class="field-group">
+              <label class="field-label" for="password" data-i18n="loginForm.passwordLabel">Contraseña</label>
+              <input
+                id="password"
+                name="password"
+                class="styled-input"
+                type="password"
+                placeholder="Tu contraseña"
+                data-i18n-placeholder="loginForm.passwordPlaceholder"
+                autocomplete="current-password"
+              />
+            </div>
+
+            <div class="login-row">
+              <label class="check-item remember-row">
+                <input type="checkbox" />
+                <span data-i18n="loginForm.remember">Recordarme</span>
+              </label>
+
+              <a href="#" class="inline-link" data-i18n="loginForm.forgot">¿Olvidaste tu contraseña?</a>
+            </div>
+
+            <div class="hero-actions">
+              <button type="submit" class="btn btn-primary" data-i18n="loginForm.primary">Iniciar sesión</button>
+              <a href="signup.html" class="btn btn-secondary" data-i18n="loginForm.secondary">Crear cuenta</a>
+            </div>
+
+            <p class="support-text" data-i18n="loginForm.support">
+              Tu ritual, tu progreso y tu plan guardados en un solo espacio.
+            </p>
+          </form>
+        </section>
+
+        <section class="card">
+          <div class="card-header">
+            <p class="eyebrow" data-i18n="loginBenefits.eyebrow">Tu espacio</p>
+            <h3 data-i18n="loginBenefits.title">Qué encontrarás al entrar</h3>
+          </div>
+
+          <div class="check-grid">
+            <div class="soft-panel" data-i18n="loginBenefits.item1">Tu ritual diario con seguimiento de hábitos</div>
+            <div class="soft-panel" data-i18n="loginBenefits.item2">Tu plan mensual con hitos y continuidad</div>
+            <div class="soft-panel" data-i18n="loginBenefits.item3">Tu progreso con notas, fotos y evolución</div>
+            <div class="soft-panel" data-i18n="loginBenefits.item4">Tus productos guardados y recomendaciones</div>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label" data-i18n="loginBenefits.quoteLabel">Intención</label>
+            <div class="soft-panel" data-i18n="loginBenefits.quoteText">
+              Vuelve a tu ritual con calma, claridad y constancia visible.
+            </div>
+          </div>
+        </section>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/i18n.js"></script>
+</body>
+</html>
