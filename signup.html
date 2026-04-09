@@ -59,13 +59,13 @@
       </section>
 
       <section class="two-col-layout">
-       <section class="card auth-card">
+        <section class="card auth-card">
           <div class="card-header">
             <p class="eyebrow" data-i18n="signupForm.eyebrow">Crear cuenta</p>
             <h3 data-i18n="signupForm.title">Empieza tu Ritual</h3>
           </div>
 
-          <form class="content-stack" id="signupForm">
+          <form class="content-stack auth-form" id="signupForm">
             <div class="field-group">
               <label class="field-label" for="fullName" data-i18n="signupForm.nameLabel">Nombre completo</label>
               <input
@@ -122,6 +122,7 @@
                 <input type="checkbox" />
                 <span data-i18n="signupForm.terms">Acepto los términos y condiciones</span>
               </label>
+
               <label class="check-item">
                 <input type="checkbox" />
                 <span data-i18n="signupForm.newsletter">Quiero recibir novedades y recomendaciones del ritual</span>
@@ -164,5 +165,18 @@
   </div>
 
   <script src="js/i18n.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const form = document.getElementById("signupForm");
+
+      if (!form) return;
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        localStorage.setItem("tgr-auth", "true");
+        window.location.href = "index.html";
+      });
+    });
+  </script>
 </body>
 </html>
