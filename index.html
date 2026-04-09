@@ -233,6 +233,63 @@
         hero.textContent = goalMap[onboardingData.goal];
       }
     }
+if (isLoggedIn && onboardingData.skinType) {
+  const routine = document.getElementById("routineList");
+
+  let items = [];
+
+  if (onboardingData.skinType === "Seca") {
+    items = [
+      "Gentle cleanser",
+      "Hydrating serum",
+      "Rich moisturizer",
+      "SPF"
+    ];
+  }
+
+  if (onboardingData.skinType === "Grasa") {
+    items = [
+      "Foaming cleanser",
+      "Niacinamide serum",
+      "Light moisturizer",
+      "SPF"
+    ];
+  }
+
+  if (onboardingData.skinType === "Sensible") {
+    items = [
+      "Ultra gentle cleanser",
+      "Soothing serum",
+      "Barrier cream",
+      "SPF"
+    ];
+  }
+
+  if (onboardingData.skinType === "Mixta") {
+    items = [
+      "Balanced cleanser",
+      "Hydrating serum",
+      "Light moisturizer",
+      "SPF"
+    ];
+  }
+
+  if (onboardingData.skinType === "Normal") {
+    items = [
+      "Cleanser",
+      "Antioxidant serum",
+      "Moisturizer",
+      "SPF"
+    ];
+  }
+
+  if (routine && items.length > 0) {
+    routine.innerHTML = items.map(item => `
+      <li><span class="check-circle"></span><span>${item}</span></li>
+    `).join("");
+  }
+}
+    
   });
 </script>
   
