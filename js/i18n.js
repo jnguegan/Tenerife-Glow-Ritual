@@ -370,6 +370,20 @@ const translations = {
 "onboarding.notesPlaceholder": "Sensibilidad, productos actuales, etc...",
 
 "onboarding.submit": "Crear mi ritual",
+"routine.dynamic.gentleCleanser": "Limpiador suave",
+"routine.dynamic.hydratingSerum": "Sérum hidratante",
+"routine.dynamic.richMoisturizer": "Crema nutritiva",
+"routine.dynamic.spf": "Protección solar",
+"routine.dynamic.foamingCleanser": "Limpiador espumoso",
+"routine.dynamic.niacinamide": "Sérum de niacinamida",
+"routine.dynamic.lightMoisturizer": "Crema ligera",
+"routine.dynamic.ultraGentle": "Limpiador ultra suave",
+"routine.dynamic.soothingSerum": "Sérum calmante",
+"routine.dynamic.barrierCream": "Crema reparadora",
+"routine.dynamic.balancedCleanser": "Limpiador equilibrante",
+"routine.dynamic.cleanser": "Limpiador",
+"routine.dynamic.antioxidant": "Sérum antioxidante",
+"routine.dynamic.moisturizer": "Hidratante"
   },
 
   en: {
@@ -743,6 +757,20 @@ const translations = {
 "onboarding.notesPlaceholder": "Sensitivity, current products, etc...",
 
 "onboarding.submit": "Create my ritual",
+"routine.dynamic.gentleCleanser": "Gentle cleanser",
+"routine.dynamic.hydratingSerum": "Hydrating serum",
+"routine.dynamic.richMoisturizer": "Rich moisturizer",
+"routine.dynamic.spf": "SPF",
+"routine.dynamic.foamingCleanser": "Foaming cleanser",
+"routine.dynamic.niacinamide": "Niacinamide serum",
+"routine.dynamic.lightMoisturizer": "Light moisturizer",
+"routine.dynamic.ultraGentle": "Ultra gentle cleanser",
+"routine.dynamic.soothingSerum": "Soothing serum",
+"routine.dynamic.barrierCream": "Barrier cream",
+"routine.dynamic.balancedCleanser": "Balanced cleanser",
+"routine.dynamic.cleanser": "Cleanser",
+"routine.dynamic.antioxidant": "Antioxidant serum",
+"routine.dynamic.moisturizer": "Moisturizer"
   },
 
   fr: {
@@ -1086,6 +1114,20 @@ const translations = {
 "onboarding.notesPlaceholder": "Sensibilité, produits actuels, etc...",
 
 "onboarding.submit": "Créer mon rituel",
+"routine.dynamic.gentleCleanser": "Nettoyant doux",
+"routine.dynamic.hydratingSerum": "Sérum hydratant",
+"routine.dynamic.richMoisturizer": "Crème nourrissante",
+"routine.dynamic.spf": "Protection solaire",
+"routine.dynamic.foamingCleanser": "Nettoyant moussant",
+"routine.dynamic.niacinamide": "Sérum niacinamide",
+"routine.dynamic.lightMoisturizer": "Crème légère",
+"routine.dynamic.ultraGentle": "Nettoyant ultra doux",
+"routine.dynamic.soothingSerum": "Sérum apaisant",
+"routine.dynamic.barrierCream": "Crème réparatrice",
+"routine.dynamic.balancedCleanser": "Nettoyant équilibrant",
+"routine.dynamic.cleanser": "Nettoyant",
+"routine.dynamic.antioxidant": "Sérum antioxydant",
+"routine.dynamic.moisturizer": "Hydratant"
   },
 
   de: {
@@ -1429,6 +1471,20 @@ const translations = {
 "onboarding.notesPlaceholder": "Empfindlichkeit, aktuelle Produkte, etc...",
 
 "onboarding.submit": "Mein Ritual erstellen",
+"routine.dynamic.gentleCleanser": "Sanfter Reiniger",
+"routine.dynamic.hydratingSerum": "Feuchtigkeitsspendendes Serum",
+"routine.dynamic.richMoisturizer": "Reichhaltige Creme",
+"routine.dynamic.spf": "Sonnenschutz",
+"routine.dynamic.foamingCleanser": "Schaumreiniger",
+"routine.dynamic.niacinamide": "Niacinamid-Serum",
+"routine.dynamic.lightMoisturizer": "Leichte Creme",
+"routine.dynamic.ultraGentle": "Ultra sanfter Reiniger",
+"routine.dynamic.soothingSerum": "Beruhigendes Serum",
+"routine.dynamic.barrierCream": "Barriereschutz-Creme",
+"routine.dynamic.balancedCleanser": "Ausgleichender Reiniger",
+"routine.dynamic.cleanser": "Reiniger",
+"routine.dynamic.antioxidant": "Antioxidatives Serum",
+"routine.dynamic.moisturizer": "Feuchtigkeitscreme"
   }
 };
 
