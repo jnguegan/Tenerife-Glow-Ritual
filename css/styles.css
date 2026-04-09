@@ -338,20 +338,6 @@ blockquote {
   border-color: rgba(201, 122, 90, 0.28);
 }
 
-.login-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 14px;
-  flex-wrap: wrap;
-}
-
-.remember-row {
-  min-height: auto;
-}
-
-
-
 @media (max-width: 960px) {
   .dashboard-grid {
     grid-template-columns: 1fr;
@@ -369,12 +355,6 @@ blockquote {
 @media (max-width: 640px) {
   .page-shell {
     padding: 18px 14px 34px;
-  }
-  
-  @media (max-width: 640px) {
-  .login-row {
-    align-items: flex-start;
-    flex-direction: column;
   }
 
   .topbar {
