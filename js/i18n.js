@@ -309,7 +309,35 @@ const translations = {
 "loginBenefits.item3": "Tu progreso con notas, fotos y evolución",
 "loginBenefits.item4": "Tus productos guardados y recomendaciones",
 "loginBenefits.quoteLabel": "Intención",
-"loginBenefits.quoteText": "Vuelve a tu ritual con calma, claridad y constancia visible." 
+"loginBenefits.quoteText": "Vuelve a tu ritual con calma, claridad y constancia visible.",
+"signupHero.eyebrow": "Comienza",
+"signupHero.title": "Crea tu espacio dentro del ritual",
+"signupHero.subtitle": "Abre tu cuenta para guardar tu ritual diario, seguir tu progreso, organizar tu plan mensual y conectar tu selección de productos.",
+
+"signupForm.eyebrow": "Crear cuenta",
+"signupForm.title": "Empieza tu Ritual",
+"signupForm.nameLabel": "Nombre completo",
+"signupForm.namePlaceholder": "Tu nombre completo",
+"signupForm.emailLabel": "Correo electrónico",
+"signupForm.emailPlaceholder": "tu@email.com",
+"signupForm.passwordLabel": "Contraseña",
+"signupForm.passwordPlaceholder": "Crea una contraseña",
+"signupForm.goalLabel": "Objetivo principal",
+"signupForm.goalPlaceholder": "Luminosidad, hidratación, equilibrio...",
+"signupForm.terms": "Acepto los términos y condiciones",
+"signupForm.newsletter": "Quiero recibir novedades y recomendaciones del ritual",
+"signupForm.primary": "Crear cuenta",
+"signupForm.secondary": "Ya tengo cuenta",
+"signupForm.support": "Tu cuenta será el punto de partida para una experiencia calmada, premium y personalizada.",
+
+"signupBenefits.eyebrow": "Lo que desbloqueas",
+"signupBenefits.title": "Una experiencia conectada",
+"signupBenefits.item1": "Tu ritual diario con estructura y seguimiento",
+"signupBenefits.item2": "Tu plan mensual con hitos y continuidad",
+"signupBenefits.item3": "Tu progreso con notas, fotos y evolución visible",
+"signupBenefits.item4": "Tus productos guardados y futuras recomendaciones",
+"signupBenefits.quoteLabel": "Promesa del ritual",
+"signupBenefits.quoteText": "Menos ruido. Más estructura. Más constancia visible."
   },
 
   en: {
@@ -622,7 +650,35 @@ const translations = {
 "loginBenefits.item3": "Your progress with notes, photos, and evolution",
 "loginBenefits.item4": "Your saved products and recommendations",
 "loginBenefits.quoteLabel": "Intention",
-"loginBenefits.quoteText": "Return to your ritual with calm, clarity, and visible consistency."
+"loginBenefits.quoteText": "Return to your ritual with calm, clarity, and visible consistency.",
+"signupHero.eyebrow": "Begin",
+"signupHero.title": "Create your space inside the ritual",
+"signupHero.subtitle": "Open your account to save your daily ritual, track your progress, organize your monthly plan, and connect your product selection.",
+
+"signupForm.eyebrow": "Create account",
+"signupForm.title": "Start Your Ritual",
+"signupForm.nameLabel": "Full name",
+"signupForm.namePlaceholder": "Your full name",
+"signupForm.emailLabel": "Email address",
+"signupForm.emailPlaceholder": "your@email.com",
+"signupForm.passwordLabel": "Password",
+"signupForm.passwordPlaceholder": "Create a password",
+"signupForm.goalLabel": "Main goal",
+"signupForm.goalPlaceholder": "Glow, hydration, balance...",
+"signupForm.terms": "I accept the terms and conditions",
+"signupForm.newsletter": "I want to receive ritual updates and recommendations",
+"signupForm.primary": "Create account",
+"signupForm.secondary": "I already have an account",
+"signupForm.support": "Your account will be the starting point for a calm, premium, and personalized experience.",
+
+"signupBenefits.eyebrow": "What you unlock",
+"signupBenefits.title": "A connected experience",
+"signupBenefits.item1": "Your daily ritual with structure and tracking",
+"signupBenefits.item2": "Your monthly plan with milestones and continuity",
+"signupBenefits.item3": "Your progress with notes, photos, and visible evolution",
+"signupBenefits.item4": "Your saved products and future recommendations",
+"signupBenefits.quoteLabel": "Ritual promise",
+"signupBenefits.quoteText": "Less noise. More structure. More visible consistency."
   },
 
   fr: {
@@ -905,7 +961,35 @@ const translations = {
 "loginBenefits.item3": "Vos progrès avec notes, photos et évolution",
 "loginBenefits.item4": "Vos produits enregistrés et recommandations",
 "loginBenefits.quoteLabel": "Intention",
-"loginBenefits.quoteText": "Revenez à votre rituel avec calme, clarté et régularité visible."
+"loginBenefits.quoteText": "Revenez à votre rituel avec calme, clarté et régularité visible.",
+"signupHero.eyebrow": "Commencer",
+"signupHero.title": "Créez votre espace dans le rituel",
+"signupHero.subtitle": "Ouvrez votre compte pour enregistrer votre rituel quotidien, suivre vos progrès, organiser votre plan mensuel et relier votre sélection de produits.",
+
+"signupForm.eyebrow": "Créer un compte",
+"signupForm.title": "Commencer votre rituel",
+"signupForm.nameLabel": "Nom complet",
+"signupForm.namePlaceholder": "Votre nom complet",
+"signupForm.emailLabel": "Adresse e-mail",
+"signupForm.emailPlaceholder": "votre@email.com",
+"signupForm.passwordLabel": "Mot de passe",
+"signupForm.passwordPlaceholder": "Créez un mot de passe",
+"signupForm.goalLabel": "Objectif principal",
+"signupForm.goalPlaceholder": "Éclat, hydratation, équilibre...",
+"signupForm.terms": "J’accepte les conditions générales",
+"signupForm.newsletter": "Je souhaite recevoir des nouveautés et recommandations du rituel",
+"signupForm.primary": "Créer un compte",
+"signupForm.secondary": "J’ai déjà un compte",
+"signupForm.support": "Votre compte sera le point de départ d’une expérience apaisée, premium et personnalisée.",
+
+"signupBenefits.eyebrow": "Ce que vous débloquez",
+"signupBenefits.title": "Une expérience connectée",
+"signupBenefits.item1": "Votre rituel quotidien avec structure et suivi",
+"signupBenefits.item2": "Votre plan mensuel avec étapes clés et continuité",
+"signupBenefits.item3": "Vos progrès avec notes, photos et évolution visible",
+"signupBenefits.item4": "Vos produits enregistrés et futures recommandations",
+"signupBenefits.quoteLabel": "Promesse du rituel",
+"signupBenefits.quoteText": "Moins de bruit. Plus de structure. Plus de régularité visible."
   },
 
   de: {
@@ -1188,7 +1272,35 @@ const translations = {
 "loginBenefits.item3": "Dein Fortschritt mit Notizen, Fotos und Entwicklung",
 "loginBenefits.item4": "Deine gespeicherten Produkte und Empfehlungen",
 "loginBenefits.quoteLabel": "Intention",
-"loginBenefits.quoteText": "Kehre mit Ruhe, Klarheit und sichtbarer Beständigkeit zu deinem Ritual zurück."
+"loginBenefits.quoteText": "Kehre mit Ruhe, Klarheit und sichtbarer Beständigkeit zu deinem Ritual zurück.",
+"signupHero.eyebrow": "Beginnen",
+"signupHero.title": "Schaffe deinen Platz im Ritual",
+"signupHero.subtitle": "Eröffne dein Konto, um dein tägliches Ritual zu speichern, deinen Fortschritt zu verfolgen, deinen Monatsplan zu organisieren und deine Produktauswahl zu verbinden.",
+
+"signupForm.eyebrow": "Konto erstellen",
+"signupForm.title": "Starte dein Ritual",
+"signupForm.nameLabel": "Vollständiger Name",
+"signupForm.namePlaceholder": "Dein vollständiger Name",
+"signupForm.emailLabel": "E-Mail-Adresse",
+"signupForm.emailPlaceholder": "deine@email.com",
+"signupForm.passwordLabel": "Passwort",
+"signupForm.passwordPlaceholder": "Erstelle ein Passwort",
+"signupForm.goalLabel": "Hauptziel",
+"signupForm.goalPlaceholder": "Glow, Hydration, Balance...",
+"signupForm.terms": "Ich akzeptiere die Allgemeinen Geschäftsbedingungen",
+"signupForm.newsletter": "Ich möchte Ritual-Updates und Empfehlungen erhalten",
+"signupForm.primary": "Konto erstellen",
+"signupForm.secondary": "Ich habe bereits ein Konto",
+"signupForm.support": "Dein Konto wird der Ausgangspunkt für ein ruhiges, hochwertiges und personalisiertes Erlebnis sein.",
+
+"signupBenefits.eyebrow": "Was du freischaltest",
+"signupBenefits.title": "Ein verbundenes Erlebnis",
+"signupBenefits.item1": "Dein tägliches Ritual mit Struktur und Tracking",
+"signupBenefits.item2": "Dein Monatsplan mit Meilensteinen und Kontinuität",
+"signupBenefits.item3": "Dein Fortschritt mit Notizen, Fotos und sichtbarer Entwicklung",
+"signupBenefits.item4": "Deine gespeicherten Produkte und zukünftigen Empfehlungen",
+"signupBenefits.quoteLabel": "Ritualversprechen",
+"signupBenefits.quoteText": "Weniger Lärm. Mehr Struktur. Mehr sichtbare Beständigkeit."
   }
 };
 
