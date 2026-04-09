@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Monthly Ritual | Tenerife Glow Ritual</title>
+  <title>Plan Mensual | Tenerife Glow Ritual</title>
   <meta
     name="description"
-    content="Monthly planning, aesthetic sessions, and reflection for Tenerife Glow Ritual."
+    content="Vista previa del plan mensual de Tenerife Glow Ritual. Seguimiento de hitos, continuidad del ritual y estructura calmada para resultados visibles."
   />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -22,33 +22,60 @@
       <div class="brand-wrap">
         <div class="brand-mark"></div>
         <div>
-          <p class="eyebrow">Island Skin Journey</p>
-          <h1 class="brand-title">Tenerife Glow Ritual</h1>
+          <p class="eyebrow" data-i18n="brand.eyebrow">Ritual de Piel de la Isla</p>
+          <h1 class="brand-title" data-i18n="brand.title">Tenerife Glow Ritual</h1>
         </div>
       </div>
 
-      <nav class="topnav">
-  <a href="index.html">Home</a>
-  <a href="daily.html">Daily</a>
-  <a href="monthly.html">Monthly</a>
-  <a href="progress.html">Progress</a>
-  <a href="products.html">Products</a>
-</nav>
+      <div class="header-actions">
+        <div class="language-switcher" aria-label="Selector de idioma">
+          <button class="lang-btn active" data-lang="es" type="button">ES</button>
+          <button class="lang-btn" data-lang="en" type="button">EN</button>
+          <button class="lang-btn" data-lang="fr" type="button">FR</button>
+          <button class="lang-btn" data-lang="de" type="button">DE</button>
+        </div>
+
+        <nav class="topnav" aria-label="Navegación principal">
+          <a href="index.html" data-i18n="nav.home">Inicio</a>
+          <a href="products.html" data-i18n="nav.products">Productos</a>
+          <a href="daily.html" data-i18n="nav.daily">Diario</a>
+          <a href="monthly.html" class="active" data-i18n="nav.monthly">Mensual</a>
+          <a href="progress.html" data-i18n="nav.progress">Progreso</a>
+          <a href="login.html" class="nav-link-secondary" data-i18n="nav.login">Iniciar sesión</a>
+          <a href="signup.html" class="nav-link-cta" data-i18n="nav.start">Empieza tu Ritual</a>
+        </nav>
+      </div>
     </header>
 
     <main class="content-stack">
       <section class="page-hero">
         <div>
-          <p class="eyebrow">Monthly Page</p>
-          <h2 class="page-title">Month 1 · Reset & Glow</h2>
-          <p class="page-subtitle">
-            Plan your treatments, keep your intention clear, and observe your skin with calm attention.
+          <p class="eyebrow" data-i18n="monthlyPreview.eyebrow">Vista previa mensual</p>
+          <h2 class="page-title" data-i18n="monthlyPreview.title">Ejemplo de Plan Mensual · Mes 1</h2>
+          <p class="page-subtitle" data-i18n="monthlyPreview.subtitle">
+            Así se organiza la continuidad dentro de Tenerife Glow Ritual: objetivos, ritmo de cuidado, hitos y momentos de reposición.
           </p>
         </div>
         <div class="hero-meta">
-          <span class="pill">Intentional planning</span>
-          <span class="pill">Treatment rhythm</span>
-          <span class="pill">Monthly notes</span>
+          <span class="pill" data-i18n="monthlyPreview.meta1">4 Semanas</span>
+          <span class="pill" data-i18n="monthlyPreview.meta2">Hitos Calmados</span>
+          <span class="pill" data-i18n="monthlyPreview.meta3">Ritmo Visible</span>
+        </div>
+      </section>
+
+      <section class="card cta-card">
+        <div class="card-header">
+          <p class="eyebrow" data-i18n="monthlyBanner.eyebrow">Experiencia miembro</p>
+          <h3 data-i18n="monthlyBanner.title">Esta es una vista previa de tu recorrido mensual</h3>
+        </div>
+
+        <p class="support-text" data-i18n="monthlyBanner.text">
+          Crea tu cuenta para desbloquear tu plan personalizado, seguir tus hitos, guardar tu constancia y recibir recomendaciones de reposición.
+        </p>
+
+        <div class="hero-actions">
+          <a href="signup.html" class="btn btn-primary" data-i18n="monthlyBanner.primary">Crear cuenta</a>
+          <a href="login.html" class="btn btn-secondary" data-i18n="monthlyBanner.secondary">Iniciar sesión</a>
         </div>
       </section>
 
@@ -56,26 +83,46 @@
         <div class="content-stack">
           <section class="card">
             <div class="card-header">
-              <p class="eyebrow">Focus</p>
-              <h3>Monthly intention</h3>
+              <p class="eyebrow" data-i18n="monthlyGoals.eyebrow">Objetivo del mes</p>
+              <h3 data-i18n="monthlyGoals.title">Base de luminosidad y equilibrio</h3>
             </div>
 
-            <textarea class="styled-textarea" rows="6" placeholder="How do you want to feel this month?"></textarea>
+            <p class="support-text" data-i18n="monthlyGoals.text">
+              Este mes se centra en constancia suave, hidratación visible y una mejor relación entre ritual, descanso y cuidado diario.
+            </p>
+
+            <div class="mini-tags">
+              <span data-i18n="monthlyGoals.tag1">Luminosidad</span>
+              <span data-i18n="monthlyGoals.tag2">Hidratación</span>
+              <span data-i18n="monthlyGoals.tag3">Equilibrio</span>
+            </div>
           </section>
 
           <section class="card">
             <div class="card-header">
-              <p class="eyebrow">Support plan</p>
-              <h3>Aesthetic sessions</h3>
+              <p class="eyebrow" data-i18n="monthlyWeeks.eyebrow">Ritmo por semanas</p>
+              <h3 data-i18n="monthlyWeeks.title">Cómo evoluciona el mes</h3>
             </div>
 
             <div class="check-grid">
-              <label class="check-item"><input type="checkbox" /> <span>Deep cleansing</span></label>
-              <label class="check-item"><input type="checkbox" /> <span>Electroporation</span></label>
-              <label class="check-item"><input type="checkbox" /> <span>Radiofrequency</span></label>
-              <label class="check-item"><input type="checkbox" /> <span>Enzymatic / ultrasonic peel</span></label>
-              <label class="check-item"><input type="checkbox" /> <span>Professional facial massage</span></label>
-              <label class="check-item"><input type="checkbox" /> <span>Combined premium session</span></label>
+              <div class="soft-panel" data-i18n="monthlyWeeks.week1">Semana 1 · Reinicio suave y estructura básica</div>
+              <div class="soft-panel" data-i18n="monthlyWeeks.week2">Semana 2 · Más consistencia y ajuste del ritmo</div>
+              <div class="soft-panel" data-i18n="monthlyWeeks.week3">Semana 3 · Observación de cambios y continuidad</div>
+              <div class="soft-panel" data-i18n="monthlyWeeks.week4">Semana 4 · Consolidación y preparación del siguiente mes</div>
+            </div>
+          </section>
+
+          <section class="card">
+            <div class="card-header">
+              <p class="eyebrow" data-i18n="monthlyMilestones.eyebrow">Hitos</p>
+              <h3 data-i18n="monthlyMilestones.title">Puntos de revisión</h3>
+            </div>
+
+            <div class="habit-grid">
+              <label class="check-item"><input type="checkbox" /> <span data-i18n="monthlyMilestones.item1">Mantener la rutina 5+ días por semana</span></label>
+              <label class="check-item"><input type="checkbox" /> <span data-i18n="monthlyMilestones.item2">Completar revisiones semanales</span></label>
+              <label class="check-item"><input type="checkbox" /> <span data-i18n="monthlyMilestones.item3">Registrar sensaciones de piel y energía</span></label>
+              <label class="check-item"><input type="checkbox" /> <span data-i18n="monthlyMilestones.item4">Sostener hidratación y apoyo interno</span></label>
             </div>
           </section>
         </div>
@@ -83,30 +130,81 @@
         <div class="content-stack">
           <section class="card">
             <div class="card-header">
-              <p class="eyebrow">Photo check-in</p>
-              <h3>Monthly image</h3>
+              <p class="eyebrow" data-i18n="monthlyCalendar.eyebrow">Vista general</p>
+              <h3 data-i18n="monthlyCalendar.title">Calendario del mes</h3>
             </div>
 
-            <div class="photo-placeholder">
-              <span>Photo space</span>
+            <div class="schedule-list">
+              <div class="schedule-row">
+                <input class="time-input" type="text" value="S1" readonly />
+                <input class="task-input" type="text" value="Enfoque en limpieza, hidratación y constancia" readonly data-i18n-value="monthlyCalendar.row1" />
+              </div>
+              <div class="schedule-row">
+                <input class="time-input" type="text" value="S2" readonly />
+                <input class="task-input" type="text" value="Afianzar la rutina y observar respuesta de la piel" readonly data-i18n-value="monthlyCalendar.row2" />
+              </div>
+              <div class="schedule-row">
+                <input class="time-input" type="text" value="S3" readonly />
+                <input class="task-input" type="text" value="Refuerzo del ritual y seguimiento del ritmo" readonly data-i18n-value="monthlyCalendar.row3" />
+              </div>
+              <div class="schedule-row">
+                <input class="time-input" type="text" value="S4" readonly />
+                <input class="task-input" type="text" value="Cierre del mes y preparación del siguiente paso" readonly data-i18n-value="monthlyCalendar.row4" />
+              </div>
             </div>
-
-            <p class="support-text">
-              Use natural light, a neutral expression, no makeup, and the same angle each month.
-            </p>
           </section>
 
           <section class="card">
             <div class="card-header">
-              <p class="eyebrow">Reflection</p>
-              <h3>Notes of the month</h3>
+              <p class="eyebrow" data-i18n="monthlyRefill.eyebrow">Reposición</p>
+              <h3 data-i18n="monthlyRefill.title">Ventana de reposición sugerida</h3>
             </div>
 
-            <textarea class="styled-textarea" rows="9" placeholder="What changed in your skin, rhythm, or energy this month?"></textarea>
+            <p class="ritual-text" data-i18n="monthlyRefill.text">
+              Hacia la última semana del mes, el sistema puede sugerirte reposición de productos clave para mantener continuidad sin interrupción.
+            </p>
+
+            <div class="mini-tags">
+              <span data-i18n="monthlyRefill.tag1">Continuidad</span>
+              <span data-i18n="monthlyRefill.tag2">Reposición</span>
+              <span data-i18n="monthlyRefill.tag3">Siguiente paso</span>
+            </div>
+          </section>
+
+          <section class="card">
+            <div class="card-header">
+              <p class="eyebrow" data-i18n="monthlyReflection.eyebrow">Reflexión mensual</p>
+              <h3 data-i18n="monthlyReflection.title">Cómo se sintió este ciclo</h3>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label" data-i18n="monthlyReflection.label1">Lo que quiero mantener</label>
+              <textarea class="styled-textarea" rows="4" placeholder="¿Qué te gustaría seguir el próximo mes?" data-i18n-placeholder="monthlyReflection.placeholder1"></textarea>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label" data-i18n="monthlyReflection.label2">Lo que quiero ajustar</label>
+              <textarea class="styled-textarea" rows="4" placeholder="¿Qué ritmo o hábito necesita más apoyo?" data-i18n-placeholder="monthlyReflection.placeholder2"></textarea>
+            </div>
+          </section>
+
+          <section class="card">
+            <div class="card-header">
+              <p class="eyebrow" data-i18n="monthlyNext.eyebrow">Siguiente fase</p>
+              <h3 data-i18n="monthlyNext.title">Preparación para el próximo mes</h3>
+            </div>
+
+            <p class="support-text" data-i18n="monthlyNext.text">
+              Al final de cada ciclo, el miembro puede revisar su progreso, ajustar su ritual y recibir una recomendación suave para continuar.
+            </p>
+
+            <a class="card-link" href="products.html" data-i18n="monthlyNext.link">Explorar productos recomendados</a>
           </section>
         </div>
       </section>
     </main>
   </div>
+
+  <script src="js/i18n.js"></script>
 </body>
 </html>
