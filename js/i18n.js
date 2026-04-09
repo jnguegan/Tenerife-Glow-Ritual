@@ -285,7 +285,31 @@ const translations = {
 "indexQuick.monthlyMember": "Continuar plan mensual",
 "indexQuick.monthlyPreview": "Explorar plan mensual",
 "indexQuick.progressMember": "Ver mi progreso",
-"indexQuick.progressPreview": "Explorar seguimiento"
+"indexQuick.progressPreview": "Explorar seguimiento",
+"loginHero.eyebrow": "Acceso miembro",
+"loginHero.title": "Vuelve a tu ritual",
+"loginHero.subtitle": "Inicia sesión para continuar tu ritual diario, revisar tu progreso y seguir tu plan mensual con calma y constancia.",
+
+"loginForm.eyebrow": "Iniciar sesión",
+"loginForm.title": "Accede a tu cuenta",
+"loginForm.emailLabel": "Correo electrónico",
+"loginForm.emailPlaceholder": "tu@email.com",
+"loginForm.passwordLabel": "Contraseña",
+"loginForm.passwordPlaceholder": "Tu contraseña",
+"loginForm.remember": "Recordarme",
+"loginForm.forgot": "¿Olvidaste tu contraseña?",
+"loginForm.primary": "Iniciar sesión",
+"loginForm.secondary": "Crear cuenta",
+"loginForm.support": "Tu ritual, tu progreso y tu plan guardados en un solo espacio.",
+
+"loginBenefits.eyebrow": "Tu espacio",
+"loginBenefits.title": "Qué encontrarás al entrar",
+"loginBenefits.item1": "Tu ritual diario con seguimiento de hábitos",
+"loginBenefits.item2": "Tu plan mensual con hitos y continuidad",
+"loginBenefits.item3": "Tu progreso con notas, fotos y evolución",
+"loginBenefits.item4": "Tus productos guardados y recomendaciones",
+"loginBenefits.quoteLabel": "Intención",
+"loginBenefits.quoteText": "Vuelve a tu ritual con calma, claridad y constancia visible." 
   },
 
   en: {
@@ -574,7 +598,31 @@ const translations = {
 "indexQuick.monthlyMember": "Continue monthly plan",
 "indexQuick.monthlyPreview": "Explore monthly plan",
 "indexQuick.progressMember": "View my progress",
-"indexQuick.progressPreview": "Explore tracking"
+"indexQuick.progressPreview": "Explore tracking",
+"loginHero.eyebrow": "Member access",
+"loginHero.title": "Return to your ritual",
+"loginHero.subtitle": "Log in to continue your daily ritual, review your progress, and follow your monthly plan with calm and consistency.",
+
+"loginForm.eyebrow": "Log in",
+"loginForm.title": "Access your account",
+"loginForm.emailLabel": "Email address",
+"loginForm.emailPlaceholder": "your@email.com",
+"loginForm.passwordLabel": "Password",
+"loginForm.passwordPlaceholder": "Your password",
+"loginForm.remember": "Remember me",
+"loginForm.forgot": "Forgot your password?",
+"loginForm.primary": "Log in",
+"loginForm.secondary": "Create account",
+"loginForm.support": "Your ritual, your progress, and your plan saved in one space.",
+
+"loginBenefits.eyebrow": "Your space",
+"loginBenefits.title": "What you’ll find inside",
+"loginBenefits.item1": "Your daily ritual with habit tracking",
+"loginBenefits.item2": "Your monthly plan with milestones and continuity",
+"loginBenefits.item3": "Your progress with notes, photos, and evolution",
+"loginBenefits.item4": "Your saved products and recommendations",
+"loginBenefits.quoteLabel": "Intention",
+"loginBenefits.quoteText": "Return to your ritual with calm, clarity, and visible consistency."
   },
 
   fr: {
@@ -833,7 +881,31 @@ const translations = {
 "indexQuick.monthlyMember": "Continuer le plan mensuel",
 "indexQuick.monthlyPreview": "Explorer le plan mensuel",
 "indexQuick.progressMember": "Voir mes progrès",
-"indexQuick.progressPreview": "Explorer le suivi"
+"indexQuick.progressPreview": "Explorer le suivi",
+"loginHero.eyebrow": "Accès membre",
+"loginHero.title": "Revenez à votre rituel",
+"loginHero.subtitle": "Connectez-vous pour continuer votre rituel quotidien, revoir vos progrès et suivre votre plan mensuel avec calme et régularité.",
+
+"loginForm.eyebrow": "Se connecter",
+"loginForm.title": "Accédez à votre compte",
+"loginForm.emailLabel": "Adresse e-mail",
+"loginForm.emailPlaceholder": "votre@email.com",
+"loginForm.passwordLabel": "Mot de passe",
+"loginForm.passwordPlaceholder": "Votre mot de passe",
+"loginForm.remember": "Se souvenir de moi",
+"loginForm.forgot": "Mot de passe oublié ?",
+"loginForm.primary": "Se connecter",
+"loginForm.secondary": "Créer un compte",
+"loginForm.support": "Votre rituel, vos progrès et votre plan enregistrés dans un seul espace.",
+
+"loginBenefits.eyebrow": "Votre espace",
+"loginBenefits.title": "Ce que vous trouverez à l’intérieur",
+"loginBenefits.item1": "Votre rituel quotidien avec suivi des habitudes",
+"loginBenefits.item2": "Votre plan mensuel avec étapes clés et continuité",
+"loginBenefits.item3": "Vos progrès avec notes, photos et évolution",
+"loginBenefits.item4": "Vos produits enregistrés et recommandations",
+"loginBenefits.quoteLabel": "Intention",
+"loginBenefits.quoteText": "Revenez à votre rituel avec calme, clarté et régularité visible."
   },
 
   de: {
@@ -1092,7 +1164,31 @@ const translations = {
 "indexQuick.monthlyMember": "Monatsplan fortsetzen",
 "indexQuick.monthlyPreview": "Monatsplan entdecken",
 "indexQuick.progressMember": "Meinen Fortschritt ansehen",
-"indexQuick.progressPreview": "Tracking entdecken"
+"indexQuick.progressPreview": "Tracking entdecken",
+  "loginHero.eyebrow": "Mitgliederzugang",
+"loginHero.title": "Zurück zu deinem Ritual",
+"loginHero.subtitle": "Melde dich an, um dein tägliches Ritual fortzusetzen, deinen Fortschritt zu prüfen und deinen Monatsplan mit Ruhe und Beständigkeit zu verfolgen.",
+
+"loginForm.eyebrow": "Anmelden",
+"loginForm.title": "Greife auf dein Konto zu",
+"loginForm.emailLabel": "E-Mail-Adresse",
+"loginForm.emailPlaceholder": "deine@email.com",
+"loginForm.passwordLabel": "Passwort",
+"loginForm.passwordPlaceholder": "Dein Passwort",
+"loginForm.remember": "Angemeldet bleiben",
+"loginForm.forgot": "Passwort vergessen?",
+"loginForm.primary": "Anmelden",
+"loginForm.secondary": "Konto erstellen",
+"loginForm.support": "Dein Ritual, dein Fortschritt und dein Plan an einem Ort gespeichert.",
+
+"loginBenefits.eyebrow": "Dein Bereich",
+"loginBenefits.title": "Was dich innen erwartet",
+"loginBenefits.item1": "Dein tägliches Ritual mit Gewohnheitstracking",
+"loginBenefits.item2": "Dein Monatsplan mit Meilensteinen und Kontinuität",
+"loginBenefits.item3": "Dein Fortschritt mit Notizen, Fotos und Entwicklung",
+"loginBenefits.item4": "Deine gespeicherten Produkte und Empfehlungen",
+"loginBenefits.quoteLabel": "Intention",
+"loginBenefits.quoteText": "Kehre mit Ruhe, Klarheit und sichtbarer Beständigkeit zu deinem Ritual zurück."
   }
 };
 
