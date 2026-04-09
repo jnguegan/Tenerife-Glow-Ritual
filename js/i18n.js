@@ -239,7 +239,46 @@ const translations = {
 "progressNext.eyebrow": "Siguiente paso",
 "progressNext.title": "Seguir con intención",
 "progressNext.text": "A partir del seguimiento, el miembro puede mantener su ritual actual, ajustar el ritmo o descubrir productos recomendados para continuar.",
-"progressNext.link": "Ver productos recomendados"
+"progressNext.link": "Ver productos recomendados",
+    "productsPreview.eyebrow": "Vista previa de colección",
+"productsPreview.title": "Explora la selección de productos del ritual",
+"productsPreview.text": "Esta página muestra la colección y el universo del ritual. Crea tu cuenta para guardar productos, recibir recomendaciones y conectar tu selección con tu rutina.",
+"productsPreview.primary": "Crear cuenta",
+"productsPreview.secondary": "Iniciar sesión",
+
+"productsHero.eyebrow": "Colección Curada",
+"productsHero.title": "Belleza clínica, suavidad de isla.",
+"productsHero.text": "Explora los esenciales de skincare y wellness detrás de Tenerife Glow Ritual — seleccionados para apoyar hidratación, luminosidad, cuidado de la barrera y constancia diaria.",
+"productsHero.meta1": "Favoritos de SPA",
+"productsHero.meta2": "Dermocosmética",
+"productsHero.meta3": "Wellness guiado",
+
+"productsBrand.eyebrow": "Historia de Marca",
+"productsBrand.title": "De Beverly Hills a tu ritual",
+"productsBrand.item1Title": "Fórmulas guiadas por expertos",
+"productsBrand.item1Text": "La experiencia clínica se une al skincare de lujo.",
+"productsBrand.item2Title": "Línea retail de spa",
+"productsBrand.item2Text": "Alineada con tus tratamientos en clínica.",
+
+"productsDiscovery.eyebrow": "Descubrimiento de Piel",
+"productsDiscovery.title": "Comprender antes de tratar",
+"productsDiscovery.text": "Las mejores decisiones de skincare empiezan con una mejor comprensión.",
+
+"productsSkincare.title": "Esenciales de Skincare",
+"productsSkincare.item1": "Limpiador",
+"productsSkincare.item2": "Tónico",
+"productsSkincare.item3": "Sérum",
+"productsSkincare.item4": "Hidratante",
+"productsSkincare.item5": "Protección Solar",
+"productsSkincare.item6": "Mascarilla",
+
+"productsWellness.title": "Productos Wellness",
+"productsWellness.item1": "Ritual Diario",
+"productsWellness.item2": "Radiance",
+"productsWellness.item3": "Restore",
+
+"productsAccessories.title": "Accesorios",
+"productsResults.title": "Resultados"
   },
 
   en: {
@@ -482,7 +521,46 @@ const translations = {
 "progressNext.eyebrow": "Next step",
 "progressNext.title": "Continue with intention",
 "progressNext.text": "From this tracking, the member can maintain the current ritual, adjust the rhythm, or discover recommended products to continue.",
-"progressNext.link": "View recommended products"
+"progressNext.link": "View recommended products",
+    "productsPreview.eyebrow": "Collection preview",
+"productsPreview.title": "Explore the ritual product selection",
+"productsPreview.text": "This page presents the collection and the ritual universe. Create your account to save products, receive recommendations, and connect your selection to your routine.",
+"productsPreview.primary": "Create account",
+"productsPreview.secondary": "Log in",
+
+"productsHero.eyebrow": "Curated Collection",
+"productsHero.title": "Clinical beauty, island softness.",
+"productsHero.text": "Explore the skincare and wellness essentials behind Tenerife Glow Ritual — selected to support hydration, glow, barrier care, and daily consistency.",
+"productsHero.meta1": "SPA favourites",
+"productsHero.meta2": "Dermocosmetic",
+"productsHero.meta3": "Wellness-led",
+
+"productsBrand.eyebrow": "Brand Story",
+"productsBrand.title": "From Beverly Hills to your ritual",
+"productsBrand.item1Title": "Expert-led formulas",
+"productsBrand.item1Text": "Clinical expertise meets luxury skincare.",
+"productsBrand.item2Title": "SPA retail line",
+"productsBrand.item2Text": "Aligned with your in-clinic treatments.",
+
+"productsDiscovery.eyebrow": "Skin Discovery",
+"productsDiscovery.title": "Understand before treating",
+"productsDiscovery.text": "Better skincare decisions start with better understanding.",
+
+"productsSkincare.title": "Skincare Essentials",
+"productsSkincare.item1": "Cleanser",
+"productsSkincare.item2": "Toner",
+"productsSkincare.item3": "Serum",
+"productsSkincare.item4": "Moisturizer",
+"productsSkincare.item5": "SPF",
+"productsSkincare.item6": "Mask",
+
+"productsWellness.title": "Wellness Products",
+"productsWellness.item1": "Daily Ritual",
+"productsWellness.item2": "Radiance",
+"productsWellness.item3": "Restore",
+
+"productsAccessories.title": "Accessories",
+"productsResults.title": "Results"
   },
 
   fr: {
@@ -695,7 +773,46 @@ const translations = {
 "progressNext.eyebrow": "Étape suivante",
 "progressNext.title": "Continuer avec intention",
 "progressNext.text": "À partir de ce suivi, le membre peut maintenir son rituel actuel, ajuster son rythme ou découvrir des produits recommandés pour continuer.",
-"progressNext.link": "Voir les produits recommandés"
+"progressNext.link": "Voir les produits recommandés",
+    "productsPreview.eyebrow": "Aperçu de la collection",
+"productsPreview.title": "Explorez la sélection de produits du rituel",
+"productsPreview.text": "Cette page présente la collection et l’univers du rituel. Créez votre compte pour enregistrer des produits, recevoir des recommandations et relier votre sélection à votre routine.",
+"productsPreview.primary": "Créer un compte",
+"productsPreview.secondary": "Se connecter",
+
+"productsHero.eyebrow": "Collection Curatée",
+"productsHero.title": "Beauté clinique, douceur de l’île.",
+"productsHero.text": "Découvrez les essentiels skincare et wellness derrière Tenerife Glow Ritual — sélectionnés pour soutenir l’hydratation, l’éclat, le soin de la barrière cutanée et la régularité quotidienne.",
+"productsHero.meta1": "Favoris SPA",
+"productsHero.meta2": "Dermocosmétique",
+"productsHero.meta3": "Guidé par le wellness",
+
+"productsBrand.eyebrow": "Histoire de la marque",
+"productsBrand.title": "De Beverly Hills à votre rituel",
+"productsBrand.item1Title": "Formules guidées par des experts",
+"productsBrand.item1Text": "L’expertise clinique rencontre le skincare de luxe.",
+"productsBrand.item2Title": "Ligne retail SPA",
+"productsBrand.item2Text": "Alignée avec vos traitements en clinique.",
+
+"productsDiscovery.eyebrow": "Découverte de la peau",
+"productsDiscovery.title": "Comprendre avant de traiter",
+"productsDiscovery.text": "De meilleures décisions skincare commencent par une meilleure compréhension.",
+
+"productsSkincare.title": "Essentiels Skincare",
+"productsSkincare.item1": "Nettoyant",
+"productsSkincare.item2": "Tonique",
+"productsSkincare.item3": "Sérum",
+"productsSkincare.item4": "Hydratant",
+"productsSkincare.item5": "SPF",
+"productsSkincare.item6": "Masque",
+
+"productsWellness.title": "Produits Wellness",
+"productsWellness.item1": "Rituel Quotidien",
+"productsWellness.item2": "Radiance",
+"productsWellness.item3": "Restore",
+
+"productsAccessories.title": "Accessoires",
+"productsResults.title": "Résultats"
   },
 
   de: {
@@ -908,7 +1025,46 @@ const translations = {
 "progressNext.eyebrow": "Nächster Schritt",
 "progressNext.title": "Mit Intention weitermachen",
 "progressNext.text": "Ausgehend von diesem Tracking kann das Mitglied das aktuelle Ritual beibehalten, den Rhythmus anpassen oder empfohlene Produkte entdecken, um weiterzumachen.",
-"progressNext.link": "Empfohlene Produkte ansehen"
+"progressNext.link": "Empfohlene Produkte ansehen",
+    "productsPreview.eyebrow": "Kollektion-Vorschau",
+"productsPreview.title": "Entdecke die Produktauswahl des Rituals",
+"productsPreview.text": "Diese Seite zeigt die Kollektion und die Welt des Rituals. Erstelle dein Konto, um Produkte zu speichern, Empfehlungen zu erhalten und deine Auswahl mit deiner Routine zu verbinden.",
+"productsPreview.primary": "Konto erstellen",
+"productsPreview.secondary": "Anmelden",
+
+"productsHero.eyebrow": "Kurierte Kollektion",
+"productsHero.title": "Klinische Schönheit, Insel-Sanftheit.",
+"productsHero.text": "Entdecke die Skincare- und Wellness-Essentials hinter Tenerife Glow Ritual — ausgewählt, um Hydration, Glow, Hautbarriere und tägliche Beständigkeit zu unterstützen.",
+"productsHero.meta1": "SPA-Favoriten",
+"productsHero.meta2": "Dermokosmetik",
+"productsHero.meta3": "Wellness-orientiert",
+
+"productsBrand.eyebrow": "Markengeschichte",
+"productsBrand.title": "Von Beverly Hills zu deinem Ritual",
+"productsBrand.item1Title": "Von Experten geführte Formeln",
+"productsBrand.item1Text": "Klinische Expertise trifft auf luxuriöse Hautpflege.",
+"productsBrand.item2Title": "SPA-Retail-Linie",
+"productsBrand.item2Text": "Abgestimmt auf deine Behandlungen in der Klinik.",
+
+"productsDiscovery.eyebrow": "Hautanalyse",
+"productsDiscovery.title": "Verstehen vor dem Behandeln",
+"productsDiscovery.text": "Bessere Hautpflegeentscheidungen beginnen mit besserem Verständnis.",
+
+"productsSkincare.title": "Skincare-Essentials",
+"productsSkincare.item1": "Reiniger",
+"productsSkincare.item2": "Toner",
+"productsSkincare.item3": "Serum",
+"productsSkincare.item4": "Feuchtigkeitspflege",
+"productsSkincare.item5": "SPF",
+"productsSkincare.item6": "Maske",
+
+"productsWellness.title": "Wellness-Produkte",
+"productsWellness.item1": "Tägliches Ritual",
+"productsWellness.item2": "Radiance",
+"productsWellness.item3": "Restore",
+
+"productsAccessories.title": "Accessoires",
+"productsResults.title": "Ergebnisse"
   }
 };
 
