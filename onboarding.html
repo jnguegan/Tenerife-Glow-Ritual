@@ -1,9 +1,138 @@
-<h1>Welcome</h1>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tenerife Glow Ritual</title>
 
-<p>This is your skin journey.</p>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
 
-<label>Skin Type:</label>
-<input type="text">
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
 
-<label>Goals:</label>
-<textarea></textarea>
+<body>
+  <div class="page-shell">
+
+    <!-- HEADER -->
+    <header class="topbar">
+      <div class="brand-wrap">
+        <div class="brand-mark"></div>
+        <div>
+          <p class="eyebrow" data-i18n="brand.eyebrow">Ritual de Piel</p>
+          <h1 class="brand-title" data-i18n="brand.title">Tenerife Glow Ritual</h1>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <div class="language-switcher">
+          <button class="lang-btn active" data-lang="es">ES</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="fr">FR</button>
+          <button class="lang-btn" data-lang="de">DE</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="content-stack">
+
+      <!-- HERO -->
+      <section class="page-hero">
+        <div>
+          <p class="eyebrow" data-i18n="onboarding.heroEyebrow">Comienza tu ritual</p>
+          <h2 class="page-title" data-i18n="onboarding.title">Diseñemos tu rutina</h2>
+          <p class="page-subtitle" data-i18n="onboarding.subtitle">
+            Responde unas preguntas rápidas para crear tu ritual personalizado.
+          </p>
+        </div>
+      </section>
+
+      <!-- FORM -->
+      <section class="card onboarding-card">
+
+        <form class="content-stack" id="onboardingForm">
+
+          <!-- SKIN TYPE -->
+          <div class="field-group">
+            <label class="field-label" data-i18n="onboarding.skinType">Tipo de piel</label>
+            <select class="styled-input" name="skinType">
+              <option data-i18n="onboarding.skin.normal">Normal</option>
+              <option data-i18n="onboarding.skin.dry">Seca</option>
+              <option data-i18n="onboarding.skin.oily">Grasa</option>
+              <option data-i18n="onboarding.skin.combination">Mixta</option>
+              <option data-i18n="onboarding.skin.sensitive">Sensible</option>
+            </select>
+          </div>
+
+          <!-- GOAL -->
+          <div class="field-group">
+            <label class="field-label" data-i18n="onboarding.goal">Objetivo principal</label>
+            <select class="styled-input" name="goal">
+              <option data-i18n="onboarding.goal.glow">Luminosidad</option>
+              <option data-i18n="onboarding.goal.hydration">Hidratación</option>
+              <option data-i18n="onboarding.goal.antiage">Anti-edad</option>
+              <option data-i18n="onboarding.goal.acne">Acné</option>
+              <option data-i18n="onboarding.goal.balance">Equilibrio</option>
+            </select>
+          </div>
+
+          <!-- TIME -->
+          <div class="field-group">
+            <label class="field-label" data-i18n="onboarding.time">Tiempo diario disponible</label>
+            <select class="styled-input" name="time">
+              <option data-i18n="onboarding.time.short">5 minutos</option>
+              <option data-i18n="onboarding.time.medium">10 minutos</option>
+              <option data-i18n="onboarding.time.long">20 minutos</option>
+            </select>
+          </div>
+
+          <!-- LEVEL -->
+          <div class="field-group">
+            <label class="field-label" data-i18n="onboarding.level">Nivel de rutina</label>
+            <select class="styled-input" name="level">
+              <option data-i18n="onboarding.level.basic">Básico</option>
+              <option data-i18n="onboarding.level.intermediate">Intermedio</option>
+              <option data-i18n="onboarding.level.advanced">Avanzado</option>
+            </select>
+          </div>
+
+          <!-- NOTES -->
+          <div class="field-group">
+            <label class="field-label" data-i18n="onboarding.notes">Notas (opcional)</label>
+            <textarea
+              class="styled-textarea"
+              rows="4"
+              placeholder="Sensibilidad, productos actuales, etc..."
+              data-i18n-placeholder="onboarding.notesPlaceholder"
+            ></textarea>
+          </div>
+
+          <!-- ACTION -->
+          <div class="hero-actions">
+            <button type="submit" class="btn btn-primary" data-i18n="onboarding.submit">
+              Crear mi ritual
+            </button>
+          </div>
+
+        </form>
+
+      </section>
+
+    </main>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script src="js/i18n.js"></script>
+
+  <script>
+    document.getElementById("onboardingForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      localStorage.setItem("tgr-onboarding-complete", "true");
+
+      window.location.href = "index.html";
+    });
+  </script>
+</body>
+</html>
