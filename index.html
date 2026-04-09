@@ -204,6 +204,20 @@
     </main>
   </div>
 
-  <script src="js/i18n.js"></script>
+ <script src="js/i18n.js"></script>
+<script>
+  const isLoggedIn = false; // change to true to simulate member state
+
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll('.preview-only').forEach(el => {
+      el.style.display = isLoggedIn ? 'none' : '';
+    });
+
+    document.querySelectorAll('.member-only').forEach(el => {
+      el.style.display = isLoggedIn ? '' : 'none';
+    });
+  });
+</script>
+  
 </body>
 </html>
