@@ -48,7 +48,7 @@
   </div>
 </header>
     <main class="dashboard-grid">
-      <section class="hero-card">
+      <section class="hero-card preview-only">
         <div class="hero-copy">
           <p class="eyebrow" data-i18n="hero.eyebrow">Tu Ritual de Hoy</p>
           <h2 data-i18n="hero.title">Constancia suave, luminosidad visible.</h2>
@@ -79,6 +79,32 @@
           <blockquote data-i18n="hero.intentionQuote">“Hoy elijo suavidad.”</blockquote>
         </div>
       </section>
+
+      <section class="hero-card member-only">
+  <div class="hero-copy">
+    <p class="eyebrow" data-i18n="indexMemberHero.eyebrow">Tu ritual de hoy</p>
+    <h2 data-i18n="indexMemberHero.title">Bienvenido de nuevo — tu piel está en proceso.</h2>
+    <p class="hero-text" data-i18n="indexMemberHero.text">
+      Hoy es tu día 12. Continúa con tu ritual y mantén la constancia.
+    </p>
+
+    <div class="hero-meta">
+      <span class="pill" data-i18n="indexMemberHero.meta1">Día 12</span>
+      <span class="pill" data-i18n="indexMemberHero.meta2">Bloque Alisio</span>
+      <span class="pill" data-i18n="indexMemberHero.meta3">Mes 1</span>
+    </div>
+
+    <div class="hero-actions">
+      <a href="daily.html" class="btn btn-primary" data-i18n="indexMemberHero.primary">Completar ritual de hoy</a>
+      <a href="progress.html" class="btn btn-secondary" data-i18n="indexMemberHero.secondary">Ver progreso</a>
+    </div>
+  </div>
+
+  <div class="hero-quote">
+    <p class="quote-label" data-i18n="indexMemberHero.quoteLabel">Tu intención</p>
+    <blockquote data-i18n="indexMemberHero.quoteText">“Hoy sigo con calma y constancia.”</blockquote>
+  </div>
+</section>
 
       <section class="card routine-card">
         <div class="card-header">
@@ -150,10 +176,13 @@
         </div>
 
         <div class="quick-links">
-          <a href="products.html" data-i18n="explore.link1">Descubrir productos</a>
-          <a href="daily.html" data-i18n="explore.link2">Mi ritual diario</a>
-          <a href="monthly.html" data-i18n="explore.link3">Mi plan mensual</a>
-          <a href="progress.html" data-i18n="explore.link4">Seguimiento del progreso</a>
+          <a href="products.html" data-i18n="indexQuick.products">Productos</a>
+          <a href="daily.html" class="member-only" data-i18n="indexQuick.dailyMember">Completar ritual de hoy</a>
+          <a href="daily.html" class="preview-only" data-i18n="indexQuick.dailyPreview">Ver ejemplo diario</a>
+          <a href="monthly.html" class="member-only" data-i18n="indexQuick.monthlyMember">Continuar plan mensual</a>
+          <a href="monthly.html" class="preview-only" data-i18n="indexQuick.monthlyPreview">Explorar plan mensual</a>
+          <a href="progress.html" class="member-only" data-i18n="indexQuick.progressMember">Ver mi progreso</a>
+          <a href="progress.html" class="preview-only" data-i18n="indexQuick.progressPreview">Explorar seguimiento</a>
         </div>
       </section>
 
