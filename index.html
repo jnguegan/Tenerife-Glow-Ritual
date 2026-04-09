@@ -83,7 +83,7 @@
       <section class="hero-card member-only">
   <div class="hero-copy">
     <p class="eyebrow" data-i18n="indexMemberHero.eyebrow">Tu ritual de hoy</p>
-    <h2 data-i18n="indexMemberHero.title">Bienvenido de nuevo — tu piel está en proceso.</h2>
+    <h2 id="heroTitle" data-i18n="indexMemberHero.title">Bienvenido de nuevo — tu piel está en proceso.</h2>
     <p class="hero-text" data-i18n="indexMemberHero.text">
       Hoy es tu día 12. Continúa con tu ritual y mantén la constancia.
     </p>
@@ -112,7 +112,7 @@
           <h3 data-i18n="routine.title">Rutina</h3>
         </div>
 
-        <ul class="check-list">
+       <ul class="check-list" id="routineList">
           <li><span class="check-circle"></span><span data-i18n="routine.step1">Limpiador</span></li>
           <li><span class="check-circle"></span><span data-i18n="routine.step2">Hidratación</span></li>
           <li><span class="check-circle"></span><span data-i18n="routine.step3">Antioxidante</span></li>
@@ -204,12 +204,10 @@
     </main>
   </div>
 
- <script src="js/i18n.js"></script>
+<script src="js/i18n.js"></script>
 <script>
- 
   const isLoggedIn = localStorage.getItem("tgr-auth") === "true";
-
-const onboardingData = JSON.parse(localStorage.getItem("tgr-onboarding-data") || "{}");
+  const onboardingData = JSON.parse(localStorage.getItem("tgr-onboarding-data") || "{}");
 
   document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll('.preview-only').forEach(el => {
@@ -219,6 +217,22 @@ const onboardingData = JSON.parse(localStorage.getItem("tgr-onboarding-data") ||
     document.querySelectorAll('.member-only').forEach(el => {
       el.style.display = isLoggedIn ? '' : 'none';
     });
+
+    if (isLoggedIn && onboardingData.goal) {
+      const hero = document.getElementById("heroTitle");
+
+      const goalMap = {
+        "Luminosidad": "Your glow starts today.",
+        "Hidratación": "Hydration is your foundation.",
+        "Anti-edad": "Consistency builds long-term skin.",
+        "Acné": "Clarity comes with rhythm.",
+        "Equilibrio": "Balance begins with structure."
+      };
+
+      if (hero && goalMap[onboardingData.goal]) {
+        hero.textContent = goalMap[onboardingData.goal];
+      }
+    }
   });
 </script>
   
