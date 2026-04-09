@@ -122,7 +122,66 @@ const translations = {
 "dailyHabit.item6": "Movimiento",
 "dailyHabit.item7": "Descanso",
 "dailyHabit.notesLabel": "Notas de conciencia corporal",
-"dailyHabit.notesPlaceholder": "¿Cómo se siente tu cuerpo hoy?"
+"dailyHabit.notesPlaceholder": "¿Cómo se siente tu cuerpo hoy?",
+    "monthlyPreview.eyebrow": "Vista previa mensual",
+"monthlyPreview.title": "Ejemplo de Plan Mensual · Mes 1",
+"monthlyPreview.subtitle": "Así se organiza la continuidad dentro de Tenerife Glow Ritual: objetivos, ritmo de cuidado, hitos y momentos de reposición.",
+"monthlyPreview.meta1": "4 Semanas",
+"monthlyPreview.meta2": "Hitos Calmados",
+"monthlyPreview.meta3": "Ritmo Visible",
+
+"monthlyBanner.eyebrow": "Experiencia miembro",
+"monthlyBanner.title": "Esta es una vista previa de tu recorrido mensual",
+"monthlyBanner.text": "Crea tu cuenta para desbloquear tu plan personalizado, seguir tus hitos, guardar tu constancia y recibir recomendaciones de reposición.",
+"monthlyBanner.primary": "Crear cuenta",
+"monthlyBanner.secondary": "Iniciar sesión",
+
+"monthlyGoals.eyebrow": "Objetivo del mes",
+"monthlyGoals.title": "Base de luminosidad y equilibrio",
+"monthlyGoals.text": "Este mes se centra en constancia suave, hidratación visible y una mejor relación entre ritual, descanso y cuidado diario.",
+"monthlyGoals.tag1": "Luminosidad",
+"monthlyGoals.tag2": "Hidratación",
+"monthlyGoals.tag3": "Equilibrio",
+
+"monthlyWeeks.eyebrow": "Ritmo por semanas",
+"monthlyWeeks.title": "Cómo evoluciona el mes",
+"monthlyWeeks.week1": "Semana 1 · Reinicio suave y estructura básica",
+"monthlyWeeks.week2": "Semana 2 · Más consistencia y ajuste del ritmo",
+"monthlyWeeks.week3": "Semana 3 · Observación de cambios y continuidad",
+"monthlyWeeks.week4": "Semana 4 · Consolidación y preparación del siguiente mes",
+
+"monthlyMilestones.eyebrow": "Hitos",
+"monthlyMilestones.title": "Puntos de revisión",
+"monthlyMilestones.item1": "Mantener la rutina 5+ días por semana",
+"monthlyMilestones.item2": "Completar revisiones semanales",
+"monthlyMilestones.item3": "Registrar sensaciones de piel y energía",
+"monthlyMilestones.item4": "Sostener hidratación y apoyo interno",
+
+"monthlyCalendar.eyebrow": "Vista general",
+"monthlyCalendar.title": "Calendario del mes",
+"monthlyCalendar.row1": "Enfoque en limpieza, hidratación y constancia",
+"monthlyCalendar.row2": "Afianzar la rutina y observar respuesta de la piel",
+"monthlyCalendar.row3": "Refuerzo del ritual y seguimiento del ritmo",
+"monthlyCalendar.row4": "Cierre del mes y preparación del siguiente paso",
+
+"monthlyRefill.eyebrow": "Reposición",
+"monthlyRefill.title": "Ventana de reposición sugerida",
+"monthlyRefill.text": "Hacia la última semana del mes, el sistema puede sugerirte reposición de productos clave para mantener continuidad sin interrupción.",
+"monthlyRefill.tag1": "Continuidad",
+"monthlyRefill.tag2": "Reposición",
+"monthlyRefill.tag3": "Siguiente paso",
+
+"monthlyReflection.eyebrow": "Reflexión mensual",
+"monthlyReflection.title": "Cómo se sintió este ciclo",
+"monthlyReflection.label1": "Lo que quiero mantener",
+"monthlyReflection.label2": "Lo que quiero ajustar",
+"monthlyReflection.placeholder1": "¿Qué te gustaría seguir el próximo mes?",
+"monthlyReflection.placeholder2": "¿Qué ritmo o hábito necesita más apoyo?",
+
+"monthlyNext.eyebrow": "Siguiente fase",
+"monthlyNext.title": "Preparación para el próximo mes",
+"monthlyNext.text": "Al final de cada ciclo, el miembro puede revisar su progreso, ajustar su ritual y recibir una recomendación suave para continuar.",
+"monthlyNext.link": "Explorar productos recomendados"
   },
 
   en: {
@@ -248,7 +307,66 @@ const translations = {
 "dailyHabit.item6": "Movement",
 "dailyHabit.item7": "Rest",
 "dailyHabit.notesLabel": "Body awareness notes",
-"dailyHabit.notesPlaceholder": "How does your body feel today?"
+"dailyHabit.notesPlaceholder": "How does your body feel today?",
+    "monthlyPreview.eyebrow": "Monthly preview",
+"monthlyPreview.title": "Example Monthly Plan · Month 1",
+"monthlyPreview.subtitle": "This is how continuity is organized inside Tenerife Glow Ritual: goals, care rhythm, milestones, and refill moments.",
+"monthlyPreview.meta1": "4 Weeks",
+"monthlyPreview.meta2": "Calm Milestones",
+"monthlyPreview.meta3": "Visible Rhythm",
+
+"monthlyBanner.eyebrow": "Member experience",
+"monthlyBanner.title": "This is a preview of your monthly journey",
+"monthlyBanner.text": "Create your account to unlock your personalized plan, track milestones, save your consistency, and receive refill recommendations.",
+"monthlyBanner.primary": "Create account",
+"monthlyBanner.secondary": "Log in",
+
+"monthlyGoals.eyebrow": "Monthly goal",
+"monthlyGoals.title": "Foundation of glow and balance",
+"monthlyGoals.text": "This month focuses on soft consistency, visible hydration, and a better relationship between ritual, rest, and daily care.",
+"monthlyGoals.tag1": "Glow",
+"monthlyGoals.tag2": "Hydration",
+"monthlyGoals.tag3": "Balance",
+
+"monthlyWeeks.eyebrow": "Weekly rhythm",
+"monthlyWeeks.title": "How the month evolves",
+"monthlyWeeks.week1": "Week 1 · Gentle reset and basic structure",
+"monthlyWeeks.week2": "Week 2 · More consistency and rhythm adjustment",
+"monthlyWeeks.week3": "Week 3 · Observing changes and maintaining continuity",
+"monthlyWeeks.week4": "Week 4 · Consolidation and preparation for next month",
+
+"monthlyMilestones.eyebrow": "Milestones",
+"monthlyMilestones.title": "Check-in points",
+"monthlyMilestones.item1": "Maintain the ritual 5+ days per week",
+"monthlyMilestones.item2": "Complete weekly reviews",
+"monthlyMilestones.item3": "Record skin and energy sensations",
+"monthlyMilestones.item4": "Sustain hydration and inner support",
+
+"monthlyCalendar.eyebrow": "Overview",
+"monthlyCalendar.title": "Month calendar",
+"monthlyCalendar.row1": "Focus on cleansing, hydration, and consistency",
+"monthlyCalendar.row2": "Strengthen the ritual and observe skin response",
+"monthlyCalendar.row3": "Reinforce the ritual and follow your rhythm",
+"monthlyCalendar.row4": "Close the month and prepare the next step",
+
+"monthlyRefill.eyebrow": "Refill",
+"monthlyRefill.title": "Suggested refill window",
+"monthlyRefill.text": "Toward the last week of the month, the system may suggest refills of key products to maintain continuity without interruption.",
+"monthlyRefill.tag1": "Continuity",
+"monthlyRefill.tag2": "Refill",
+"monthlyRefill.tag3": "Next step",
+
+"monthlyReflection.eyebrow": "Monthly reflection",
+"monthlyReflection.title": "How this cycle felt",
+"monthlyReflection.label1": "What I want to keep",
+"monthlyReflection.label2": "What I want to adjust",
+"monthlyReflection.placeholder1": "What would you like to continue next month?",
+"monthlyReflection.placeholder2": "Which rhythm or habit needs more support?",
+
+"monthlyNext.eyebrow": "Next phase",
+"monthlyNext.title": "Preparing for the next month",
+"monthlyNext.text": "At the end of each cycle, the member can review progress, adjust the ritual, and receive a gentle recommendation to continue.",
+"monthlyNext.link": "Explore recommended products"
   },
 
   fr: {
@@ -344,7 +462,66 @@ const translations = {
 "dailySchedule.title": "Structure quotidienne",
 
 "dailyHabit.eyebrow": "Régularité",
-"dailyHabit.title": "Suivi des habitudes"
+"dailyHabit.title": "Suivi des habitudes",
+    "monthlyPreview.eyebrow": "Aperçu mensuel",
+"monthlyPreview.title": "Exemple de plan mensuel · Mois 1",
+"monthlyPreview.subtitle": "Voici comment la continuité s’organise dans Tenerife Glow Ritual : objectifs, rythme de soin, étapes clés et moments de réassort.",
+"monthlyPreview.meta1": "4 Semaines",
+"monthlyPreview.meta2": "Étapes apaisées",
+"monthlyPreview.meta3": "Rythme visible",
+
+"monthlyBanner.eyebrow": "Expérience membre",
+"monthlyBanner.title": "Ceci est un aperçu de votre parcours mensuel",
+"monthlyBanner.text": "Créez votre compte pour débloquer votre plan personnalisé, suivre vos étapes clés, enregistrer votre régularité et recevoir des recommandations de réassort.",
+"monthlyBanner.primary": "Créer un compte",
+"monthlyBanner.secondary": "Se connecter",
+
+"monthlyGoals.eyebrow": "Objectif du mois",
+"monthlyGoals.title": "Base d’éclat et d’équilibre",
+"monthlyGoals.text": "Ce mois-ci met l’accent sur une régularité douce, une hydratation visible et une meilleure relation entre rituel, repos et soin quotidien.",
+"monthlyGoals.tag1": "Éclat",
+"monthlyGoals.tag2": "Hydratation",
+"monthlyGoals.tag3": "Équilibre",
+
+"monthlyWeeks.eyebrow": "Rythme hebdomadaire",
+"monthlyWeeks.title": "Comment le mois évolue",
+"monthlyWeeks.week1": "Semaine 1 · Réinitialisation douce et structure de base",
+"monthlyWeeks.week2": "Semaine 2 · Plus de régularité et ajustement du rythme",
+"monthlyWeeks.week3": "Semaine 3 · Observation des changements et continuité",
+"monthlyWeeks.week4": "Semaine 4 · Consolidation et préparation du mois suivant",
+
+"monthlyMilestones.eyebrow": "Étapes clés",
+"monthlyMilestones.title": "Points de suivi",
+"monthlyMilestones.item1": "Maintenir le rituel 5+ jours par semaine",
+"monthlyMilestones.item2": "Compléter les bilans hebdomadaires",
+"monthlyMilestones.item3": "Noter les sensations de peau et d’énergie",
+"monthlyMilestones.item4": "Maintenir l’hydratation et le soutien interne",
+
+"monthlyCalendar.eyebrow": "Vue d’ensemble",
+"monthlyCalendar.title": "Calendrier du mois",
+"monthlyCalendar.row1": "Accent sur le nettoyage, l’hydratation et la régularité",
+"monthlyCalendar.row2": "Renforcer le rituel et observer la réponse de la peau",
+"monthlyCalendar.row3": "Renforcer le rituel et suivre votre rythme",
+"monthlyCalendar.row4": "Clôturer le mois et préparer l’étape suivante",
+
+"monthlyRefill.eyebrow": "Réassort",
+"monthlyRefill.title": "Fenêtre de réassort suggérée",
+"monthlyRefill.text": "Vers la dernière semaine du mois, le système peut suggérer le réassort de produits clés afin de maintenir la continuité sans interruption.",
+"monthlyRefill.tag1": "Continuité",
+"monthlyRefill.tag2": "Réassort",
+"monthlyRefill.tag3": "Étape suivante",
+
+"monthlyReflection.eyebrow": "Réflexion mensuelle",
+"monthlyReflection.title": "Comment ce cycle s’est ressenti",
+"monthlyReflection.label1": "Ce que je veux garder",
+"monthlyReflection.label2": "Ce que je veux ajuster",
+"monthlyReflection.placeholder1": "Que souhaitez-vous continuer le mois prochain ?",
+"monthlyReflection.placeholder2": "Quel rythme ou quelle habitude a besoin de plus de soutien ?",
+
+"monthlyNext.eyebrow": "Phase suivante",
+"monthlyNext.title": "Préparation du mois suivant",
+"monthlyNext.text": "À la fin de chaque cycle, le membre peut revoir ses progrès, ajuster son rituel et recevoir une recommandation douce pour continuer.",
+"monthlyNext.link": "Explorer les produits recommandés"
   },
 
   de: {
@@ -440,7 +617,66 @@ const translations = {
 "dailySchedule.title": "Tagesstruktur",
 
 "dailyHabit.eyebrow": "Beständigkeit",
-"dailyHabit.title": "Gewohnheiten"
+"dailyHabit.title": "Gewohnheiten",
+    "monthlyPreview.eyebrow": "Monatliche Vorschau",
+"monthlyPreview.title": "Beispiel Monatsplan · Monat 1",
+"monthlyPreview.subtitle": "So wird Kontinuität in Tenerife Glow Ritual organisiert: Ziele, Pflegerhythmus, Meilensteine und Nachfüllmomente.",
+"monthlyPreview.meta1": "4 Wochen",
+"monthlyPreview.meta2": "Sanfte Meilensteine",
+"monthlyPreview.meta3": "Sichtbarer Rhythmus",
+
+"monthlyBanner.eyebrow": "Mitgliedererlebnis",
+"monthlyBanner.title": "Dies ist eine Vorschau deiner monatlichen Reise",
+"monthlyBanner.text": "Erstelle dein Konto, um deinen personalisierten Plan freizuschalten, Meilensteine zu verfolgen, deine Beständigkeit zu speichern und Nachfüllempfehlungen zu erhalten.",
+"monthlyBanner.primary": "Konto erstellen",
+"monthlyBanner.secondary": "Anmelden",
+
+"monthlyGoals.eyebrow": "Monatsziel",
+"monthlyGoals.title": "Grundlage für Ausstrahlung und Balance",
+"monthlyGoals.text": "Dieser Monat konzentriert sich auf sanfte Beständigkeit, sichtbare Hydration und ein besseres Verhältnis zwischen Ritual, Ruhe und täglicher Pflege.",
+"monthlyGoals.tag1": "Glow",
+"monthlyGoals.tag2": "Hydration",
+"monthlyGoals.tag3": "Balance",
+
+"monthlyWeeks.eyebrow": "Wochenrhythmus",
+"monthlyWeeks.title": "Wie sich der Monat entwickelt",
+"monthlyWeeks.week1": "Woche 1 · Sanfter Neustart und Grundstruktur",
+"monthlyWeeks.week2": "Woche 2 · Mehr Beständigkeit und Rhythmusanpassung",
+"monthlyWeeks.week3": "Woche 3 · Veränderungen beobachten und Kontinuität halten",
+"monthlyWeeks.week4": "Woche 4 · Festigung und Vorbereitung auf den nächsten Monat",
+
+"monthlyMilestones.eyebrow": "Meilensteine",
+"monthlyMilestones.title": "Kontrollpunkte",
+"monthlyMilestones.item1": "Das Ritual an 5+ Tagen pro Woche beibehalten",
+"monthlyMilestones.item2": "Wöchentliche Rückblicke abschließen",
+"monthlyMilestones.item3": "Haut- und Energieempfindungen notieren",
+"monthlyMilestones.item4": "Hydration und innere Unterstützung beibehalten",
+
+"monthlyCalendar.eyebrow": "Überblick",
+"monthlyCalendar.title": "Monatskalender",
+"monthlyCalendar.row1": "Fokus auf Reinigung, Hydration und Beständigkeit",
+"monthlyCalendar.row2": "Das Ritual festigen und die Hautreaktion beobachten",
+"monthlyCalendar.row3": "Das Ritual verstärken und deinen Rhythmus verfolgen",
+"monthlyCalendar.row4": "Den Monat abschließen und den nächsten Schritt vorbereiten",
+
+"monthlyRefill.eyebrow": "Nachfüllen",
+"monthlyRefill.title": "Empfohlenes Nachfüllfenster",
+"monthlyRefill.text": "Gegen Ende des Monats kann das System Nachfüllungen wichtiger Produkte vorschlagen, um die Kontinuität ohne Unterbrechung aufrechtzuerhalten.",
+"monthlyRefill.tag1": "Kontinuität",
+"monthlyRefill.tag2": "Nachfüllen",
+"monthlyRefill.tag3": "Nächster Schritt",
+
+"monthlyReflection.eyebrow": "Monatliche Reflexion",
+"monthlyReflection.title": "Wie sich dieser Zyklus angefühlt hat",
+"monthlyReflection.label1": "Was ich beibehalten möchte",
+"monthlyReflection.label2": "Was ich anpassen möchte",
+"monthlyReflection.placeholder1": "Was möchtest du im nächsten Monat fortsetzen?",
+"monthlyReflection.placeholder2": "Welcher Rhythmus oder welche Gewohnheit braucht mehr Unterstützung?",
+
+"monthlyNext.eyebrow": "Nächste Phase",
+"monthlyNext.title": "Vorbereitung auf den nächsten Monat",
+"monthlyNext.text": "Am Ende jedes Zyklus kann das Mitglied den Fortschritt überprüfen, das Ritual anpassen und eine sanfte Empfehlung zum Weitermachen erhalten.",
+"monthlyNext.link": "Empfohlene Produkte entdecken"
   }
 };
 
