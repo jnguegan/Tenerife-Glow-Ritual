@@ -238,59 +238,110 @@ if (isLoggedIn && onboardingData.skinType) {
 
   let items = [];
 
-  if (onboardingData.skinType === "Seca") {
-    items = [
-      "Gentle cleanser",
-      "Hydrating serum",
-      "Rich moisturizer",
-      "SPF"
-    ];
-  }
+if (onboardingData.skinType === "Seca") {
+  items = [
+    "routine.dynamic.gentleCleanser",
+    "routine.dynamic.hydratingSerum",
+    "routine.dynamic.richMoisturizer",
+    "routine.dynamic.spf"
+  ];
+}
 
-  if (onboardingData.skinType === "Grasa") {
-    items = [
-      "Foaming cleanser",
-      "Niacinamide serum",
-      "Light moisturizer",
-      "SPF"
-    ];
-  }
+if (onboardingData.skinType === "Grasa") {
+  items = [
+    "routine.dynamic.foamingCleanser",
+    "routine.dynamic.niacinamide",
+    "routine.dynamic.lightMoisturizer",
+    "routine.dynamic.spf"
+  ];
+}
 
-  if (onboardingData.skinType === "Sensible") {
-    items = [
-      "Ultra gentle cleanser",
-      "Soothing serum",
-      "Barrier cream",
-      "SPF"
-    ];
-  }
+if (onboardingData.skinType === "Sensible") {
+  items = [
+    "routine.dynamic.ultraGentle",
+    "routine.dynamic.soothingSerum",
+    "routine.dynamic.barrierCream",
+    "routine.dynamic.spf"
+  ];
+}
 
-  if (onboardingData.skinType === "Mixta") {
-    items = [
-      "Balanced cleanser",
-      "Hydrating serum",
-      "Light moisturizer",
-      "SPF"
-    ];
-  }
+if (onboardingData.skinType === "Mixta") {
+  items = [
+    "routine.dynamic.balancedCleanser",
+    "routine.dynamic.hydratingSerum",
+    "routine.dynamic.lightMoisturizer",
+    "routine.dynamic.spf"
+  ];
+}
 
-  if (onboardingData.skinType === "Normal") {
-    items = [
-      "Cleanser",
-      "Antioxidant serum",
-      "Moisturizer",
-      "SPF"
-    ];
-  }
+if (onboardingData.skinType === "Normal") {
+  items = [
+    "routine.dynamic.cleanser",
+    "routine.dynamic.antioxidant",
+    "routine.dynamic.moisturizer",
+    "routine.dynamic.spf"
+  ];
+}
+if (onboardingData.skinType === "Seca") {
+  items = [
+    "routine.dynamic.gentleCleanser",
+    "routine.dynamic.hydratingSerum",
+    "routine.dynamic.richMoisturizer",
+    "routine.dynamic.spf"
+  ];
+}
 
-  if (routine && items.length > 0) {
-    routine.innerHTML = items.map(item => `
-      <li><span class="check-circle"></span><span>${item}</span></li>
-    `).join("");
+if (onboardingData.skinType === "Grasa") {
+  items = [
+    "routine.dynamic.foamingCleanser",
+    "routine.dynamic.niacinamide",
+    "routine.dynamic.lightMoisturizer",
+    "routine.dynamic.spf"
+  ];
+}
+
+if (onboardingData.skinType === "Sensible") {
+  items = [
+    "routine.dynamic.ultraGentle",
+    "routine.dynamic.soothingSerum",
+    "routine.dynamic.barrierCream",
+    "routine.dynamic.spf"
+  ];
+}
+
+if (onboardingData.skinType === "Mixta") {
+  items = [
+    "routine.dynamic.balancedCleanser",
+    "routine.dynamic.hydratingSerum",
+    "routine.dynamic.lightMoisturizer",
+    "routine.dynamic.spf"
+  ];
+}
+
+if (onboardingData.skinType === "Normal") {
+  items = [
+    "routine.dynamic.cleanser",
+    "routine.dynamic.antioxidant",
+    "routine.dynamic.moisturizer",
+    "routine.dynamic.spf"
+  ];
+}
+
+if (routine && items.length > 0) {
+  routine.innerHTML = items.map(key => `
+    <li>
+      <span class="check-circle"></span>
+      <span data-i18n="${key}"></span>
+    </li>
+  `).join("");
+
+  if (window.applyTranslations) {
+    window.applyTranslations();
   }
 }
     
-  });
+});
+  
 </script>
   
 </body>
