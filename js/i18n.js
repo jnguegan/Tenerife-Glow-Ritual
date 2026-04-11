@@ -567,7 +567,15 @@ const translations = {
 "dashboard.profileNameLabel": "Nombre completo",
 "dashboard.profileEmailLabel": "Correo electrónico",
 "dashboard.profileSkinTypeLabel": "Tipo de piel",
-"dashboard.profileSensitivityLabel": "Sensibilidad"
+"dashboard.profileSensitivityLabel": "Sensibilidad",
+
+ "dashboard.photosEyebrow": "Progreso visual",
+"dashboard.photosTitle": "Antes y después",
+"dashboard.photoBeforePlaceholder": "Añadir foto inicial",
+"dashboard.photoAfterPlaceholder": "Añadir foto actual",
+"dashboard.uploadBefore": "Subir antes",
+"dashboard.uploadAfter": "Subir después",
+"dashboard.photoNote": "Añade una foto inicial y una foto actual para seguir tu evolución de forma visual."   
     
   },
 
@@ -1141,7 +1149,14 @@ const translations = {
 "dashboard.profileNameLabel": "Full name",
 "dashboard.profileEmailLabel": "Email",
 "dashboard.profileSkinTypeLabel": "Skin type",
-"dashboard.profileSensitivityLabel": "Sensitivity"
+"dashboard.profileSensitivityLabel": "Sensitivity",
+ "dashboard.photosEyebrow": "Visual progress",
+"dashboard.photosTitle": "Before and after",
+"dashboard.photoBeforePlaceholder": "Add initial photo",
+"dashboard.photoAfterPlaceholder": "Add current photo",
+"dashboard.uploadBefore": "Upload before",
+"dashboard.uploadAfter": "Upload after",
+"dashboard.photoNote": "Add an initial and a current photo to track your progress visually."   
 
   },
 
@@ -1686,7 +1701,14 @@ const translations = {
 "dashboard.profileNameLabel": "Nom complet",
 "dashboard.profileEmailLabel": "Adresse e-mail",
 "dashboard.profileSkinTypeLabel": "Type de peau",
-"dashboard.profileSensitivityLabel": "Sensibilité"
+"dashboard.profileSensitivityLabel": "Sensibilité",
+ "dashboard.photosEyebrow": "Progrès visuel",
+"dashboard.photosTitle": "Avant et après",
+"dashboard.photoBeforePlaceholder": "Ajouter une photo initiale",
+"dashboard.photoAfterPlaceholder": "Ajouter une photo actuelle",
+"dashboard.uploadBefore": "Télécharger avant",
+"dashboard.uploadAfter": "Télécharger après",
+"dashboard.photoNote": "Ajoutez une photo initiale et une photo actuelle pour suivre votre évolution visuellement."   
 
   },
 
@@ -2231,7 +2253,14 @@ const translations = {
 "dashboard.profileNameLabel": "Vollständiger Name",
 "dashboard.profileEmailLabel": "E-Mail",
 "dashboard.profileSkinTypeLabel": "Hauttyp",
-"dashboard.profileSensitivityLabel": "Empfindlichkeit"
+"dashboard.profileSensitivityLabel": "Empfindlichkeit",
+ "dashboard.photosEyebrow": "Visueller Fortschritt",
+"dashboard.photosTitle": "Vorher und nachher",
+"dashboard.photoBeforePlaceholder": "Startfoto hinzufügen",
+"dashboard.photoAfterPlaceholder": "Aktuelles Foto hinzufügen",
+"dashboard.uploadBefore": "Vorher hochladen",
+"dashboard.uploadAfter": "Nachher hochladen",
+"dashboard.photoNote": "Füge ein Start- und ein aktuelles Foto hinzu, um deinen Fortschritt visuell zu verfolgen."   
   }
 };
 
