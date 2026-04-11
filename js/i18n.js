@@ -395,7 +395,87 @@ const translations = {
 "signupFlow.text": "Primero crearás tu cuenta en Tenerife Glow Ritual. Después, serás redirigido a nuestra plataforma asociada, donde deberás crear una cuenta para realizar el análisis de piel con IA y comprar tu producto. Una vez completado, volverás aquí para comenzar tu ritual.",
     "signupFlow.text": "Primero crearás tu cuenta en Tenerife Glow Ritual. Después entrarás en tu panel, donde encontrarás el enlace para continuar a la plataforma de nuestro socio y realizar el análisis de piel y la compra del producto.",
 "signupForm.primary": "Crear mi cuenta",
-"signupForm.support": "Después de crear tu cuenta, entrarás en tu panel, donde encontrarás el enlace para continuar a la plataforma de nuestro socio y realizar el análisis de piel y la compra del producto."
+"signupForm.support": "Después de crear tu cuenta, entrarás en tu panel, donde encontrarás el enlace para continuar a la plataforma de nuestro socio y realizar el análisis de piel y la compra del producto.",
+  "onboarding.heroEyebrow": "Activa tu ritual",
+"onboarding.title": "Completa tu perfil ritual",
+"onboarding.subtitle": "Confirma tu compra, añade tus prioridades y configura la base de tu experiencia personalizada dentro de Tenerife Glow Ritual.",
+
+"onboarding.formEyebrow": "Configuración",
+"onboarding.formTitle": "Tu compra y tu ritual, en un solo lugar",
+
+"onboarding.purchaseEyebrow": "Confirmación de compra",
+"onboarding.purchaseTitle": "Confirma el producto adquirido",
+"onboarding.purchaseCopy": "Añade la referencia de tu pedido y el producto que compraste en la plataforma asociada. Esto nos ayuda a vincular correctamente tu ritual con tu compra.",
+"onboarding.productLabel": "Producto comprado",
+"onboarding.productPlaceholder": "Nombre del producto",
+"onboarding.orderRefLabel": "Referencia del pedido",
+"onboarding.orderRefPlaceholder": "Número de pedido o recibo",
+"onboarding.purchaseDateLabel": "Fecha de compra",
+"onboarding.amountLabel": "Importe pagado (opcional)",
+"onboarding.amountPlaceholder": "Ej. 89,00 €",
+"onboarding.purchaseConfirm": "Confirmo que esta compra se realizó en la plataforma asociada y que la referencia indicada corresponde a mi pedido.",
+
+"onboarding.profileEyebrow": "Perfil ritual",
+"onboarding.profileTitle": "Cuéntanos qué quieres mejorar",
+"onboarding.profileCopy": "Completa los datos principales de tu piel y de tu ritmo diario para que tu panel refleje mejor tus objetivos y tu constancia.",
+
+"onboarding.selectPlaceholder": "Selecciona una opción",
+"onboarding.skinType": "Tipo de piel",
+"onboarding.skin.normal": "Normal",
+"onboarding.skin.dry": "Seca",
+"onboarding.skin.oily": "Grasa",
+"onboarding.skin.combination": "Mixta",
+"onboarding.skin.sensitive": "Sensible",
+
+"onboarding.skinConcern": "Problema principal",
+"onboarding.skinConcernPlaceholder": "Deshidratación, textura, brotes...",
+
+"onboarding.goal": "Objetivo principal",
+"onboarding.goal.glow": "Luminosidad",
+"onboarding.goal.hydration": "Hidratación",
+"onboarding.goal.antiage": "Anti-edad",
+"onboarding.goal.acne": "Acné",
+"onboarding.goal.balance": "Equilibrio",
+
+"onboarding.sensitivity": "Nivel de sensibilidad",
+"onboarding.sensitivity.low": "Baja",
+"onboarding.sensitivity.medium": "Media",
+"onboarding.sensitivity.high": "Alta",
+
+"onboarding.time": "Tiempo diario disponible",
+"onboarding.time.short": "5 minutos",
+"onboarding.time.medium": "10 minutos",
+"onboarding.time.long": "20 minutos",
+
+"onboarding.level": "Nivel de rutina",
+"onboarding.level.basic": "Básico",
+"onboarding.level.intermediate": "Intermedio",
+"onboarding.level.advanced": "Avanzado",
+
+"onboarding.timeline": "Plazo que te gustaría seguir",
+"onboarding.timeline.30": "30 días",
+"onboarding.timeline.60": "60 días",
+"onboarding.timeline.90": "90 días",
+
+"onboarding.currentRoutine": "Rutina actual (opcional)",
+"onboarding.currentRoutinePlaceholder": "Cuéntanos qué usas ahora o cómo cuidas tu piel actualmente...",
+
+"onboarding.notes": "Notas adicionales (opcional)",
+"onboarding.notesPlaceholder": "Sensibilidad, preferencias, objetivos concretos o cualquier detalle importante...",
+
+"onboarding.submit": "Activar mi ritual",
+"onboarding.secondary": "Volver al panel",
+"onboarding.footerNote": "Una vez completado este paso, tu panel mostrará tu producto, tus prioridades y la estructura base de tu ritual.",
+
+"onboarding.sideEyebrow": "Qué conseguirás",
+"onboarding.sideTitle": "Un panel más claro y personalizado",
+"onboarding.sideItem1Title": "Compra vinculada",
+"onboarding.sideItem1Text": "Tu referencia de pedido quedará asociada a tu experiencia para que el ritual comience con la base correcta.",
+"onboarding.sideItem2Title": "Objetivos visibles",
+"onboarding.sideItem2Text": "Tu dashboard reflejará el problema que quieres resolver, tu objetivo principal y tu ritmo diario.",
+"onboarding.sideItem3Title": "Más estructura",
+"onboarding.sideItem3Text": "Tendrás una base más ordenada para tu seguimiento diario, tu progreso y tu evolución a lo largo del tiempo.",
+"onboarding.sideNote": "Este paso no sustituye el análisis de piel realizado en la plataforma asociada. Aquí organizamos tu ritual para que todo quede centralizado en Tenerife Glow Ritual."
     
   },
 
@@ -796,7 +876,88 @@ const translations = {
 "signupFlow.text": "First, you will create your account on Tenerife Glow Ritual. Then, you will be redirected to our partner platform, where you will need to create an account to complete your AI skin analysis and purchase your product. Once finished, you will return here to begin your ritual.",
 "signupFlow.text": "First, you will create your account on Tenerife Glow Ritual. Then you will enter your dashboard, where you will find the link to continue to our partner platform for skin analysis and product purchase.",
 "signupForm.primary": "Create my account",
-"signupForm.support": "After creating your account, you will enter your dashboard, where you will find the link to continue to our partner platform for skin analysis and product purchase."
+"signupForm.support": "After creating your account, you will enter your dashboard, where you will find the link to continue to our partner platform for skin analysis and product purchase.",
+
+  "onboarding.heroEyebrow": "Activate your ritual",
+"onboarding.title": "Complete your ritual profile",
+"onboarding.subtitle": "Confirm your purchase, add your priorities, and set the foundation for your personalised experience inside Tenerife Glow Ritual.",
+
+"onboarding.formEyebrow": "Setup",
+"onboarding.formTitle": "Your purchase and your ritual, in one place",
+
+"onboarding.purchaseEyebrow": "Purchase confirmation",
+"onboarding.purchaseTitle": "Confirm the product you purchased",
+"onboarding.purchaseCopy": "Add your order reference and the product you purchased on the partner platform. This helps us correctly connect your ritual to your purchase.",
+"onboarding.productLabel": "Purchased product",
+"onboarding.productPlaceholder": "Product name",
+"onboarding.orderRefLabel": "Order reference",
+"onboarding.orderRefPlaceholder": "Order or receipt number",
+"onboarding.purchaseDateLabel": "Purchase date",
+"onboarding.amountLabel": "Amount paid (optional)",
+"onboarding.amountPlaceholder": "e.g. €89.00",
+"onboarding.purchaseConfirm": "I confirm that this purchase was made on the partner platform and that the reference provided corresponds to my order.",
+
+"onboarding.profileEyebrow": "Ritual profile",
+"onboarding.profileTitle": "Tell us what you want to improve",
+"onboarding.profileCopy": "Complete the main details about your skin and your daily rhythm so your dashboard can reflect your goals and consistency more clearly.",
+
+"onboarding.selectPlaceholder": "Select an option",
+"onboarding.skinType": "Skin type",
+"onboarding.skin.normal": "Normal",
+"onboarding.skin.dry": "Dry",
+"onboarding.skin.oily": "Oily",
+"onboarding.skin.combination": "Combination",
+"onboarding.skin.sensitive": "Sensitive",
+
+"onboarding.skinConcern": "Main concern",
+"onboarding.skinConcernPlaceholder": "Dehydration, texture, breakouts...",
+
+"onboarding.goal": "Main goal",
+"onboarding.goal.glow": "Glow",
+"onboarding.goal.hydration": "Hydration",
+"onboarding.goal.antiage": "Anti-ageing",
+"onboarding.goal.acne": "Acne",
+"onboarding.goal.balance": "Balance",
+
+"onboarding.sensitivity": "Sensitivity level",
+"onboarding.sensitivity.low": "Low",
+"onboarding.sensitivity.medium": "Medium",
+"onboarding.sensitivity.high": "High",
+
+"onboarding.time": "Daily time available",
+"onboarding.time.short": "5 minutes",
+"onboarding.time.medium": "10 minutes",
+"onboarding.time.long": "20 minutes",
+
+"onboarding.level": "Routine level",
+"onboarding.level.basic": "Basic",
+"onboarding.level.intermediate": "Intermediate",
+"onboarding.level.advanced": "Advanced",
+
+"onboarding.timeline": "Timeline you would like to follow",
+"onboarding.timeline.30": "30 days",
+"onboarding.timeline.60": "60 days",
+"onboarding.timeline.90": "90 days",
+
+"onboarding.currentRoutine": "Current routine (optional)",
+"onboarding.currentRoutinePlaceholder": "Tell us what you are using now or how you currently care for your skin...",
+
+"onboarding.notes": "Additional notes (optional)",
+"onboarding.notesPlaceholder": "Sensitivity, preferences, specific goals, or any other important detail...",
+
+"onboarding.submit": "Activate my ritual",
+"onboarding.secondary": "Back to dashboard",
+"onboarding.footerNote": "Once this step is completed, your dashboard will display your product, your priorities, and the core structure of your ritual.",
+
+"onboarding.sideEyebrow": "What you will gain",
+"onboarding.sideTitle": "A clearer and more personalised dashboard",
+"onboarding.sideItem1Title": "Linked purchase",
+"onboarding.sideItem1Text": "Your order reference will be connected to your experience so the ritual begins on the right foundation.",
+"onboarding.sideItem2Title": "Visible goals",
+"onboarding.sideItem2Text": "Your dashboard will reflect the concern you want to address, your main goal, and your daily rhythm.",
+"onboarding.sideItem3Title": "More structure",
+"onboarding.sideItem3Text": "You will have a more organised base for daily tracking, progress, and visible evolution over time.",
+"onboarding.sideNote": "This step does not replace the skin analysis completed on the partner platform. Here, we organise your ritual so everything is centralised inside Tenerife Glow Ritual."
 
   },
 
@@ -1168,7 +1329,88 @@ const translations = {
 
 "signupFlow.text": "Vous allez d'abord créer votre compte sur Tenerife Glow Ritual. Ensuite, vous accéderez à votre tableau de bord, où vous trouverez le lien pour continuer vers la plateforme de notre partenaire afin de réaliser l’analyse de peau et l’achat du produit.",
 "signupForm.primary": "Créer mon compte",
-"signupForm.support": "Après avoir créé votre compte, vous accéderez à votre tableau de bord, où vous trouverez le lien pour continuer vers la plateforme de notre partenaire afin de réaliser l’analyse de peau et l’achat du produit."
+"signupForm.support": "Après avoir créé votre compte, vous accéderez à votre tableau de bord, où vous trouverez le lien pour continuer vers la plateforme de notre partenaire afin de réaliser l’analyse de peau et l’achat du produit.",
+
+"onboarding.heroEyebrow": "Activez votre rituel",
+"onboarding.title": "Complétez votre profil rituel",
+"onboarding.subtitle": "Confirmez votre achat, ajoutez vos priorités et posez les bases de votre expérience personnalisée dans Tenerife Glow Ritual.",
+
+"onboarding.formEyebrow": "Configuration",
+"onboarding.formTitle": "Votre achat et votre rituel, réunis en un seul endroit",
+
+"onboarding.purchaseEyebrow": "Confirmation d’achat",
+"onboarding.purchaseTitle": "Confirmez le produit acheté",
+"onboarding.purchaseCopy": "Ajoutez la référence de votre commande ainsi que le produit acheté sur la plateforme partenaire. Cela nous aide à relier correctement votre rituel à votre achat.",
+"onboarding.productLabel": "Produit acheté",
+"onboarding.productPlaceholder": "Nom du produit",
+"onboarding.orderRefLabel": "Référence de commande",
+"onboarding.orderRefPlaceholder": "Numéro de commande ou de reçu",
+"onboarding.purchaseDateLabel": "Date d’achat",
+"onboarding.amountLabel": "Montant payé (optionnel)",
+"onboarding.amountPlaceholder": "Ex. 89,00 €",
+"onboarding.purchaseConfirm": "Je confirme que cet achat a été effectué sur la plateforme partenaire et que la référence indiquée correspond à ma commande.",
+
+"onboarding.profileEyebrow": "Profil rituel",
+"onboarding.profileTitle": "Dites-nous ce que vous souhaitez améliorer",
+"onboarding.profileCopy": "Complétez les principales informations sur votre peau et votre rythme quotidien afin que votre tableau de bord reflète mieux vos objectifs et votre régularité.",
+
+"onboarding.selectPlaceholder": "Sélectionnez une option",
+"onboarding.skinType": "Type de peau",
+"onboarding.skin.normal": "Normale",
+"onboarding.skin.dry": "Sèche",
+"onboarding.skin.oily": "Grasse",
+"onboarding.skin.combination": "Mixte",
+"onboarding.skin.sensitive": "Sensible",
+
+"onboarding.skinConcern": "Problème principal",
+"onboarding.skinConcernPlaceholder": "Déshydratation, texture, imperfections...",
+
+"onboarding.goal": "Objectif principal",
+"onboarding.goal.glow": "Éclat",
+"onboarding.goal.hydration": "Hydratation",
+"onboarding.goal.antiage": "Anti-âge",
+"onboarding.goal.acne": "Acné",
+"onboarding.goal.balance": "Équilibre",
+
+"onboarding.sensitivity": "Niveau de sensibilité",
+"onboarding.sensitivity.low": "Faible",
+"onboarding.sensitivity.medium": "Moyen",
+"onboarding.sensitivity.high": "Élevé",
+
+"onboarding.time": "Temps disponible par jour",
+"onboarding.time.short": "5 minutes",
+"onboarding.time.medium": "10 minutes",
+"onboarding.time.long": "20 minutes",
+
+"onboarding.level": "Niveau de routine",
+"onboarding.level.basic": "Basique",
+"onboarding.level.intermediate": "Intermédiaire",
+"onboarding.level.advanced": "Avancé",
+
+"onboarding.timeline": "Durée que vous souhaitez suivre",
+"onboarding.timeline.30": "30 jours",
+"onboarding.timeline.60": "60 jours",
+"onboarding.timeline.90": "90 jours",
+
+"onboarding.currentRoutine": "Routine actuelle (optionnel)",
+"onboarding.currentRoutinePlaceholder": "Dites-nous ce que vous utilisez actuellement ou comment vous prenez soin de votre peau aujourd’hui...",
+
+"onboarding.notes": "Notes complémentaires (optionnel)",
+"onboarding.notesPlaceholder": "Sensibilité, préférences, objectifs précis ou tout autre détail important...",
+
+"onboarding.submit": "Activer mon rituel",
+"onboarding.secondary": "Retour au tableau de bord",
+"onboarding.footerNote": "Une fois cette étape terminée, votre tableau de bord affichera votre produit, vos priorités et la structure de base de votre rituel.",
+
+"onboarding.sideEyebrow": "Ce que vous allez obtenir",
+"onboarding.sideTitle": "Un tableau de bord plus clair et plus personnalisé",
+"onboarding.sideItem1Title": "Achat lié",
+"onboarding.sideItem1Text": "La référence de votre commande sera associée à votre expérience afin que le rituel commence sur la bonne base.",
+"onboarding.sideItem2Title": "Objectifs visibles",
+"onboarding.sideItem2Text": "Votre tableau de bord reflétera le problème que vous souhaitez traiter, votre objectif principal et votre rythme quotidien.",
+"onboarding.sideItem3Title": "Plus de structure",
+"onboarding.sideItem3Text": "Vous disposerez d’une base plus organisée pour votre suivi quotidien, vos progrès et votre évolution visible dans le temps.",
+"onboarding.sideNote": "Cette étape ne remplace pas l’analyse de peau réalisée sur la plateforme partenaire. Ici, nous organisons votre rituel afin que tout soit centralisé dans Tenerife Glow Ritual."
 
   },
 
@@ -1540,7 +1782,88 @@ const translations = {
 
 "signupFlow.text": "Zuerst erstellst du dein Konto bei Tenerife Glow Ritual. Danach gelangst du zu deinem Dashboard, wo du den Link findest, um zur Plattform unseres Partners für Hautanalyse und Produktkauf weiterzugehen.",
 "signupForm.primary": "Mein Konto erstellen",
-"signupForm.support": "Nach der Erstellung deines Kontos gelangst du zu deinem Dashboard. Dort findest du den Link, um zur Plattform unseres Partners für Hautanalyse und Produktkauf weiterzugehen."
+"signupForm.support": "Nach der Erstellung deines Kontos gelangst du zu deinem Dashboard. Dort findest du den Link, um zur Plattform unseres Partners für Hautanalyse und Produktkauf weiterzugehen.",
+
+"onboarding.heroEyebrow": "Aktiviere dein Ritual",
+"onboarding.title": "Vervollständige dein Ritualprofil",
+"onboarding.subtitle": "Bestätige deinen Kauf, füge deine Prioritäten hinzu und lege die Grundlage für dein personalisiertes Erlebnis in Tenerife Glow Ritual fest.",
+
+"onboarding.formEyebrow": "Einrichtung",
+"onboarding.formTitle": "Dein Kauf und dein Ritual an einem Ort",
+
+"onboarding.purchaseEyebrow": "Kaufbestätigung",
+"onboarding.purchaseTitle": "Bestätige das gekaufte Produkt",
+"onboarding.purchaseCopy": "Füge deine Bestellreferenz und das Produkt hinzu, das du auf der Partnerplattform gekauft hast. So können wir dein Ritual korrekt mit deinem Kauf verknüpfen.",
+"onboarding.productLabel": "Gekauftes Produkt",
+"onboarding.productPlaceholder": "Produktname",
+"onboarding.orderRefLabel": "Bestellreferenz",
+"onboarding.orderRefPlaceholder": "Bestell- oder Belegnummer",
+"onboarding.purchaseDateLabel": "Kaufdatum",
+"onboarding.amountLabel": "Bezahlter Betrag (optional)",
+"onboarding.amountPlaceholder": "z. B. 89,00 €",
+"onboarding.purchaseConfirm": "Ich bestätige, dass dieser Kauf auf der Partnerplattform getätigt wurde und dass die angegebene Referenz meiner Bestellung entspricht.",
+
+"onboarding.profileEyebrow": "Ritualprofil",
+"onboarding.profileTitle": "Sag uns, was du verbessern möchtest",
+"onboarding.profileCopy": "Ergänze die wichtigsten Angaben zu deiner Haut und deinem Tagesrhythmus, damit dein Dashboard deine Ziele und deine Beständigkeit besser widerspiegelt.",
+
+"onboarding.selectPlaceholder": "Wähle eine Option",
+"onboarding.skinType": "Hauttyp",
+"onboarding.skin.normal": "Normal",
+"onboarding.skin.dry": "Trocken",
+"onboarding.skin.oily": "Fettig",
+"onboarding.skin.combination": "Mischhaut",
+"onboarding.skin.sensitive": "Empfindlich",
+
+"onboarding.skinConcern": "Hauptproblem",
+"onboarding.skinConcernPlaceholder": "Feuchtigkeitsmangel, Textur, Unreinheiten...",
+
+"onboarding.goal": "Hauptziel",
+"onboarding.goal.glow": "Ausstrahlung",
+"onboarding.goal.hydration": "Feuchtigkeit",
+"onboarding.goal.antiage": "Anti-Aging",
+"onboarding.goal.acne": "Akne",
+"onboarding.goal.balance": "Ausgleich",
+
+"onboarding.sensitivity": "Empfindlichkeitsstufe",
+"onboarding.sensitivity.low": "Niedrig",
+"onboarding.sensitivity.medium": "Mittel",
+"onboarding.sensitivity.high": "Hoch",
+
+"onboarding.time": "Täglich verfügbare Zeit",
+"onboarding.time.short": "5 Minuten",
+"onboarding.time.medium": "10 Minuten",
+"onboarding.time.long": "20 Minuten",
+
+"onboarding.level": "Routineniveau",
+"onboarding.level.basic": "Basis",
+"onboarding.level.intermediate": "Mittelstufe",
+"onboarding.level.advanced": "Fortgeschritten",
+
+"onboarding.timeline": "Zeitraum, dem du folgen möchtest",
+"onboarding.timeline.30": "30 Tage",
+"onboarding.timeline.60": "60 Tage",
+"onboarding.timeline.90": "90 Tage",
+
+"onboarding.currentRoutine": "Aktuelle Routine (optional)",
+"onboarding.currentRoutinePlaceholder": "Erzähle uns, was du derzeit verwendest oder wie du deine Haut aktuell pflegst...",
+
+"onboarding.notes": "Zusätzliche Notizen (optional)",
+"onboarding.notesPlaceholder": "Empfindlichkeit, Vorlieben, konkrete Ziele oder andere wichtige Details...",
+
+"onboarding.submit": "Mein Ritual aktivieren",
+"onboarding.secondary": "Zurück zum Dashboard",
+"onboarding.footerNote": "Sobald dieser Schritt abgeschlossen ist, zeigt dein Dashboard dein Produkt, deine Prioritäten und die Grundstruktur deines Rituals an.",
+
+"onboarding.sideEyebrow": "Was du gewinnen wirst",
+"onboarding.sideTitle": "Ein klareres und persönlicheres Dashboard",
+"onboarding.sideItem1Title": "Verknüpfter Kauf",
+"onboarding.sideItem1Text": "Deine Bestellreferenz wird mit deinem Erlebnis verknüpft, damit dein Ritual auf der richtigen Grundlage beginnt.",
+"onboarding.sideItem2Title": "Sichtbare Ziele",
+"onboarding.sideItem2Text": "Dein Dashboard zeigt das Problem, das du angehen möchtest, dein Hauptziel und deinen täglichen Rhythmus.",
+"onboarding.sideItem3Title": "Mehr Struktur",
+"onboarding.sideItem3Text": "Du erhältst eine besser organisierte Grundlage für dein tägliches Tracking, deinen Fortschritt und deine sichtbare Entwicklung im Laufe der Zeit.",
+"onboarding.sideNote": "Dieser Schritt ersetzt nicht die Hautanalyse auf der Partnerplattform. Hier organisieren wir dein Ritual, damit alles in Tenerife Glow Ritual zentralisiert bleibt."
   }
 };
 
