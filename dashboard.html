@@ -505,6 +505,39 @@
           </section>
 
           <section class="card dashboard-card">
+  <div class="card-header">
+    <p class="eyebrow" data-i18n="dashboard.photosEyebrow">Progreso visual</p>
+    <h3 data-i18n="dashboard.photosTitle">Antes y después</h3>
+  </div>
+
+  <div class="photo-grid">
+    <div class="photo-box">
+      <div class="photo-preview" id="beforePreview">
+        <span data-i18n="dashboard.photoBeforePlaceholder">Añadir foto inicial</span>
+      </div>
+      <input type="file" id="beforeInput" accept="image/*" hidden />
+      <button class="dashboard-secondary-btn" onclick="document.getElementById('beforeInput').click()" data-i18n="dashboard.uploadBefore">
+        Subir antes
+      </button>
+    </div>
+
+    <div class="photo-box">
+      <div class="photo-preview" id="afterPreview">
+        <span data-i18n="dashboard.photoAfterPlaceholder">Añadir foto actual</span>
+      </div>
+      <input type="file" id="afterInput" accept="image/*" hidden />
+      <button class="dashboard-secondary-btn" onclick="document.getElementById('afterInput').click()" data-i18n="dashboard.uploadAfter">
+        Subir después
+      </button>
+    </div>
+  </div>
+
+  <p class="dashboard-note" data-i18n="dashboard.photoNote">
+    Añade una foto inicial y una foto actual para seguir tu evolución de forma visual.
+  </p>
+</section>
+
+          <section class="card dashboard-card">
             <div class="card-header">
               <p class="eyebrow" data-i18n="dashboard.productEyebrow">Producto</p>
               <h3 data-i18n="dashboard.productTitle">Compra y referencia</h3>
