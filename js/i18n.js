@@ -392,7 +392,10 @@ const translations = {
 "journey.step4": "4. Sigue tu progreso y construye resultados visibles con constancia",
 "journey.note": "El análisis de piel y la compra de productos se realizan en una plataforma externa segura. Tenerife Glow Ritual es tu espacio para seguir tu ritual y tu evolución.",
 "journey.visual": "Análisis de piel → Producto → Ritual",
-"signupFlow.text": "Primero crearás tu cuenta en Tenerife Glow Ritual. Después, serás redirigido a nuestra plataforma asociada, donde deberás crear una cuenta para realizar el análisis de piel con IA y comprar tu producto. Una vez completado, volverás aquí para comenzar tu ritual."
+"signupFlow.text": "Primero crearás tu cuenta en Tenerife Glow Ritual. Después, serás redirigido a nuestra plataforma asociada, donde deberás crear una cuenta para realizar el análisis de piel con IA y comprar tu producto. Una vez completado, volverás aquí para comenzar tu ritual.",
+    "signupFlow.text": "Primero crearás tu cuenta en Tenerife Glow Ritual. Después entrarás en tu panel, donde encontrarás el enlace para continuar a la plataforma de nuestro socio y realizar el análisis de piel y la compra del producto.",
+"signupForm.primary": "Crear mi cuenta",
+"signupForm.support": "Después de crear tu cuenta, entrarás en tu panel, donde encontrarás el enlace para continuar a la plataforma de nuestro socio y realizar el análisis de piel y la compra del producto."
     
   },
 
@@ -790,7 +793,11 @@ const translations = {
 "journey.note": "Skin analysis and product purchase are completed on a secure external platform. Tenerife Glow Ritual is your space to follow your ritual and track your progress.",
 "journey.visual": "Skin analysis → Product → Ritual",
 
-"signupFlow.text": "First, you will create your account on Tenerife Glow Ritual. Then, you will be redirected to our partner platform, where you will need to create an account to complete your AI skin analysis and purchase your product. Once finished, you will return here to begin your ritual."
+"signupFlow.text": "First, you will create your account on Tenerife Glow Ritual. Then, you will be redirected to our partner platform, where you will need to create an account to complete your AI skin analysis and purchase your product. Once finished, you will return here to begin your ritual.",
+"signupFlow.text": "First, you will create your account on Tenerife Glow Ritual. Then you will enter your dashboard, where you will find the link to continue to our partner platform for skin analysis and product purchase.",
+"signupForm.primary": "Create my account",
+"signupForm.support": "After creating your account, you will enter your dashboard, where you will find the link to continue to our partner platform for skin analysis and product purchase."
+
   },
 
   fr: {
@@ -1157,7 +1164,12 @@ const translations = {
 "journey.note": "L’analyse de peau et l’achat de produits se font sur une plateforme externe sécurisée. Tenerife Glow Ritual est votre espace pour suivre votre rituel et votre évolution.",
 "journey.visual": "Analyse de peau → Produit → Rituel",
 
-"signupFlow.text": "Vous allez d'abord créer votre compte sur Tenerife Glow Ritual. Ensuite, vous serez redirigé vers notre plateforme partenaire, où vous devrez créer un compte pour réaliser votre analyse de peau par IA et acheter votre produit. Une fois terminé, vous reviendrez ici pour commencer votre rituel."
+"signupFlow.text": "Vous allez d'abord créer votre compte sur Tenerife Glow Ritual. Ensuite, vous serez redirigé vers notre plateforme partenaire, où vous devrez créer un compte pour réaliser votre analyse de peau par IA et acheter votre produit. Une fois terminé, vous reviendrez ici pour commencer votre rituel.",
+
+"signupFlow.text": "Vous allez d'abord créer votre compte sur Tenerife Glow Ritual. Ensuite, vous accéderez à votre tableau de bord, où vous trouverez le lien pour continuer vers la plateforme de notre partenaire afin de réaliser l’analyse de peau et l’achat du produit.",
+"signupForm.primary": "Créer mon compte",
+"signupForm.support": "Après avoir créé votre compte, vous accéderez à votre tableau de bord, où vous trouverez le lien pour continuer vers la plateforme de notre partenaire afin de réaliser l’analyse de peau et l’achat du produit."
+
   },
 
   de: {
@@ -1524,7 +1536,11 @@ const translations = {
 "journey.note": "Hautanalyse und Produktkauf erfolgen über eine sichere externe Plattform. Tenerife Glow Ritual ist dein Raum, um dein Ritual und deinen Fortschritt zu verfolgen.",
 "journey.visual": "Hautanalyse → Produkt → Ritual",
 
-"signupFlow.text": "Zuerst erstellen Sie Ihr Konto bei Tenerife Glow Ritual. Anschließend werden Sie zu unserer Partnerplattform weitergeleitet, wo Sie ein Konto erstellen müssen, um Ihre KI-Hautanalyse durchzuführen und Ihr Produkt zu kaufen. Nach Abschluss kehren Sie hierher zurück, um Ihr Ritual zu beginnen."
+"signupFlow.text": "Zuerst erstellen Sie Ihr Konto bei Tenerife Glow Ritual. Anschließend werden Sie zu unserer Partnerplattform weitergeleitet, wo Sie ein Konto erstellen müssen, um Ihre KI-Hautanalyse durchzuführen und Ihr Produkt zu kaufen. Nach Abschluss kehren Sie hierher zurück, um Ihr Ritual zu beginnen.",
+
+"signupFlow.text": "Zuerst erstellst du dein Konto bei Tenerife Glow Ritual. Danach gelangst du zu deinem Dashboard, wo du den Link findest, um zur Plattform unseres Partners für Hautanalyse und Produktkauf weiterzugehen.",
+"signupForm.primary": "Mein Konto erstellen",
+"signupForm.support": "Nach der Erstellung deines Kontos gelangst du zu deinem Dashboard. Dort findest du den Link, um zur Plattform unseres Partners für Hautanalyse und Produktkauf weiterzugehen."
   }
 };
 
