@@ -310,35 +310,30 @@
     </main>
   </div>
 
-  <script src="js/i18n.js"></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const form = document.getElementById("signupForm");
+<script src="js/i18n.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("signupForm");
 
-      if (!form) return;
+    if (!form) return;
 
-      form.addEventListener("submit", function (e) {
-        e.preventDefault();
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
 
-        const fullName = document.getElementById("fullName")?.value || "";
-        const email = document.getElementById("signupEmail")?.value || "";
-        const skinGoal = document.getElementById("skinGoal")?.value || "";
+      const fullName = document.getElementById("fullName")?.value || "";
+      const email = document.getElementById("signupEmail")?.value || "";
+      const skinGoal = document.getElementById("skinGoal")?.value || "";
 
-        localStorage.setItem("tgr-auth", "true");
-        localStorage.setItem("tgr-analysis-started", "true");
-        localStorage.setItem("tgr-user", JSON.stringify({
-          fullName,
-          email,
-          skinGoal
-        }));
+      localStorage.setItem("tgr-auth", "true");
+      localStorage.setItem("tgr-user", JSON.stringify({
+        fullName,
+        email,
+        skinGoal
+      }));
 
-        const currentLang = localStorage.getItem("tgr-language") || "es";
-        const returnUrl = `${window.location.origin}/onboarding.html?from=analysis&lang=${encodeURIComponent(currentLang)}`;
-        const analysisUrl = `https://www.simonourianmd.com/BBF/?ref=tgr&return_url=${encodeURIComponent(returnUrl)}&lang=${encodeURIComponent(currentLang)}`;
-
-        window.location.href = analysisUrl;
-      });
+      window.location.href = "dashboard.html";
     });
-  </script>
+  });
+</script>
 </body>
 </html>
