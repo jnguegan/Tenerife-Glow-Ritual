@@ -383,7 +383,15 @@ const translations = {
 "routine.dynamic.balancedCleanser": "Limpiador equilibrante",
 "routine.dynamic.cleanser": "Limpiador",
 "routine.dynamic.antioxidant": "Sérum antioxidante",
-"routine.dynamic.moisturizer": "Hidratante"
+"routine.dynamic.moisturizer": "Hidratante",
+    "journey.eyebrow": "Tu camino",
+"journey.title": "Cómo funciona tu ritual",
+"journey.step1": "1. Descubre tu piel con un análisis avanzado con IA",
+"journey.step2": "2. Recibe tu recomendación personalizada y compra en nuestra plataforma asociada",
+"journey.step3": "3. Vuelve a Tenerife Glow Ritual para seguir tu rutina diaria",
+"journey.step4": "4. Sigue tu progreso y construye resultados visibles con constancia",
+"journey.note": "El análisis de piel y la compra de productos se realizan en una plataforma externa segura. Tenerife Glow Ritual es tu espacio para seguir tu ritual y tu evolución.",
+"journey.visual": "Análisis de piel → Producto → Ritual"
   },
 
   en: {
@@ -770,7 +778,15 @@ const translations = {
 "routine.dynamic.balancedCleanser": "Balanced cleanser",
 "routine.dynamic.cleanser": "Cleanser",
 "routine.dynamic.antioxidant": "Antioxidant serum",
-"routine.dynamic.moisturizer": "Moisturizer"
+"routine.dynamic.moisturizer": "Moisturizer",
+    "journey.eyebrow": "Your journey",
+"journey.title": "How your ritual works",
+"journey.step1": "1. Discover your skin with an advanced AI analysis",
+"journey.step2": "2. Receive your personalized recommendation and purchase on our partner platform",
+"journey.step3": "3. Return to Tenerife Glow Ritual to follow your daily routine",
+"journey.step4": "4. Track your progress and build visible results through consistency",
+"journey.note": "Skin analysis and product purchase are completed on a secure external platform. Tenerife Glow Ritual is your space to follow your ritual and track your progress.",
+"journey.visual": "Skin analysis → Product → Ritual"
   },
 
   fr: {
@@ -1127,7 +1143,15 @@ const translations = {
 "routine.dynamic.balancedCleanser": "Nettoyant équilibrant",
 "routine.dynamic.cleanser": "Nettoyant",
 "routine.dynamic.antioxidant": "Sérum antioxydant",
-"routine.dynamic.moisturizer": "Hydratant"
+"routine.dynamic.moisturizer": "Hydratant",
+    "journey.eyebrow": "Votre parcours",
+"journey.title": "Comment fonctionne votre rituel",
+"journey.step1": "1. Découvrez votre peau grâce à une analyse avancée par IA",
+"journey.step2": "2. Recevez votre recommandation personnalisée et achetez sur notre plateforme partenaire",
+"journey.step3": "3. Revenez sur Tenerife Glow Ritual pour suivre votre routine quotidienne",
+"journey.step4": "4. Suivez votre progression et obtenez des résultats visibles grâce à la constance",
+"journey.note": "L’analyse de peau et l’achat de produits se font sur une plateforme externe sécurisée. Tenerife Glow Ritual est votre espace pour suivre votre rituel et votre évolution.",
+"journey.visual": "Analyse de peau → Produit → Rituel"
   },
 
   de: {
@@ -1484,7 +1508,15 @@ const translations = {
 "routine.dynamic.balancedCleanser": "Ausgleichender Reiniger",
 "routine.dynamic.cleanser": "Reiniger",
 "routine.dynamic.antioxidant": "Antioxidatives Serum",
-"routine.dynamic.moisturizer": "Feuchtigkeitscreme"
+"routine.dynamic.moisturizer": "Feuchtigkeitscreme",
+    "journey.eyebrow": "Dein Weg",
+"journey.title": "So funktioniert dein Ritual",
+"journey.step1": "1. Entdecke deine Haut mit einer fortschrittlichen KI-Analyse",
+"journey.step2": "2. Erhalte deine personalisierte Empfehlung und kaufe über unsere Partnerplattform",
+"journey.step3": "3. Kehre zu Tenerife Glow Ritual zurück und folge deiner täglichen Routine",
+"journey.step4": "4. Verfolge deinen Fortschritt und erziele sichtbare Ergebnisse durch Konsistenz",
+"journey.note": "Hautanalyse und Produktkauf erfolgen über eine sichere externe Plattform. Tenerife Glow Ritual ist dein Raum, um dein Ritual und deinen Fortschritt zu verfolgen.",
+"journey.visual": "Hautanalyse → Produkt → Ritual"
   }
 };
 
