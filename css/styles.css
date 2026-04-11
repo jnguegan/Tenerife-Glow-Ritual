@@ -882,6 +882,128 @@ blockquote {
     width: 100%;
   }
 }
+/* AUTH PAGES ONLY — SAFE ADD-ON */
 
+.auth-card,
+.auth-side-card {
+  align-self: start;
+}
+
+.auth-form {
+  display: grid;
+  gap: 0;
+}
+
+.auth-form .field-group {
+  margin-top: 0;
+  margin-bottom: 18px;
+}
+
+.auth-form .field-label {
+  margin-bottom: 10px;
+}
+
+.auth-form .styled-input {
+  width: 100%;
+  min-height: 54px;
+  padding: 15px 18px;
+  border-radius: 18px;
+  border: 1px solid rgba(169, 152, 132, 0.24);
+  background: rgba(255, 255, 255, 0.9);
+  font: inherit;
+  color: var(--text);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+.auth-form .styled-input::placeholder {
+  color: #9b8577;
+}
+
+.auth-form .styled-input:focus {
+  border-color: rgba(201, 122, 90, 0.42);
+  box-shadow:
+    0 0 0 4px rgba(201, 122, 90, 0.08),
+    0 10px 24px rgba(84, 66, 49, 0.05);
+}
+
+.auth-form .check-grid {
+  gap: 12px;
+  margin: 6px 0 10px;
+}
+
+.auth-form .check-item {
+  align-items: center;
+  gap: 12px;
+  line-height: 1.5;
+}
+
+.auth-form .check-item input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+  margin: 0;
+}
+
+.auth-form .hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+
+.auth-form .btn,
+.auth-form button[type="submit"],
+.auth-form a.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 12px 20px;
+  border-radius: 999px;
+  font: inherit;
+  font-size: 0.96rem;
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.auth-form button[type="submit"] {
+  border: 1px solid rgba(201, 122, 90, 0.24);
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--accent-deep);
+  box-shadow: 0 6px 18px rgba(84, 66, 49, 0.06);
+}
+
+.auth-form button[type="submit"]:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 1);
+}
+
+.auth-form .support-text {
+  margin-top: 12px;
+  line-height: 1.7;
+}
+
+.auth-side-card .check-grid {
+  gap: 16px;
+}
+
+.auth-side-card .soft-panel {
+  border-radius: 20px;
+}
+
+@media (max-width: 640px) {
+  .auth-form .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .auth-form .btn,
+  .auth-form button[type="submit"],
+  .auth-form a.btn {
+    width: 100%;
+  }
+}
 
 
