@@ -597,347 +597,331 @@
 
   <script src="js/i18n.js"></script>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const isAuth = localStorage.getItem("tgr-auth") === "true";
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const isAuth = localStorage.getItem("tgr-auth") === "true";
 
-      if (!isAuth) {
-        window.location.href = "login.html";
-        return;
+    if (!isAuth) {
+      window.location.href = "login.html";
+      return;
+    }
+
+    const user = JSON.parse(localStorage.getItem("tgr-user") || "{}");
+    const onboarding = JSON.parse(localStorage.getItem("tgr-onboarding-data") || "{}");
+    const purchase = JSON.parse(localStorage.getItem("tgr-purchase") || "{}");
+
+    const partnerDone = localStorage.getItem("tgr-partner-complete") === "true";
+    const onboardingDone = localStorage.getItem("tgr-onboarding-complete") === "true";
+
+    const t = (key, fallback = "") => {
+      const currentLang = localStorage.getItem("tgr-language") || "es";
+
+      if (
+        window.translations &&
+        window.translations[currentLang] &&
+        window.translations[currentLang][key]
+      ) {
+        return window.translations[currentLang][key];
       }
 
-      const user = JSON.parse(localStorage.getItem("tgr-user") || "{}");
-      const onboarding = JSON.parse(localStorage.getItem("tgr-onboarding-data") || "{}");
-      const purchase = JSON.parse(localStorage.getItem("tgr-purchase") || "{}");
-
-      const partnerDone = localStorage.getItem("tgr-partner-complete") === "true";
-      const onboardingDone = localStorage.getItem("tgr-onboarding-complete") === "true";
-
-      const t = (key, fallback) => {
-        try {
-          const currentLang = localStorage.getItem("tgr-language") || "es";
-          if (window.translations && window.translations[currentLang] && window.translations[currentLang][key]) {
-            return window.translations[currentLang][key];
-          }
-        } catch (e) {}
-        return fallback;
-      };
-
-      const safe = (value) => value && String(value).trim() ? value : "—";
-
-      const formatGoal = () => {
-        const goal = onboarding.goal || user.skinGoal || "";
-        const map = {
-          glow: t("onboarding.goal.glow", "Luminosidad"),
-          hydration: t("onboarding.goal.hydration", "Hidratación"),
-          antiage: t("onboarding.goal.antiage", "Anti-edad"),
-          acne: t("onboarding.goal.acne", "Acné"),
-          balance: t("onboarding.goal.balance", "Equilibrio")
-        };
-        return map[goal] || safe(goal);
-      };
-
-      const formatTime = () => {
-        const time = onboarding.time || "";
-        const map = {
-          "5": t("onboarding.time.short", "5 minutos"),
-          "10": t("onboarding.time.medium", "10 minutos"),
-          "20": t("onboarding.time.long", "20 minutos")
-        };
-        return map[time] || "—";
-      };
-
-      const formatLevel = () => {
-        const level = onboarding.level || "";
-        const map = {
-          basic: t("onboarding.level.basic", "Básico"),
-          intermediate: t("onboarding.level.intermediate", "Intermedio"),
-          advanced: t("onboarding.level.advanced", "Avanzado")
-        };
-        return map[level] || "—";
-      };
-
-      const formatSkinType = () => {
-        const skinType = onboarding.skinType || "";
-        const map = {
-          normal: t("onboarding.skin.normal", "Normal"),
-          dry: t("onboarding.skin.dry", "Seca"),
-          oily: t("onboarding.skin.oily", "Grasa"),
-          combination: t("onboarding.skin.combination", "Mixta"),
-          sensitive: t("onboarding.skin.sensitive", "Sensible")
-        };
-        return map[skinType] || "—";
-      };
-
-      const formatSensitivity = () => {
-        const sensitivity = onboarding.sensitivity || "";
-        const map = {
-          low: t("onboarding.sensitivity.low", "Baja"),
-          medium: t("onboarding.sensitivity.medium", "Media"),
-          high: t("onboarding.sensitivity.high", "Alta")
-        };
-        return map[sensitivity] || "—";
-      };
-
-      const formatTimeline = () => {
-        const timeline = onboarding.timeline || "";
-        const map = {
-          "30": t("onboarding.timeline.30", "30 días"),
-          "60": t("onboarding.timeline.60", "60 días"),
-          "90": t("onboarding.timeline.90", "90 días")
-        };
-        return map[timeline] || "—";
-      };
-
-      const setText = (id, value) => {
-        const el = document.getElementById(id);
-        if (el) el.textContent = value;
-      };
-
-      setText("quickName", safe(user.fullName));
-      setText("quickGoal", formatGoal());
-      setText("quickProduct", safe(purchase.productName || onboarding.productName));
-      setText("quickTime", formatTime());
-
-      setText(
-        "metricPurchase",
-        partnerDone
-          ? t("dashboard.metricPurchaseDone", "Confirmada")
-          : t("dashboard.metricPurchasePending", "Pendiente")
-      );
-
-      setText(
-        "metricOnboarding",
-        onboardingDone
-          ? t("dashboard.metricOnboardingDone", "Completa")
-          : t("dashboard.metricOnboardingPending", "Pendiente")
-      );
-
-      setText("metricTime", formatTime());
-      setText("metricGoal", formatGoal());
-
-      const statusTitle = document.getElementById("statusTitle");
-      const statusCopy = document.getElementById("statusCopy");
-      const statusActions = document.getElementById("statusActions");
-      const statusNote = document.getElementById("statusNote");
-
-      const ritualSteps = document.getElementById("ritualSteps");
-      const dailyBlock = document.getElementById("dailyBlock");
-      const progressBlock = document.getElementById("progressBlock");
-      const productBlock = document.getElementById("productBlock");
-      const actionLinks = document.getElementById("actionLinks");
-      const profileBlock = document.getElementById("profileBlock");
-
-      const userName = user.fullName ? `, ${user.fullName}` : "";
-
-      if (!partnerDone) {
-        statusTitle.textContent = t("dashboard.state1Title", "Tu siguiente paso está claro") + userName;
-        statusCopy.textContent = t(
-          "dashboard.state1Copy",
-          "Todavía no has confirmado una compra en la plataforma asociada. Cuando estés lista, continúa al análisis de piel y a la compra del producto para después volver aquí."
-        );
-        statusActions.innerHTML = `
-          <a class="dashboard-primary-btn" href="https://www.simonourianmd.com/BBF/?ref=tgr" target="_blank" rel="noopener" data-i18n="dashboard.state1Primary">
-            Comenzar análisis de piel
-          </a>
-          <a class="dashboard-secondary-btn" href="index.html" data-i18n="dashboard.state1Secondary">
-            Volver al inicio
-          </a>
-        `;
-        statusNote.textContent = t(
-          "dashboard.state1Note",
-          "Después de completar tu compra en la plataforma asociada, vuelve a Tenerife Glow Ritual y completa la configuración de tu ritual."
-        );
-      } else if (partnerDone && !onboardingDone) {
-        statusTitle.textContent = t("dashboard.state2Title", "Ya puedes activar tu ritual") + userName;
-        statusCopy.textContent = t(
-          "dashboard.state2Copy",
-          "Tu compra ya está marcada como completada. El siguiente paso es confirmar tu referencia y completar tu perfil ritual para que tu panel refleje tus prioridades."
-        );
-        statusActions.innerHTML = `
-          <a class="dashboard-primary-btn" href="onboarding.html" data-i18n="dashboard.state2Primary">
-            Completar configuración del ritual
-          </a>
-          <a class="dashboard-secondary-btn" href="https://www.simonourianmd.com/BBF/?ref=tgr" target="_blank" rel="noopener" data-i18n="dashboard.state2Secondary">
-            Volver a la plataforma asociada
-          </a>
-        `;
-        statusNote.textContent = t(
-          "dashboard.state2Note",
-          "Tu ritual se activará por completo una vez termines la configuración y confirmes los datos principales de tu compra y tus objetivos."
-        );
-      } else {
-        statusTitle.textContent = t("dashboard.state3Title", "Tu ritual está activo") + userName;
-        statusCopy.textContent = t(
-          "dashboard.state3Copy",
-          "Ya tienes una base clara: compra confirmada, prioridades guardadas y una estructura que te permite seguir tu ritmo desde un solo panel."
-        );
-        statusActions.innerHTML = `
-          <a class="dashboard-primary-btn" href="https://www.simonourianmd.com/BBF/?ref=tgr" target="_blank" rel="noopener" data-i18n="dashboard.state3Primary">
-            Ir a la plataforma asociada
-          </a>
-          <a class="dashboard-secondary-btn" href="onboarding.html" data-i18n="dashboard.state3Secondary">
-            Editar configuración
-          </a>
-        `;
-        statusNote.textContent = t(
-          "dashboard.state3Note",
-          "Tu panel puede seguir creciendo con más seguimiento diario, evolución visible y nuevas capas de personalización."
-        );
+      if (
+        window.translations &&
+        window.translations.es &&
+        window.translations.es[key]
+      ) {
+        return window.translations.es[key];
       }
 
-      if (window.applyTranslations) {
-        window.applyTranslations();
-      }
+      return fallback;
+    };
 
-      ritualSteps.innerHTML = `
-        <div class="ritual-step">
-          <span class="ritual-step-title">${t("dashboard.step1Title", "Paso 1 · Compra")}</span>
-          ${partnerDone ? t("dashboard.step1Done", "La compra en la plataforma asociada ya está marcada como completada.") : t("dashboard.step1Pending", "Completa tu análisis y compra en la plataforma asociada para desbloquear la siguiente etapa.")}
-        </div>
-        <div class="ritual-step">
-          <span class="ritual-step-title">${t("dashboard.step2Title", "Paso 2 · Configuración")}</span>
-          ${onboardingDone ? t("dashboard.step2Done", "Tu perfil ritual ya incluye tus prioridades, tu producto y la base de tu experiencia.") : t("dashboard.step2Pending", "Completa tu onboarding para confirmar tu referencia de compra y personalizar tu ritual.")}
-        </div>
-        <div class="ritual-step">
-          <span class="ritual-step-title">${t("dashboard.step3Title", "Paso 3 · Seguimiento")}</span>
-          ${onboardingDone ? t("dashboard.step3Done", "Tu dashboard ya está preparado para servir como punto central de seguimiento.") : t("dashboard.step3Pending", "Una vez completes la configuración, este panel te servirá como centro de seguimiento y continuidad.")}
+    const safe = (value) => value && String(value).trim() ? value : "—";
+
+    const formatGoal = () => {
+      const goal = onboarding.goal || user.skinGoal || "";
+      const map = {
+        glow: t("onboarding.goal.glow"),
+        hydration: t("onboarding.goal.hydration"),
+        antiage: t("onboarding.goal.antiage"),
+        acne: t("onboarding.goal.acne"),
+        balance: t("onboarding.goal.balance")
+      };
+      return map[goal] || safe(goal);
+    };
+
+    const formatTime = () => {
+      const time = onboarding.time || "";
+      const map = {
+        "5": t("onboarding.time.short"),
+        "10": t("onboarding.time.medium"),
+        "20": t("onboarding.time.long")
+      };
+      return map[time] || "—";
+    };
+
+    const formatLevel = () => {
+      const level = onboarding.level || "";
+      const map = {
+        basic: t("onboarding.level.basic"),
+        intermediate: t("onboarding.level.intermediate"),
+        advanced: t("onboarding.level.advanced")
+      };
+      return map[level] || "—";
+    };
+
+    const formatSkinType = () => {
+      const skinType = onboarding.skinType || "";
+      const map = {
+        normal: t("onboarding.skin.normal"),
+        dry: t("onboarding.skin.dry"),
+        oily: t("onboarding.skin.oily"),
+        combination: t("onboarding.skin.combination"),
+        sensitive: t("onboarding.skin.sensitive")
+      };
+      return map[skinType] || "—";
+    };
+
+    const formatSensitivity = () => {
+      const sensitivity = onboarding.sensitivity || "";
+      const map = {
+        low: t("onboarding.sensitivity.low"),
+        medium: t("onboarding.sensitivity.medium"),
+        high: t("onboarding.sensitivity.high")
+      };
+      return map[sensitivity] || "—";
+    };
+
+    const formatTimeline = () => {
+      const timeline = onboarding.timeline || "";
+      const map = {
+        "30": t("onboarding.timeline.30"),
+        "60": t("onboarding.timeline.60"),
+        "90": t("onboarding.timeline.90")
+      };
+      return map[timeline] || "—";
+    };
+
+    const setText = (id, value) => {
+      const el = document.getElementById(id);
+      if (el) el.textContent = value;
+    };
+
+    setText("quickName", safe(user.fullName));
+    setText("quickGoal", formatGoal());
+    setText("quickProduct", safe(purchase.productName || onboarding.productName));
+    setText("quickTime", formatTime());
+
+    setText(
+      "metricPurchase",
+      partnerDone ? t("dashboard.metricPurchaseDone") : t("dashboard.metricPurchasePending")
+    );
+
+    setText(
+      "metricOnboarding",
+      onboardingDone ? t("dashboard.metricOnboardingDone") : t("dashboard.metricOnboardingPending")
+    );
+
+    setText("metricTime", formatTime());
+    setText("metricGoal", formatGoal());
+
+    const statusTitle = document.getElementById("statusTitle");
+    const statusCopy = document.getElementById("statusCopy");
+    const statusActions = document.getElementById("statusActions");
+    const statusNote = document.getElementById("statusNote");
+
+    const ritualSteps = document.getElementById("ritualSteps");
+    const dailyBlock = document.getElementById("dailyBlock");
+    const progressBlock = document.getElementById("progressBlock");
+    const productBlock = document.getElementById("productBlock");
+    const actionLinks = document.getElementById("actionLinks");
+    const profileBlock = document.getElementById("profileBlock");
+
+    const userName = user.fullName ? `, ${user.fullName}` : "";
+
+    if (!partnerDone) {
+      statusTitle.textContent = t("dashboard.state1Title") + userName;
+      statusCopy.textContent = t("dashboard.state1Copy");
+      statusActions.innerHTML = `
+        <a class="dashboard-primary-btn" href="https://www.simonourianmd.com/BBF/?ref=tgr" target="_blank" rel="noopener" data-i18n="dashboard.state1Primary">
+          ${t("dashboard.state1Primary")}
+        </a>
+        <a class="dashboard-secondary-btn" href="index.html" data-i18n="dashboard.state1Secondary">
+          ${t("dashboard.state1Secondary")}
+        </a>
+      `;
+      statusNote.textContent = t("dashboard.state1Note");
+    } else if (partnerDone && !onboardingDone) {
+      statusTitle.textContent = t("dashboard.state2Title") + userName;
+      statusCopy.textContent = t("dashboard.state2Copy");
+      statusActions.innerHTML = `
+        <a class="dashboard-primary-btn" href="onboarding.html" data-i18n="dashboard.state2Primary">
+          ${t("dashboard.state2Primary")}
+        </a>
+        <a class="dashboard-secondary-btn" href="https://www.simonourianmd.com/BBF/?ref=tgr" target="_blank" rel="noopener" data-i18n="dashboard.state2Secondary">
+          ${t("dashboard.state2Secondary")}
+        </a>
+      `;
+      statusNote.textContent = t("dashboard.state2Note");
+    } else {
+      statusTitle.textContent = t("dashboard.state3Title") + userName;
+      statusCopy.textContent = t("dashboard.state3Copy");
+      statusActions.innerHTML = `
+        <a class="dashboard-primary-btn" href="https://www.simonourianmd.com/BBF/?ref=tgr" target="_blank" rel="noopener" data-i18n="dashboard.state3Primary">
+          ${t("dashboard.state3Primary")}
+        </a>
+        <a class="dashboard-secondary-btn" href="onboarding.html" data-i18n="dashboard.state3Secondary">
+          ${t("dashboard.state3Secondary")}
+        </a>
+      `;
+      statusNote.textContent = t("dashboard.state3Note");
+    }
+
+    ritualSteps.innerHTML = `
+      <div class="ritual-step">
+        <span class="ritual-step-title">${t("dashboard.step1Title")}</span>
+        ${partnerDone ? t("dashboard.step1Done") : t("dashboard.step1Pending")}
+      </div>
+      <div class="ritual-step">
+        <span class="ritual-step-title">${t("dashboard.step2Title")}</span>
+        ${onboardingDone ? t("dashboard.step2Done") : t("dashboard.step2Pending")}
+      </div>
+      <div class="ritual-step">
+        <span class="ritual-step-title">${t("dashboard.step3Title")}</span>
+        ${onboardingDone ? t("dashboard.step3Done") : t("dashboard.step3Pending")}
+      </div>
+    `;
+
+    if (onboardingDone) {
+      dailyBlock.innerHTML = `
+        <ul class="card-list">
+          <li>
+            <strong>${t("dashboard.dailyTimeLabel")}</strong>
+            ${formatTime()}
+          </li>
+          <li>
+            <strong>${t("dashboard.dailyLevelLabel")}</strong>
+            ${formatLevel()}
+          </li>
+          <li>
+            <strong>${t("dashboard.dailyRoutineLabel")}</strong>
+            ${safe(onboarding.currentRoutine)}
+          </li>
+        </ul>
+      `;
+
+      progressBlock.innerHTML = `
+        <ul class="card-list">
+          <li>
+            <strong>${t("dashboard.progressGoalLabel")}</strong>
+            ${formatGoal()}
+          </li>
+          <li>
+            <strong>${t("dashboard.progressConcernLabel")}</strong>
+            ${safe(onboarding.skinConcern)}
+          </li>
+          <li>
+            <strong>${t("dashboard.progressTimelineLabel")}</strong>
+            ${formatTimeline()}
+          </li>
+        </ul>
+      `;
+
+      productBlock.innerHTML = `
+        <ul class="card-list">
+          <li>
+            <strong>${t("dashboard.productNameLabel")}</strong>
+            ${safe(purchase.productName || onboarding.productName)}
+          </li>
+          <li>
+            <strong>${t("dashboard.productRefLabel")}</strong>
+            ${safe(purchase.orderReference || onboarding.orderReference)}
+          </li>
+          <li>
+            <strong>${t("dashboard.productDateLabel")}</strong>
+            ${safe(purchase.purchaseDate || onboarding.purchaseDate)}
+          </li>
+        </ul>
+      `;
+    } else {
+      dailyBlock.innerHTML = `
+        <div class="empty-state">
+          ${t("dashboard.emptyDaily")}
         </div>
       `;
 
-      if (onboardingDone) {
-        dailyBlock.innerHTML = `
-          <ul class="card-list">
-            <li>
-              <strong>${t("dashboard.dailyTimeLabel", "Tiempo disponible")}</strong>
-              ${formatTime()}
-            </li>
-            <li>
-              <strong>${t("dashboard.dailyLevelLabel", "Nivel de rutina")}</strong>
-              ${formatLevel()}
-            </li>
-            <li>
-              <strong>${t("dashboard.dailyRoutineLabel", "Rutina actual")}</strong>
-              ${safe(onboarding.currentRoutine)}
-            </li>
-          </ul>
-        `;
-
-        progressBlock.innerHTML = `
-          <ul class="card-list">
-            <li>
-              <strong>${t("dashboard.progressGoalLabel", "Objetivo activo")}</strong>
-              ${formatGoal()}
-            </li>
-            <li>
-              <strong>${t("dashboard.progressConcernLabel", "Problema principal")}</strong>
-              ${safe(onboarding.skinConcern)}
-            </li>
-            <li>
-              <strong>${t("dashboard.progressTimelineLabel", "Horizonte de seguimiento")}</strong>
-              ${formatTimeline()}
-            </li>
-          </ul>
-        `;
-
-        productBlock.innerHTML = `
-          <ul class="card-list">
-            <li>
-              <strong>${t("dashboard.productNameLabel", "Producto comprado")}</strong>
-              ${safe(purchase.productName || onboarding.productName)}
-            </li>
-            <li>
-              <strong>${t("dashboard.productRefLabel", "Referencia")}</strong>
-              ${safe(purchase.orderReference || onboarding.orderReference)}
-            </li>
-            <li>
-              <strong>${t("dashboard.productDateLabel", "Fecha de compra")}</strong>
-              ${safe(purchase.purchaseDate || onboarding.purchaseDate)}
-            </li>
-          </ul>
-        `;
-      } else {
-        dailyBlock.innerHTML = `
-          <div class="empty-state">
-            ${t("dashboard.emptyDaily", "Aquí aparecerá tu ritmo diario una vez completes la configuración de tu ritual.")}
-          </div>
-        `;
-
-        progressBlock.innerHTML = `
-          <div class="empty-state">
-            ${t("dashboard.emptyProgress", "Tu objetivo principal, tu problema a tratar y tu horizonte de seguimiento aparecerán aquí cuando completes tu perfil ritual.")}
-          </div>
-        `;
-
-        productBlock.innerHTML = `
-          <div class="empty-state">
-            ${partnerDone
-              ? t("dashboard.emptyProductReady", "Ya has completado la compra. Solo falta confirmar la referencia y los detalles principales dentro del onboarding.")
-              : t("dashboard.emptyProductPending", "Cuando completes tu compra en la plataforma asociada, aquí mostraremos tu producto y la referencia vinculada.")}
-          </div>
-        `;
-      }
-
-      actionLinks.innerHTML = `
-        <a href="${partnerDone ? "onboarding.html" : "https://www.simonourianmd.com/BBF/?ref=tgr"}" ${partnerDone ? "" : 'target="_blank" rel="noopener"'} class="compact-link">
-          <div>
-            <strong>${partnerDone ? t("dashboard.action1TitleReady", "Completar ritual") : t("dashboard.action1TitleStart", "Ir al análisis")}</strong>
-            <span>${partnerDone ? t("dashboard.action1TextReady", "Confirma tu compra y termina de personalizar tu panel.") : t("dashboard.action1TextStart", "Continúa a la plataforma asociada para realizar el análisis y la compra.")}</span>
-          </div>
-          <span>→</span>
-        </a>
-
-        <a href="onboarding.html" class="compact-link">
-          <div>
-            <strong>${t("dashboard.action2Title", "Editar configuración")}</strong>
-            <span>${t("dashboard.action2Text", "Actualiza tus prioridades, tu compra o tu ritmo de ritual.")}</span>
-          </div>
-          <span>→</span>
-        </a>
-
-        <a href="index.html" class="compact-link">
-          <div>
-            <strong>${t("dashboard.action3Title", "Ver página principal")}</strong>
-            <span>${t("dashboard.action3Text", "Vuelve a la presentación pública del proyecto y su recorrido general.")}</span>
-          </div>
-          <span>→</span>
-        </a>
-      `;
-
-      profileBlock.innerHTML = `
-        <div class="info-stack">
-          <div class="info-row">
-            <div class="info-label">${t("dashboard.profileNameLabel", "Nombre completo")}</div>
-            <div class="info-value">${safe(user.fullName)}</div>
-          </div>
-          <div class="info-row">
-            <div class="info-label">${t("dashboard.profileEmailLabel", "Correo electrónico")}</div>
-            <div class="info-value">${safe(user.email)}</div>
-          </div>
-          <div class="info-row">
-            <div class="info-label">${t("dashboard.profileSkinTypeLabel", "Tipo de piel")}</div>
-            <div class="info-value">${formatSkinType()}</div>
-          </div>
-          <div class="info-row">
-            <div class="info-label">${t("dashboard.profileSensitivityLabel", "Sensibilidad")}</div>
-            <div class="info-value">${formatSensitivity()}</div>
-          </div>
+      progressBlock.innerHTML = `
+        <div class="empty-state">
+          ${t("dashboard.emptyProgress")}
         </div>
       `;
 
-      const logoutBtn = document.getElementById("logoutBtn");
-      if (logoutBtn) {
-        logoutBtn.addEventListener("click", function (e) {
-          e.preventDefault();
-          localStorage.removeItem("tgr-auth");
-          window.location.href = "index.html";
-        });
-      }
+      productBlock.innerHTML = `
+        <div class="empty-state">
+          ${partnerDone ? t("dashboard.emptyProductReady") : t("dashboard.emptyProductPending")}
+        </div>
+      `;
+    }
 
-      if (window.applyTranslations) {
-        window.applyTranslations();
-      }
-    });
-  </script>
+    actionLinks.innerHTML = `
+      <a href="${partnerDone ? "onboarding.html" : "https://www.simonourianmd.com/BBF/?ref=tgr"}" ${partnerDone ? "" : 'target="_blank" rel="noopener"'} class="compact-link">
+        <div>
+          <strong>${partnerDone ? t("dashboard.action1TitleReady") : t("dashboard.action1TitleStart")}</strong>
+          <span>${partnerDone ? t("dashboard.action1TextReady") : t("dashboard.action1TextStart")}</span>
+        </div>
+        <span>→</span>
+      </a>
+
+      <a href="onboarding.html" class="compact-link">
+        <div>
+          <strong>${t("dashboard.action2Title")}</strong>
+          <span>${t("dashboard.action2Text")}</span>
+        </div>
+        <span>→</span>
+      </a>
+
+      <a href="index.html" class="compact-link">
+        <div>
+          <strong>${t("dashboard.action3Title")}</strong>
+          <span>${t("dashboard.action3Text")}</span>
+        </div>
+        <span>→</span>
+      </a>
+    `;
+
+    profileBlock.innerHTML = `
+      <div class="info-stack">
+        <div class="info-row">
+          <div class="info-label">${t("dashboard.profileNameLabel")}</div>
+          <div class="info-value">${safe(user.fullName)}</div>
+        </div>
+        <div class="info-row">
+          <div class="info-label">${t("dashboard.profileEmailLabel")}</div>
+          <div class="info-value">${safe(user.email)}</div>
+        </div>
+        <div class="info-row">
+          <div class="info-label">${t("dashboard.profileSkinTypeLabel")}</div>
+          <div class="info-value">${formatSkinType()}</div>
+        </div>
+        <div class="info-row">
+          <div class="info-label">${t("dashboard.profileSensitivityLabel")}</div>
+          <div class="info-value">${formatSensitivity()}</div>
+        </div>
+      </div>
+    `;
+
+    const logoutBtn = document.getElementById("logoutBtn");
+    if (logoutBtn) {
+      logoutBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        localStorage.removeItem("tgr-auth");
+        window.location.href = "index.html";
+      });
+    }
+
+    if (window.applyTranslations) {
+      window.applyTranslations();
+    }
+  });
+</script>
 </body>
 </html>
