@@ -605,7 +605,9 @@ const translations = {
 "dailyRitual.alreadyCompleted": "Día completado",
 "dailyRitual.completionDone": "El día actual ya está marcado como completado. Tu panel mostrará el siguiente paso automáticamente.",
 "dailyRitual.daySaved": "Día guardado",
-"dailyRitual.savedMessage": "Perfecto. Tu día ha sido registrado y tu dashboard reflejará este progreso."
+"dailyRitual.savedMessage": "Perfecto. Tu día ha sido registrado y tu dashboard reflejará este progreso.",
+    "dashboard.welcomeBack": "Bienvenida de nuevo",
+"dashboard.preparingNextStep": "Estamos preparando el siguiente paso de tu experiencia."
     
   },
 
@@ -1216,7 +1218,9 @@ const translations = {
 "dailyRitual.alreadyCompleted": "Day completed",
 "dailyRitual.completionDone": "The current day is already marked as completed. Your dashboard will automatically show the next step.",
 "dailyRitual.daySaved": "Day saved",
-"dailyRitual.savedMessage": "Perfect. Your day has been recorded and your dashboard will reflect this progress."
+"dailyRitual.savedMessage": "Perfect. Your day has been recorded and your dashboard will reflect this progress.",
+    "dashboard.welcomeBack": "Welcome back",
+"dashboard.preparingNextStep": "We are preparing the next step of your experience."
    
 
   },
@@ -1799,7 +1803,9 @@ const translations = {
 "dailyRitual.alreadyCompleted": "Jour complété",
 "dailyRitual.completionDone": "Le jour actuel est déjà marqué comme complété. Votre tableau de bord affichera automatiquement l’étape suivante.",
 "dailyRitual.daySaved": "Jour enregistré",
-"dailyRitual.savedMessage": "Parfait. Votre journée a été enregistrée et votre tableau de bord reflétera cette progression."
+"dailyRitual.savedMessage": "Parfait. Votre journée a été enregistrée et votre tableau de bord reflétera cette progression.",
+    "dashboard.welcomeBack": "Bienvenue de retour",
+"dashboard.preparingNextStep": "Nous préparons la prochaine étape de votre expérience."
 
   },
 
@@ -2382,7 +2388,9 @@ const translations = {
 "dailyRitual.alreadyCompleted": "Tag abgeschlossen",
 "dailyRitual.completionDone": "Der aktuelle Tag ist bereits als abgeschlossen markiert. Dein Dashboard zeigt automatisch den nächsten Schritt an.",
 "dailyRitual.daySaved": "Tag gespeichert",
-"dailyRitual.savedMessage": "Perfekt. Dein Tag wurde gespeichert und dein Dashboard wird diesen Fortschritt anzeigen."
+"dailyRitual.savedMessage": "Perfekt. Dein Tag wurde gespeichert und dein Dashboard wird diesen Fortschritt anzeigen.",
+    "dashboard.welcomeBack": "Willkommen zurück",
+"dashboard.preparingNextStep": "Wir bereiten den nächsten Schritt deiner Erfahrung vor."
   }
 };
 
