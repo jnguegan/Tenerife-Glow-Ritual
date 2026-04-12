@@ -815,12 +815,14 @@
         .replace("{time}", formatTime());
 
       statusActions.innerHTML = `
-        <a class="dashboard-primary-btn" href="daily.html">
-          ${t("dashboard.ctaRitualButton", "Abrir mi calendario ritual")}
-        </a>
-      `;
+  <a class="dashboard-primary-btn" href="daily.html" data-i18n="dashboard.ctaRitualButton">
+    ${t("dashboard.ctaRitualButton", "Abrir mi calendario ritual")}
+  </a>
+`;
 
-      statusNote.textContent = `${t("dashboard.rewardProgressLabel", "Progreso recompensa:")} ${rewardProgress}/14`;
+statusNote.innerHTML = `
+  <span data-i18n="dashboard.rewardProgressLabel">${t("dashboard.rewardProgressLabel", "Progreso recompensa:")}</span> ${rewardProgress}/14
+`;
 
       if (startRitualBtn) {
         startRitualBtn.style.display = "inline-flex";
