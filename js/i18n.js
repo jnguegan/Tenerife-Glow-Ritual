@@ -609,7 +609,8 @@ const translations = {
     "dashboard.welcomeBack": "Bienvenida de nuevo",
 "dashboard.preparingNextStep": "Estamos preparando el siguiente paso de tu experiencia.",
   "dashboard.ctaRitualButton": "Abrir mi calendario ritual",
-  "dashboard.rewardProgressLabel": "Progreso recompensa:"
+  "dashboard.rewardProgressLabel": "Progreso recompensa:",
+    "dashboard.ctaRitualCopy": "Continúa con tu programa. Hoy te corresponde el Día {day} de {total} a las {time}."
     
     
   },
@@ -617,7 +618,6 @@ const translations = {
   en: {
     "brand.eyebrow": "Island Skin Journey",
     "brand.title": "Tenerife Glow Ritual",
-
     "nav.home": "Home",
     "nav.products": "Products",
     "nav.daily": "Daily",
@@ -1225,7 +1225,8 @@ const translations = {
     "dashboard.welcomeBack": "Welcome back",
 "dashboard.preparingNextStep": "We are preparing the next step of your experience.",
     "dashboard.ctaRitualButton": "Open my ritual calendar",
-  "dashboard.rewardProgressLabel": "Reward progress:"
+  "dashboard.rewardProgressLabel": "Reward progress:",
+    "dashboard.ctaRitualCopy": "Continue your program. Today is Day {day} of {total} at {time}."
    
 
   },
@@ -1812,7 +1813,8 @@ const translations = {
     "dashboard.welcomeBack": "Bienvenue de retour",
 "dashboard.preparingNextStep": "Nous préparons la prochaine étape de votre expérience.",
   "dashboard.ctaRitualButton": "Ouvrir mon calendrier rituel",
-  "dashboard.rewardProgressLabel": "Progression de la récompense :"
+  "dashboard.rewardProgressLabel": "Progression de la récompense :",
+    "dashboard.ctaRitualCopy": "Poursuivez votre programme. Aujourd’hui, c’est le Jour {day} sur {total} à {time}."
     
 
   },
@@ -2400,7 +2402,8 @@ const translations = {
     "dashboard.welcomeBack": "Willkommen zurück",
 "dashboard.preparingNextStep": "Wir bereiten den nächsten Schritt deiner Erfahrung vor.",
     "dashboard.ctaRitualButton": "Meinen Ritualkalender öffnen",
-  "dashboard.rewardProgressLabel": "Fortschritt Belohnung:"
+  "dashboard.rewardProgressLabel": "Fortschritt Belohnung:",
+    "dashboard.ctaRitualCopy": "Setze dein Programm fort. Heute ist Tag {day} von {total} um {time}."
   }
 };
 
