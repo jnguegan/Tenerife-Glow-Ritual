@@ -557,9 +557,7 @@
               <h3 data-i18n="dashboard.actionsTitle">Tu siguiente movimiento</h3>
             </div>
             
-<a href="daily.html" class="dashboard-primary-btn" id="startRitualBtn" data-i18n="dashboard.ritualCalendarCTA" style="display:none;">
-  Abrir mi calendario ritual
-</a>
+<div id="startRitualBtn" style="display:none;"></div>
 
             <div class="compact-actions" id="actionLinks"></div>
           </section>
@@ -617,14 +615,6 @@
     const onboarding = JSON.parse(localStorage.getItem("tgr-onboarding-data") || "{}");
     const purchase = JSON.parse(localStorage.getItem("tgr-purchase") || "{}");
 
-    const partnerDone = localStorage.getItem("tgr-partner-complete") === "true";
-    const onboardingDone = localStorage.getItem("tgr-onboarding-complete") === "true";
-    const startRitualBtn = document.getElementById("startRitualBtn");
-
-if (partnerDone && onboardingDone && startRitualBtn) {
-  startRitualBtn.style.display = "inline-flex";
-}
-
     const t = (key, fallback = "") => {
       const currentLang = localStorage.getItem("tgr-language") || "es";
 
@@ -647,94 +637,103 @@ if (partnerDone && onboardingDone && startRitualBtn) {
       return fallback;
     };
 
-    const safe = (value) => value && String(value).trim() ? value : "—";
+    const STORAGE_KEYS = {
+      partnerDone: "tgr-partner-complete",
+      onboardingDone: "tgr-onboarding-complete",
+      ritualTime: "tgr-ritual-time",
+      ritualDuration: "tgr-ritual-duration",
+      daysCompleted: "tgr-days-completed",
+      lastCompletedDate: "tgr-last-completed-date"
+    };
+
+    const safe = (value) => {
+      return value && String(value).trim() ? value : "—";
+    };
+
+    const getBool = (key) => localStorage.getItem(key) === "true";
+
+    const getNumber = (key, fallback = 0) => {
+      const value = parseInt(localStorage.getItem(key), 10);
+      return Number.isFinite(value) ? value : fallback;
+    };
+
+    const partnerDone = getBool(STORAGE_KEYS.partnerDone);
+    const onboardingDone = getBool(STORAGE_KEYS.onboardingDone);
+
+    const getGoalValue = () => onboarding.goal || user.skinGoal || "";
+    const getTimeValue = () => localStorage.getItem(STORAGE_KEYS.ritualTime) || onboarding.time || "";
+    const getDurationValue = () => {
+      return getNumber(STORAGE_KEYS.ritualDuration, parseInt(onboarding.timeline || "90", 10) || 90);
+    };
 
     const formatGoal = () => {
-      const goal = onboarding.goal || user.skinGoal || "";
+      const goal = getGoalValue();
       const map = {
-        glow: t("onboarding.goal.glow"),
-        hydration: t("onboarding.goal.hydration"),
-        antiage: t("onboarding.goal.antiage"),
-        acne: t("onboarding.goal.acne"),
-        balance: t("onboarding.goal.balance")
+        glow: t("onboarding.goal.glow", "Luminosidad"),
+        hydration: t("onboarding.goal.hydration", "Hidratación"),
+        antiage: t("onboarding.goal.antiage", "Antiedad"),
+        acne: t("onboarding.goal.acne", "Acné"),
+        balance: t("onboarding.goal.balance", "Equilibrio")
       };
       return map[goal] || safe(goal);
     };
 
     const formatTime = () => {
-      const time = onboarding.time || "";
+      const time = getTimeValue();
       const map = {
-        "5": t("onboarding.time.short"),
-        "10": t("onboarding.time.medium"),
-        "20": t("onboarding.time.long")
+        "5": t("onboarding.time.short", "5 min"),
+        "10": t("onboarding.time.medium", "10 min"),
+        "20": t("onboarding.time.long", "20 min")
       };
-      return map[time] || "—";
+      return map[time] || safe(time);
     };
 
     const formatLevel = () => {
       const level = onboarding.level || "";
       const map = {
-        basic: t("onboarding.level.basic"),
-        intermediate: t("onboarding.level.intermediate"),
-        advanced: t("onboarding.level.advanced")
+        basic: t("onboarding.level.basic", "Básico"),
+        intermediate: t("onboarding.level.intermediate", "Intermedio"),
+        advanced: t("onboarding.level.advanced", "Avanzado")
       };
-      return map[level] || "—";
+      return map[level] || safe(level);
     };
 
     const formatSkinType = () => {
       const skinType = onboarding.skinType || "";
       const map = {
-        normal: t("onboarding.skin.normal"),
-        dry: t("onboarding.skin.dry"),
-        oily: t("onboarding.skin.oily"),
-        combination: t("onboarding.skin.combination"),
-        sensitive: t("onboarding.skin.sensitive")
+        normal: t("onboarding.skin.normal", "Normal"),
+        dry: t("onboarding.skin.dry", "Seca"),
+        oily: t("onboarding.skin.oily", "Grasa"),
+        combination: t("onboarding.skin.combination", "Mixta"),
+        sensitive: t("onboarding.skin.sensitive", "Sensible")
       };
-      return map[skinType] || "—";
+      return map[skinType] || safe(skinType);
     };
 
     const formatSensitivity = () => {
       const sensitivity = onboarding.sensitivity || "";
       const map = {
-        low: t("onboarding.sensitivity.low"),
-        medium: t("onboarding.sensitivity.medium"),
-        high: t("onboarding.sensitivity.high")
+        low: t("onboarding.sensitivity.low", "Baja"),
+        medium: t("onboarding.sensitivity.medium", "Media"),
+        high: t("onboarding.sensitivity.high", "Alta")
       };
-      return map[sensitivity] || "—";
+      return map[sensitivity] || safe(sensitivity);
     };
 
     const formatTimeline = () => {
-      const timeline = onboarding.timeline || "";
+      const timeline = String(getDurationValue());
       const map = {
-        "30": t("onboarding.timeline.30"),
-        "60": t("onboarding.timeline.60"),
-        "90": t("onboarding.timeline.90")
+        "30": t("onboarding.timeline.30", "30 días"),
+        "60": t("onboarding.timeline.60", "60 días"),
+        "90": t("onboarding.timeline.90", "90 días")
       };
-      return map[timeline] || "—";
+      return map[timeline] || `${timeline} días`;
     };
 
     const setText = (id, value) => {
       const el = document.getElementById(id);
       if (el) el.textContent = value;
     };
-
-    setText("quickName", safe(user.fullName));
-    setText("quickGoal", formatGoal());
-    setText("quickProduct", safe(purchase.productName || onboarding.productName));
-    setText("quickTime", formatTime());
-
-    setText(
-      "metricPurchase",
-      partnerDone ? t("dashboard.metricPurchaseDone") : t("dashboard.metricPurchasePending")
-    );
-
-    setText(
-      "metricOnboarding",
-      onboardingDone ? t("dashboard.metricOnboardingDone") : t("dashboard.metricOnboardingPending")
-    );
-
-    setText("metricTime", formatTime());
-    setText("metricGoal", formatGoal());
 
     const statusTitle = document.getElementById("statusTitle");
     const statusCopy = document.getElementById("statusCopy");
@@ -747,40 +746,130 @@ if (partnerDone && onboardingDone && startRitualBtn) {
     const productBlock = document.getElementById("productBlock");
     const actionLinks = document.getElementById("actionLinks");
     const profileBlock = document.getElementById("profileBlock");
+    const startRitualBtn = document.getElementById("startRitualBtn");
 
-    const userName = user.fullName ? `, ${user.fullName}` : "";
+    const getDashboardState = () => {
+      if (!partnerDone) return "partner";
+      if (partnerDone && !onboardingDone) return "onboarding";
+      return "ritual";
+    };
 
-   } else {
-  const daysCompleted = parseInt(localStorage.getItem("tgr-days-completed") || "0", 10);
-  const ritualDuration = parseInt(localStorage.getItem("tgr-ritual-duration") || onboarding.timeline || "90", 10);
-  const currentDay = Math.min(daysCompleted + 1, ritualDuration);
-  const rewardProgress = Math.min(daysCompleted, 14);
+    const getDaysCompleted = () => getNumber(STORAGE_KEYS.daysCompleted, 0);
 
-  statusTitle.textContent = t("dashboard.ritualReadyTitle");
-  statusCopy.textContent = t("dashboard.ritualReadyCopy")
-    .replace("{day}", currentDay)
-    .replace("{duration}", ritualDuration);
+    const getCurrentDay = () => {
+      const daysCompleted = getDaysCompleted();
+      const ritualDuration = getDurationValue();
+      return Math.min(daysCompleted + 1, ritualDuration);
+    };
 
-  statusActions.innerHTML = `
-    <a class="dashboard-primary-btn" href="daily.html">
-      ${t("dashboard.ritualCalendarCTA")}
-    </a>
-  `;
+    const getRewardProgress = () => {
+      return Math.min(getDaysCompleted(), 14);
+    };
 
-  statusNote.textContent = `${t("dashboard.rewardProgressLabel")} ${rewardProgress}/14`;
-}
+    const renderStatusPanel = () => {
+      const state = getDashboardState();
+
+      if (state === "partner") {
+        statusTitle.textContent = t("dashboard.ctaPartnerTitle", "Completa tu análisis de piel");
+        statusCopy.textContent = t(
+          "dashboard.ctaPartnerCopy",
+          "Para comenzar tu ritual, primero debes ir a la plataforma asociada para realizar tu análisis y comprar tus productos."
+        );
+        statusActions.innerHTML = `
+          <a class="dashboard-primary-btn" href="https://www.simonourianmd.com/BBF/?ref=tgr" target="_blank" rel="noopener noreferrer">
+            ${t("dashboard.ctaPartnerButton", "Ir a la plataforma asociada")}
+          </a>
+        `;
+        statusNote.textContent = "";
+        if (startRitualBtn) startRitualBtn.style.display = "none";
+        return;
+      }
+
+      if (state === "onboarding") {
+        statusTitle.textContent = t("dashboard.ctaOnboardingTitle", "Completa tu onboarding");
+        statusCopy.textContent = t(
+          "dashboard.ctaOnboardingCopy",
+          "Ya has realizado tu compra. Ahora completa tu onboarding para configurar tu ritual personalizado."
+        );
+        statusActions.innerHTML = `
+          <a class="dashboard-primary-btn" href="onboarding.html">
+            ${t("dashboard.ctaOnboardingButton", "Completar mi onboarding")}
+          </a>
+        `;
+        statusNote.textContent = "";
+        if (startRitualBtn) startRitualBtn.style.display = "none";
+        return;
+      }
+
+      const currentDay = getCurrentDay();
+      const ritualDuration = getDurationValue();
+      const rewardProgress = getRewardProgress();
+
+      statusTitle.textContent = t("dashboard.ctaRitualTitle", "Tu ritual está listo");
+      statusCopy.textContent = t(
+        "dashboard.ctaRitualCopy",
+        "Continúa con tu programa. Hoy te corresponde el Día {day} de {total} a las {time}."
+      )
+        .replace("{day}", currentDay)
+        .replace("{total}", ritualDuration)
+        .replace("{time}", formatTime());
+
+      statusActions.innerHTML = `
+        <a class="dashboard-primary-btn" href="daily.html">
+          ${t("dashboard.ctaRitualButton", "Abrir mi calendario ritual")}
+        </a>
+      `;
+
+      statusNote.textContent = `${t("dashboard.rewardProgressLabel", "Progreso recompensa:")} ${rewardProgress}/14`;
+
+      if (startRitualBtn) {
+        startRitualBtn.style.display = "inline-flex";
+        startRitualBtn.textContent = t("dashboard.ctaRitualButton", "Abrir mi calendario ritual");
+      }
+    };
+
+    setText("quickName", safe(user.fullName));
+    setText("quickGoal", formatGoal());
+    setText("quickProduct", safe(purchase.productName || onboarding.productName));
+    setText("quickTime", formatTime());
+
+    setText(
+      "metricPurchase",
+      partnerDone
+        ? t("dashboard.metricPurchaseDone", "Completada")
+        : t("dashboard.metricPurchasePending", "Pendiente")
+    );
+
+    setText(
+      "metricOnboarding",
+      onboardingDone
+        ? t("dashboard.metricOnboardingDone", "Completada")
+        : t("dashboard.metricOnboardingPending", "Pendiente")
+    );
+
+    setText("metricTime", formatTime());
+    setText("metricGoal", formatGoal());
+
+    renderStatusPanel();
+
     ritualSteps.innerHTML = `
       <div class="ritual-step">
-        <span class="ritual-step-title">${t("dashboard.step1Title")}</span>
-        ${partnerDone ? t("dashboard.step1Done") : t("dashboard.step1Pending")}
+        <span class="ritual-step-title">${t("dashboard.step1Title", "Paso 1")}</span>
+        ${partnerDone
+          ? t("dashboard.step1Done", "Análisis y compra completados.")
+          : t("dashboard.step1Pending", "Debes completar el análisis y la compra.")}
       </div>
       <div class="ritual-step">
-        <span class="ritual-step-title">${t("dashboard.step2Title")}</span>
-        ${onboardingDone ? t("dashboard.step2Done") : t("dashboard.step2Pending")}
+        <span class="ritual-step-title">${t("dashboard.step2Title", "Paso 2")}</span>
+        ${onboardingDone
+          ? t("dashboard.step2Done", "Onboarding completado.")
+          : t("dashboard.step2Pending", "Debes completar tu onboarding.")}
       </div>
       <div class="ritual-step">
-        <span class="ritual-step-title">${t("dashboard.step3Title")}</span>
-        ${onboardingDone ? t("dashboard.step3Done") : t("dashboard.step3Pending")}
+        <span class="ritual-step-title">${t("dashboard.step3Title", "Paso 3")}</span>
+        ${onboardingDone
+          ? t("dashboard.step3Done", "Tu ritual diario está listo.")
+          : t("dashboard.step3Pending", "Tu ritual diario estará disponible después del onboarding.")}
       </div>
     `;
 
@@ -788,15 +877,15 @@ if (partnerDone && onboardingDone && startRitualBtn) {
       dailyBlock.innerHTML = `
         <ul class="card-list">
           <li>
-            <strong>${t("dashboard.dailyTimeLabel")}</strong>
+            <strong>${t("dashboard.dailyTimeLabel", "Tiempo diario")}</strong>
             ${formatTime()}
           </li>
           <li>
-            <strong>${t("dashboard.dailyLevelLabel")}</strong>
+            <strong>${t("dashboard.dailyLevelLabel", "Nivel")}</strong>
             ${formatLevel()}
           </li>
           <li>
-            <strong>${t("dashboard.dailyRoutineLabel")}</strong>
+            <strong>${t("dashboard.dailyRoutineLabel", "Rutina actual")}</strong>
             ${safe(onboarding.currentRoutine)}
           </li>
         </ul>
@@ -805,16 +894,16 @@ if (partnerDone && onboardingDone && startRitualBtn) {
       progressBlock.innerHTML = `
         <ul class="card-list">
           <li>
-            <strong>${t("dashboard.progressGoalLabel")}</strong>
+            <strong>${t("dashboard.progressGoalLabel", "Objetivo")}</strong>
             ${formatGoal()}
           </li>
           <li>
-            <strong>${t("dashboard.progressConcernLabel")}</strong>
+            <strong>${t("dashboard.progressConcernLabel", "Preocupación principal")}</strong>
             ${safe(onboarding.skinConcern)}
           </li>
           <li>
-            <strong>${t("dashboard.progressTimelineLabel")}</strong>
-            ${formatTimeline()}
+            <strong>${t("dashboard.progressTimelineLabel", "Programa")}</strong>
+            ${getDaysCompleted()} / ${getDurationValue()} ${t("dashboard.daysSuffix", "días")}
           </li>
         </ul>
       `;
@@ -822,15 +911,15 @@ if (partnerDone && onboardingDone && startRitualBtn) {
       productBlock.innerHTML = `
         <ul class="card-list">
           <li>
-            <strong>${t("dashboard.productNameLabel")}</strong>
+            <strong>${t("dashboard.productNameLabel", "Producto")}</strong>
             ${safe(purchase.productName || onboarding.productName)}
           </li>
           <li>
-            <strong>${t("dashboard.productRefLabel")}</strong>
+            <strong>${t("dashboard.productRefLabel", "Referencia")}</strong>
             ${safe(purchase.orderReference || onboarding.orderReference)}
           </li>
           <li>
-            <strong>${t("dashboard.productDateLabel")}</strong>
+            <strong>${t("dashboard.productDateLabel", "Fecha de compra")}</strong>
             ${safe(purchase.purchaseDate || onboarding.purchaseDate)}
           </li>
         </ul>
@@ -838,65 +927,107 @@ if (partnerDone && onboardingDone && startRitualBtn) {
     } else {
       dailyBlock.innerHTML = `
         <div class="empty-state">
-          ${t("dashboard.emptyDaily")}
+          ${t("dashboard.emptyDaily", "Tu bloque diario aparecerá cuando completes tu onboarding.")}
         </div>
       `;
 
       progressBlock.innerHTML = `
         <div class="empty-state">
-          ${t("dashboard.emptyProgress")}
+          ${t("dashboard.emptyProgress", "Tu progreso aparecerá cuando completes tu onboarding.")}
         </div>
       `;
 
       productBlock.innerHTML = `
         <div class="empty-state">
-          ${partnerDone ? t("dashboard.emptyProductReady") : t("dashboard.emptyProductPending")}
+          ${partnerDone
+            ? t("dashboard.emptyProductReady", "Tu compra está completada. Falta completar el onboarding.")
+            : t("dashboard.emptyProductPending", "Aún no se ha registrado ninguna compra.")}
         </div>
       `;
     }
 
-    actionLinks.innerHTML = `
-      <a href="${partnerDone ? "onboarding.html" : "https://www.simonourianmd.com/BBF/?ref=tgr"}" ${partnerDone ? "" : 'target="_blank" rel="noopener"'} class="compact-link">
-        <div>
-          <strong>${partnerDone ? t("dashboard.action1TitleReady") : t("dashboard.action1TitleStart")}</strong>
-          <span>${partnerDone ? t("dashboard.action1TextReady") : t("dashboard.action1TextStart")}</span>
-        </div>
-        <span>→</span>
-      </a>
+    const dashboardState = getDashboardState();
 
-      <a href="onboarding.html" class="compact-link">
-        <div>
-          <strong>${t("dashboard.action2Title")}</strong>
-          <span>${t("dashboard.action2Text")}</span>
-        </div>
-        <span>→</span>
-      </a>
+    if (dashboardState === "partner") {
+      actionLinks.innerHTML = `
+        <a href="https://www.simonourianmd.com/BBF/?ref=tgr" target="_blank" rel="noopener" class="compact-link">
+          <div>
+            <strong>${t("dashboard.actionPartnerTitle", "Ir a la plataforma asociada")}</strong>
+            <span>${t("dashboard.actionPartnerText", "Completa tu análisis de piel y tu compra para continuar.")}</span>
+          </div>
+          <span>→</span>
+        </a>
 
-      <a href="index.html" class="compact-link">
-        <div>
-          <strong>${t("dashboard.action3Title")}</strong>
-          <span>${t("dashboard.action3Text")}</span>
-        </div>
-        <span>→</span>
-      </a>
-    `;
+        <a href="index.html" class="compact-link">
+          <div>
+            <strong>${t("dashboard.actionHomeTitle", "Volver al inicio")}</strong>
+            <span>${t("dashboard.actionHomeText", "Revisa la información general de tu experiencia.")}</span>
+          </div>
+          <span>→</span>
+        </a>
+      `;
+    } else if (dashboardState === "onboarding") {
+      actionLinks.innerHTML = `
+        <a href="onboarding.html" class="compact-link">
+          <div>
+            <strong>${t("dashboard.actionOnboardingTitle", "Completar onboarding")}</strong>
+            <span>${t("dashboard.actionOnboardingText", "Configura tu ritual personalizado para desbloquear tu calendario.")}</span>
+          </div>
+          <span>→</span>
+        </a>
+
+        <a href="index.html" class="compact-link">
+          <div>
+            <strong>${t("dashboard.actionHomeTitle", "Volver al inicio")}</strong>
+            <span>${t("dashboard.actionHomeText", "Revisa la información general de tu experiencia.")}</span>
+          </div>
+          <span>→</span>
+        </a>
+      `;
+    } else {
+      actionLinks.innerHTML = `
+        <a href="daily.html" class="compact-link">
+          <div>
+            <strong>${t("dashboard.actionRitualTitle", "Abrir mi calendario ritual")}</strong>
+            <span>${t("dashboard.actionRitualText", "Continúa tu ritual diario y marca tu progreso.")}</span>
+          </div>
+          <span>→</span>
+        </a>
+
+        <a href="onboarding.html" class="compact-link">
+          <div>
+            <strong>${t("dashboard.actionEditTitle", "Revisar mi onboarding")}</strong>
+            <span>${t("dashboard.actionEditText", "Consulta o actualiza la configuración de tu ritual.")}</span>
+          </div>
+          <span>→</span>
+        </a>
+
+        <a href="index.html" class="compact-link">
+          <div>
+            <strong>${t("dashboard.actionHomeTitle", "Volver al inicio")}</strong>
+            <span>${t("dashboard.actionHomeText", "Revisa la información general de tu experiencia.")}</span>
+          </div>
+          <span>→</span>
+        </a>
+      `;
+    }
 
     profileBlock.innerHTML = `
       <div class="info-stack">
         <div class="info-row">
-          <div class="info-label">${t("dashboard.profileNameLabel")}</div>
+          <div class="info-label">${t("dashboard.profileNameLabel", "Nombre")}</div>
           <div class="info-value">${safe(user.fullName)}</div>
         </div>
         <div class="info-row">
-          <div class="info-label">${t("dashboard.profileEmailLabel")}</div>
+          <div class="info-label">${t("dashboard.profileEmailLabel", "Correo electrónico")}</div>
           <div class="info-value">${safe(user.email)}</div>
         </div>
         <div class="info-row">
-          <div class="info-label">${t("dashboard.profileSkinTypeLabel")}</div>
+          <div class="info-label">${t("dashboard.profileSkinTypeLabel", "Tipo de piel")}</div>
           <div class="info-value">${formatSkinType()}</div>
         </div>
         <div class="info-row">
-          <div class="info-label">${t("dashboard.profileSensitivityLabel")}</div>
+          <div class="info-label">${t("dashboard.profileSensitivityLabel", "Sensibilidad")}</div>
           <div class="info-value">${formatSensitivity()}</div>
         </div>
       </div>
@@ -910,11 +1041,19 @@ if (partnerDone && onboardingDone && startRitualBtn) {
         window.location.href = "index.html";
       });
     }
-const startRitualBtn = document.getElementById("startRitualBtn");
 
-if (partnerDone && onboardingDone && startRitualBtn) {
-  startRitualBtn.style.display = "inline-flex";
-}
+    window.addEventListener("focus", function () {
+      renderStatusPanel();
+      setText("metricPurchase", getBool(STORAGE_KEYS.partnerDone)
+        ? t("dashboard.metricPurchaseDone", "Completada")
+        : t("dashboard.metricPurchasePending", "Pendiente")
+      );
+      setText("metricOnboarding", getBool(STORAGE_KEYS.onboardingDone)
+        ? t("dashboard.metricOnboardingDone", "Completada")
+        : t("dashboard.metricOnboardingPending", "Pendiente")
+      );
+    });
+
     if (window.applyTranslations) {
       window.applyTranslations();
     }
