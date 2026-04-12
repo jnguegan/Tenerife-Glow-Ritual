@@ -806,13 +806,26 @@
       const rewardProgress = getRewardProgress();
 
       statusTitle.textContent = t("dashboard.ctaRitualTitle", "Tu ritual está listo");
-      statusCopy.textContent = t(
-        "dashboard.ctaRitualCopy",
-        "Continúa con tu programa. Hoy te corresponde el Día {day} de {total} a las {time}."
-      )
-        .replace("{day}", currentDay)
-        .replace("{total}", ritualDuration)
-        .replace("{time}", formatTime());
+     
+     const currentLang = localStorage.getItem("tgr-language") || "es";
+
+const ritualCopyText =
+  window.translations &&
+  window.translations[currentLang] &&
+  window.translations[currentLang]["dashboard.ctaRitualCopy"]
+    ? window.translations[currentLang]["dashboard.ctaRitualCopy"]
+    : (
+        window.translations &&
+        window.translations.es &&
+        window.translations.es["dashboard.ctaRitualCopy"]
+          ? window.translations.es["dashboard.ctaRitualCopy"]
+          : "Continúa con tu programa. Hoy te corresponde el Día {day} de {total} a las {time}."
+      );
+
+statusCopy.textContent = ritualCopyText
+  .replace("{day}", currentDay)
+  .replace("{total}", ritualDuration)
+  .replace("{time}", formatTime());
 
       statusActions.innerHTML = `
   <a class="dashboard-primary-btn" href="daily.html" data-i18n="dashboard.ctaRitualButton">
