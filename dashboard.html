@@ -926,7 +926,11 @@ if (partnerDone && onboardingDone && startRitualBtn) {
         window.location.href = "index.html";
       });
     }
+const startRitualBtn = document.getElementById("startRitualBtn");
 
+if (partnerDone && onboardingDone && startRitualBtn) {
+  startRitualBtn.style.display = "inline-flex";
+}
     if (window.applyTranslations) {
       window.applyTranslations();
     }
