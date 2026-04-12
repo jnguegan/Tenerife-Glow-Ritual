@@ -444,7 +444,10 @@ const todayDescriptionTemplate =
           : "Tu objetivo hoy es dedicar {time} a tu ritual y mantener la constancia del programa."
       );
 
-todayDescription.textContent = todayDescriptionTemplate.replace("{time}", timeLabel);
+todayDescription.textContent = (
+  (window.translations?.[localStorage.getItem("tgr-language") || "es"]?.["dailyRitual.todayDescription"])
+  || todayDescriptionTemplate
+).replace("{time}", timeLabel);
 
       const renderCalendar = () => {
         const maxVisible = Math.min(duration, 30);
