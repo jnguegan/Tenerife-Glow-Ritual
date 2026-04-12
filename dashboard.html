@@ -750,44 +750,25 @@ if (partnerDone && onboardingDone && startRitualBtn) {
 
     const userName = user.fullName ? `, ${user.fullName}` : "";
 
-    if (!partnerDone) {
-      statusTitle.textContent = t("dashboard.state1Title") + userName;
-      statusCopy.textContent = t("dashboard.state1Copy");
-      statusActions.innerHTML = `
-        <a class="dashboard-primary-btn" href="https://www.simonourianmd.com/BBF/?ref=tgr" target="_blank" rel="noopener" data-i18n="dashboard.state1Primary">
-          ${t("dashboard.state1Primary")}
-        </a>
-        <a class="dashboard-secondary-btn" href="index.html" data-i18n="dashboard.state1Secondary">
-          ${t("dashboard.state1Secondary")}
-        </a>
-      `;
-      statusNote.textContent = t("dashboard.state1Note");
-    } else if (partnerDone && !onboardingDone) {
-      statusTitle.textContent = t("dashboard.state2Title") + userName;
-      statusCopy.textContent = t("dashboard.state2Copy");
-      statusActions.innerHTML = `
-        <a class="dashboard-primary-btn" href="onboarding.html" data-i18n="dashboard.state2Primary">
-          ${t("dashboard.state2Primary")}
-        </a>
-        <a class="dashboard-secondary-btn" href="https://www.simonourianmd.com/BBF/?ref=tgr" target="_blank" rel="noopener" data-i18n="dashboard.state2Secondary">
-          ${t("dashboard.state2Secondary")}
-        </a>
-      `;
-      statusNote.textContent = t("dashboard.state2Note");
-    } else {
-      statusTitle.textContent = t("dashboard.state3Title") + userName;
-      statusCopy.textContent = t("dashboard.state3Copy");
-      statusActions.innerHTML = `
-        <a class="dashboard-primary-btn" href="https://www.simonourianmd.com/BBF/?ref=tgr" target="_blank" rel="noopener" data-i18n="dashboard.state3Primary">
-          ${t("dashboard.state3Primary")}
-        </a>
-        <a class="dashboard-secondary-btn" href="onboarding.html" data-i18n="dashboard.state3Secondary">
-          ${t("dashboard.state3Secondary")}
-        </a>
-      `;
-      statusNote.textContent = t("dashboard.state3Note");
-    }
+   } else {
+  const daysCompleted = parseInt(localStorage.getItem("tgr-days-completed") || "0", 10);
+  const ritualDuration = parseInt(localStorage.getItem("tgr-ritual-duration") || onboarding.timeline || "90", 10);
+  const currentDay = Math.min(daysCompleted + 1, ritualDuration);
+  const rewardProgress = Math.min(daysCompleted, 14);
 
+  statusTitle.textContent = t("dashboard.ritualReadyTitle");
+  statusCopy.textContent = t("dashboard.ritualReadyCopy")
+    .replace("{day}", currentDay)
+    .replace("{duration}", ritualDuration);
+
+  statusActions.innerHTML = `
+    <a class="dashboard-primary-btn" href="daily.html">
+      ${t("dashboard.ritualCalendarCTA")}
+    </a>
+  `;
+
+  statusNote.textContent = `${t("dashboard.rewardProgressLabel")} ${rewardProgress}/14`;
+}
     ritualSteps.innerHTML = `
       <div class="ritual-step">
         <span class="ritual-step-title">${t("dashboard.step1Title")}</span>
