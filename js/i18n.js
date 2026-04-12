@@ -607,7 +607,10 @@ const translations = {
 "dailyRitual.daySaved": "Día guardado",
 "dailyRitual.savedMessage": "Perfecto. Tu día ha sido registrado y tu dashboard reflejará este progreso.",
     "dashboard.welcomeBack": "Bienvenida de nuevo",
-"dashboard.preparingNextStep": "Estamos preparando el siguiente paso de tu experiencia."
+"dashboard.preparingNextStep": "Estamos preparando el siguiente paso de tu experiencia.",
+  "dashboard.ctaRitualButton": "Abrir mi calendario ritual",
+  "dashboard.rewardProgressLabel": "Progreso recompensa:"
+    
     
   },
 
@@ -1220,7 +1223,9 @@ const translations = {
 "dailyRitual.daySaved": "Day saved",
 "dailyRitual.savedMessage": "Perfect. Your day has been recorded and your dashboard will reflect this progress.",
     "dashboard.welcomeBack": "Welcome back",
-"dashboard.preparingNextStep": "We are preparing the next step of your experience."
+"dashboard.preparingNextStep": "We are preparing the next step of your experience.",
+    "dashboard.ctaRitualButton": "Open my ritual calendar",
+  "dashboard.rewardProgressLabel": "Reward progress:"
    
 
   },
@@ -1805,7 +1810,10 @@ const translations = {
 "dailyRitual.daySaved": "Jour enregistré",
 "dailyRitual.savedMessage": "Parfait. Votre journée a été enregistrée et votre tableau de bord reflétera cette progression.",
     "dashboard.welcomeBack": "Bienvenue de retour",
-"dashboard.preparingNextStep": "Nous préparons la prochaine étape de votre expérience."
+"dashboard.preparingNextStep": "Nous préparons la prochaine étape de votre expérience.",
+  "dashboard.ctaRitualButton": "Ouvrir mon calendrier rituel",
+  "dashboard.rewardProgressLabel": "Progression de la récompense :"
+    
 
   },
 
@@ -2390,7 +2398,9 @@ const translations = {
 "dailyRitual.daySaved": "Tag gespeichert",
 "dailyRitual.savedMessage": "Perfekt. Dein Tag wurde gespeichert und dein Dashboard wird diesen Fortschritt anzeigen.",
     "dashboard.welcomeBack": "Willkommen zurück",
-"dashboard.preparingNextStep": "Wir bereiten den nächsten Schritt deiner Erfahrung vor."
+"dashboard.preparingNextStep": "Wir bereiten den nächsten Schritt deiner Erfahrung vor.",
+    "dashboard.ctaRitualButton": "Meinen Ritualkalender öffnen",
+  "dashboard.rewardProgressLabel": "Fortschritt Belohnung:"
   }
 };
 
