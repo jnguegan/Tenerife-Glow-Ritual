@@ -136,6 +136,17 @@
     </main>
   </div>
 
-  <script src="js/i18n.js"></script>
+<script src="js/i18n.js"></script>
+
+<script>
+  document.getElementById("loginForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    localStorage.setItem("tgr-auth", "true");
+
+    window.location.href = "dashboard.html";
+  });
+</script>
+
 </body>
 </html>
