@@ -575,7 +575,9 @@ const translations = {
 "dashboard.photoAfterPlaceholder": "Añadir foto actual",
 "dashboard.uploadBefore": "Subir antes",
 "dashboard.uploadAfter": "Subir después",
-"dashboard.photoNote": "Añade una foto inicial y una foto actual para seguir tu evolución de forma visual."   
+"dashboard.photoNote": "Añade una foto inicial y una foto actual para seguir tu evolución de forma visual.",
+    "dashboard.rewardText": "Después de completar 14 días consecutivos de tu ritual, podrás solicitar tu tratamiento exclusivo en nuestro spa.",
+"dashboard.rewardCTA": "Solicitar mi recompensa"
     
   },
 
@@ -1156,7 +1158,10 @@ const translations = {
 "dashboard.photoAfterPlaceholder": "Add current photo",
 "dashboard.uploadBefore": "Upload before",
 "dashboard.uploadAfter": "Upload after",
-"dashboard.photoNote": "Add an initial and a current photo to track your progress visually."   
+"dashboard.photoNote": "Add an initial and a current photo to track your progress visually.",
+    "dashboard.rewardText": "After completing 14 consecutive days of your ritual, you can request your exclusive treatment at our spa.",
+"dashboard.rewardCTA": "Request my reward"
+   
 
   },
 
@@ -1708,7 +1713,9 @@ const translations = {
 "dashboard.photoAfterPlaceholder": "Ajouter une photo actuelle",
 "dashboard.uploadBefore": "Télécharger avant",
 "dashboard.uploadAfter": "Télécharger après",
-"dashboard.photoNote": "Ajoutez une photo initiale et une photo actuelle pour suivre votre évolution visuellement."   
+"dashboard.photoNote": "Ajoutez une photo initiale et une photo actuelle pour suivre votre évolution visuellement.",
+     "dashboard.rewardText": "Après avoir complété 14 jours consécutifs de votre rituel, vous pourrez demander votre soin exclusif dans notre spa.",
+"dashboard.rewardCTA": "Demander ma récompense"
 
   },
 
@@ -2260,7 +2267,10 @@ const translations = {
 "dashboard.photoAfterPlaceholder": "Aktuelles Foto hinzufügen",
 "dashboard.uploadBefore": "Vorher hochladen",
 "dashboard.uploadAfter": "Nachher hochladen",
-"dashboard.photoNote": "Füge ein Start- und ein aktuelles Foto hinzu, um deinen Fortschritt visuell zu verfolgen."   
+"dashboard.photoNote": "Füge ein Start- und ein aktuelles Foto hinzu, um deinen Fortschritt visuell zu verfolgen.",
+
+"dashboard.rewardText": "Nach 14 aufeinanderfolgenden Tagen deines Rituals kannst du deine exklusive Behandlung in unserem Spa anfordern.",
+"dashboard.rewardCTA": "Meine Belohnung anfordern"
   }
 };
 
