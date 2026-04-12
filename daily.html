@@ -6,7 +6,7 @@
   <title>Ritual Diario | Tenerife Glow Ritual</title>
   <meta
     name="description"
-    content="Vista previa del ritual diario de Tenerife Glow Ritual. Skincare, apoyo somático y estructura calmada para tu día."
+    content="Tu ritual diario en Tenerife Glow Ritual. Sigue tu calendario, marca tu día como completado y mantén la constancia de tu programa."
   />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -15,6 +15,124 @@
     rel="stylesheet"
   />
   <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    .ritual-summary-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .ritual-summary-card {
+      padding: 20px;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.84);
+      border: 1px solid rgba(169, 152, 132, 0.14);
+      box-shadow: 0 16px 36px rgba(84, 66, 49, 0.05);
+    }
+
+    .ritual-summary-label {
+      margin: 0 0 10px;
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+
+    .ritual-summary-value {
+      margin: 0;
+      font-size: 1.12rem;
+      line-height: 1.35;
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .calendar-strip {
+      display: grid;
+      grid-template-columns: repeat(10, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .calendar-day {
+      min-height: 72px;
+      border-radius: 18px;
+      border: 1px solid rgba(169, 152, 132, 0.16);
+      background: rgba(255, 255, 255, 0.78);
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 10px 8px;
+      font-size: 0.9rem;
+      line-height: 1.35;
+    }
+
+    .calendar-day.completed {
+      background: rgba(238, 232, 221, 0.95);
+      border-color: rgba(176, 138, 82, 0.28);
+    }
+
+    .calendar-day.current {
+      background: rgba(255, 248, 240, 0.98);
+      border-color: rgba(201, 122, 90, 0.28);
+      box-shadow: 0 8px 22px rgba(84, 66, 49, 0.08);
+    }
+
+    .calendar-day strong {
+      display: block;
+      color: var(--accent-deep);
+      margin-bottom: 4px;
+      font-size: 0.95rem;
+    }
+
+    .today-panel {
+      padding: 20px;
+      border-radius: 22px;
+      background: rgba(255, 250, 245, 0.78);
+      border: 1px solid rgba(201, 122, 90, 0.14);
+    }
+
+    .today-panel p {
+      margin: 0;
+      line-height: 1.75;
+    }
+
+    .completion-note {
+      margin-top: 12px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .cta-inline {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      margin-top: 16px;
+    }
+
+    @media (max-width: 980px) {
+      .ritual-summary-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .calendar-strip {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .ritual-summary-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .calendar-strip {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .cta-inline {
+        flex-direction: column;
+        align-items: stretch;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="page-shell">
@@ -41,8 +159,7 @@
           <a href="daily.html" class="active" data-i18n="nav.daily">Diario</a>
           <a href="monthly.html" data-i18n="nav.monthly">Mensual</a>
           <a href="progress.html" data-i18n="nav.progress">Progreso</a>
-          <a href="login.html" class="nav-link-secondary" data-i18n="nav.login">Iniciar sesión</a>
-          <a href="signup.html" class="nav-link-cta" data-i18n="nav.start">Empieza tu Ritual</a>
+          <a href="dashboard.html" class="nav-link-secondary" data-i18n="dailyRitual.backDashboard">Volver al panel</a>
         </nav>
       </div>
     </header>
@@ -50,32 +167,64 @@
     <main class="content-stack">
       <section class="page-hero">
         <div>
-          <p class="eyebrow" data-i18n="dailyPreview.eyebrow">Vista previa diaria</p>
-          <h2 class="page-title" data-i18n="dailyPreview.title">Ejemplo de Ritual Diario · Bloque Alisio</h2>
-          <p class="page-subtitle" data-i18n="dailyPreview.subtitle">
-            Así se ve la estructura diaria dentro de Tenerife Glow Ritual: skincare, apoyo somático y organización suave para la vida real.
+          <p class="eyebrow" data-i18n="dailyRitual.eyebrow">Tu ritual diario</p>
+          <h2 class="page-title" id="dailyTitle">Día 1 de 90</h2>
+          <p class="page-subtitle" id="dailySubtitle">
+            Hoy seguimos tu ritual con calma, constancia y una estructura clara.
           </p>
         </div>
         <div class="hero-meta">
-          <span class="pill" data-i18n="dailyPreview.meta1">Mañana + Noche</span>
-          <span class="pill" data-i18n="dailyPreview.meta2">Reset Somático</span>
-          <span class="pill" data-i18n="dailyPreview.meta3">Plan Diario</span>
+          <span class="pill" id="dailyTimePill">10 minutos</span>
+          <span class="pill" id="dailyGoalPill">Objetivo</span>
+          <span class="pill" id="dailyRewardPill">0 / 14 días</span>
         </div>
       </section>
 
-      <section class="card cta-card">
+      <section class="ritual-summary-grid">
+        <article class="ritual-summary-card">
+          <p class="ritual-summary-label" data-i18n="dailyRitual.summaryDay">Día actual</p>
+          <p class="ritual-summary-value" id="summaryCurrentDay">1 / 90</p>
+        </article>
+
+        <article class="ritual-summary-card">
+          <p class="ritual-summary-label" data-i18n="dailyRitual.summaryTime">Tiempo diario</p>
+          <p class="ritual-summary-value" id="summaryDailyTime">10 minutos</p>
+        </article>
+
+        <article class="ritual-summary-card">
+          <p class="ritual-summary-label" data-i18n="dailyRitual.summaryCompleted">Días completados</p>
+          <p class="ritual-summary-value" id="summaryCompleted">0</p>
+        </article>
+
+        <article class="ritual-summary-card">
+          <p class="ritual-summary-label" data-i18n="dailyRitual.summaryReward">Progreso recompensa</p>
+          <p class="ritual-summary-value" id="summaryReward">0 / 14</p>
+        </article>
+      </section>
+
+      <section class="card">
         <div class="card-header">
-          <p class="eyebrow" data-i18n="dailyBanner.eyebrow">Experiencia miembro</p>
-          <h3 data-i18n="dailyBanner.title">Esta es una vista previa del flujo diario</h3>
+          <p class="eyebrow" data-i18n="dailyRitual.todayEyebrow">Hoy</p>
+          <h3 data-i18n="dailyRitual.todayTitle">Tu ritual de hoy</h3>
         </div>
 
-        <p class="support-text" data-i18n="dailyBanner.text">
-          Crea tu cuenta para guardar tu ritual, marcar tus hábitos, registrar notas y acceder a tu plan personalizado.
-        </p>
+        <div class="today-panel">
+          <p id="todayDescription">
+            Tu objetivo hoy es dedicar 10 minutos a tu ritual y mantener la constancia del programa.
+          </p>
 
-        <div class="hero-actions">
-          <a href="signup.html" class="btn btn-primary" data-i18n="dailyBanner.primary">Crear cuenta</a>
-          <a href="login.html" class="btn btn-secondary" data-i18n="dailyBanner.secondary">Iniciar sesión</a>
+          <div class="cta-inline">
+            <button type="button" class="btn btn-primary" id="completeDayBtn" data-i18n="dailyRitual.completeButton">
+              Marcar el día como completado
+            </button>
+            <a href="dashboard.html" class="btn btn-secondary" data-i18n="dailyRitual.backButton">
+              Volver al panel
+            </a>
+          </div>
+
+          <p class="completion-note" id="completionMessage" data-i18n="dailyRitual.completionNote">
+            Cuando completes tu ritual de hoy, este progreso se reflejará automáticamente en tu panel.
+          </p>
         </div>
       </section>
 
@@ -162,22 +311,11 @@
 
           <section class="card">
             <div class="card-header">
-              <p class="eyebrow" data-i18n="dailySchedule.eyebrow">Tu día</p>
-              <h3 data-i18n="dailySchedule.title">Estructura diaria</h3>
+              <p class="eyebrow" data-i18n="dailyRitual.calendarEyebrow">Calendario ritual</p>
+              <h3 data-i18n="dailyRitual.calendarTitle">Tu recorrido actual</h3>
             </div>
 
-            <div class="schedule-list">
-              <div class="schedule-row"><input class="time-input" type="text" placeholder="08:00" /><input class="task-input" type="text" placeholder="Gimnasio / cita / recordatorio" data-i18n-placeholder="dailySchedule.placeholder" /></div>
-              <div class="schedule-row"><input class="time-input" type="text" placeholder="09:00" /><input class="task-input" type="text" /></div>
-              <div class="schedule-row"><input class="time-input" type="text" placeholder="10:00" /><input class="task-input" type="text" /></div>
-              <div class="schedule-row"><input class="time-input" type="text" placeholder="11:00" /><input class="task-input" type="text" /></div>
-              <div class="schedule-row"><input class="time-input" type="text" placeholder="12:00" /><input class="task-input" type="text" /></div>
-              <div class="schedule-row"><input class="time-input" type="text" placeholder="13:00" /><input class="task-input" type="text" /></div>
-              <div class="schedule-row"><input class="time-input" type="text" placeholder="16:00" /><input class="task-input" type="text" /></div>
-              <div class="schedule-row"><input class="time-input" type="text" placeholder="18:00" /><input class="task-input" type="text" /></div>
-              <div class="schedule-row"><input class="time-input" type="text" placeholder="20:00" /><input class="task-input" type="text" /></div>
-              <div class="schedule-row"><input class="time-input" type="text" placeholder="21:30" /><input class="task-input" type="text" /></div>
-            </div>
+            <div class="calendar-strip" id="calendarStrip"></div>
           </section>
 
           <section class="card">
@@ -207,5 +345,161 @@
   </div>
 
   <script src="js/i18n.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const isAuth = localStorage.getItem("tgr-auth") === "true";
+
+      if (!isAuth) {
+        window.location.href = "login.html";
+        return;
+      }
+
+      const onboarding = JSON.parse(localStorage.getItem("tgr-onboarding-data") || "{}");
+      const purchase = JSON.parse(localStorage.getItem("tgr-purchase") || "{}");
+
+      const t = (key, fallback = "") => {
+        const currentLang = localStorage.getItem("tgr-language") || "es";
+
+        if (
+          window.translations &&
+          window.translations[currentLang] &&
+          window.translations[currentLang][key]
+        ) {
+          return window.translations[currentLang][key];
+        }
+
+        if (
+          window.translations &&
+          window.translations.es &&
+          window.translations.es[key]
+        ) {
+          return window.translations.es[key];
+        }
+
+        return fallback;
+      };
+
+      const duration = parseInt(onboarding.timeline || "90", 10);
+      const completedDays = parseInt(localStorage.getItem("tgr-days-completed") || "0", 10);
+      const currentDay = Math.min(completedDays + 1, duration);
+      const rewardProgress = Math.min(completedDays, 14);
+
+      const completedList = JSON.parse(localStorage.getItem("tgr-completed-days-list") || "[]");
+
+      const goalMap = {
+        glow: t("onboarding.goal.glow"),
+        hydration: t("onboarding.goal.hydration"),
+        antiage: t("onboarding.goal.antiage"),
+        acne: t("onboarding.goal.acne"),
+        balance: t("onboarding.goal.balance")
+      };
+
+      const timeMap = {
+        "5": t("onboarding.time.short"),
+        "10": t("onboarding.time.medium"),
+        "20": t("onboarding.time.long")
+      };
+
+      const goalLabel = goalMap[onboarding.goal] || t("dailyRitual.goalFallback", "Tu objetivo");
+      const timeLabel = timeMap[onboarding.time] || t("dailyRitual.timeFallback", "10 minutos");
+
+      const dailyTitle = document.getElementById("dailyTitle");
+      const dailySubtitle = document.getElementById("dailySubtitle");
+      const dailyTimePill = document.getElementById("dailyTimePill");
+      const dailyGoalPill = document.getElementById("dailyGoalPill");
+      const dailyRewardPill = document.getElementById("dailyRewardPill");
+
+      const summaryCurrentDay = document.getElementById("summaryCurrentDay");
+      const summaryDailyTime = document.getElementById("summaryDailyTime");
+      const summaryCompleted = document.getElementById("summaryCompleted");
+      const summaryReward = document.getElementById("summaryReward");
+      const todayDescription = document.getElementById("todayDescription");
+      const completionMessage = document.getElementById("completionMessage");
+      const completeDayBtn = document.getElementById("completeDayBtn");
+      const calendarStrip = document.getElementById("calendarStrip");
+
+      dailyTitle.textContent = `${t("dailyRitual.dayLabel", "Día")} ${currentDay} ${t("dailyRitual.ofLabel", "de")} ${duration}`;
+      dailySubtitle.textContent = t("dailyRitual.subtitleActive", "Hoy seguimos tu ritual con calma, constancia y una estructura clara.");
+      dailyTimePill.textContent = timeLabel;
+      dailyGoalPill.textContent = goalLabel;
+      dailyRewardPill.textContent = `${rewardProgress} / 14 ${t("dailyRitual.rewardDays", "días")}`;
+
+      summaryCurrentDay.textContent = `${currentDay} / ${duration}`;
+      summaryDailyTime.textContent = timeLabel;
+      summaryCompleted.textContent = `${completedDays}`;
+      summaryReward.textContent = `${rewardProgress} / 14`;
+
+      todayDescription.textContent = t(
+        "dailyRitual.todayDescription",
+        `Tu objetivo hoy es dedicar ${timeLabel} a tu ritual y mantener la constancia del programa.`
+      ).replace("{time}", timeLabel);
+
+      const renderCalendar = () => {
+        const maxVisible = Math.min(duration, 30);
+        let html = "";
+
+        for (let i = 1; i <= maxVisible; i++) {
+          let classes = "calendar-day";
+          if (completedList.includes(i)) classes += " completed";
+          if (i === currentDay) classes += " current";
+
+          let statusText = t("dailyRitual.upcoming", "Próximo");
+          if (completedList.includes(i)) statusText = t("dailyRitual.completed", "Completado");
+          if (i === currentDay && !completedList.includes(i)) statusText = t("dailyRitual.current", "Hoy");
+
+          html += `
+            <div class="${classes}">
+              <div>
+                <strong>${t("dailyRitual.dayShort", "Día")} ${i}</strong>
+                <span>${statusText}</span>
+              </div>
+            </div>
+          `;
+        }
+
+        calendarStrip.innerHTML = html;
+
+        if (window.applyTranslations) {
+          window.applyTranslations();
+        }
+      };
+
+      renderCalendar();
+
+      if (completedList.includes(currentDay) || completedDays >= duration) {
+        completeDayBtn.disabled = true;
+        completeDayBtn.textContent = t("dailyRitual.alreadyCompleted", "Día completado");
+        completionMessage.textContent = t("dailyRitual.completionDone", "El día actual ya está marcado como completado. Tu panel mostrará el siguiente paso automáticamente.");
+      }
+
+      completeDayBtn.addEventListener("click", function () {
+        let days = parseInt(localStorage.getItem("tgr-days-completed") || "0", 10);
+        let list = JSON.parse(localStorage.getItem("tgr-completed-days-list") || "[]");
+
+        const activeDay = Math.min(days + 1, duration);
+
+        if (!list.includes(activeDay)) {
+          list.push(activeDay);
+          days += 1;
+        }
+
+        localStorage.setItem("tgr-days-completed", String(days));
+        localStorage.setItem("tgr-completed-days-list", JSON.stringify(list));
+        localStorage.setItem("tgr-ritual-duration", String(duration));
+
+        completeDayBtn.disabled = true;
+        completeDayBtn.textContent = t("dailyRitual.daySaved", "Día guardado");
+        completionMessage.textContent = t("dailyRitual.savedMessage", "Perfecto. Tu día ha sido registrado y tu dashboard reflejará este progreso.");
+
+        setTimeout(function () {
+          window.location.href = "dashboard.html";
+        }, 900);
+      });
+
+      if (window.applyTranslations) {
+        window.applyTranslations();
+      }
+    });
+  </script>
 </body>
 </html>
