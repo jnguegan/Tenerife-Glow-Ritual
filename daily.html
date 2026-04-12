@@ -429,10 +429,22 @@
       summaryCompleted.textContent = `${completedDays}`;
       summaryReward.textContent = `${rewardProgress} / 14`;
 
-      todayDescription.textContent = t(
-        "dailyRitual.todayDescription",
-        `Tu objetivo hoy es dedicar ${timeLabel} a tu ritual y mantener la constancia del programa.`
-      ).replace("{time}", timeLabel);
+     const currentLang = localStorage.getItem("tgr-language") || "es";
+
+const todayDescriptionTemplate =
+  window.translations &&
+  window.translations[currentLang] &&
+  window.translations[currentLang]["dailyRitual.todayDescription"]
+    ? window.translations[currentLang]["dailyRitual.todayDescription"]
+    : (
+        window.translations &&
+        window.translations.es &&
+        window.translations.es["dailyRitual.todayDescription"]
+          ? window.translations.es["dailyRitual.todayDescription"]
+          : "Tu objetivo hoy es dedicar {time} a tu ritual y mantener la constancia del programa."
+      );
+
+todayDescription.textContent = todayDescriptionTemplate.replace("{time}", timeLabel);
 
       const renderCalendar = () => {
         const maxVisible = Math.min(duration, 30);
