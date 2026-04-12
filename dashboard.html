@@ -616,6 +616,11 @@
 
     const partnerDone = localStorage.getItem("tgr-partner-complete") === "true";
     const onboardingDone = localStorage.getItem("tgr-onboarding-complete") === "true";
+    const startRitualBtn = document.getElementById("startRitualBtn");
+
+if (partnerDone && onboardingDone && startRitualBtn) {
+  startRitualBtn.style.display = "inline-flex";
+}
 
     const t = (key, fallback = "") => {
       const currentLang = localStorage.getItem("tgr-language") || "es";
