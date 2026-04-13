@@ -142,10 +142,31 @@
   document.getElementById("loginForm").addEventListener("submit", function (e) {
     e.preventDefault();
 
-    localStorage.setItem("tgr-auth", "true");
-    localStorage.setItem("tgr-partner-complete", "true");
+   const email = document.getElementById("email").value;
 
-    window.location.href = "dashboard.html";
+// check if this is a different user
+const lastUser = localStorage.getItem("tgr-current-user");
+
+if (lastUser && lastUser !== email) {
+  // 🔥 CLEAR ALL USER-SPECIFIC DATA
+  localStorage.removeItem("tgr-onboarding-data");
+  localStorage.removeItem("tgr-purchase");
+  localStorage.removeItem("tgr-partner-complete");
+  localStorage.removeItem("tgr-onboarding-complete");
+  localStorage.removeItem("tgr-days-completed");
+  localStorage.removeItem("tgr-ritual-time");
+  localStorage.removeItem("tgr-ritual-duration");
+  localStorage.removeItem("tgr-last-completed-date");
+}
+
+// save current user
+localStorage.setItem("tgr-current-user", email);
+
+// authenticate only
+localStorage.setItem("tgr-auth", "true");
+
+// redirect
+window.location.href = "dashboard.html";
   });
 </script>
 
