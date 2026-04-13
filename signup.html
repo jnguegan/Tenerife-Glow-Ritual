@@ -318,21 +318,35 @@
     if (!form) return;
 
     form.addEventListener("submit", function (e) {
-      e.preventDefault();
+  e.preventDefault();
 
-      const fullName = document.getElementById("fullName")?.value || "";
-      const email = document.getElementById("signupEmail")?.value || "";
-      const skinGoal = document.getElementById("skinGoal")?.value || "";
+  const fullName = document.getElementById("fullName")?.value || "";
+  const email = document.getElementById("signupEmail")?.value || "";
+  const skinGoal = document.getElementById("skinGoal")?.value || "";
 
-      localStorage.setItem("tgr-auth", "true");
-      localStorage.setItem("tgr-user", JSON.stringify({
-        fullName,
-        email,
-        skinGoal
-      }));
+  const lastUser = localStorage.getItem("tgr-current-user");
 
-      window.location.href = "dashboard.html";
-    });
+  if (lastUser && lastUser !== email) {
+    localStorage.removeItem("tgr-onboarding-data");
+    localStorage.removeItem("tgr-purchase");
+    localStorage.removeItem("tgr-partner-complete");
+    localStorage.removeItem("tgr-onboarding-complete");
+    localStorage.removeItem("tgr-days-completed");
+    localStorage.removeItem("tgr-ritual-time");
+    localStorage.removeItem("tgr-ritual-duration");
+    localStorage.removeItem("tgr-last-completed-date");
+  }
+
+  localStorage.setItem("tgr-current-user", email);
+  localStorage.setItem("tgr-auth", "true");
+  localStorage.setItem("tgr-user", JSON.stringify({
+    fullName,
+    email,
+    skinGoal
+  }));
+
+  window.location.href = "dashboard.html";
+});
   });
 </script>
 </body>
