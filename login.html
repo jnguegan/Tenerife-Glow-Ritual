@@ -4,164 +4,382 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Iniciar sesión | Tenerife Glow Ritual</title>
-  <meta
-    name="description"
-    content="Accede a tu cuenta de Tenerife Glow Ritual para continuar tu ritual diario, seguir tu progreso y gestionar tu plan."
-  />
+  <meta name="description" content="Accede a tu cuenta de Tenerife Glow Ritual para continuar tu ritual diario." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --sand: #F5F0E8;
+      --sand-mid: #EDE5D6;
+      --sand-deep: #D6C9B0;
+      --stone: #8C7B6B;
+      --stone-dark: #5C4D3E;
+      --obsidian: #1E1A16;
+      --gold: #C9A96E;
+      --gold-light: #E8D5A8;
+      --ivory: #FAF7F2;
+      --white: #FFFFFF;
+      --radius: 2px;
+      --radius-lg: 6px;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      background: var(--ivory);
+      color: var(--obsidian);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* TOPBAR */
+    .topbar {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(250,247,242,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--sand-deep);
+      padding: 0 3rem;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 70px;
+    }
+    .brand-wrap { display: flex; align-items: center; gap: 14px; }
+    .brand-mark {
+      width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--sand-deep) 100%);
+      position: relative;
+    }
+    .brand-mark::after {
+      content: ''; position: absolute; inset: 6px;
+      border-radius: 50%; border: 1px solid rgba(255,255,255,0.6);
+    }
+    .eyebrow {
+      font-size: 10px; font-weight: 500; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--stone);
+    }
+    .brand-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px; font-weight: 400; color: var(--obsidian);
+    }
+    .header-actions { display: flex; align-items: center; gap: 2rem; }
+    .language-switcher { display: flex; gap: 4px; }
+    .lang-btn {
+      background: none; border: none;
+      font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 500;
+      letter-spacing: 0.1em; color: var(--stone); cursor: pointer;
+      padding: 4px 8px; border-radius: var(--radius); transition: all 0.2s;
+    }
+    .lang-btn:hover, .lang-btn.active { color: var(--obsidian); background: var(--sand-mid); }
+    .topnav { display: flex; align-items: center; gap: 1.5rem; }
+    .topnav a {
+      text-decoration: none; font-size: 13px; font-weight: 400;
+      color: var(--stone-dark); transition: color 0.2s; letter-spacing: 0.02em;
+    }
+    .topnav a:hover, .topnav a.active { color: var(--obsidian); }
+    .nav-link-secondary { color: var(--stone) !important; }
+    .nav-link-cta {
+      background: var(--obsidian) !important; color: var(--ivory) !important;
+      padding: 8px 20px; border-radius: var(--radius);
+      font-size: 12px !important; font-weight: 500 !important;
+      letter-spacing: 0.06em; transition: background 0.2s !important;
+    }
+    .nav-link-cta:hover { background: var(--stone-dark) !important; }
+
+    /* PAGE LAYOUT */
+    .page-shell { min-height: 100vh; }
+
+    .auth-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: calc(100vh - 70px);
+    }
+
+    /* LEFT PANEL — decorative */
+    .auth-left {
+      background: var(--sand);
+      padding: 5rem 4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .auth-left::before {
+      content: '';
+      position: absolute; top: -80px; right: -80px;
+      width: 400px; height: 400px; border-radius: 50%;
+      background: radial-gradient(circle, var(--gold-light) 0%, transparent 70%);
+      opacity: 0.5; pointer-events: none;
+    }
+    .auth-left::after {
+      content: '';
+      position: absolute; bottom: -60px; left: 0;
+      width: 250px; height: 250px; border-radius: 50%;
+      background: radial-gradient(circle, var(--sand-deep) 0%, transparent 70%);
+      opacity: 0.6; pointer-events: none;
+    }
+    .auth-left-content { position: relative; z-index: 1; }
+    .auth-left .eyebrow { margin-bottom: 1.25rem; }
+    .auth-left h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 400; line-height: 1.2;
+      color: var(--obsidian); margin-bottom: 1.25rem;
+    }
+    .auth-left h2 em { font-style: italic; color: var(--stone-dark); }
+    .auth-left p {
+      font-size: 15px; font-weight: 300;
+      color: var(--stone-dark); line-height: 1.75;
+      max-width: 380px; margin-bottom: 2.5rem;
+    }
+    .benefits-list { display: flex; flex-direction: column; gap: 12px; }
+    .benefit-item {
+      display: flex; align-items: flex-start; gap: 14px;
+      font-size: 13px; color: var(--stone-dark); line-height: 1.5;
+    }
+    .benefit-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--gold); flex-shrink: 0; margin-top: 6px;
+    }
+    .intention-block {
+      margin-top: 3rem;
+      border-top: 1px solid var(--sand-deep);
+      padding-top: 2rem;
+    }
+    .intention-block .quote-label {
+      font-size: 10px; font-weight: 500; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem;
+    }
+    .intention-block blockquote {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem; font-style: italic;
+      color: var(--obsidian); line-height: 1.5;
+    }
+
+    /* RIGHT PANEL — form */
+    .auth-right {
+      background: var(--white);
+      padding: 5rem 4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .auth-form-wrap { max-width: 400px; width: 100%; }
+    .auth-form-wrap .eyebrow { margin-bottom: 0.5rem; }
+    .auth-form-wrap h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem; font-weight: 400;
+      color: var(--obsidian); margin-bottom: 2.5rem; line-height: 1.2;
+    }
+
+    /* FORM FIELDS */
+    .field-group { margin-bottom: 1.25rem; }
+    .field-label {
+      display: block; font-size: 12px; font-weight: 500;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--stone-dark); margin-bottom: 8px;
+    }
+    .styled-input {
+      width: 100%; height: 50px;
+      padding: 0 18px;
+      border: 1px solid var(--sand-deep);
+      border-radius: var(--radius);
+      background: var(--ivory);
+      font-family: 'DM Sans', sans-serif; font-size: 14px;
+      font-weight: 300; color: var(--obsidian);
+      transition: border-color 0.2s, box-shadow 0.2s;
+      outline: none;
+    }
+    .styled-input::placeholder { color: var(--stone); }
+    .styled-input:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(201,169,110,0.12);
+      background: var(--white);
+    }
+
+    .login-row {
+      display: flex; align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.75rem;
+    }
+    .remember-row {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 13px; color: var(--stone-dark); cursor: pointer;
+    }
+    .remember-row input[type="checkbox"] {
+      width: 16px; height: 16px; accent-color: var(--gold);
+    }
+    .inline-link {
+      font-size: 13px; color: var(--stone-dark);
+      text-decoration: underline; text-underline-offset: 3px;
+    }
+    .inline-link:hover { color: var(--gold); }
+
+    /* BUTTONS */
+    .btn-group { display: flex; flex-direction: column; gap: 10px; }
+    .btn {
+      display: flex; align-items: center; justify-content: center;
+      text-decoration: none; font-family: 'DM Sans', sans-serif;
+      font-size: 13px; font-weight: 500; letter-spacing: 0.06em;
+      height: 50px; padding: 0 28px;
+      border-radius: var(--radius); transition: all 0.25s;
+      cursor: pointer; border: none; width: 100%;
+    }
+    .btn-primary { background: var(--obsidian); color: var(--ivory); }
+    .btn-primary:hover { background: var(--stone-dark); }
+    .btn-secondary {
+      background: transparent; color: var(--obsidian);
+      border: 1px solid var(--sand-deep);
+    }
+    .btn-secondary:hover { background: var(--sand); border-color: var(--stone); }
+
+    .form-footer {
+      margin-top: 1.5rem; font-size: 13px;
+      color: var(--stone); text-align: center; line-height: 1.6;
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .auth-left-content { animation: fadeUp 0.6s 0.1s ease both; }
+    .auth-form-wrap { animation: fadeUp 0.6s 0.2s ease both; }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .auth-layout { grid-template-columns: 1fr; }
+      .auth-left { padding: 4rem 2.5rem; min-height: auto; }
+      .auth-right { padding: 4rem 2.5rem; }
+      .auth-form-wrap { max-width: 100%; }
+    }
+    @media (max-width: 600px) {
+      .topbar { padding: 0 1.5rem; }
+      .topnav { display: none; }
+      .auth-left { padding: 3rem 1.5rem; }
+      .auth-right { padding: 3rem 1.5rem; }
+    }
+  </style>
 </head>
 <body>
-  <div class="page-shell">
-    <header class="topbar">
-      <div class="brand-wrap">
-        <div class="brand-mark"></div>
-        <div>
-          <p class="eyebrow" data-i18n="brand.eyebrow">Ritual de Piel de la Isla</p>
-          <h1 class="brand-title" data-i18n="brand.title">Tenerife Glow Ritual</h1>
+<div class="page-shell">
+  <header class="topbar">
+    <div class="brand-wrap">
+      <div class="brand-mark"></div>
+      <div>
+        <p class="eyebrow" data-i18n="brand.eyebrow">Ritual de Piel de la Isla</p>
+        <h1 class="brand-title" data-i18n="brand.title">Tenerife Glow Ritual</h1>
+      </div>
+    </div>
+    <div class="header-actions">
+      <div class="language-switcher">
+        <button class="lang-btn active" data-lang="es" type="button">ES</button>
+        <button class="lang-btn" data-lang="en" type="button">EN</button>
+        <button class="lang-btn" data-lang="fr" type="button">FR</button>
+        <button class="lang-btn" data-lang="de" type="button">DE</button>
+      </div>
+      <nav class="topnav">
+        <a href="index.html" data-i18n="nav.home">Inicio</a>
+        <a href="products.html" data-i18n="nav.products">Productos</a>
+        <a href="login.html" class="active nav-link-secondary" data-i18n="nav.login">Iniciar sesión</a>
+        <a href="signup.html" class="nav-link-cta" data-i18n="nav.start">Empieza tu Ritual</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="auth-layout">
+    <!-- LEFT: decorative panel -->
+    <div class="auth-left">
+      <div class="auth-left-content">
+        <p class="eyebrow" data-i18n="loginHero.eyebrow">Acceso miembro</p>
+        <h2 data-i18n="loginHero.title">Vuelve a<br><em>tu ritual.</em></h2>
+        <p data-i18n="loginHero.subtitle">Continúa tu ritual diario, revisa tu progreso y mantén la constancia que transforma tu piel con calma.</p>
+
+        <div class="benefits-list">
+          <div class="benefit-item">
+            <div class="benefit-dot"></div>
+            <span data-i18n="loginBenefits.item1">Tu ritual diario con seguimiento de hábitos</span>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-dot"></div>
+            <span data-i18n="loginBenefits.item2">Tu plan mensual con hitos y continuidad</span>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-dot"></div>
+            <span data-i18n="loginBenefits.item3">Tu progreso con fotos y evolución visible</span>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-dot"></div>
+            <span data-i18n="loginBenefits.item4">Tus productos guardados y recomendaciones</span>
+          </div>
+        </div>
+
+        <div class="intention-block">
+          <p class="quote-label" data-i18n="loginBenefits.quoteLabel">Intención</p>
+          <blockquote data-i18n="loginBenefits.quoteText">"Vuelve a tu ritual con calma, claridad y constancia visible."</blockquote>
         </div>
       </div>
+    </div>
 
-      <div class="header-actions">
-        <div class="language-switcher" aria-label="Selector de idioma">
-          <button class="lang-btn active" data-lang="es" type="button">ES</button>
-          <button class="lang-btn" data-lang="en" type="button">EN</button>
-          <button class="lang-btn" data-lang="fr" type="button">FR</button>
-          <button class="lang-btn" data-lang="de" type="button">DE</button>
-        </div>
+    <!-- RIGHT: form -->
+    <div class="auth-right">
+      <div class="auth-form-wrap">
+        <p class="eyebrow" data-i18n="loginForm.eyebrow">Iniciar sesión</p>
+        <h3 data-i18n="loginForm.title">Accede a tu cuenta</h3>
 
-        <nav class="topnav" aria-label="Navegación principal">
-          <a href="index.html" data-i18n="nav.home">Inicio</a>
-          <a href="products.html" data-i18n="nav.products">Productos</a>
-          <a href="daily.html" data-i18n="nav.daily">Diario</a>
-          <a href="monthly.html" data-i18n="nav.monthly">Mensual</a>
-          <a href="progress.html" data-i18n="nav.progress">Progreso</a>
-          <a href="login.html" class="active nav-link-secondary" data-i18n="nav.login">Iniciar sesión</a>
-          <a href="signup.html" class="nav-link-cta" data-i18n="nav.start">Empieza tu Ritual</a>
-        </nav>
-      </div>
-    </header>
-
-    <main class="content-stack">
-      <section class="page-hero">
-        <div>
-          <p class="eyebrow" data-i18n="loginHero.eyebrow">Acceso miembro</p>
-          <h2 class="page-title" data-i18n="loginHero.title">Vuelve a tu ritual</h2>
-          <p class="page-subtitle" data-i18n="loginHero.subtitle">
-            Inicia sesión para continuar tu ritual diario, revisar tu progreso y seguir tu plan mensual con calma y constancia.
-          </p>
-        </div>
-      </section>
-
-      <section class="two-col-layout">
-        <section class="card auth-card">
-          <div class="card-header">
-            <p class="eyebrow" data-i18n="loginForm.eyebrow">Iniciar sesión</p>
-            <h3 data-i18n="loginForm.title">Accede a tu cuenta</h3>
-          </div>
-
-          <form class="content-stack auth-form" id="loginForm">
-            <div class="field-group">
-              <label class="field-label" for="email" data-i18n="loginForm.emailLabel">Correo electrónico</label>
-              <input
-                id="email"
-                name="email"
-                class="styled-input"
-                type="email"
-                placeholder="tu@email.com"
-                data-i18n-placeholder="loginForm.emailPlaceholder"
-                autocomplete="email"
-              />
-            </div>
-
-            <div class="field-group">
-              <label class="field-label" for="password" data-i18n="loginForm.passwordLabel">Contraseña</label>
-              <input
-                id="password"
-                name="password"
-                class="styled-input"
-                type="password"
-                placeholder="Tu contraseña"
-                data-i18n-placeholder="loginForm.passwordPlaceholder"
-                autocomplete="current-password"
-              />
-            </div>
-
-            <div class="login-row">
-              <label class="check-item remember-row">
-                <input type="checkbox" />
-                <span data-i18n="loginForm.remember">Recordarme</span>
-              </label>
-
-              <a href="#" class="inline-link" data-i18n="loginForm.forgot">¿Olvidaste tu contraseña?</a>
-            </div>
-
-            <div class="hero-actions">
-              <button type="submit" class="btn btn-primary" data-i18n="loginForm.primary">Iniciar sesión</button>
-              <a href="signup.html" class="btn btn-secondary" data-i18n="loginForm.secondary">Crear cuenta</a>
-            </div>
-
-            <p class="support-text" data-i18n="loginForm.support">
-              Tu ritual, tu progreso y tu plan guardados en un solo espacio.
-            </p>
-          </form>
-        </section>
-
-        <section class="card auth-side-card">
-          <div class="card-header">
-            <p class="eyebrow" data-i18n="loginBenefits.eyebrow">Tu espacio</p>
-            <h3 data-i18n="loginBenefits.title">Qué encontrarás al entrar</h3>
-          </div>
-
-          <div class="check-grid">
-            <div class="soft-panel" data-i18n="loginBenefits.item1">Tu ritual diario con seguimiento de hábitos</div>
-            <div class="soft-panel" data-i18n="loginBenefits.item2">Tu plan mensual con hitos y continuidad</div>
-            <div class="soft-panel" data-i18n="loginBenefits.item3">Tu progreso con notas, fotos y evolución</div>
-            <div class="soft-panel" data-i18n="loginBenefits.item4">Tus productos guardados y recomendaciones</div>
+        <form id="loginForm">
+          <div class="field-group">
+            <label class="field-label" for="email" data-i18n="loginForm.emailLabel">Correo electrónico</label>
+            <input id="email" name="email" class="styled-input" type="email"
+              placeholder="tu@email.com" autocomplete="email" />
           </div>
 
           <div class="field-group">
-            <label class="field-label" data-i18n="loginBenefits.quoteLabel">Intención</label>
-            <div class="soft-panel" data-i18n="loginBenefits.quoteText">
-              Vuelve a tu ritual con calma, claridad y constancia visible.
-            </div>
+            <label class="field-label" for="password" data-i18n="loginForm.passwordLabel">Contraseña</label>
+            <input id="password" name="password" class="styled-input" type="password"
+              placeholder="Tu contraseña" autocomplete="current-password" />
           </div>
-        </section>
-      </section>
-    </main>
+
+          <div class="login-row">
+            <label class="remember-row">
+              <input type="checkbox" />
+              <span data-i18n="loginForm.remember">Recordarme</span>
+            </label>
+            <a href="#" class="inline-link" data-i18n="loginForm.forgot">¿Olvidaste tu contraseña?</a>
+          </div>
+
+          <div class="btn-group">
+            <button type="submit" class="btn btn-primary" data-i18n="loginForm.primary">Iniciar sesión</button>
+            <a href="signup.html" class="btn btn-secondary" data-i18n="loginForm.secondary">Crear cuenta nueva</a>
+          </div>
+
+          <p class="form-footer" data-i18n="loginForm.support">Tu ritual, tu progreso y tu plan guardados en un solo espacio.</p>
+        </form>
+      </div>
+    </div>
   </div>
+</div>
 
-  <script src="js/i18n.js"></script>
+<script src="js/i18n.js"></script>
+<script>
+  document.getElementById("loginForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    const email = (document.getElementById("email")?.value || "").trim().toLowerCase();
+    const lastUser = (localStorage.getItem("tgr-current-user") || "").trim().toLowerCase();
 
-  <script>
-    document.getElementById("loginForm").addEventListener("submit", function (e) {
-      e.preventDefault();
+    if (lastUser && lastUser !== email) {
+      ["tgr-user","tgr-onboarding-data","tgr-purchase","tgr-partner-complete",
+       "tgr-onboarding-complete","tgr-days-completed","tgr-ritual-time",
+       "tgr-ritual-duration","tgr-last-completed-date"].forEach(k => localStorage.removeItem(k));
+    }
 
-      const email = (document.getElementById("email")?.value || "").trim().toLowerCase();
-      const lastUser = (localStorage.getItem("tgr-current-user") || "").trim().toLowerCase();
-
-      if (lastUser && lastUser !== email) {
-        localStorage.removeItem("tgr-user");
-        localStorage.removeItem("tgr-onboarding-data");
-        localStorage.removeItem("tgr-purchase");
-        localStorage.removeItem("tgr-partner-complete");
-        localStorage.removeItem("tgr-onboarding-complete");
-        localStorage.removeItem("tgr-days-completed");
-        localStorage.removeItem("tgr-ritual-time");
-        localStorage.removeItem("tgr-ritual-duration");
-        localStorage.removeItem("tgr-last-completed-date");
-      }
-
-      localStorage.setItem("tgr-current-user", email);
-      localStorage.setItem("tgr-auth", "true");
-
-      window.location.href = "dashboard.html";
-    });
-  </script>
+    localStorage.setItem("tgr-current-user", email);
+    localStorage.setItem("tgr-auth", "true");
+    window.location.href = "dashboard.html";
+  });
+</script>
 </body>
 </html>
