@@ -112,7 +112,7 @@
           </form>
         </section>
 
-       <section class="card auth-side-card">
+        <section class="card auth-side-card">
           <div class="card-header">
             <p class="eyebrow" data-i18n="loginBenefits.eyebrow">Tu espacio</p>
             <h3 data-i18n="loginBenefits.title">Qué encontrarás al entrar</h3>
@@ -136,39 +136,32 @@
     </main>
   </div>
 
-<script src="js/i18n.js"></script>
+  <script src="js/i18n.js"></script>
 
-<script>
-  document.getElementById("loginForm").addEventListener("submit", function (e) {
-    e.preventDefault();
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function (e) {
+      e.preventDefault();
 
-   const email = document.getElementById("email").value;
+      const email = (document.getElementById("email")?.value || "").trim().toLowerCase();
+      const lastUser = (localStorage.getItem("tgr-current-user") || "").trim().toLowerCase();
 
-// check if this is a different user
-const lastUser = localStorage.getItem("tgr-current-user");
+      if (lastUser && lastUser !== email) {
+        localStorage.removeItem("tgr-user");
+        localStorage.removeItem("tgr-onboarding-data");
+        localStorage.removeItem("tgr-purchase");
+        localStorage.removeItem("tgr-partner-complete");
+        localStorage.removeItem("tgr-onboarding-complete");
+        localStorage.removeItem("tgr-days-completed");
+        localStorage.removeItem("tgr-ritual-time");
+        localStorage.removeItem("tgr-ritual-duration");
+        localStorage.removeItem("tgr-last-completed-date");
+      }
 
-if (lastUser && lastUser !== email) {
-  // 🔥 CLEAR ALL USER-SPECIFIC DATA
-  localStorage.removeItem("tgr-onboarding-data");
-  localStorage.removeItem("tgr-purchase");
-  localStorage.removeItem("tgr-partner-complete");
-  localStorage.removeItem("tgr-onboarding-complete");
-  localStorage.removeItem("tgr-days-completed");
-  localStorage.removeItem("tgr-ritual-time");
-  localStorage.removeItem("tgr-ritual-duration");
-  localStorage.removeItem("tgr-last-completed-date");
-}
+      localStorage.setItem("tgr-current-user", email);
+      localStorage.setItem("tgr-auth", "true");
 
-// save current user
-localStorage.setItem("tgr-current-user", email);
-
-// authenticate only
-localStorage.setItem("tgr-auth", "true");
-
-// redirect
-window.location.href = "dashboard.html";
-  });
-</script>
-
+      window.location.href = "dashboard.html";
+    });
+  </script>
 </body>
 </html>
