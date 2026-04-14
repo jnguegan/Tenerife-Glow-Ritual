@@ -3,610 +3,382 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Completa tu ritual | Tenerife Glow Ritual</title>
-  <meta
-    name="description"
-    content="Confirma tu compra y completa tu perfil ritual para activar tu experiencia personalizada en Tenerife Glow Ritual."
-  />
-
+  <title>Activa tu ritual | Tenerife Glow Ritual</title>
+  <meta name="description" content="Confirma tu compra y activa tu ritual personalizado en Tenerife Glow Ritual." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
-    rel="stylesheet"
-  />
-
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
-
   <style>
-    .onboarding-shell {
-      display: grid;
-      gap: 28px;
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --sand: #F5F0E8; --sand-mid: #EDE5D6; --sand-deep: #D6C9B0;
+      --stone: #8C7B6B; --stone-dark: #5C4D3E; --obsidian: #1E1A16;
+      --gold: #C9A96E; --gold-light: #E8D5A8; --ivory: #FAF7F2; --white: #FFFFFF;
+      --radius: 2px; --radius-lg: 6px;
     }
+    body { font-family: 'DM Sans', sans-serif; font-weight: 300; background: var(--ivory); color: var(--obsidian); line-height: 1.6; min-height: 100vh; }
 
-    .onboarding-intro {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 24px;
-      align-items: stretch;
-    }
+    /* TOPBAR */
+    .topbar { position: sticky; top: 0; z-index: 100; background: rgba(250,247,242,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--sand-deep); padding: 0 3rem; display: flex; align-items: center; justify-content: space-between; height: 70px; }
+    .brand-wrap { display: flex; align-items: center; gap: 14px; }
+    .brand-mark { width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0; background: linear-gradient(135deg, var(--gold) 0%, var(--sand-deep) 100%); position: relative; }
+    .brand-mark::after { content: ''; position: absolute; inset: 6px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.6); }
+    .eyebrow { font-size: 10px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--stone); }
+    .brand-title { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 400; color: var(--obsidian); }
+    .header-actions { display: flex; align-items: center; gap: 2rem; }
+    .language-switcher { display: flex; gap: 4px; }
+    .lang-btn { background: none; border: none; font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.1em; color: var(--stone); cursor: pointer; padding: 4px 8px; border-radius: var(--radius); transition: all 0.2s; }
+    .lang-btn:hover, .lang-btn.active { color: var(--obsidian); background: var(--sand-mid); }
 
-    .onboarding-card,
-    .onboarding-side-card {
-      align-self: start;
-    }
+    /* HERO BAND */
+    .page-hero { background: var(--sand); padding: 4rem 3rem 3rem; border-bottom: 1px solid var(--sand-deep); }
+    .page-hero .eyebrow { margin-bottom: 0.75rem; }
+    .page-hero h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 400; color: var(--obsidian); margin-bottom: 0.75rem; line-height: 1.2; }
+    .page-hero p { font-size: 15px; font-weight: 300; color: var(--stone-dark); max-width: 600px; line-height: 1.7; }
 
-    .onboarding-form {
-      display: grid;
-      gap: 0;
-    }
+    /* PROGRESS STEPS */
+    .progress-steps { background: var(--white); border-bottom: 1px solid var(--sand-deep); padding: 1.25rem 3rem; display: flex; gap: 0; align-items: center; }
+    .progress-step { display: flex; align-items: center; gap: 10px; font-size: 12px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--stone); flex: 1; }
+    .progress-step.active { color: var(--obsidian); }
+    .progress-step.done { color: var(--gold); }
+    .step-circle { width: 26px; height: 26px; border-radius: 50%; border: 1.5px solid var(--sand-deep); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 500; flex-shrink: 0; color: var(--stone); }
+    .progress-step.active .step-circle { border-color: var(--obsidian); color: var(--obsidian); background: var(--sand); }
+    .progress-step.done .step-circle { border-color: var(--gold); color: var(--gold); }
+    .step-line { flex: 1; height: 1px; background: var(--sand-deep); margin: 0 12px; }
 
-    .form-section {
-      margin-top: 8px;
-      padding-top: 8px;
-    }
+    /* MAIN GRID */
+    .onboarding-grid { display: grid; grid-template-columns: 1fr 360px; gap: 2px; background: var(--sand-deep); padding: 2px; margin: 0; }
 
-    .form-section + .form-section {
-      margin-top: 12px;
-      padding-top: 28px;
-      border-top: 1px solid rgba(169, 152, 132, 0.16);
-    }
+    /* FORM CARD */
+    .form-card { background: var(--white); padding: 3rem; }
+    .section-divider { border: none; border-top: 1px solid var(--sand-mid); margin: 2.5rem 0; }
 
-    .section-eyebrow {
-      margin: 0 0 8px;
-      color: var(--accent-deep);
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-    }
+    .section-label { font-size: 10px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem; }
+    .section-heading { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 400; color: var(--obsidian); margin-bottom: 0.5rem; }
+    .section-copy { font-size: 13px; color: var(--stone); line-height: 1.65; margin-bottom: 1.75rem; }
 
-    .section-title {
-      margin: 0 0 10px;
-      font-size: clamp(1.35rem, 2.4vw, 1.8rem);
-      line-height: 1.1;
-    }
+    .field-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-bottom: 1.25rem; }
+    .field-group { margin-bottom: 1.25rem; }
+    .field-label { display: block; font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--stone-dark); margin-bottom: 8px; }
 
-    .section-copy {
-      margin: 0 0 20px;
-      color: var(--muted);
-      line-height: 1.7;
-    }
-
-    .field-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .field-group {
-      margin: 0 0 18px;
-    }
-
-    .field-label {
-      display: block;
-      margin-bottom: 10px;
-      font-weight: 600;
-    }
-
-    .styled-input,
-    .styled-select,
-    .styled-textarea {
-      width: 100%;
-      min-height: 54px;
-      padding: 15px 18px;
-      border-radius: 18px;
-      border: 1px solid rgba(169, 152, 132, 0.24);
-      background: rgba(255, 255, 255, 0.9);
-      font: inherit;
-      color: var(--text);
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35);
-      transition:
-        border-color 0.22s ease,
-        box-shadow 0.22s ease,
-        background 0.22s ease;
-    }
-
-    .styled-select {
+    .styled-input, .styled-select, .styled-textarea {
+      width: 100%; height: 50px; padding: 0 18px;
+      border: 1px solid var(--sand-deep); border-radius: var(--radius);
+      background: var(--ivory); font-family: 'DM Sans', sans-serif;
+      font-size: 14px; font-weight: 300; color: var(--obsidian);
+      transition: border-color 0.2s, box-shadow 0.2s; outline: none;
       appearance: none;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      background-image:
-        linear-gradient(45deg, transparent 50%, rgba(90, 68, 49, 0.55) 50%),
-        linear-gradient(135deg, rgba(90, 68, 49, 0.55) 50%, transparent 50%);
-      background-position:
-        calc(100% - 22px) calc(50% - 3px),
-        calc(100% - 16px) calc(50% - 3px);
-      background-size: 6px 6px, 6px 6px;
-      background-repeat: no-repeat;
-      padding-right: 42px;
+    }
+    .styled-textarea { height: auto; min-height: 110px; padding: 14px 18px; resize: vertical; }
+    .styled-input::placeholder, .styled-textarea::placeholder { color: var(--stone); }
+    .styled-input:focus, .styled-select:focus, .styled-textarea:focus {
+      border-color: var(--gold); box-shadow: 0 0 0 3px rgba(201,169,110,0.12); background: var(--white);
+    }
+    .styled-select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238C7B6B' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 16px center; padding-right: 42px;
     }
 
-    .styled-textarea {
-      min-height: 130px;
-      resize: vertical;
-    }
+    .confirm-box { background: var(--sand); border-radius: var(--radius-lg); padding: 1.25rem 1.5rem; border-left: 3px solid var(--gold); margin-bottom: 1.25rem; }
+    .check-item { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; color: var(--stone-dark); line-height: 1.6; cursor: pointer; }
+    .check-item input[type="checkbox"] { width: 16px; height: 16px; flex-shrink: 0; margin-top: 3px; accent-color: var(--gold); }
 
-    .styled-input::placeholder,
-    .styled-textarea::placeholder {
-      color: #9b8577;
-    }
+    /* ACTIONS */
+    .form-actions { display: flex; gap: 12px; margin-top: 2.5rem; flex-wrap: wrap; }
+    .btn { display: flex; align-items: center; justify-content: center; text-decoration: none; font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; letter-spacing: 0.06em; height: 50px; padding: 0 32px; border-radius: var(--radius); transition: all 0.25s; cursor: pointer; border: none; }
+    .btn-primary { background: var(--obsidian); color: var(--ivory); }
+    .btn-primary:hover { background: var(--stone-dark); transform: translateY(-1px); }
+    .btn-secondary { background: transparent; color: var(--obsidian); border: 1px solid var(--sand-deep); }
+    .btn-secondary:hover { background: var(--sand); }
+    .form-note { margin-top: 1rem; font-size: 12px; color: var(--stone); line-height: 1.6; }
 
-    .styled-input:focus,
-    .styled-select:focus,
-    .styled-textarea:focus {
-      outline: none;
-      border-color: rgba(201, 122, 90, 0.42);
-      box-shadow:
-        0 0 0 4px rgba(201, 122, 90, 0.08),
-        0 10px 24px rgba(84, 66, 49, 0.05);
-      background: rgba(255, 255, 255, 0.96);
-    }
+    /* SIDEBAR */
+    .sidebar { background: var(--sand); padding: 2.5rem 2rem; display: flex; flex-direction: column; gap: 1.5rem; }
+    .sidebar-card { background: var(--white); border-radius: var(--radius-lg); padding: 1.5rem; }
+    .sidebar-card .eyebrow { margin-bottom: 0.5rem; }
+    .sidebar-card h4 { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 400; color: var(--obsidian); margin-bottom: 1rem; }
+    .sidebar-items { display: flex; flex-direction: column; gap: 10px; }
+    .sidebar-item { display: flex; gap: 10px; font-size: 13px; color: var(--stone-dark); line-height: 1.5; }
+    .sidebar-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); flex-shrink: 0; margin-top: 6px; }
+    .sidebar-item strong { display: block; color: var(--obsidian); font-weight: 500; font-size: 13px; margin-bottom: 1px; }
 
-    .support-panel {
-      padding: 18px 18px;
-      border-radius: 20px;
-      background: rgba(255, 250, 245, 0.75);
-      border: 1px solid rgba(201, 122, 90, 0.12);
-      color: var(--text);
-      line-height: 1.7;
-    }
+    .spa-reward-card { background: var(--obsidian); border-radius: var(--radius-lg); padding: 1.5rem; }
+    .spa-reward-card .eyebrow { color: var(--gold); margin-bottom: 0.5rem; }
+    .spa-reward-card h4 { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 400; color: var(--ivory); margin-bottom: 0.75rem; }
+    .spa-reward-card p { font-size: 13px; color: var(--sand-deep); line-height: 1.6; }
 
-    .check-grid {
-      display: grid;
-      gap: 12px;
-      margin: 4px 0 8px;
-    }
+    .disclaimer-card { background: transparent; border: 1px solid var(--sand-deep); border-radius: var(--radius-lg); padding: 1.25rem; }
+    .disclaimer-card p { font-size: 12px; color: var(--stone); line-height: 1.65; }
 
-    .check-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      line-height: 1.6;
-    }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+    .form-card { animation: fadeUp 0.5s 0.1s ease both; }
+    .sidebar { animation: fadeUp 0.5s 0.2s ease both; }
 
-    .check-item input[type="checkbox"] {
-      width: 18px;
-      height: 18px;
-      margin: 2px 0 0;
-      flex: 0 0 auto;
-    }
-
-    .hero-actions {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-top: 12px;
-    }
-
-    .onboarding-submit,
-    .onboarding-secondary {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 50px;
-      padding: 12px 20px;
-      border-radius: 999px;
-      font: inherit;
-      font-size: 0.96rem;
-      line-height: 1;
-      text-decoration: none;
-      cursor: pointer;
-      transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease,
-        background 0.2s ease;
-    }
-
-    .onboarding-submit {
-      border: 1px solid rgba(201, 122, 90, 0.24);
-      background: rgba(255, 255, 255, 0.92);
-      color: var(--accent-deep);
-      box-shadow: 0 6px 18px rgba(84, 66, 49, 0.06);
-    }
-
-    .onboarding-submit:hover {
-      transform: translateY(-1px);
-      background: rgba(255, 255, 255, 1);
-    }
-
-    .onboarding-secondary {
-      border: 1px solid rgba(169, 152, 132, 0.18);
-      background: rgba(255, 255, 255, 0.72);
-      color: #3b2f2a;
-    }
-
-    .mini-stack {
-      display: grid;
-      gap: 14px;
-    }
-
-    .soft-panel strong {
-      display: block;
-      margin-bottom: 6px;
-      color: var(--accent-deep);
-      font-size: 0.95rem;
-    }
-
-    .micro-note {
-      margin-top: 10px;
-      color: var(--muted);
-      line-height: 1.7;
-      font-size: 0.95rem;
-    }
-
-    @media (max-width: 980px) {
-      .onboarding-intro {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 720px) {
-      .field-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .hero-actions {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .onboarding-submit,
-      .onboarding-secondary {
-        width: 100%;
-      }
-    }
+    @media (max-width: 960px) { .onboarding-grid { grid-template-columns: 1fr; } .sidebar { display: none; } }
+    @media (max-width: 768px) { .page-hero { padding: 3rem 1.5rem 2rem; } .form-card { padding: 2rem 1.5rem; } .field-grid-2 { grid-template-columns: 1fr; } .progress-steps { padding: 1rem 1.5rem; overflow-x: auto; } .topbar { padding: 0 1.5rem; } }
   </style>
 </head>
-
 <body>
-  <div class="page-shell">
-    <header class="topbar">
-      <div class="brand-wrap">
-        <div class="brand-mark"></div>
-        <div>
-          <p class="eyebrow" data-i18n="brand.eyebrow">Ritual de Piel de la Isla</p>
-          <h1 class="brand-title" data-i18n="brand.title">Tenerife Glow Ritual</h1>
-        </div>
+<div class="page-shell">
+  <header class="topbar">
+    <div class="brand-wrap">
+      <div class="brand-mark"></div>
+      <div>
+        <p class="eyebrow" data-i18n="brand.eyebrow">Ritual de Piel de la Isla</p>
+        <h1 class="brand-title" data-i18n="brand.title">Tenerife Glow Ritual</h1>
       </div>
-
-      <div class="header-actions">
-        <div class="language-switcher" aria-label="Selector de idioma">
-          <button class="lang-btn active" data-lang="es" type="button">ES</button>
-          <button class="lang-btn" data-lang="en" type="button">EN</button>
-          <button class="lang-btn" data-lang="fr" type="button">FR</button>
-          <button class="lang-btn" data-lang="de" type="button">DE</button>
-        </div>
+    </div>
+    <div class="header-actions">
+      <div class="language-switcher">
+        <button class="lang-btn active" data-lang="es" type="button">ES</button>
+        <button class="lang-btn" data-lang="en" type="button">EN</button>
+        <button class="lang-btn" data-lang="fr" type="button">FR</button>
+        <button class="lang-btn" data-lang="de" type="button">DE</button>
       </div>
-    </header>
+    </div>
+  </header>
 
-    <main class="content-stack onboarding-shell">
-      <section class="page-hero">
-        <div>
-          <p class="eyebrow" data-i18n="onboarding.heroEyebrow">Activa tu ritual</p>
-          <h2 class="page-title" data-i18n="onboarding.title">Completa tu perfil ritual</h2>
-          <p class="page-subtitle" data-i18n="onboarding.subtitle">
-            Confirma tu compra, añade tus prioridades y configura la base de tu experiencia personalizada dentro de Tenerife Glow Ritual.
-          </p>
-        </div>
-      </section>
-
-      <section class="onboarding-intro">
-        <section class="card onboarding-card">
-          <div class="card-header">
-            <p class="eyebrow" data-i18n="onboarding.formEyebrow">Configuración</p>
-            <h3 data-i18n="onboarding.formTitle">Tu compra y tu ritual, en un solo lugar</h3>
-          </div>
-
-          <form class="content-stack onboarding-form" id="onboardingForm">
-            <section class="form-section">
-              <p class="section-eyebrow" data-i18n="onboarding.purchaseEyebrow">Confirmación de compra</p>
-              <h4 class="section-title" data-i18n="onboarding.purchaseTitle">Confirma el producto adquirido</h4>
-              <p class="section-copy" data-i18n="onboarding.purchaseCopy">
-                Añade la referencia de tu pedido y el producto que compraste en la plataforma asociada. Esto nos ayuda a vincular correctamente tu ritual con tu compra.
-              </p>
-
-              <div class="field-grid">
-                <div class="field-group">
-                  <label class="field-label" for="productName" data-i18n="onboarding.productLabel">Producto comprado</label>
-                  <input
-                    id="productName"
-                    name="productName"
-                    class="styled-input"
-                    type="text"
-                    required
-                    placeholder="Nombre del producto"
-                    data-i18n-placeholder="onboarding.productPlaceholder"
-                  />
-                </div>
-
-                <div class="field-group">
-                  <label class="field-label" for="orderReference" data-i18n="onboarding.orderRefLabel">Referencia del pedido</label>
-                  <input
-                    id="orderReference"
-                    name="orderReference"
-                    class="styled-input"
-                    type="text"
-                    required
-                    placeholder="Número de pedido o recibo"
-                    data-i18n-placeholder="onboarding.orderRefPlaceholder"
-                  />
-                </div>
-
-                <div class="field-group">
-                  <label class="field-label" for="purchaseDate" data-i18n="onboarding.purchaseDateLabel">Fecha de compra</label>
-                  <input
-                    id="purchaseDate"
-                    name="purchaseDate"
-                    class="styled-input"
-                    type="date"
-                    required
-                  />
-                </div>
-
-                <div class="field-group">
-                  <label class="field-label" for="amountPaid" data-i18n="onboarding.amountLabel">Importe pagado (opcional)</label>
-                  <input
-                    id="amountPaid"
-                    name="amountPaid"
-                    class="styled-input"
-                    type="text"
-                    placeholder="Ej. 89,00 €"
-                    data-i18n-placeholder="onboarding.amountPlaceholder"
-                  />
-                </div>
-              </div>
-
-              <div class="check-grid">
-                <label class="check-item">
-                  <input type="checkbox" id="purchaseConfirmed" required />
-                  <span data-i18n="onboarding.purchaseConfirm">
-                    Confirmo que esta compra se realizó en la plataforma asociada y que la referencia indicada corresponde a mi pedido.
-                  </span>
-                </label>
-              </div>
-            </section>
-
-            <section class="form-section">
-              <p class="section-eyebrow" data-i18n="onboarding.profileEyebrow">Perfil ritual</p>
-              <h4 class="section-title" data-i18n="onboarding.profileTitle">Cuéntanos qué quieres mejorar</h4>
-              <p class="section-copy" data-i18n="onboarding.profileCopy">
-                Completa los datos principales de tu piel y de tu ritmo diario para que tu panel refleje mejor tus objetivos y tu constancia.
-              </p>
-
-              <div class="field-grid">
-                <div class="field-group">
-                  <label class="field-label" for="skinType" data-i18n="onboarding.skinType">Tipo de piel</label>
-                  <select class="styled-select" id="skinType" name="skinType" required>
-                    <option value="" data-i18n="onboarding.selectPlaceholder">Selecciona una opción</option>
-                    <option value="normal" data-i18n="onboarding.skin.normal">Normal</option>
-                    <option value="dry" data-i18n="onboarding.skin.dry">Seca</option>
-                    <option value="oily" data-i18n="onboarding.skin.oily">Grasa</option>
-                    <option value="combination" data-i18n="onboarding.skin.combination">Mixta</option>
-                    <option value="sensitive" data-i18n="onboarding.skin.sensitive">Sensible</option>
-                  </select>
-                </div>
-
-                <div class="field-group">
-                  <label class="field-label" for="skinConcern" data-i18n="onboarding.skinConcern">Problema principal</label>
-                  <input
-                    id="skinConcern"
-                    name="skinConcern"
-                    class="styled-input"
-                    type="text"
-                    required
-                    placeholder="Deshidratación, textura, brotes..."
-                    data-i18n-placeholder="onboarding.skinConcernPlaceholder"
-                  />
-                </div>
-
-                <div class="field-group">
-                  <label class="field-label" for="goal" data-i18n="onboarding.goal">Objetivo principal</label>
-                  <select class="styled-select" id="goal" name="goal" required>
-                    <option value="" data-i18n="onboarding.selectPlaceholder">Selecciona una opción</option>
-                    <option value="glow" data-i18n="onboarding.goal.glow">Luminosidad</option>
-                    <option value="hydration" data-i18n="onboarding.goal.hydration">Hidratación</option>
-                    <option value="antiage" data-i18n="onboarding.goal.antiage">Anti-edad</option>
-                    <option value="acne" data-i18n="onboarding.goal.acne">Acné</option>
-                    <option value="balance" data-i18n="onboarding.goal.balance">Equilibrio</option>
-                  </select>
-                </div>
-
-                <div class="field-group">
-                  <label class="field-label" for="sensitivity" data-i18n="onboarding.sensitivity">Nivel de sensibilidad</label>
-                  <select class="styled-select" id="sensitivity" name="sensitivity" required>
-                    <option value="" data-i18n="onboarding.selectPlaceholder">Selecciona una opción</option>
-                    <option value="low" data-i18n="onboarding.sensitivity.low">Baja</option>
-                    <option value="medium" data-i18n="onboarding.sensitivity.medium">Media</option>
-                    <option value="high" data-i18n="onboarding.sensitivity.high">Alta</option>
-                  </select>
-                </div>
-
-                <div class="field-group">
-                  <label class="field-label" for="time" data-i18n="onboarding.time">Tiempo diario disponible</label>
-                  <select class="styled-select" id="time" name="time" required>
-                    <option value="" data-i18n="onboarding.selectPlaceholder">Selecciona una opción</option>
-                    <option value="5" data-i18n="onboarding.time.short">5 minutos</option>
-                    <option value="10" data-i18n="onboarding.time.medium">10 minutos</option>
-                    <option value="20" data-i18n="onboarding.time.long">20 minutos</option>
-                  </select>
-                </div>
-
-                <div class="field-group">
-                  <label class="field-label" for="level" data-i18n="onboarding.level">Nivel de rutina</label>
-                  <select class="styled-select" id="level" name="level" required>
-                    <option value="" data-i18n="onboarding.selectPlaceholder">Selecciona una opción</option>
-                    <option value="basic" data-i18n="onboarding.level.basic">Básico</option>
-                    <option value="intermediate" data-i18n="onboarding.level.intermediate">Intermedio</option>
-                    <option value="advanced" data-i18n="onboarding.level.advanced">Avanzado</option>
-                  </select>
-                </div>
-
-                <div class="field-group">
-                  <label class="field-label" for="timeline" data-i18n="onboarding.timeline">Plazo que te gustaría seguir</label>
-                  <select class="styled-select" id="timeline" name="timeline" required>
-                    <option value="" data-i18n="onboarding.selectPlaceholder">Selecciona una opción</option>
-                    <option value="30" data-i18n="onboarding.timeline.30">30 días</option>
-                    <option value="60" data-i18n="onboarding.timeline.60">60 días</option>
-                    <option value="90" data-i18n="onboarding.timeline.90">90 días</option>
-                  </select>
-                </div>
-              </div>
-
-              <div class="field-group">
-                <label class="field-label" for="currentRoutine" data-i18n="onboarding.currentRoutine">Rutina actual (opcional)</label>
-                <textarea
-                  id="currentRoutine"
-                  name="currentRoutine"
-                  class="styled-textarea"
-                  rows="4"
-                  placeholder="Cuéntanos qué usas ahora o cómo cuidas tu piel actualmente..."
-                  data-i18n-placeholder="onboarding.currentRoutinePlaceholder"
-                ></textarea>
-              </div>
-
-              <div class="field-group">
-                <label class="field-label" for="notes" data-i18n="onboarding.notes">Notas adicionales (opcional)</label>
-                <textarea
-                  id="notes"
-                  name="notes"
-                  class="styled-textarea"
-                  rows="4"
-                  placeholder="Sensibilidad, preferencias, objetivos concretos o cualquier detalle importante..."
-                  data-i18n-placeholder="onboarding.notesPlaceholder"
-                ></textarea>
-              </div>
-            </section>
-
-            <div class="hero-actions">
-              <button type="submit" class="onboarding-submit" data-i18n="onboarding.submit">
-                Activar mi ritual
-              </button>
-
-              <a href="dashboard.html" class="onboarding-secondary" data-i18n="onboarding.secondary">
-                Volver al panel
-              </a>
-            </div>
-
-            <p class="micro-note" data-i18n="onboarding.footerNote">
-              Una vez completado este paso, tu panel mostrará tu producto, tus prioridades y la estructura base de tu ritual.
-            </p>
-          </form>
-        </section>
-
-        <section class="card onboarding-side-card">
-          <div class="card-header">
-            <p class="eyebrow" data-i18n="onboarding.sideEyebrow">Qué conseguirás</p>
-            <h3 data-i18n="onboarding.sideTitle">Un panel más claro y personalizado</h3>
-          </div>
-
-          <div class="mini-stack">
-            <div class="soft-panel">
-              <strong data-i18n="onboarding.sideItem1Title">Compra vinculada</strong>
-              <span data-i18n="onboarding.sideItem1Text">
-                Tu referencia de pedido quedará asociada a tu experiencia para que el ritual comience con la base correcta.
-              </span>
-            </div>
-
-            <div class="soft-panel">
-              <strong data-i18n="onboarding.sideItem2Title">Objetivos visibles</strong>
-              <span data-i18n="onboarding.sideItem2Text">
-                Tu dashboard reflejará el problema que quieres resolver, tu objetivo principal y tu ritmo diario.
-              </span>
-            </div>
-
-            <div class="soft-panel">
-              <strong data-i18n="onboarding.sideItem3Title">Más estructura</strong>
-              <span data-i18n="onboarding.sideItem3Text">
-                Tendrás una base más ordenada para tu seguimiento diario, tu progreso y tu evolución a lo largo del tiempo.
-              </span>
-            </div>
-
-            <div class="support-panel">
-              <p data-i18n="onboarding.sideNote">
-                Este paso no sustituye el análisis de piel realizado en la plataforma asociada. Aquí organizamos tu ritual para que todo quede centralizado en Tenerife Glow Ritual.
-              </p>
-            </div>
-          </div>
-        </section>
-      </section>
-    </main>
+  <!-- Progress indicator -->
+  <div class="progress-steps">
+    <div class="progress-step done">
+      <div class="step-circle">✓</div>
+      <span data-i18n="progress.step1">Cuenta creada</span>
+    </div>
+    <div class="step-line"></div>
+    <div class="progress-step done">
+      <div class="step-circle">✓</div>
+      <span data-i18n="progress.step2">Análisis de piel</span>
+    </div>
+    <div class="step-line"></div>
+    <div class="progress-step active">
+      <div class="step-circle">3</div>
+      <span data-i18n="progress.step3">Activa tu ritual</span>
+    </div>
+    <div class="step-line"></div>
+    <div class="progress-step">
+      <div class="step-circle">4</div>
+      <span data-i18n="progress.step4">Empieza el calendario</span>
+    </div>
   </div>
 
-  <script src="js/i18n.js"></script>
+  <!-- Page hero -->
+  <div class="page-hero">
+    <p class="eyebrow" data-i18n="onboarding.heroEyebrow">Activa tu ritual</p>
+    <h2 data-i18n="onboarding.title">Completa tu perfil ritual</h2>
+    <p data-i18n="onboarding.subtitle">Confirma tu compra, añade tus prioridades y configura la base de tu experiencia personalizada dentro de Tenerife Glow Ritual.</p>
+  </div>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const form = document.getElementById("onboardingForm");
+  <!-- Main grid -->
+  <div class="onboarding-grid">
 
-      if (!form) return;
+    <!-- FORM -->
+    <div class="form-card">
+      <form id="onboardingForm">
 
-      const savedUser = JSON.parse(localStorage.getItem("tgr-user") || "{}");
-      const savedOnboarding = JSON.parse(localStorage.getItem("tgr-onboarding-data") || "{}");
+        <!-- PURCHASE SECTION -->
+        <p class="section-label" data-i18n="onboarding.purchaseEyebrow">Confirmación de compra</p>
+        <h3 class="section-heading" data-i18n="onboarding.purchaseTitle">Confirma el producto adquirido</h3>
+        <p class="section-copy" data-i18n="onboarding.purchaseCopy">Añade la referencia de tu pedido y el producto que compraste en la plataforma de Dr. Ourian. Esto vincula correctamente tu ritual con tu compra.</p>
 
-      const fieldsToPrefill = [
-        "productName",
-        "orderReference",
-        "purchaseDate",
-        "amountPaid",
-        "skinType",
-        "skinConcern",
-        "goal",
-        "sensitivity",
-        "time",
-        "level",
-        "timeline",
-        "currentRoutine",
-        "notes"
-      ];
+        <div class="field-grid-2">
+          <div class="field-group">
+            <label class="field-label" for="productName" data-i18n="onboarding.productLabel">Producto comprado</label>
+            <input id="productName" name="productName" class="styled-input" type="text" required placeholder="Nombre del producto" />
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="orderReference" data-i18n="onboarding.orderRefLabel">Referencia del pedido</label>
+            <input id="orderReference" name="orderReference" class="styled-input" type="text" required placeholder="Número de pedido o recibo" />
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="purchaseDate" data-i18n="onboarding.purchaseDateLabel">Fecha de compra</label>
+            <input id="purchaseDate" name="purchaseDate" class="styled-input" type="date" required />
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="amountPaid" data-i18n="onboarding.amountLabel">Importe pagado (opcional)</label>
+            <input id="amountPaid" name="amountPaid" class="styled-input" type="text" placeholder="Ej. 89,00 €" />
+          </div>
+        </div>
 
-      fieldsToPrefill.forEach(function (fieldName) {
-        const field = form.elements[fieldName];
-        if (!field) return;
+        <div class="confirm-box">
+          <label class="check-item">
+            <input type="checkbox" id="purchaseConfirmed" required />
+            <span data-i18n="onboarding.purchaseConfirm">Confirmo que esta compra se realizó en la plataforma asociada y que la referencia indicada corresponde a mi pedido real.</span>
+          </label>
+        </div>
 
-        if (savedOnboarding[fieldName]) {
-          field.value = savedOnboarding[fieldName];
-        } else if (savedUser[fieldName]) {
-          field.value = savedUser[fieldName];
-        }
-      });
+        <hr class="section-divider" />
 
-      form.addEventListener("submit", function (e) {
-        e.preventDefault();
+        <!-- SKIN PROFILE SECTION -->
+        <p class="section-label" data-i18n="onboarding.profileEyebrow">Perfil ritual</p>
+        <h3 class="section-heading" data-i18n="onboarding.profileTitle">Cuéntanos qué quieres mejorar</h3>
+        <p class="section-copy" data-i18n="onboarding.profileCopy">Completa los datos principales de tu piel y tu ritmo diario para que tu panel refleje tus objetivos y constancia.</p>
 
-        const data = {
-          productName: form.productName.value.trim(),
-          orderReference: form.orderReference.value.trim(),
-          purchaseDate: form.purchaseDate.value,
-          amountPaid: form.amountPaid.value.trim(),
-          skinType: form.skinType.value,
-          skinConcern: form.skinConcern.value.trim(),
-          goal: form.goal.value,
-          sensitivity: form.sensitivity.value,
-          time: form.time.value,
-          level: form.level.value,
-          timeline: form.timeline.value,
-          currentRoutine: form.currentRoutine.value.trim(),
-          notes: form.notes.value.trim(),
-          purchaseConfirmed: document.getElementById("purchaseConfirmed").checked
-        };
+        <div class="field-grid-2">
+          <div class="field-group">
+            <label class="field-label" for="skinType" data-i18n="onboarding.skinType">Tipo de piel</label>
+            <select class="styled-select" id="skinType" name="skinType" required>
+              <option value="" data-i18n="onboarding.selectPlaceholder">Selecciona una opción</option>
+              <option value="Normal" data-i18n="onboarding.skin.normal">Normal</option>
+              <option value="Seca" data-i18n="onboarding.skin.dry">Seca</option>
+              <option value="Grasa" data-i18n="onboarding.skin.oily">Grasa</option>
+              <option value="Mixta" data-i18n="onboarding.skin.combination">Mixta</option>
+              <option value="Sensible" data-i18n="onboarding.skin.sensitive">Sensible</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="skinConcern" data-i18n="onboarding.skinConcern">Problema principal</label>
+            <input id="skinConcern" name="skinConcern" class="styled-input" type="text" required placeholder="Deshidratación, textura, brotes..." />
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="goal" data-i18n="onboarding.goal">Objetivo principal</label>
+            <select class="styled-select" id="goal" name="goal" required>
+              <option value="" data-i18n="onboarding.selectPlaceholder">Selecciona una opción</option>
+              <option value="Luminosidad" data-i18n="onboarding.goal.glow">Luminosidad</option>
+              <option value="Hidratación" data-i18n="onboarding.goal.hydration">Hidratación</option>
+              <option value="Anti-edad" data-i18n="onboarding.goal.antiage">Anti-edad</option>
+              <option value="Acné" data-i18n="onboarding.goal.acne">Acné</option>
+              <option value="Equilibrio" data-i18n="onboarding.goal.balance">Equilibrio</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="sensitivity" data-i18n="onboarding.sensitivity">Nivel de sensibilidad</label>
+            <select class="styled-select" id="sensitivity" name="sensitivity" required>
+              <option value="" data-i18n="onboarding.selectPlaceholder">Selecciona una opción</option>
+              <option value="low" data-i18n="onboarding.sensitivity.low">Baja</option>
+              <option value="medium" data-i18n="onboarding.sensitivity.medium">Media</option>
+              <option value="high" data-i18n="onboarding.sensitivity.high">Alta</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="time" data-i18n="onboarding.time">Tiempo diario disponible</label>
+            <select class="styled-select" id="time" name="time" required>
+              <option value="" data-i18n="onboarding.selectPlaceholder">Selecciona una opción</option>
+              <option value="5" data-i18n="onboarding.time.short">5 minutos</option>
+              <option value="10" data-i18n="onboarding.time.medium">10 minutos</option>
+              <option value="20" data-i18n="onboarding.time.long">20 minutos</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="level" data-i18n="onboarding.level">Nivel de rutina</label>
+            <select class="styled-select" id="level" name="level" required>
+              <option value="" data-i18n="onboarding.selectPlaceholder">Selecciona una opción</option>
+              <option value="basic" data-i18n="onboarding.level.basic">Básico</option>
+              <option value="intermediate" data-i18n="onboarding.level.intermediate">Intermedio</option>
+              <option value="advanced" data-i18n="onboarding.level.advanced">Avanzado</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="timeline" data-i18n="onboarding.timeline">Duración del ritual</label>
+            <select class="styled-select" id="timeline" name="timeline" required>
+              <option value="" data-i18n="onboarding.selectPlaceholder">Selecciona una opción</option>
+              <option value="30" data-i18n="onboarding.timeline.30">30 días</option>
+              <option value="60" data-i18n="onboarding.timeline.60">60 días</option>
+              <option value="90" data-i18n="onboarding.timeline.90">90 días</option>
+            </select>
+          </div>
+        </div>
 
-        localStorage.setItem("tgr-onboarding-data", JSON.stringify(data));
-        localStorage.setItem("tgr-onboarding-complete", "true");
-        localStorage.setItem("tgr-partner-complete", "true");
-        localStorage.setItem("tgr-purchase", JSON.stringify({
-          productName: data.productName,
-          orderReference: data.orderReference,
-          purchaseDate: data.purchaseDate,
-          amountPaid: data.amountPaid
-        }));
+        <div class="field-group">
+          <label class="field-label" for="currentRoutine" data-i18n="onboarding.currentRoutine">Rutina actual (opcional)</label>
+          <textarea id="currentRoutine" name="currentRoutine" class="styled-textarea" rows="3" placeholder="Cuéntanos qué usas ahora o cómo cuidas tu piel actualmente..."></textarea>
+        </div>
 
-        window.location.href = "dashboard.html";
-      });
+        <div class="field-group">
+          <label class="field-label" for="notes" data-i18n="onboarding.notes">Notas adicionales (opcional)</label>
+          <textarea id="notes" name="notes" class="styled-textarea" rows="3" placeholder="Sensibilidad, preferencias, objetivos concretos o cualquier detalle importante..."></textarea>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary" data-i18n="onboarding.submit">Activar mi ritual</button>
+          <a href="dashboard.html" class="btn btn-secondary" data-i18n="onboarding.secondary">Volver al panel</a>
+        </div>
+
+        <p class="form-note" data-i18n="onboarding.footerNote">Una vez completado este paso, tu panel mostrará tu producto, tus prioridades y la estructura base de tu ritual.</p>
+      </form>
+    </div>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+      <div class="sidebar-card">
+        <p class="eyebrow" data-i18n="onboarding.sideEyebrow">Qué conseguirás</p>
+        <h4 data-i18n="onboarding.sideTitle">Un panel personalizado</h4>
+        <div class="sidebar-items">
+          <div class="sidebar-item">
+            <div class="sidebar-dot"></div>
+            <div><strong data-i18n="onboarding.sideItem1Title">Compra vinculada</strong><span data-i18n="onboarding.sideItem1Text">Tu referencia quedará asociada a tu ritual desde el inicio.</span></div>
+          </div>
+          <div class="sidebar-item">
+            <div class="sidebar-dot"></div>
+            <div><strong data-i18n="onboarding.sideItem2Title">Objetivos visibles</strong><span data-i18n="onboarding.sideItem2Text">Tu dashboard reflejará tu problema principal y tu objetivo.</span></div>
+          </div>
+          <div class="sidebar-item">
+            <div class="sidebar-dot"></div>
+            <div><strong data-i18n="onboarding.sideItem3Title">Más estructura</strong><span data-i18n="onboarding.sideItem3Text">Base ordenada para tu seguimiento diario y evolución.</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="spa-reward-card">
+        <p class="eyebrow" data-i18n="reward.eyebrow">Recompensa</p>
+        <h4 data-i18n="reward.title">Sesión de spa en Tenerife</h4>
+        <p data-i18n="reward.text">Completa 14 días consecutivos de ritual y gana una sesión exclusiva en nuestro spa de Tenerife. Tu constancia tiene recompensa.</p>
+      </div>
+
+      <div class="disclaimer-card">
+        <p data-i18n="onboarding.sideNote">Este paso no sustituye el análisis de piel de la plataforma asociada. Aquí organizamos tu ritual para centralizarlo todo en Tenerife Glow Ritual.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="js/i18n.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("onboardingForm");
+    if (!form) return;
+
+    const savedUser = JSON.parse(localStorage.getItem("tgr-user") || "{}");
+    const savedOnboarding = JSON.parse(localStorage.getItem("tgr-onboarding-data") || "{}");
+
+    ["productName","orderReference","purchaseDate","amountPaid","skinType","skinConcern",
+     "goal","sensitivity","time","level","timeline","currentRoutine","notes"].forEach(function(fieldName) {
+      const field = form.elements[fieldName];
+      if (!field) return;
+      if (savedOnboarding[fieldName]) field.value = savedOnboarding[fieldName];
+      else if (savedUser[fieldName]) field.value = savedUser[fieldName];
     });
-  </script>
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const data = {
+        productName: form.productName.value.trim(),
+        orderReference: form.orderReference.value.trim(),
+        purchaseDate: form.purchaseDate.value,
+        amountPaid: form.amountPaid.value.trim(),
+        skinType: form.skinType.value,
+        skinConcern: form.skinConcern.value.trim(),
+        goal: form.goal.value,
+        sensitivity: form.sensitivity.value,
+        time: form.time.value,
+        level: form.level.value,
+        timeline: form.timeline.value,
+        currentRoutine: form.currentRoutine.value.trim(),
+        notes: form.notes.value.trim(),
+        purchaseConfirmed: document.getElementById("purchaseConfirmed").checked
+      };
+      localStorage.setItem("tgr-onboarding-data", JSON.stringify(data));
+      localStorage.setItem("tgr-onboarding-complete", "true");
+      localStorage.setItem("tgr-partner-complete", "true");
+      localStorage.setItem("tgr-purchase", JSON.stringify({
+        productName: data.productName,
+        orderReference: data.orderReference,
+        purchaseDate: data.purchaseDate,
+        amountPaid: data.amountPaid
+      }));
+      window.location.href = "dashboard.html";
+    });
+  });
+</script>
 </body>
 </html>
