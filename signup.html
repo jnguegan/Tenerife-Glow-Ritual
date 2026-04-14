@@ -310,44 +310,44 @@
     </main>
   </div>
 
-<script src="js/i18n.js"></script>
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const form = document.getElementById("signupForm");
+  <script src="js/i18n.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const form = document.getElementById("signupForm");
 
-    if (!form) return;
+      if (!form) return;
 
-    form.addEventListener("submit", function (e) {
-  e.preventDefault();
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
 
-  const fullName = document.getElementById("fullName")?.value || "";
-  const email = document.getElementById("signupEmail")?.value || "";
-  const skinGoal = document.getElementById("skinGoal")?.value || "";
+        const fullName = document.getElementById("fullName")?.value || "";
+        const email = (document.getElementById("signupEmail")?.value || "").trim().toLowerCase();
+        const skinGoal = document.getElementById("skinGoal")?.value || "";
+        const lastUser = (localStorage.getItem("tgr-current-user") || "").trim().toLowerCase();
 
-  const lastUser = localStorage.getItem("tgr-current-user");
+        if (lastUser && lastUser !== email) {
+          localStorage.removeItem("tgr-user");
+          localStorage.removeItem("tgr-onboarding-data");
+          localStorage.removeItem("tgr-purchase");
+          localStorage.removeItem("tgr-partner-complete");
+          localStorage.removeItem("tgr-onboarding-complete");
+          localStorage.removeItem("tgr-days-completed");
+          localStorage.removeItem("tgr-ritual-time");
+          localStorage.removeItem("tgr-ritual-duration");
+          localStorage.removeItem("tgr-last-completed-date");
+        }
 
-  if (lastUser && lastUser !== email) {
-    localStorage.removeItem("tgr-onboarding-data");
-    localStorage.removeItem("tgr-purchase");
-    localStorage.removeItem("tgr-partner-complete");
-    localStorage.removeItem("tgr-onboarding-complete");
-    localStorage.removeItem("tgr-days-completed");
-    localStorage.removeItem("tgr-ritual-time");
-    localStorage.removeItem("tgr-ritual-duration");
-    localStorage.removeItem("tgr-last-completed-date");
-  }
+        localStorage.setItem("tgr-current-user", email);
+        localStorage.setItem("tgr-auth", "true");
+        localStorage.setItem("tgr-user", JSON.stringify({
+          fullName,
+          email,
+          skinGoal
+        }));
 
-  localStorage.setItem("tgr-current-user", email);
-  localStorage.setItem("tgr-auth", "true");
-  localStorage.setItem("tgr-user", JSON.stringify({
-    fullName,
-    email,
-    skinGoal
-  }));
-
-  window.location.href = "dashboard.html";
-});
-  });
-</script>
+        window.location.href = "dashboard.html";
+      });
+    });
+  </script>
 </body>
 </html>
