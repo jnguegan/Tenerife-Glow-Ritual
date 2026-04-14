@@ -4,1075 +4,630 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Panel | Tenerife Glow Ritual</title>
-  <meta
-    name="description"
-    content="Tu panel personal en Tenerife Glow Ritual. Sigue tu ritual, visualiza tu progreso y continúa al análisis de piel cuando sea necesario."
-  />
-
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
-    rel="stylesheet"
-  />
-
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
-
   <style>
-    .dashboard-shell {
-      display: grid;
-      gap: 28px;
-    }
+    *, *::before, *::after { box-sizing:border-box;margin:0;padding:0; }
+    :root { --sand:#F5F0E8;--sand-mid:#EDE5D6;--sand-deep:#D6C9B0;--stone:#8C7B6B;--stone-dark:#5C4D3E;--obsidian:#1E1A16;--gold:#C9A96E;--gold-light:#E8D5A8;--ivory:#FAF7F2;--white:#FFFFFF;--sage:#8A9E8A;--blush:#E8D5D0;--radius:2px;--radius-lg:6px; }
+    body { font-family:'DM Sans',sans-serif;font-weight:300;background:var(--ivory);color:var(--obsidian);line-height:1.6;min-height:100vh; }
 
-    .dashboard-hero {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 24px;
-      align-items: stretch;
-    }
+    /* TOPBAR */
+    .topbar { position:sticky;top:0;z-index:100;background:rgba(250,247,242,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--sand-deep);padding:0 2.5rem;display:flex;align-items:center;justify-content:space-between;height:70px; }
+    .brand-wrap { display:flex;align-items:center;gap:14px; }
+    .brand-mark { width:36px;height:36px;border-radius:50%;flex-shrink:0;background:linear-gradient(135deg,var(--gold) 0%,var(--sand-deep) 100%);position:relative; }
+    .brand-mark::after { content:'';position:absolute;inset:6px;border-radius:50%;border:1px solid rgba(255,255,255,0.6); }
+    .eyebrow { font-size:10px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--stone); }
+    .brand-title { font-family:'Playfair Display',serif;font-size:18px;font-weight:400;color:var(--obsidian); }
+    .topbar-right { display:flex;align-items:center;gap:1.5rem; }
+    .language-switcher { display:flex;gap:4px; }
+    .lang-btn { background:none;border:none;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:500;letter-spacing:0.1em;color:var(--stone);cursor:pointer;padding:4px 8px;border-radius:var(--radius);transition:all 0.2s; }
+    .lang-btn:hover,.lang-btn.active { color:var(--obsidian);background:var(--sand-mid); }
+    .logout-btn { font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;letter-spacing:0.06em;color:var(--stone);background:none;border:1px solid var(--sand-deep);padding:7px 16px;border-radius:var(--radius);cursor:pointer;text-decoration:none;transition:all 0.2s; }
+    .logout-btn:hover { background:var(--sand);color:var(--obsidian); }
 
-    .dashboard-main,
-    .dashboard-side {
-      align-self: start;
-    }
+    /* DASHBOARD LAYOUT */
+    .dash-wrap { max-width:1440px;margin:0 auto;padding:2.5rem; }
 
-    .dashboard-welcome-copy {
-      max-width: 760px;
-    }
+    /* HERO BANNER */
+    .dash-hero { background:var(--obsidian);border-radius:var(--radius-lg);padding:2.5rem 3rem;margin-bottom:2rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;position:relative;overflow:hidden; }
+    .dash-hero::before { content:'';position:absolute;top:-60px;right:80px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(201,169,110,0.12) 0%,transparent 70%);pointer-events:none; }
+    .dash-hero::after { content:'';position:absolute;bottom:-80px;left:200px;width:250px;height:250px;border-radius:50%;background:radial-gradient(circle,rgba(201,169,110,0.06) 0%,transparent 70%);pointer-events:none; }
+    .dash-hero-text { position:relative;z-index:1; }
+    .dash-hero-text .eyebrow { color:var(--gold);margin-bottom:0.5rem; }
+    .dash-hero-text h2 { font-family:'Playfair Display',serif;font-size:clamp(1.5rem,2.5vw,2.2rem);font-weight:400;color:var(--ivory);line-height:1.2;margin-bottom:0.75rem; }
+    .dash-hero-text h2 em { font-style:italic;color:var(--gold-light); }
+    .dash-hero-text p { font-size:14px;color:var(--sand-deep);max-width:500px;line-height:1.7; }
+    .dash-hero-actions { display:flex;gap:10px;margin-top:1.5rem; }
+    .btn { display:inline-flex;align-items:center;justify-content:center;text-decoration:none;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;letter-spacing:0.06em;height:44px;padding:0 24px;border-radius:var(--radius);transition:all 0.25s;cursor:pointer;border:none; }
+    .btn-gold { background:var(--gold);color:var(--obsidian); }
+    .btn-gold:hover { background:var(--gold-light); }
+    .btn-outline-light { background:transparent;color:var(--ivory);border:1px solid rgba(255,255,255,0.2); }
+    .btn-outline-light:hover { background:rgba(255,255,255,0.08); }
+    .btn-primary { background:var(--obsidian);color:var(--ivory); }
+    .btn-primary:hover { background:var(--stone-dark); }
+    .btn-secondary { background:transparent;color:var(--obsidian);border:1px solid var(--sand-deep); }
+    .btn-secondary:hover { background:var(--sand); }
 
-    .status-panel {
-      display: grid;
-      gap: 14px;
-      border-radius: 26px;
-      padding: 24px;
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.94), rgba(255,250,245,0.86));
-      border: 1px solid rgba(169, 152, 132, 0.16);
-      box-shadow: 0 20px 50px rgba(84, 66, 49, 0.08);
-    }
+    /* REWARD progress in hero */
+    .hero-reward { position:relative;z-index:1;flex-shrink:0;text-align:center; }
+    .reward-ring-wrap { position:relative;width:110px;height:110px;margin:0 auto 0.75rem; }
+    .reward-ring-wrap svg { transform:rotate(-90deg); }
+    .reward-ring-center { position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center; }
+    .reward-ring-num { font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:400;color:var(--ivory);line-height:1; }
+    .reward-ring-sub { font-size:10px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold); }
+    .reward-label { font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--sand-deep);margin-bottom:4px; }
+    .reward-milestone { font-size:12px;color:var(--gold-light); }
 
-    .status-kicker {
-      margin: 0;
-      color: var(--accent-deep);
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-    }
+    /* METRICS ROW */
+    .metrics-row { display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--sand-deep);border:1px solid var(--sand-deep);margin-bottom:2rem; }
+    .metric-box { background:var(--white);padding:1.5rem 1.75rem; }
+    .metric-box .eyebrow { margin-bottom:0.5rem; }
+    .metric-val { font-family:'Playfair Display',serif;font-size:2rem;font-weight:400;color:var(--obsidian);line-height:1;margin-bottom:4px; }
+    .metric-val.gold { color:var(--gold); }
+    .metric-val.sage { color:var(--sage); }
+    .metric-sub { font-size:12px;color:var(--stone); }
+    .metric-badge { display:inline-block;font-size:10px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;padding:3px 10px;border-radius:50px;margin-top:6px; }
+    .badge-done { background:rgba(138,158,138,0.15);color:var(--sage); }
+    .badge-pending { background:rgba(201,169,110,0.12);color:var(--gold); }
 
-    .status-title {
-      margin: 0;
-      font-size: clamp(1.4rem, 2.4vw, 2rem);
-      line-height: 1.08;
-    }
+    /* MAIN GRID */
+    .dash-grid { display:grid;grid-template-columns:1fr 1fr 340px;gap:1.5rem; }
+    .dash-col { display:flex;flex-direction:column;gap:1.5rem; }
 
-    .status-copy {
-      margin: 0;
-      line-height: 1.75;
-      color: var(--muted);
-    }
+    /* CARDS */
+    .card { background:var(--white);border:1px solid var(--sand-deep);padding:1.75rem; }
+    .card-header { margin-bottom:1.5rem; }
+    .card-header .eyebrow { margin-bottom:0.4rem; }
+    .card-header h3 { font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:400;color:var(--obsidian);line-height:1.3; }
+    .card-link { display:inline-block;margin-top:1.25rem;font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--stone-dark);text-decoration:none;border-bottom:1px solid var(--stone-dark);padding-bottom:2px;transition:color 0.2s,border-color 0.2s; }
+    .card-link:hover { color:var(--gold);border-color:var(--gold); }
 
-    .status-actions {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-top: 6px;
-    }
+    /* RITUAL STEPS */
+    .ritual-steps { display:flex;flex-direction:column;gap:10px; }
+    .ritual-step { display:flex;align-items:flex-start;gap:14px;padding:1rem 1.25rem;border:1px solid var(--sand-deep); }
+    .ritual-step.done { border-color:rgba(138,158,138,0.3);background:rgba(138,158,138,0.04); }
+    .ritual-step.active { border-color:var(--gold);background:rgba(201,169,110,0.04); }
+    .ritual-step.pending { opacity:0.5; }
+    .step-icon { width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0;margin-top:2px; }
+    .step-icon.done { background:var(--sage);color:var(--white); }
+    .step-icon.active { background:var(--gold);color:var(--obsidian); }
+    .step-icon.pending { background:var(--sand-mid);color:var(--stone); }
+    .step-body { flex:1; }
+    .step-title { font-size:13px;font-weight:500;color:var(--obsidian);margin-bottom:2px; }
+    .step-desc { font-size:12px;color:var(--stone);line-height:1.5; }
 
-    .dashboard-primary-btn,
-    .dashboard-secondary-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 50px;
-      padding: 12px 20px;
-      border-radius: 999px;
-      font: inherit;
-      font-size: 0.96rem;
-      line-height: 1;
-      text-decoration: none;
-      cursor: pointer;
-      transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease,
-        background 0.2s ease;
-    }
+    /* STREAK CALENDAR */
+    .streak-grid { display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:1rem; }
+    .streak-day { aspect-ratio:1;border-radius:2px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:500;color:var(--stone); }
+    .streak-day.done { background:var(--gold);color:var(--obsidian); }
+    .streak-day.today { background:var(--obsidian);color:var(--ivory); }
+    .streak-day.empty { background:var(--sand-mid);color:var(--sand-deep); }
+    .streak-legend { display:flex;align-items:center;gap:16px;font-size:11px;color:var(--stone); }
+    .legend-dot { width:10px;height:10px;border-radius:2px;flex-shrink:0; }
 
-    .dashboard-primary-btn {
-      border: 1px solid rgba(201, 122, 90, 0.24);
-      background: rgba(255, 255, 255, 0.92);
-      color: var(--accent-deep);
-      box-shadow: 0 6px 18px rgba(84, 66, 49, 0.06);
-    }
+    /* PROGRESS CHART */
+    .chart-wrap { position:relative;height:140px;margin-bottom:1rem; }
+    .chart-wrap canvas { width:100%!important; }
+    .chart-stats { display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem; }
+    .chart-stat { text-align:center; }
+    .chart-stat-num { font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:400;color:var(--obsidian);display:block; }
+    .chart-stat-label { font-size:11px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--stone); }
 
-    .dashboard-primary-btn:hover {
-      transform: translateY(-1px);
-      background: rgba(255, 255, 255, 1);
-    }
+    /* PHOTO UPLOAD */
+    .photo-grid { display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem; }
+    .photo-box { display:flex;flex-direction:column;gap:8px; }
+    .photo-preview { aspect-ratio:3/4;background:var(--sand);border:1.5px dashed var(--sand-deep);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--stone);cursor:pointer;transition:all 0.2s;overflow:hidden; }
+    .photo-preview:hover { border-color:var(--gold);background:var(--gold-light); }
+    .photo-preview img { width:100%;height:100%;object-fit:cover; }
+    .photo-label { font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--stone);text-align:center; }
 
-    .dashboard-secondary-btn {
-      border: 1px solid rgba(169, 152, 132, 0.18);
-      background: rgba(255, 255, 255, 0.72);
-      color: #3b2f2a;
-    }
+    /* PRODUCT CARD */
+    .product-info { display:flex;flex-direction:column;gap:0; }
+    .info-row { display:flex;justify-content:space-between;gap:1rem;padding:0.75rem 0;border-bottom:1px solid var(--sand-deep); }
+    .info-row:last-child { border-bottom:none;padding-bottom:0; }
+    .info-label { font-size:12px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--stone);flex-shrink:0; }
+    .info-val { font-size:13px;color:var(--obsidian);text-align:right; }
 
-    .metrics-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 18px;
-    }
+    /* PROFILE SIDEBAR */
+    .profile-avatar { width:52px;height:52px;border-radius:50%;background:var(--sand-mid);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:400;color:var(--stone-dark);margin-bottom:1rem; }
+    .profile-name { font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:400;color:var(--obsidian);margin-bottom:2px; }
+    .profile-email { font-size:12px;color:var(--stone);margin-bottom:1.5rem; }
+    .profile-tags { display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1.5rem; }
+    .profile-tag { font-size:10px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--stone-dark);background:var(--sand);padding:4px 12px;border-radius:50px; }
 
-    .metric-card {
-      padding: 20px;
-      border-radius: 22px;
-      background: rgba(255, 255, 255, 0.84);
-      border: 1px solid rgba(169, 152, 132, 0.14);
-      box-shadow: 0 16px 36px rgba(84, 66, 49, 0.05);
-    }
+    /* REWARD CARD */
+    .reward-card { background:var(--sand);border:1px solid var(--sand-deep); }
+    .reward-progress-bar { height:6px;background:var(--sand-deep);border-radius:3px;overflow:hidden;margin:1rem 0; }
+    .reward-bar-fill { height:100%;background:var(--gold);border-radius:3px;transition:width 0.8s ease; }
+    .reward-days-text { font-size:13px;color:var(--stone-dark);margin-bottom:0.5rem; }
+    .reward-cta { font-size:12px;color:var(--stone);line-height:1.6;margin-top:0.75rem; }
 
-    .metric-label {
-      margin: 0 0 10px;
-      color: var(--muted);
-      font-size: 0.9rem;
-      line-height: 1.4;
-    }
+    /* QUICK ACTIONS */
+    .action-links { display:flex;flex-direction:column;gap:6px; }
+    .action-link { display:flex;align-items:center;justify-content:space-between;padding:0.875rem 1rem;border:1px solid var(--sand-deep);background:var(--ivory);text-decoration:none;transition:all 0.2s; }
+    .action-link:hover { background:var(--sand);border-color:var(--stone); }
+    .action-link-text strong { display:block;font-size:13px;font-weight:500;color:var(--obsidian);margin-bottom:1px; }
+    .action-link-text span { font-size:12px;color:var(--stone); }
+    .action-arrow { font-size:16px;color:var(--stone);flex-shrink:0; }
 
-    .metric-value {
-      margin: 0;
-      font-size: 1.15rem;
-      line-height: 1.35;
-      color: var(--text);
-      font-weight: 600;
-    }
+    /* STATUS STATES */
+    .state-banner { padding:1.25rem 1.5rem;border-left:3px solid var(--gold);background:rgba(201,169,110,0.06);margin-bottom:1.5rem; }
+    .state-banner h4 { font-family:'Playfair Display',serif;font-size:1rem;font-weight:400;color:var(--obsidian);margin-bottom:0.4rem; }
+    .state-banner p { font-size:13px;color:var(--stone-dark);line-height:1.6; }
+    .state-banner .btn { margin-top:1rem; }
 
-    .dashboard-grid {
-      display: grid;
-      grid-template-columns: 1.3fr 1.3fr 0.95fr;
-      gap: 22px;
-      align-items: start;
-    }
+    /* EMPTY STATE */
+    .empty { padding:1.5rem;text-align:center;font-size:13px;color:var(--stone);background:var(--sand);line-height:1.65; }
 
-    .dashboard-column {
-      display: grid;
-      gap: 22px;
-    }
+    /* ANIMATIONS */
+    @keyframes fadeUp { from { opacity:0;transform:translateY(16px); } to { opacity:1;transform:translateY(0); } }
+    .dash-hero { animation:fadeUp 0.5s ease both; }
+    .metrics-row { animation:fadeUp 0.5s 0.1s ease both; }
+    .dash-grid { animation:fadeUp 0.5s 0.2s ease both; }
 
-    .dashboard-card {
-      display: grid;
-      gap: 16px;
-      padding: 24px;
-    }
-
-    .dashboard-card .card-header {
-      display: grid;
-      gap: 6px;
-      margin-bottom: 0;
-    }
-
-    .dashboard-card h3 {
-      margin: 0;
-      font-size: 1.35rem;
-      line-height: 1.15;
-    }
-
-    .card-copy {
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.7;
-    }
-
-    .card-list,
-    .mini-list {
-      display: grid;
-      gap: 12px;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .card-list li,
-    .mini-list li {
-      padding: 16px 16px;
-      border-radius: 18px;
-      background: rgba(255, 255, 255, 0.66);
-      border: 1px solid rgba(169, 152, 132, 0.12);
-      line-height: 1.65;
-    }
-
-    .mini-list li strong,
-    .card-list li strong {
-      display: block;
-      color: var(--accent-deep);
-      margin-bottom: 4px;
-      font-size: 0.94rem;
-    }
-
-    .ritual-steps {
-      display: grid;
-      gap: 12px;
-    }
-
-    .ritual-step {
-      padding: 16px;
-      border-radius: 18px;
-      background: rgba(255, 250, 245, 0.75);
-      border: 1px solid rgba(201, 122, 90, 0.12);
-    }
-
-    .ritual-step-title {
-      display: block;
-      margin-bottom: 6px;
-      color: var(--accent-deep);
-      font-size: 0.95rem;
-      font-weight: 600;
-    }
-
-    .empty-state {
-      padding: 18px;
-      border-radius: 18px;
-      background: rgba(255, 250, 245, 0.72);
-      border: 1px dashed rgba(201, 122, 90, 0.24);
-      line-height: 1.7;
-      color: var(--text);
-    }
-
-    .info-stack {
-      display: grid;
-      gap: 10px;
-    }
-
-    .info-row {
-      display: flex;
-      justify-content: space-between;
-      gap: 14px;
-      align-items: flex-start;
-      padding: 14px 0;
-      border-bottom: 1px solid rgba(169, 152, 132, 0.12);
-    }
-
-    .info-row:last-child {
-      border-bottom: none;
-      padding-bottom: 0;
-    }
-
-    .info-label {
-      color: var(--muted);
-      line-height: 1.5;
-      flex: 0 0 44%;
-    }
-
-    .info-value {
-      color: var(--text);
-      font-weight: 500;
-      line-height: 1.5;
-      text-align: right;
-      flex: 1;
-    }
-
-    .dashboard-note {
-      margin: 0;
-      color: var(--muted);
-      font-size: 0.94rem;
-      line-height: 1.7;
-    }
-
-    .compact-actions {
-      display: grid;
-      gap: 10px;
-    }
-
-    .compact-link {
-      display: inline-flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      min-height: 52px;
-      padding: 14px 16px;
-      border-radius: 18px;
-      background: rgba(255,255,255,0.76);
-      border: 1px solid rgba(169, 152, 132, 0.14);
-      text-decoration: none;
-      color: var(--text);
-      transition:
-        transform 0.18s ease,
-        background 0.18s ease,
-        box-shadow 0.18s ease;
-    }
-
-    .compact-link:hover {
-      transform: translateY(-1px);
-      background: rgba(255,255,255,0.92);
-      box-shadow: 0 12px 28px rgba(84, 66, 49, 0.06);
-    }
-
-    .compact-link strong {
-      color: var(--accent-deep);
-      font-size: 0.95rem;
-      display: block;
-      margin-bottom: 3px;
-    }
-
-    .compact-link span {
-      font-size: 0.92rem;
-      color: var(--muted);
-      line-height: 1.5;
-    }
-
-    .soft-highlight {
-      padding: 18px;
-      border-radius: 20px;
-      background: rgba(255, 250, 245, 0.78);
-      border: 1px solid rgba(201, 122, 90, 0.12);
-      line-height: 1.7;
-    }
-
-    .logout-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      text-decoration: none;
-      color: var(--accent-deep);
-      font-weight: 600;
-      cursor: pointer;
-    }
-
-    @media (max-width: 1100px) {
-      .metrics-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .dashboard-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 980px) {
-      .dashboard-hero {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .metrics-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .status-actions {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .dashboard-primary-btn,
-      .dashboard-secondary-btn {
-        width: 100%;
-      }
-
-      .info-row {
-        flex-direction: column;
-      }
-
-      .info-value {
-        text-align: left;
-      }
-    }
+    @media(max-width:1200px) { .dash-grid{grid-template-columns:1fr 1fr} .dash-col:last-child{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:1.5rem} }
+    @media(max-width:900px) { .dash-grid{grid-template-columns:1fr} .dash-col:last-child{grid-column:auto;display:flex;flex-direction:column} .metrics-row{grid-template-columns:1fr 1fr} .dash-hero{flex-direction:column;align-items:flex-start} }
+    @media(max-width:600px) { .dash-wrap{padding:1.5rem} .metrics-row{grid-template-columns:1fr 1fr} .dash-hero{padding:2rem 1.5rem} }
   </style>
 </head>
-
 <body>
-  <div class="page-shell">
-    <header class="topbar">
-      <div class="brand-wrap">
-        <div class="brand-mark"></div>
-        <div>
-          <p class="eyebrow" data-i18n="brand.eyebrow">Ritual de Piel de la Isla</p>
-          <h1 class="brand-title" data-i18n="brand.title">Tenerife Glow Ritual</h1>
-        </div>
+<div class="page-shell">
+  <header class="topbar">
+    <div class="brand-wrap">
+      <div class="brand-mark"></div>
+      <div>
+        <p class="eyebrow" data-i18n="brand.eyebrow">Ritual de Piel de la Isla</p>
+        <h1 class="brand-title" data-i18n="brand.title">Tenerife Glow Ritual</h1>
       </div>
-
-      <div class="header-actions">
-        <div class="language-switcher" aria-label="Selector de idioma">
-          <button class="lang-btn active" data-lang="es" type="button">ES</button>
-          <button class="lang-btn" data-lang="en" type="button">EN</button>
-          <button class="lang-btn" data-lang="fr" type="button">FR</button>
-          <button class="lang-btn" data-lang="de" type="button">DE</button>
-        </div>
+    </div>
+    <div class="topbar-right">
+      <div class="language-switcher">
+        <button class="lang-btn active" data-lang="es" type="button">ES</button>
+        <button class="lang-btn" data-lang="en" type="button">EN</button>
+        <button class="lang-btn" data-lang="fr" type="button">FR</button>
+        <button class="lang-btn" data-lang="de" type="button">DE</button>
       </div>
-    </header>
+      <a href="#" class="logout-btn" id="logoutBtn" data-i18n="dashboard.logout">Cerrar sesión</a>
+    </div>
+  </header>
 
-    <main class="content-stack dashboard-shell">
-      <section class="page-hero">
-        <div class="dashboard-welcome-copy">
-          <p class="eyebrow" data-i18n="dashboard.heroEyebrow">Tu panel</p>
-          <h2 class="page-title" data-i18n="dashboard.title">Tu ritual, centralizado en un solo lugar</h2>
-          <p class="page-subtitle" data-i18n="dashboard.subtitle">
-            Sigue tu ritmo, visualiza tus prioridades, confirma tu progreso y continúa al siguiente paso cuando lo necesites.
-          </p>
+  <div class="dash-wrap">
+
+    <!-- HERO BANNER -->
+    <div class="dash-hero">
+      <div class="dash-hero-text">
+        <p class="eyebrow" data-i18n="dashboard.heroEyebrow">Tu panel</p>
+        <h2 id="heroTitle">Bienvenida de nuevo —<br><em>tu piel está en proceso.</em></h2>
+        <p id="heroCopy" data-i18n="dashboard.subtitle">Sigue tu ritmo, visualiza tus prioridades y continúa al siguiente paso cuando lo necesites.</p>
+        <div class="dash-hero-actions" id="heroActions"></div>
+      </div>
+      <div class="hero-reward">
+        <p class="reward-label" data-i18n="dashboard.rewardLabel">Recompensa spa</p>
+        <div class="reward-ring-wrap">
+          <svg width="110" height="110" viewBox="0 0 110 110">
+            <circle cx="55" cy="55" r="46" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="8"/>
+            <circle id="rewardRingCircle" cx="55" cy="55" r="46" fill="none" stroke="#C9A96E" stroke-width="8" stroke-linecap="round" stroke-dasharray="289" stroke-dashoffset="289"/>
+          </svg>
+          <div class="reward-ring-center">
+            <span class="reward-ring-num" id="rewardRingNum">0</span>
+            <span class="reward-ring-sub">/ 14</span>
+          </div>
         </div>
-      </section>
+        <p class="reward-milestone" id="rewardMilestone" data-i18n="dashboard.rewardMilestone">días hacia tu spa</p>
+      </div>
+    </div>
 
-      <section class="dashboard-hero">
-        <section class="card dashboard-main status-panel">
-          <p class="status-kicker" data-i18n="dashboard.statusEyebrow">Estado del ritual</p>
-         <h3 class="status-title" id="statusTitle" data-i18n="dashboard.welcomeBack">
-  Bienvenida de nuevo
-</h3>
+    <!-- METRICS ROW -->
+    <div class="metrics-row">
+      <div class="metric-box">
+        <p class="eyebrow" data-i18n="dashboard.metric1Label">Compra</p>
+        <p class="metric-val" id="metricPurchase">—</p>
+        <span class="metric-badge" id="metricPurchaseBadge"></span>
+      </div>
+      <div class="metric-box">
+        <p class="eyebrow" data-i18n="dashboard.metric2Label">Configuración</p>
+        <p class="metric-val" id="metricOnboarding">—</p>
+        <span class="metric-badge" id="metricOnboardingBadge"></span>
+      </div>
+      <div class="metric-box">
+        <p class="eyebrow" data-i18n="dashboard.metric3Label">Días completados</p>
+        <p class="metric-val gold" id="metricDays">0</p>
+        <p class="metric-sub" id="metricDaysSub">de <span id="metricTotal">90</span> días</p>
+      </div>
+      <div class="metric-box">
+        <p class="eyebrow" data-i18n="dashboard.metric4Label">Constancia</p>
+        <p class="metric-val sage" id="metricConsistency">0%</p>
+        <p class="metric-sub" data-i18n="dashboard.metric4Sub">últimos 7 días</p>
+      </div>
+    </div>
 
-<p class="status-copy" id="statusCopy" data-i18n="dashboard.preparingNextStep">
-  Estamos preparando el siguiente paso de tu experiencia.
-</p>
+    <!-- DASHBOARD GRID -->
+    <div class="dash-grid">
 
-          <div class="status-actions" id="statusActions"></div>
+      <!-- COL 1 -->
+      <div class="dash-col">
 
-          <p class="dashboard-note" id="statusNote"></p>
-        </section>
-
-        <section class="card dashboard-side dashboard-card">
+        <!-- Ritual Steps -->
+        <div class="card">
           <div class="card-header">
-            <p class="eyebrow" data-i18n="dashboard.quickEyebrow">Resumen rápido</p>
-            <h3 data-i18n="dashboard.quickTitle">Una visión general de tu ritual</h3>
+            <p class="eyebrow" data-i18n="dashboard.ritualEyebrow">Mi ritual</p>
+            <h3 data-i18n="dashboard.ritualTitle">Tu estructura base</h3>
           </div>
-
-          <div class="info-stack">
-            <div class="info-row">
-              <div class="info-label" data-i18n="dashboard.quickName">Nombre</div>
-              <div class="info-value" id="quickName">—</div>
+          <div class="ritual-steps" id="ritualSteps">
+            <div class="ritual-step pending">
+              <div class="step-icon pending">1</div>
+              <div class="step-body"><p class="step-title" data-i18n="dashboard.step1Title">Análisis y compra</p><p class="step-desc" data-i18n="dashboard.step1Pending">Debes completar el análisis y la compra.</p></div>
             </div>
-            <div class="info-row">
-              <div class="info-label" data-i18n="dashboard.quickGoal">Objetivo principal</div>
-              <div class="info-value" id="quickGoal">—</div>
+            <div class="ritual-step pending">
+              <div class="step-icon pending">2</div>
+              <div class="step-body"><p class="step-title" data-i18n="dashboard.step2Title">Onboarding</p><p class="step-desc" data-i18n="dashboard.step2Pending">Debes completar tu onboarding.</p></div>
             </div>
-            <div class="info-row">
-              <div class="info-label" data-i18n="dashboard.quickProduct">Producto</div>
-              <div class="info-value" id="quickProduct">—</div>
-            </div>
-            <div class="info-row">
-              <div class="info-label" data-i18n="dashboard.quickTime">Tiempo diario</div>
-              <div class="info-value" id="quickTime">—</div>
+            <div class="ritual-step pending">
+              <div class="step-icon pending">3</div>
+              <div class="step-body"><p class="step-title" data-i18n="dashboard.step3Title">Ritual diario</p><p class="step-desc" data-i18n="dashboard.step3Pending">Tu ritual estará disponible después del onboarding.</p></div>
             </div>
           </div>
-        </section>
-      </section>
-
-      <section class="metrics-grid">
-        <article class="metric-card">
-          <p class="metric-label" data-i18n="dashboard.metric1Label">Estado de compra</p>
-          <p class="metric-value" id="metricPurchase">Pendiente</p>
-        </article>
-
-        <article class="metric-card">
-          <p class="metric-label" data-i18n="dashboard.metric2Label">Configuración del ritual</p>
-          <p class="metric-value" id="metricOnboarding">Pendiente</p>
-        </article>
-
-        <article class="metric-card">
-          <p class="metric-label" data-i18n="dashboard.metric3Label">Ritmo diario</p>
-          <p class="metric-value" id="metricTime">—</p>
-        </article>
-
-        <article class="metric-card">
-          <p class="metric-label" data-i18n="dashboard.metric4Label">Objetivo activo</p>
-          <p class="metric-value" id="metricGoal">—</p>
-        </article>
-      </section>
-
-      <section class="dashboard-grid">
-        <div class="dashboard-column">
-          <section class="card dashboard-card">
-            <div class="card-header">
-              <p class="eyebrow" data-i18n="dashboard.ritualEyebrow">Mi ritual</p>
-              <h3 data-i18n="dashboard.ritualTitle">Tu estructura base</h3>
-            </div>
-
-            <div class="ritual-steps" id="ritualSteps"></div>
-          </section>
-
-          <section class="card dashboard-card">
-            <div class="card-header">
-              <p class="eyebrow" data-i18n="dashboard.dailyEyebrow">Ritmo diario</p>
-              <h3 data-i18n="dashboard.dailyTitle">Cómo encaja en tu día</h3>
-            </div>
-
-            <div id="dailyBlock"></div>
-          </section>
         </div>
 
-        <div class="dashboard-column">
-          <section class="card dashboard-card">
-            <div class="card-header">
-              <p class="eyebrow" data-i18n="dashboard.progressEyebrow">Progreso</p>
-              <h3 data-i18n="dashboard.progressTitle">Tu visión general</h3>
-            </div>
+        <!-- Streak Calendar -->
+        <div class="card">
+          <div class="card-header">
+            <p class="eyebrow" data-i18n="dashboard.streakEyebrow">Constancia</p>
+            <h3 data-i18n="dashboard.streakTitle">Últimos 28 días</h3>
+          </div>
+          <div class="streak-grid" id="streakGrid"></div>
+          <div class="streak-legend" style="margin-top:0.75rem">
+            <div style="display:flex;align-items:center;gap:6px"><div class="legend-dot" style="background:var(--gold)"></div><span data-i18n="dashboard.legendDone">Completado</span></div>
+            <div style="display:flex;align-items:center;gap:6px"><div class="legend-dot" style="background:var(--obsidian)"></div><span data-i18n="dashboard.legendToday">Hoy</span></div>
+            <div style="display:flex;align-items:center;gap:6px"><div class="legend-dot" style="background:var(--sand-mid)"></div><span data-i18n="dashboard.legendEmpty">Vacío</span></div>
+          </div>
+        </div>
 
-            <div id="progressBlock"></div>
-          </section>
-
-          <section class="card dashboard-card">
-  <div class="card-header">
-    <p class="eyebrow" data-i18n="dashboard.photosEyebrow">Progreso visual</p>
-    <h3 data-i18n="dashboard.photosTitle">Antes y después</h3>
-  </div>
-
-  <div class="photo-grid">
-    <div class="photo-box">
-      <div class="photo-preview" id="beforePreview">
-        <span data-i18n="dashboard.photoBeforePlaceholder">Añadir foto inicial</span>
       </div>
-      <input type="file" id="beforeInput" accept="image/*" hidden />
-      <button class="dashboard-secondary-btn" onclick="document.getElementById('beforeInput').click()" data-i18n="dashboard.uploadBefore">
-        Subir antes
-      </button>
-    </div>
 
-    <div class="photo-box">
-      <div class="photo-preview" id="afterPreview">
-        <span data-i18n="dashboard.photoAfterPlaceholder">Añadir foto actual</span>
+      <!-- COL 2 -->
+      <div class="dash-col">
+
+        <!-- Progress Chart -->
+        <div class="card">
+          <div class="card-header">
+            <p class="eyebrow" data-i18n="dashboard.progressEyebrow">Progreso</p>
+            <h3 data-i18n="dashboard.progressTitle">Tu evolución</h3>
+          </div>
+          <div class="chart-wrap">
+            <canvas id="progressChart"></canvas>
+          </div>
+          <div class="chart-stats">
+            <div class="chart-stat"><span class="chart-stat-num" id="statStreak">0</span><span class="chart-stat-label" data-i18n="stats.streak">Seguidos</span></div>
+            <div class="chart-stat"><span class="chart-stat-num" id="statCompleted">0</span><span class="chart-stat-label" data-i18n="stats.completed">Completados</span></div>
+            <div class="chart-stat"><span class="chart-stat-num" id="statConsistency">0%</span><span class="chart-stat-label" data-i18n="stats.consistency">Constancia</span></div>
+          </div>
+          <a class="card-link" href="daily.html" data-i18n="dashboard.progressLink">Ver calendario ritual</a>
+        </div>
+
+        <!-- Photo Progress -->
+        <div class="card">
+          <div class="card-header">
+            <p class="eyebrow" data-i18n="dashboard.photosEyebrow">Progreso visual</p>
+            <h3 data-i18n="dashboard.photosTitle">Antes y después</h3>
+          </div>
+          <div class="photo-grid">
+            <div class="photo-box">
+              <div class="photo-preview" id="beforePreview" onclick="document.getElementById('beforeInput').click()">
+                <span data-i18n="dashboard.photoBeforePlaceholder">Foto inicial</span>
+              </div>
+              <input type="file" id="beforeInput" accept="image/*" hidden />
+              <p class="photo-label" data-i18n="dashboard.photoBeforeLabel">Antes</p>
+            </div>
+            <div class="photo-box">
+              <div class="photo-preview" id="afterPreview" onclick="document.getElementById('afterInput').click()">
+                <span data-i18n="dashboard.photoAfterPlaceholder">Foto actual</span>
+              </div>
+              <input type="file" id="afterInput" accept="image/*" hidden />
+              <p class="photo-label" data-i18n="dashboard.photoAfterLabel">Después</p>
+            </div>
+          </div>
+          <p style="font-size:12px;color:var(--stone);line-height:1.6" data-i18n="dashboard.photoNote">Añade fotos para seguir tu evolución visual. Se guardan en tu dispositivo.</p>
+        </div>
+
+        <!-- Product -->
+        <div class="card">
+          <div class="card-header">
+            <p class="eyebrow" data-i18n="dashboard.productEyebrow">Producto</p>
+            <h3 data-i18n="dashboard.productTitle">Compra y referencia</h3>
+          </div>
+          <div id="productBlock">
+            <div class="empty" data-i18n="dashboard.emptyProduct">Aún no se ha registrado ninguna compra.</div>
+          </div>
+        </div>
+
       </div>
-      <input type="file" id="afterInput" accept="image/*" hidden />
-      <button class="dashboard-secondary-btn" onclick="document.getElementById('afterInput').click()" data-i18n="dashboard.uploadAfter">
-        Subir después
-      </button>
+
+      <!-- COL 3: SIDEBAR -->
+      <div class="dash-col">
+
+        <!-- Profile -->
+        <div class="card">
+          <div class="card-header">
+            <p class="eyebrow" data-i18n="dashboard.profileEyebrow">Perfil</p>
+            <h3 data-i18n="dashboard.profileTitle">Tu cuenta</h3>
+          </div>
+          <div class="profile-avatar" id="profileAvatar">—</div>
+          <p class="profile-name" id="profileName">—</p>
+          <p class="profile-email" id="profileEmail">—</p>
+          <div class="profile-tags" id="profileTags"></div>
+          <a href="onboarding.html" class="card-link" data-i18n="dashboard.editProfile">Editar perfil</a>
+        </div>
+
+        <!-- Reward Card -->
+        <div class="card reward-card">
+          <div class="card-header">
+            <p class="eyebrow" data-i18n="dashboard.rewardEyebrow">Recompensa</p>
+            <h3 data-i18n="dashboard.rewardTitle">Tu sesión de spa</h3>
+          </div>
+          <p class="reward-days-text" id="rewardDaysText">0 / 14 días completados</p>
+          <div class="reward-progress-bar"><div class="reward-bar-fill" id="rewardBarFill" style="width:0%"></div></div>
+          <p style="font-size:13px;color:var(--stone-dark);line-height:1.65;margin-bottom:1rem" data-i18n="dashboard.rewardText">Completa 14 días consecutivos de tu ritual y gana una sesión exclusiva en nuestro spa de Tenerife.</p>
+          <a href="mailto:info@tenerifeglowritual.com?subject=Recompensa 14 días" class="btn btn-primary" style="width:100%;font-size:12px" data-i18n="dashboard.rewardCTA">Solicitar mi recompensa</a>
+          <p class="reward-cta" data-i18n="dashboard.rewardNote">Nuestro equipo verificará tu progreso y organizará tu experiencia.</p>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="card">
+          <div class="card-header">
+            <p class="eyebrow" data-i18n="dashboard.actionsEyebrow">Acciones</p>
+            <h3 data-i18n="dashboard.actionsTitle">Tu siguiente paso</h3>
+          </div>
+          <div class="action-links" id="actionLinks"></div>
+        </div>
+
+      </div>
     </div>
   </div>
+</div>
 
-  <p class="dashboard-note" data-i18n="dashboard.photoNote">
-    Añade una foto inicial y una foto actual para seguir tu evolución de forma visual.
-  </p>
-</section>
-          
-          <section class="card dashboard-card">
-            <div class="card-header">
-              <p class="eyebrow" data-i18n="dashboard.productEyebrow">Producto</p>
-              <h3 data-i18n="dashboard.productTitle">Compra y referencia</h3>
-            </div>
-
-            <div id="productBlock"></div>
-          </section>
-        </div>
-
-        <div class="dashboard-column">
-          <section class="card dashboard-card">
-            <div class="card-header">
-              <p class="eyebrow" data-i18n="dashboard.actionsEyebrow">Acciones</p>
-              <h3 data-i18n="dashboard.actionsTitle">Tu siguiente movimiento</h3>
-            </div>
-            
-<div id="startRitualBtn" style="display:none;"></div>
-
-            <div class="compact-actions" id="actionLinks"></div>
-          </section>
-
-          <section class="card dashboard-card">
-            <div class="card-header">
-              <p class="eyebrow" data-i18n="dashboard.profileEyebrow">Perfil</p>
-              <h3 data-i18n="dashboard.profileTitle">Datos guardados</h3>
-            </div>
-
-            <div id="profileBlock"></div>
-          </section>
-
-          <section class="card dashboard-card">
-  <div class="card-header">
-    <p class="eyebrow" data-i18n="dashboard.rewardEyebrow">Recompensa</p>
-    <h3 data-i18n="dashboard.rewardTitle">Tu recompensa de 14 días</h3>
-  </div>
-
-  <p class="card-copy" data-i18n="dashboard.rewardText">
-    Después de completar 14 días consecutivos de tu ritual, podrás solicitar tu tratamiento exclusivo en nuestro spa.
-  </p>
-
-  <div class="hero-actions">
-    <a href="mailto:your@email.com?subject=Ritual 14 días completado&body=Hola, he completado mis 14 días de ritual y me gustaría solicitar mi tratamiento."
-       class="btn btn-primary"
-       data-i18n="dashboard.rewardCTA">
-      Solicitar mi recompensa
-    </a>
-  </div>
-
-  <p class="dashboard-note" data-i18n="dashboard.rewardNote">
-    Nuestro equipo verificará tu progreso y organizará tu experiencia.
-  </p>
-</section>
-
-
-        </div>
-      </section>
-    </main>
-  </div>
-
-  <script src="js/i18n.js"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<script src="js/i18n.js"></script>
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const isAuth = localStorage.getItem("tgr-auth") === "true";
+document.addEventListener("DOMContentLoaded", function() {
+  const isAuth = localStorage.getItem("tgr-auth") === "true";
+  if (!isAuth) { window.location.href = "login.html"; return; }
 
-    if (!isAuth) {
-      window.location.href = "login.html";
-      return;
-    }
+  const user = JSON.parse(localStorage.getItem("tgr-user")||"{}");
+  const onboarding = JSON.parse(localStorage.getItem("tgr-onboarding-data")||"{}");
+  const purchase = JSON.parse(localStorage.getItem("tgr-purchase")||"{}");
+  const partnerDone = localStorage.getItem("tgr-partner-complete") === "true";
+  const onboardingDone = localStorage.getItem("tgr-onboarding-complete") === "true";
+  const daysCompleted = parseInt(localStorage.getItem("tgr-days-completed")||"0",10)||0;
+  const ritualDuration = parseInt(onboarding.timeline||"90",10)||90;
+  const rewardProgress = Math.min(daysCompleted,14);
 
-    const user = JSON.parse(localStorage.getItem("tgr-user") || "{}");
-    const onboarding = JSON.parse(localStorage.getItem("tgr-onboarding-data") || "{}");
-    const purchase = JSON.parse(localStorage.getItem("tgr-purchase") || "{}");
+  const safe = v => (v && String(v).trim()) ? v : "—";
 
-    const t = (key, fallback = "") => {
-      const currentLang = localStorage.getItem("tgr-language") || "es";
+  const goalMap = { glow:"Luminosidad", hydration:"Hidratación", antiage:"Anti-edad", acne:"Acné", balance:"Equilibrio" };
+  const skinMap = { normal:"Normal", dry:"Seca", oily:"Grasa", combination:"Mixta", sensitive:"Sensible" };
+  const timeMap = { "5":"5 min", "10":"10 min", "20":"20 min" };
+  const levelMap = { basic:"Básico", intermediate:"Intermedio", advanced:"Avanzado" };
 
-      if (
-        window.translations &&
-        window.translations[currentLang] &&
-        window.translations[currentLang][key]
-      ) {
-        return window.translations[currentLang][key];
-      }
+  const formatGoal = () => goalMap[onboarding.goal] || safe(onboarding.goal || user.skinGoal);
+  const formatSkin = () => skinMap[onboarding.skinType] || "—";
+  const formatTime = () => timeMap[onboarding.time || localStorage.getItem("tgr-ritual-time")] || "—";
 
-      if (
-        window.translations &&
-        window.translations.es &&
-        window.translations.es[key]
-      ) {
-        return window.translations.es[key];
-      }
+  const getDashState = () => {
+    if (!partnerDone) return "partner";
+    if (!onboardingDone) return "onboarding";
+    return "ritual";
+  };
+  const state = getDashState();
 
-      return fallback;
-    };
+  // HERO
+  const el = id => document.getElementById(id);
+  const heroTitle = el("heroTitle");
+  const heroCopy = el("heroCopy");
+  const heroActions = el("heroActions");
 
-    const STORAGE_KEYS = {
-      partnerDone: "tgr-partner-complete",
-      onboardingDone: "tgr-onboarding-complete",
-      ritualTime: "tgr-ritual-time",
-      ritualDuration: "tgr-ritual-duration",
-      daysCompleted: "tgr-days-completed",
-      lastCompletedDate: "tgr-last-completed-date"
-    };
+  if (state === "partner") {
+    heroTitle.innerHTML = "Completa tu análisis<br><em>de piel.</em>";
+    heroCopy.textContent = "Para comenzar tu ritual, visita la plataforma del Dr. Ourian para tu análisis y compra de productos.";
+    heroActions.innerHTML = `<a href="https://www.simonourianmd.com/BBF/?ref=tgr" target="_blank" rel="noopener" class="btn btn-gold">Ir a la plataforma →</a>`;
+  } else if (state === "onboarding") {
+    heroTitle.innerHTML = "Activa tu ritual<br><em>personalizado.</em>";
+    heroCopy.textContent = "Tu compra está completada. Ahora configura tu ritual para desbloquear tu calendario diario.";
+    heroActions.innerHTML = `<a href="onboarding.html" class="btn btn-gold">Completar onboarding →</a>`;
+  } else {
+    const currentDay = Math.min(daysCompleted+1, ritualDuration);
+    heroTitle.innerHTML = `Bienvenida de nuevo —<br><em>día ${currentDay} de tu ritual.</em>`;
+    heroCopy.textContent = `Continúa tu ritual de ${formatTime()} de hoy. La constancia transforma.`;
+    heroActions.innerHTML = `<a href="daily.html" class="btn btn-gold">Completar ritual de hoy →</a><a href="onboarding.html" class="btn btn-outline-light">Editar perfil</a>`;
+  }
 
-    const safe = (value) => {
-      return value && String(value).trim() ? value : "—";
-    };
+  // REWARD RING
+  const circumference = 2 * Math.PI * 46;
+  const pct = rewardProgress / 14;
+  const offset = circumference - (pct * circumference);
+  const ring = el("rewardRingCircle");
+  if (ring) { ring.style.strokeDasharray = circumference; ring.style.strokeDashoffset = circumference; setTimeout(() => { ring.style.transition="stroke-dashoffset 1.2s ease"; ring.style.strokeDashoffset = offset; }, 200); }
+  const rNum = el("rewardRingNum"); if (rNum) rNum.textContent = rewardProgress;
+  const rMile = el("rewardMilestone"); if (rMile) rMile.textContent = rewardProgress >= 14 ? "¡Recompensa desbloqueada!" : `días hacia tu spa`;
 
-    const getBool = (key) => localStorage.getItem(key) === "true";
+  // METRICS
+  el("metricPurchase").textContent = partnerDone ? "Completada" : "Pendiente";
+  el("metricPurchaseBadge").textContent = partnerDone ? "✓ Hecho" : "Pendiente";
+  el("metricPurchaseBadge").className = "metric-badge " + (partnerDone ? "badge-done" : "badge-pending");
+  el("metricOnboarding").textContent = onboardingDone ? "Completada" : "Pendiente";
+  el("metricOnboardingBadge").textContent = onboardingDone ? "✓ Hecho" : "Pendiente";
+  el("metricOnboardingBadge").className = "metric-badge " + (onboardingDone ? "badge-done" : "badge-pending");
+  el("metricDays").textContent = daysCompleted;
+  el("metricTotal").textContent = ritualDuration;
+  const consistency = ritualDuration > 0 ? Math.round((daysCompleted / ritualDuration) * 100) : 0;
+  el("metricConsistency").textContent = consistency + "%";
 
-    const getNumber = (key, fallback = 0) => {
-      const value = parseInt(localStorage.getItem(key), 10);
-      return Number.isFinite(value) ? value : fallback;
-    };
-
-    const partnerDone = getBool(STORAGE_KEYS.partnerDone);
-    const onboardingDone = getBool(STORAGE_KEYS.onboardingDone);
-
-    const getGoalValue = () => onboarding.goal || user.skinGoal || "";
-    const getTimeValue = () => localStorage.getItem(STORAGE_KEYS.ritualTime) || onboarding.time || "";
-    const getDurationValue = () => {
-      return getNumber(STORAGE_KEYS.ritualDuration, parseInt(onboarding.timeline || "90", 10) || 90);
-    };
-
-    const formatGoal = () => {
-      const goal = getGoalValue();
-      const map = {
-        glow: t("onboarding.goal.glow", "Luminosidad"),
-        hydration: t("onboarding.goal.hydration", "Hidratación"),
-        antiage: t("onboarding.goal.antiage", "Antiedad"),
-        acne: t("onboarding.goal.acne", "Acné"),
-        balance: t("onboarding.goal.balance", "Equilibrio")
-      };
-      return map[goal] || safe(goal);
-    };
-
-    const formatTime = () => {
-      const time = getTimeValue();
-      const map = {
-        "5": t("onboarding.time.short", "5 min"),
-        "10": t("onboarding.time.medium", "10 min"),
-        "20": t("onboarding.time.long", "20 min")
-      };
-      return map[time] || safe(time);
-    };
-
-    const formatLevel = () => {
-      const level = onboarding.level || "";
-      const map = {
-        basic: t("onboarding.level.basic", "Básico"),
-        intermediate: t("onboarding.level.intermediate", "Intermedio"),
-        advanced: t("onboarding.level.advanced", "Avanzado")
-      };
-      return map[level] || safe(level);
-    };
-
-    const formatSkinType = () => {
-      const skinType = onboarding.skinType || "";
-      const map = {
-        normal: t("onboarding.skin.normal", "Normal"),
-        dry: t("onboarding.skin.dry", "Seca"),
-        oily: t("onboarding.skin.oily", "Grasa"),
-        combination: t("onboarding.skin.combination", "Mixta"),
-        sensitive: t("onboarding.skin.sensitive", "Sensible")
-      };
-      return map[skinType] || safe(skinType);
-    };
-
-    const formatSensitivity = () => {
-      const sensitivity = onboarding.sensitivity || "";
-      const map = {
-        low: t("onboarding.sensitivity.low", "Baja"),
-        medium: t("onboarding.sensitivity.medium", "Media"),
-        high: t("onboarding.sensitivity.high", "Alta")
-      };
-      return map[sensitivity] || safe(sensitivity);
-    };
-
-    const formatTimeline = () => {
-      const timeline = String(getDurationValue());
-      const map = {
-        "30": t("onboarding.timeline.30", "30 días"),
-        "60": t("onboarding.timeline.60", "60 días"),
-        "90": t("onboarding.timeline.90", "90 días")
-      };
-      return map[timeline] || `${timeline} días`;
-    };
-
-    const setText = (id, value) => {
-      const el = document.getElementById(id);
-      if (el) el.textContent = value;
-    };
-
-    const statusTitle = document.getElementById("statusTitle");
-    const statusCopy = document.getElementById("statusCopy");
-    const statusActions = document.getElementById("statusActions");
-    const statusNote = document.getElementById("statusNote");
-
-    const ritualSteps = document.getElementById("ritualSteps");
-    const dailyBlock = document.getElementById("dailyBlock");
-    const progressBlock = document.getElementById("progressBlock");
-    const productBlock = document.getElementById("productBlock");
-    const actionLinks = document.getElementById("actionLinks");
-    const profileBlock = document.getElementById("profileBlock");
-    const startRitualBtn = document.getElementById("startRitualBtn");
-
-    const getDashboardState = () => {
-      if (!partnerDone) return "partner";
-      if (partnerDone && !onboardingDone) return "onboarding";
-      return "ritual";
-    };
-
-    const getDaysCompleted = () => getNumber(STORAGE_KEYS.daysCompleted, 0);
-
-    const getCurrentDay = () => {
-      const daysCompleted = getDaysCompleted();
-      const ritualDuration = getDurationValue();
-      return Math.min(daysCompleted + 1, ritualDuration);
-    };
-
-    const getRewardProgress = () => {
-      return Math.min(getDaysCompleted(), 14);
-    };
-
-    const renderStatusPanel = () => {
-      const state = getDashboardState();
-
-      if (state === "partner") {
-        statusTitle.textContent = t("dashboard.ctaPartnerTitle", "Completa tu análisis de piel");
-        statusCopy.textContent = t(
-          "dashboard.ctaPartnerCopy",
-          "Para comenzar tu ritual, primero debes ir a la plataforma asociada para realizar tu análisis y comprar tus productos."
-        );
-        statusActions.innerHTML = `
-          <a class="dashboard-primary-btn" href="https://www.simonourianmd.com/BBF/?ref=tgr" target="_blank" rel="noopener noreferrer">
-            ${t("dashboard.ctaPartnerButton", "Ir a la plataforma asociada")}
-          </a>
-        `;
-        statusNote.textContent = "";
-        if (startRitualBtn) startRitualBtn.style.display = "none";
-        return;
-      }
-
-      if (state === "onboarding") {
-        statusTitle.textContent = t("dashboard.ctaOnboardingTitle", "Completa tu onboarding");
-        statusCopy.textContent = t(
-          "dashboard.ctaOnboardingCopy",
-          "Ya has realizado tu compra. Ahora completa tu onboarding para configurar tu ritual personalizado."
-        );
-        statusActions.innerHTML = `
-          <a class="dashboard-primary-btn" href="onboarding.html">
-            ${t("dashboard.ctaOnboardingButton", "Completar mi onboarding")}
-          </a>
-        `;
-        statusNote.textContent = "";
-        if (startRitualBtn) startRitualBtn.style.display = "none";
-        return;
-      }
-
-      const currentDay = getCurrentDay();
-      const ritualDuration = getDurationValue();
-      const rewardProgress = getRewardProgress();
-
-      statusTitle.textContent = t("dashboard.ctaRitualTitle", "Tu ritual está listo");
-     
-     const currentLang = localStorage.getItem("tgr-language") || "es";
-
-const ritualCopyText =
-  window.translations &&
-  window.translations[currentLang] &&
-  window.translations[currentLang]["dashboard.ctaRitualCopy"]
-    ? window.translations[currentLang]["dashboard.ctaRitualCopy"]
-    : (
-        window.translations &&
-        window.translations.es &&
-        window.translations.es["dashboard.ctaRitualCopy"]
-          ? window.translations.es["dashboard.ctaRitualCopy"]
-          : "Continúa con tu programa. Hoy te corresponde el Día {day} de {total} a las {time}."
-      );
-
-statusCopy.textContent = ritualCopyText
-  .replace("{day}", currentDay)
-  .replace("{total}", ritualDuration)
-  .replace("{time}", formatTime());
-
-      statusActions.innerHTML = `
-  <a class="dashboard-primary-btn" href="daily.html" data-i18n="dashboard.ctaRitualButton">
-    ${t("dashboard.ctaRitualButton", "Abrir mi calendario ritual")}
-  </a>
-`;
-
-statusNote.innerHTML = `
-  <span data-i18n="dashboard.rewardProgressLabel">${t("dashboard.rewardProgressLabel", "Progreso recompensa:")}</span> ${rewardProgress}/14
-`;
-
-      if (startRitualBtn) {
-        startRitualBtn.style.display = "inline-flex";
-        startRitualBtn.textContent = t("dashboard.ctaRitualButton", "Abrir mi calendario ritual");
-      }
-    };
-
-    setText("quickName", safe(user.fullName));
-    setText("quickGoal", formatGoal());
-    setText("quickProduct", safe(purchase.productName || onboarding.productName));
-    setText("quickTime", formatTime());
-
-    setText(
-      "metricPurchase",
-      partnerDone
-        ? t("dashboard.metricPurchaseDone", "Completada")
-        : t("dashboard.metricPurchasePending", "Pendiente")
-    );
-
-    setText(
-      "metricOnboarding",
-      onboardingDone
-        ? t("dashboard.metricOnboardingDone", "Completada")
-        : t("dashboard.metricOnboardingPending", "Pendiente")
-    );
-
-    setText("metricTime", formatTime());
-    setText("metricGoal", formatGoal());
-
-    renderStatusPanel();
-
-    ritualSteps.innerHTML = `
-      <div class="ritual-step">
-        <span class="ritual-step-title">${t("dashboard.step1Title", "Paso 1")}</span>
-        ${partnerDone
-          ? t("dashboard.step1Done", "Análisis y compra completados.")
-          : t("dashboard.step1Pending", "Debes completar el análisis y la compra.")}
+  // RITUAL STEPS
+  const stepsEl = el("ritualSteps");
+  if (stepsEl) {
+    stepsEl.innerHTML = `
+      <div class="ritual-step ${partnerDone ? 'done' : 'active'}">
+        <div class="step-icon ${partnerDone ? 'done' : 'active'}">${partnerDone ? '✓' : '1'}</div>
+        <div class="step-body"><p class="step-title">Análisis y compra</p><p class="step-desc">${partnerDone ? 'Completados correctamente.' : 'Visita la plataforma del Dr. Ourian para tu análisis.'}</p></div>
       </div>
-      <div class="ritual-step">
-        <span class="ritual-step-title">${t("dashboard.step2Title", "Paso 2")}</span>
-        ${onboardingDone
-          ? t("dashboard.step2Done", "Onboarding completado.")
-          : t("dashboard.step2Pending", "Debes completar tu onboarding.")}
+      <div class="ritual-step ${onboardingDone ? 'done' : (partnerDone ? 'active' : 'pending')}">
+        <div class="step-icon ${onboardingDone ? 'done' : (partnerDone ? 'active' : 'pending')}">${onboardingDone ? '✓' : '2'}</div>
+        <div class="step-body"><p class="step-title">Onboarding</p><p class="step-desc">${onboardingDone ? 'Perfil ritual configurado.' : 'Configura tu ritual personalizado.'}</p></div>
       </div>
-      <div class="ritual-step">
-        <span class="ritual-step-title">${t("dashboard.step3Title", "Paso 3")}</span>
-        ${onboardingDone
-          ? t("dashboard.step3Done", "Tu ritual diario está listo.")
-          : t("dashboard.step3Pending", "Tu ritual diario estará disponible después del onboarding.")}
+      <div class="ritual-step ${(onboardingDone && daysCompleted > 0) ? 'done' : (onboardingDone ? 'active' : 'pending')}">
+        <div class="step-icon ${(onboardingDone && daysCompleted > 0) ? 'done' : (onboardingDone ? 'active' : 'pending')}">${(onboardingDone && daysCompleted > 0) ? '✓' : '3'}</div>
+        <div class="step-body"><p class="step-title">Ritual diario</p><p class="step-desc">${onboardingDone ? `Día ${Math.min(daysCompleted+1,ritualDuration)} de ${ritualDuration}. ¡Sigue así!` : 'Disponible después del onboarding.'}</p></div>
       </div>
     `;
+  }
 
-    if (onboardingDone) {
-      dailyBlock.innerHTML = `
-        <ul class="card-list">
-          <li>
-            <strong>${t("dashboard.dailyTimeLabel", "Tiempo diario")}</strong>
-            ${formatTime()}
-          </li>
-          <li>
-            <strong>${t("dashboard.dailyLevelLabel", "Nivel")}</strong>
-            ${formatLevel()}
-          </li>
-          <li>
-            <strong>${t("dashboard.dailyRoutineLabel", "Rutina actual")}</strong>
-            ${safe(onboarding.currentRoutine)}
-          </li>
-        </ul>
-      `;
-
-      progressBlock.innerHTML = `
-        <ul class="card-list">
-          <li>
-            <strong>${t("dashboard.progressGoalLabel", "Objetivo")}</strong>
-            ${formatGoal()}
-          </li>
-          <li>
-            <strong>${t("dashboard.progressConcernLabel", "Preocupación principal")}</strong>
-            ${safe(onboarding.skinConcern)}
-          </li>
-          <li>
-            <strong>${t("dashboard.progressTimelineLabel", "Programa")}</strong>
-            ${getDaysCompleted()} / ${getDurationValue()} ${t("dashboard.daysSuffix", "días")}
-          </li>
-        </ul>
-      `;
-
-      productBlock.innerHTML = `
-        <ul class="card-list">
-          <li>
-            <strong>${t("dashboard.productNameLabel", "Producto")}</strong>
-            ${safe(purchase.productName || onboarding.productName)}
-          </li>
-          <li>
-            <strong>${t("dashboard.productRefLabel", "Referencia")}</strong>
-            ${safe(purchase.orderReference || onboarding.orderReference)}
-          </li>
-          <li>
-            <strong>${t("dashboard.productDateLabel", "Fecha de compra")}</strong>
-            ${safe(purchase.purchaseDate || onboarding.purchaseDate)}
-          </li>
-        </ul>
-      `;
-    } else {
-      dailyBlock.innerHTML = `
-        <div class="empty-state">
-          ${t("dashboard.emptyDaily", "Tu bloque diario aparecerá cuando completes tu onboarding.")}
-        </div>
-      `;
-
-      progressBlock.innerHTML = `
-        <div class="empty-state">
-          ${t("dashboard.emptyProgress", "Tu progreso aparecerá cuando completes tu onboarding.")}
-        </div>
-      `;
-
-      productBlock.innerHTML = `
-        <div class="empty-state">
-          ${partnerDone
-            ? t("dashboard.emptyProductReady", "Tu compra está completada. Falta completar el onboarding.")
-            : t("dashboard.emptyProductPending", "Aún no se ha registrado ninguna compra.")}
-        </div>
-      `;
+  // STREAK CALENDAR (28 days)
+  const streakGrid = el("streakGrid");
+  if (streakGrid) {
+    const completedDates = JSON.parse(localStorage.getItem("tgr-completed-dates")||"[]");
+    const today = new Date(); today.setHours(0,0,0,0);
+    for (let i = 27; i >= 0; i--) {
+      const d = new Date(today); d.setDate(d.getDate() - i);
+      const key = d.toISOString().split('T')[0];
+      const isToday = i === 0;
+      const isDone = completedDates.includes(key);
+      const div = document.createElement("div");
+      div.className = "streak-day " + (isToday ? "today" : isDone ? "done" : "empty");
+      div.textContent = d.getDate();
+      streakGrid.appendChild(div);
     }
+  }
 
-    const dashboardState = getDashboardState();
-
-    if (dashboardState === "partner") {
-      actionLinks.innerHTML = `
-        <a href="https://www.simonourianmd.com/BBF/?ref=tgr" target="_blank" rel="noopener" class="compact-link">
-          <div>
-            <strong>${t("dashboard.actionPartnerTitle", "Ir a la plataforma asociada")}</strong>
-            <span>${t("dashboard.actionPartnerText", "Completa tu análisis de piel y tu compra para continuar.")}</span>
-          </div>
-          <span>→</span>
-        </a>
-
-        <a href="index.html" class="compact-link">
-          <div>
-            <strong>${t("dashboard.actionHomeTitle", "Volver al inicio")}</strong>
-            <span>${t("dashboard.actionHomeText", "Revisa la información general de tu experiencia.")}</span>
-          </div>
-          <span>→</span>
-        </a>
-      `;
-    } else if (dashboardState === "onboarding") {
-      actionLinks.innerHTML = `
-        <a href="onboarding.html" class="compact-link">
-          <div>
-            <strong>${t("dashboard.actionOnboardingTitle", "Completar onboarding")}</strong>
-            <span>${t("dashboard.actionOnboardingText", "Configura tu ritual personalizado para desbloquear tu calendario.")}</span>
-          </div>
-          <span>→</span>
-        </a>
-
-        <a href="index.html" class="compact-link">
-          <div>
-            <strong>${t("dashboard.actionHomeTitle", "Volver al inicio")}</strong>
-            <span>${t("dashboard.actionHomeText", "Revisa la información general de tu experiencia.")}</span>
-          </div>
-          <span>→</span>
-        </a>
-      `;
-    } else {
-      actionLinks.innerHTML = `
-        <a href="daily.html" class="compact-link">
-          <div>
-            <strong>${t("dashboard.actionRitualTitle", "Abrir mi calendario ritual")}</strong>
-            <span>${t("dashboard.actionRitualText", "Continúa tu ritual diario y marca tu progreso.")}</span>
-          </div>
-          <span>→</span>
-        </a>
-
-        <a href="onboarding.html" class="compact-link">
-          <div>
-            <strong>${t("dashboard.actionEditTitle", "Revisar mi onboarding")}</strong>
-            <span>${t("dashboard.actionEditText", "Consulta o actualiza la configuración de tu ritual.")}</span>
-          </div>
-          <span>→</span>
-        </a>
-
-        <a href="index.html" class="compact-link">
-          <div>
-            <strong>${t("dashboard.actionHomeTitle", "Volver al inicio")}</strong>
-            <span>${t("dashboard.actionHomeText", "Revisa la información general de tu experiencia.")}</span>
-          </div>
-          <span>→</span>
-        </a>
-      `;
+  // PROGRESS CHART
+  const ctx = document.getElementById("progressChart");
+  if (ctx && typeof Chart !== "undefined") {
+    const completedDates = JSON.parse(localStorage.getItem("tgr-completed-dates")||"[]");
+    const labels = [];
+    const dataPoints = [];
+    let running = 0;
+    const today = new Date(); today.setHours(0,0,0,0);
+    for (let i = 13; i >= 0; i--) {
+      const d = new Date(today); d.setDate(d.getDate() - i);
+      const key = d.toISOString().split('T')[0];
+      if (completedDates.includes(key)) running++;
+      labels.push(d.getDate() + "/" + (d.getMonth()+1));
+      dataPoints.push(running);
     }
+    new Chart(ctx, {
+      type: "line",
+      data: {
+        labels,
+        datasets: [{
+          data: dataPoints,
+          borderColor: "#C9A96E",
+          backgroundColor: "rgba(201,169,110,0.08)",
+          borderWidth: 2,
+          pointBackgroundColor: "#C9A96E",
+          pointRadius: 3,
+          tension: 0.4,
+          fill: true
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false }, tooltip: { callbacks: { label: ctx => ctx.raw + " días" } } },
+        scales: {
+          x: { grid: { display: false }, ticks: { font: { family: "'DM Sans'" }, color: "#8C7B6B", maxTicksLimit: 7 } },
+          y: { grid: { color: "rgba(214,201,176,0.3)" }, ticks: { font: { family: "'DM Sans'" }, color: "#8C7B6B", stepSize: 1 }, min: 0 }
+        }
+      }
+    });
+  }
 
-    profileBlock.innerHTML = `
-      <div class="info-stack">
-        <div class="info-row">
-          <div class="info-label">${t("dashboard.profileNameLabel", "Nombre")}</div>
-          <div class="info-value">${safe(user.fullName)}</div>
-        </div>
-        <div class="info-row">
-          <div class="info-label">${t("dashboard.profileEmailLabel", "Correo electrónico")}</div>
-          <div class="info-value">${safe(user.email)}</div>
-        </div>
-        <div class="info-row">
-          <div class="info-label">${t("dashboard.profileSkinTypeLabel", "Tipo de piel")}</div>
-          <div class="info-value">${formatSkinType()}</div>
-        </div>
-        <div class="info-row">
-          <div class="info-label">${t("dashboard.profileSensitivityLabel", "Sensibilidad")}</div>
-          <div class="info-value">${formatSensitivity()}</div>
-        </div>
-      </div>
-    `;
+  // CHART STATS
+  const streak = parseInt(localStorage.getItem("tgr-streak")||daysCompleted||"0",10)||0;
+  el("statStreak").textContent = streak;
+  el("statCompleted").textContent = daysCompleted;
+  el("statConsistency").textContent = consistency + "%";
 
-    const logoutBtn = document.getElementById("logoutBtn");
-    if (logoutBtn) {
-      logoutBtn.addEventListener("click", function (e) {
-        e.preventDefault();
-        localStorage.removeItem("tgr-auth");
-        window.location.href = "index.html";
+  // PRODUCT BLOCK
+  const productBlock = el("productBlock");
+  if (productBlock) {
+    const prod = purchase.productName || onboarding.productName;
+    if (prod) {
+      productBlock.innerHTML = `<div class="product-info">
+        <div class="info-row"><span class="info-label">Producto</span><span class="info-val">${safe(prod)}</span></div>
+        <div class="info-row"><span class="info-label">Referencia</span><span class="info-val">${safe(purchase.orderReference||onboarding.orderReference)}</span></div>
+        <div class="info-row"><span class="info-label">Fecha</span><span class="info-val">${safe(purchase.purchaseDate||onboarding.purchaseDate)}</span></div>
+        ${(purchase.amountPaid||onboarding.amountPaid) ? `<div class="info-row"><span class="info-label">Importe</span><span class="info-val">${safe(purchase.amountPaid||onboarding.amountPaid)}</span></div>` : ''}
+      </div>`;
+    }
+  }
+
+  // PROFILE
+  const fullName = user.fullName || "";
+  const initials = fullName.split(' ').map(w=>w[0]).join('').slice(0,2).toUpperCase() || "—";
+  const avatar = el("profileAvatar"); if (avatar) avatar.textContent = initials || "?";
+  el("profileName").textContent = safe(fullName);
+  el("profileEmail").textContent = safe(user.email);
+  const tagsEl = el("profileTags");
+  if (tagsEl) {
+    const tags = [formatGoal(), formatSkin(), formatTime()].filter(t=>t&&t!=="—");
+    tagsEl.innerHTML = tags.map(t=>`<span class="profile-tag">${t}</span>`).join('');
+  }
+
+  // REWARD BAR
+  const pctBar = Math.min((rewardProgress/14)*100,100);
+  el("rewardBarFill").style.width = pctBar + "%";
+  el("rewardDaysText").textContent = rewardProgress + " / 14 días completados";
+
+  // ACTION LINKS
+  const actionLinks = el("actionLinks");
+  if (actionLinks) {
+    const actions = state === "partner" ? [
+      { href:"https://www.simonourianmd.com/BBF/?ref=tgr", target:"_blank", title:"Ir a la plataforma asociada", desc:"Completa tu análisis y compra." },
+      { href:"index.html", title:"Volver al inicio", desc:"Información general de tu experiencia." }
+    ] : state === "onboarding" ? [
+      { href:"onboarding.html", title:"Completar onboarding", desc:"Configura tu ritual personalizado." },
+      { href:"index.html", title:"Volver al inicio", desc:"Información general de tu experiencia." }
+    ] : [
+      { href:"daily.html", title:"Completar ritual de hoy", desc:"Abre tu calendario ritual." },
+      { href:"onboarding.html", title:"Editar mi perfil ritual", desc:"Actualiza tu configuración." },
+      { href:"products.html", title:"Ver productos", desc:"Explora los productos recomendados." }
+    ];
+    actionLinks.innerHTML = actions.map(a=>`
+      <a href="${a.href}" class="action-link" ${a.target?'target="'+a.target+'" rel="noopener"':''}>
+        <div class="action-link-text"><strong>${a.title}</strong><span>${a.desc}</span></div>
+        <span class="action-arrow">→</span>
+      </a>`).join('');
+  }
+
+  // PHOTO UPLOAD
+  ["before","after"].forEach(type => {
+    const input = document.getElementById(type+"Input");
+    const preview = document.getElementById(type+"Preview");
+    const stored = localStorage.getItem("tgr-photo-"+type);
+    if (stored) { preview.innerHTML = `<img src="${stored}" alt="${type}" />`; }
+    if (input && preview) {
+      input.addEventListener("change", function() {
+        const file = this.files[0]; if (!file) return;
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          preview.innerHTML = `<img src="${e.target.result}" alt="${type}" />`;
+          try { localStorage.setItem("tgr-photo-"+type, e.target.result); } catch(err) {}
+        };
+        reader.readAsDataURL(file);
       });
     }
-
-    window.addEventListener("focus", function () {
-      renderStatusPanel();
-      setText("metricPurchase", getBool(STORAGE_KEYS.partnerDone)
-        ? t("dashboard.metricPurchaseDone", "Completada")
-        : t("dashboard.metricPurchasePending", "Pendiente")
-      );
-      setText("metricOnboarding", getBool(STORAGE_KEYS.onboardingDone)
-        ? t("dashboard.metricOnboardingDone", "Completada")
-        : t("dashboard.metricOnboardingPending", "Pendiente")
-      );
-    });
-
-    if (window.applyTranslations) {
-      window.applyTranslations();
-    }
   });
+
+  // LOGOUT
+  el("logoutBtn")?.addEventListener("click", function(e) {
+    e.preventDefault();
+    localStorage.removeItem("tgr-auth");
+    window.location.href = "index.html";
+  });
+
+  if (window.applyTranslations) window.applyTranslations();
+});
 </script>
 </body>
 </html>
