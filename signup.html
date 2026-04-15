@@ -198,8 +198,54 @@
 <script src="js/auth.js"></script>
 <script src="js/i18n.js"></script>
 <script>
-  document.addEventListener("DOMContentLoaded", function() {
-    const form = document.getElementById("signupForm");
+  document.addEventListener("DOMContentLoaded", async function() {
+  const form = document.getElementById("signupForm");
+
+  // ✅ ADD THIS BLOCK RIGHT HERE
+  const statusBox = document.createElement("div");
+  statusBox.id = "authStatusBox";
+  statusBox.style.marginBottom = "1rem";
+  statusBox.style.padding = "12px 14px";
+  statusBox.style.border = "1px solid #EDE5D6";
+  statusBox.style.background = "#F5F0E8";
+  statusBox.style.color = "#5C4D3E";
+  statusBox.style.fontSize = "13px";
+  statusBox.style.lineHeight = "1.6";
+  statusBox.style.display = "none";
+
+  const authFormWrap = document.querySelector(".auth-form-wrap");
+  const heading = authFormWrap?.querySelector("h3");
+
+  if (authFormWrap && heading) {
+    heading.insertAdjacentElement("afterend", statusBox);
+  }
+
+  async function handleExistingSession() {
+    const { data, error } = await window.supabaseClient.auth.getSession();
+
+    if (error) {
+      console.error("Session check error:", error.message);
+      return;
+    }
+
+    if (data?.session?.user) {
+      const user = data.session.user;
+
+      statusBox.style.display = "block";
+      statusBox.innerHTML = `
+        <strong>Cuenta conectada correctamente.</strong><br>
+        ${user.email ? `Has iniciado sesión como <strong>${user.email}</strong>.` : "Has iniciado sesión correctamente."}<br>
+        Redirigiendo a tu panel...
+      `;
+
+      setTimeout(() => {
+        window.location.href = "dashboard.html";
+      }, 1200);
+    }
+  }
+
+  await handleExistingSession();
+
     if (!form) return;
 
     // Email / password signup
