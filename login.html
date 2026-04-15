@@ -194,7 +194,7 @@
   document.getElementById("googleLoginBtn").addEventListener("click", async function() {
     const { error } = await window.supabaseClient.auth.signInWithOAuth({
       provider: 'google',
-      options: { redirectTo: window.location.origin + '/dashboard.html' }
+      options: { redirectTo: 'https://tenerifeglowritual.netlify.app/dashboard.html' }
     });
     if (error) console.error('Google login error:', error.message);
   });
