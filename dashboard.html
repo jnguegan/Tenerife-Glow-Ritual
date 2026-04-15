@@ -633,6 +633,24 @@ document.addEventListener("DOMContentLoaded", function() {
   if (window.applyTranslations) window.applyTranslations();
 });
 </script>
- 
+
+  <script>
+  // Handle OAuth callback - pick up session from URL hash
+  window.addEventListener('load', async function() {
+    const { data: { session } } = await window.supabaseClient.auth.getSession();
+    if (!session) {
+      // Check if there's a hash in the URL (OAuth callback)
+      if (window.location.hash && window.location.hash.includes('access_token')) {
+        // Wait a moment for Supabase to process the token
+        setTimeout(function() {
+          window.location.reload();
+        }, 1000);
+      } else {
+        window.location.href = 'login.html';
+      }
+    }
+  });
+</script>
+  
 </body>
 </html>
