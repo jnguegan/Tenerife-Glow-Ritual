@@ -213,20 +213,14 @@
   document.addEventListener("DOMContentLoaded", function() {
     const form = document.getElementById("signupForm");
     if (!form) return;
-    form.addEventListener("submit", function(e) {
-      e.preventDefault();
-      const fullName = document.getElementById("fullName")?.value||"";
-      const email = (document.getElementById("signupEmail")?.value||"").trim().toLowerCase();
-      const skinGoal = document.getElementById("skinGoal")?.value||"";
-      const lastUser = (localStorage.getItem("tgr-current-user")||"").trim().toLowerCase();
-      if (lastUser && lastUser !== email) {
-        ["tgr-user","tgr-onboarding-data","tgr-purchase","tgr-partner-complete","tgr-onboarding-complete","tgr-days-completed","tgr-ritual-time","tgr-ritual-duration","tgr-last-completed-date"].forEach(k=>localStorage.removeItem(k));
-      }
-      localStorage.setItem("tgr-current-user", email);
-      localStorage.setItem("tgr-auth", "true");
-      localStorage.setItem("tgr-user", JSON.stringify({ fullName, email, skinGoal }));
-      window.location.href = "dashboard.html";
-    });
+   form.addEventListener("submit", async function(e) {
+  e.preventDefault();
+  const fullName = document.getElementById("fullName")?.value || "";
+  const email    = document.getElementById("signupEmail")?.value || "";
+  const password = document.getElementById("signupPassword")?.value || "";
+  const skinGoal = document.getElementById("skinGoal")?.value || "";
+  await window.tgr.signUp(fullName, email, password, skinGoal);
+});
   });
 </script>
 </body>
