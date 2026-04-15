@@ -352,33 +352,28 @@
       else if (savedUser[fieldName]) field.value = savedUser[fieldName];
     });
 
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
-      const data = {
-        productName: form.productName.value.trim(),
-        orderReference: form.orderReference.value.trim(),
-        purchaseDate: form.purchaseDate.value,
-        amountPaid: form.amountPaid.value.trim(),
-        skinType: form.skinType.value,
-        skinConcern: form.skinConcern.value.trim(),
-        goal: form.goal.value,
-        sensitivity: form.sensitivity.value,
-        time: form.time.value,
-        level: form.level.value,
-        timeline: form.timeline.value,
-        currentRoutine: form.currentRoutine.value.trim(),
-        notes: form.notes.value.trim(),
-        purchaseConfirmed: document.getElementById("purchaseConfirmed").checked
-      };
-      localStorage.setItem("tgr-onboarding-data", JSON.stringify(data));
-      localStorage.setItem("tgr-onboarding-complete", "true");
-      localStorage.setItem("tgr-partner-complete", "true");
-      localStorage.setItem("tgr-purchase", JSON.stringify({
-        productName: data.productName,
-        orderReference: data.orderReference,
-        purchaseDate: data.purchaseDate,
-        amountPaid: data.amountPaid
-      }));
+    form.addEventListener("submit", async function(e) {
+  e.preventDefault();
+
+  const formData = {
+    productName:      form.productName.value.trim(),
+    orderReference:   form.orderReference.value.trim(),
+    purchaseDate:     form.purchaseDate.value,
+    amountPaid:       form.amountPaid.value.trim(),
+    skinType:         form.skinType.value,
+    skinConcern:      form.skinConcern.value.trim(),
+    goal:             form.goal.value,
+    sensitivity:      form.sensitivity.value,
+    time:             form.time.value,
+    level:            form.level.value,
+    timeline:         form.timeline.value,
+    currentRoutine:   form.currentRoutine.value.trim(),
+    notes:            form.notes.value.trim(),
+    purchaseConfirmed: document.getElementById("purchaseConfirmed").checked
+  };
+
+  await window.tgr.saveOnboarding(formData);
+});
       window.location.href = "dashboard.html";
     });
   });
