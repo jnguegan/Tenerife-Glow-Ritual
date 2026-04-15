@@ -22,7 +22,7 @@ const translations = {
     "hero.support.label": "¿Ya tienes cuenta?",
     "hero.support.link": "Inicia sesión aquí",
     "hero.intentionLabel": "La intención de hoy",
-    "hero.intentionQuote": ""Hoy elijo suavidad."",
+    "hero.intentionQuote": "‘Hoy elijo suavidad.’",
 
     "indexMemberHero.eyebrow": "Tu ritual de hoy",
     "indexMemberHero.title": "Bienvenido de nuevo — tu piel está en proceso.",
@@ -33,7 +33,7 @@ const translations = {
     "indexMemberHero.primary": "Completar ritual de hoy",
     "indexMemberHero.secondary": "Ver progreso",
     "indexMemberHero.quoteLabel": "Tu intención",
-    "indexMemberHero.quoteText": ""Hoy sigo con calma y constancia."",
+    "indexMemberHero.quoteText": "‘Hoy sigo con calma y constancia.’",
 
     "journey.eyebrow": "Tu camino",
     "journey.title": "Cómo funciona tu ritual",
@@ -342,7 +342,7 @@ const translations = {
     "hero.support.label": "Already have an account?",
     "hero.support.link": "Log in here",
     "hero.intentionLabel": "Today's intention",
-    "hero.intentionQuote": ""Today I choose softness."",
+    "hero.intentionQuote": "‘Today I choose softness.’",
 
     "indexMemberHero.eyebrow": "Today's ritual",
     "indexMemberHero.title": "Welcome back — your skin is in progress.",
@@ -353,7 +353,7 @@ const translations = {
     "indexMemberHero.primary": "Complete today's ritual",
     "indexMemberHero.secondary": "View progress",
     "indexMemberHero.quoteLabel": "Your intention",
-    "indexMemberHero.quoteText": ""Today I continue with calm and consistency."",
+    "indexMemberHero.quoteText": "‘Today I continue with calm and consistency.’",
 
     "journey.eyebrow": "Your journey",
     "journey.title": "How your ritual works",
@@ -663,7 +663,7 @@ const translations = {
     "hero.support.label": "Vous avez déjà un compte ?",
     "hero.support.link": "Connectez-vous ici",
     "hero.intentionLabel": "L'intention du jour",
-    "hero.intentionQuote": "« Aujourd'hui, je choisis la douceur. »",
+    "hero.intentionQuote": "\u00ab Aujourd'hui, je choisis la douceur. \u00bb",
 
     "journey.eyebrow": "Votre parcours",
     "journey.title": "Comment fonctionne votre rituel",
@@ -949,7 +949,7 @@ const translations = {
     "hero.support.label": "Hast du bereits ein Konto?",
     "hero.support.link": "Hier anmelden",
     "hero.intentionLabel": "Die heutige Intention",
-    "hero.intentionQuote": "„Heute wähle ich Sanftheit."",
+    "hero.intentionQuote": "„Heute wähle ich Sanftheit.’",
 
     "journey.eyebrow": "Dein Weg",
     "journey.title": "So funktioniert dein Ritual",
