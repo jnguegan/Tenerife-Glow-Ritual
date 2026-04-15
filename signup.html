@@ -26,10 +26,7 @@
     .topnav a { text-decoration:none;font-size:13px;font-weight:400;color:var(--stone-dark);transition:color 0.2s; }
     .topnav a:hover { color:var(--obsidian); }
     .nav-link-cta { background:var(--obsidian)!important;color:var(--ivory)!important;padding:8px 20px;border-radius:var(--radius);font-size:12px!important;font-weight:500!important;letter-spacing:0.06em; }
-
     .auth-layout { display:grid;grid-template-columns:1fr 1fr;min-height:calc(100vh - 70px); }
-
-    /* LEFT — dark luxury panel */
     .auth-left { background:var(--obsidian);padding:5rem 4rem;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden; }
     .auth-left::before { content:'';position:absolute;top:-100px;right:-80px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(201,169,110,0.15) 0%,transparent 70%);pointer-events:none; }
     .auth-left-content { position:relative;z-index:1;animation:fadeUp 0.6s 0.1s ease both; }
@@ -43,8 +40,6 @@
     .step-num { font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:400;color:var(--gold);flex-shrink:0;width:20px;margin-top:2px; }
     .step-text { font-size:13px;color:var(--sand-deep);line-height:1.6; }
     .step-text strong { display:block;color:var(--ivory);font-weight:500;margin-bottom:2px; }
-
-    /* REWARDS LADDER */
     .rewards-ladder { margin-top:2rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.08); }
     .rewards-ladder-title { font-size:10px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;display:block; }
     .reward-rung { display:flex;align-items:center;gap:14px;padding:0.875rem 1rem;margin-bottom:6px;border:1px solid rgba(255,255,255,0.06);background:rgba(255,255,255,0.03);border-radius:var(--radius);transition:all 0.2s; }
@@ -55,25 +50,19 @@
     .reward-rung-days { font-size:10px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold); }
     .reward-rung-prize { font-size:13px;color:var(--ivory);font-weight:300;line-height:1.4; }
     .reward-rung--grand .reward-rung-prize { color:var(--gold-light);font-weight:400; }
-
-    /* RIGHT — form */
     .auth-right { background:var(--white);padding:4rem;display:flex;flex-direction:column;justify-content:center;overflow-y:auto; }
     .auth-form-wrap { max-width:420px;width:100%;animation:fadeUp 0.6s 0.2s ease both; }
     .auth-form-wrap .eyebrow { margin-bottom:0.5rem; }
     .auth-form-wrap h3 { font-family:'Playfair Display',serif;font-size:1.7rem;font-weight:400;color:var(--obsidian);margin-bottom:2rem;line-height:1.2; }
-
     .info-panel { background:var(--sand);border-left:2px solid var(--gold);padding:1rem 1.25rem;margin-bottom:1.75rem;font-size:13px;color:var(--stone-dark);line-height:1.65; }
-
     .field-group { margin-bottom:1.25rem; }
     .field-label { display:block;font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--stone-dark);margin-bottom:8px; }
     .styled-input { width:100%;height:50px;padding:0 18px;border:1px solid var(--sand-deep);border-radius:var(--radius);background:var(--ivory);font-family:'DM Sans',sans-serif;font-size:14px;font-weight:300;color:var(--obsidian);transition:border-color 0.2s,box-shadow 0.2s;outline:none; }
     .styled-input::placeholder { color:var(--stone); }
     .styled-input:focus { border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,169,110,0.12);background:var(--white); }
-
     .checks { display:flex;flex-direction:column;gap:10px;margin-bottom:1.75rem; }
     .check-item { display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--stone-dark);line-height:1.5;cursor:pointer; }
     .check-item input[type="checkbox"] { width:16px;height:16px;accent-color:var(--gold);flex-shrink:0;margin-top:2px; }
-
     .btn-group { display:flex;flex-direction:column;gap:10px; }
     .btn { display:flex;align-items:center;justify-content:center;text-decoration:none;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;letter-spacing:0.06em;height:50px;padding:0 28px;border-radius:var(--radius);transition:all 0.25s;cursor:pointer;border:none;width:100%; }
     .btn-primary { background:var(--obsidian);color:var(--ivory); }
@@ -81,6 +70,16 @@
     .btn-secondary { background:transparent;color:var(--obsidian);border:1px solid var(--sand-deep); }
     .btn-secondary:hover { background:var(--sand);border-color:var(--stone); }
     .form-footer { margin-top:1.25rem;font-size:12px;color:var(--stone);line-height:1.6; }
+
+    /* DIVIDER */
+    .auth-divider { display:flex;align-items:center;gap:12px;margin:1.25rem 0; }
+    .auth-divider::before,.auth-divider::after { content:'';flex:1;height:1px;background:var(--sand-deep); }
+    .auth-divider span { font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--stone);flex-shrink:0; }
+
+    /* GOOGLE BUTTON */
+    .btn-google { display:flex;align-items:center;justify-content:center;gap:10px;width:100%;height:50px;padding:0 28px;background:var(--white);border:1px solid var(--sand-deep);border-radius:var(--radius);cursor:pointer;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;color:var(--obsidian);letter-spacing:0.02em;transition:all 0.25s; }
+    .btn-google:hover { background:var(--sand);border-color:var(--stone); }
+    .btn-google svg { width:18px;height:18px;flex-shrink:0; }
 
     @keyframes fadeUp { from { opacity:0;transform:translateY(16px); } to { opacity:1;transform:translateY(0); } }
     @media(max-width:900px) { .auth-layout{grid-template-columns:1fr} .auth-left,.auth-right{padding:4rem 2.5rem} .auth-form-wrap{max-width:100%} }
@@ -112,6 +111,7 @@
       </nav>
     </div>
   </header>
+
   <div class="auth-layout">
     <div class="auth-left">
       <div class="auth-left-content">
@@ -132,8 +132,6 @@
             <div class="step-text"><strong data-i18n="signupFlow.step3Title">Vuelve y activa tu ritual</strong><span data-i18n="signupFlow.step3Text">Completa tu onboarding y empieza tu calendario diario.</span></div>
           </div>
         </div>
-
-        <!-- REWARDS LADDER -->
         <div class="rewards-ladder">
           <p class="rewards-ladder-title" data-i18n="signupFlow.rewardsTitle">Tu viaje de recompensas</p>
           <div class="reward-rung">
@@ -167,13 +165,32 @@
         </div>
       </div>
     </div>
+
     <div class="auth-right">
       <div class="auth-form-wrap">
         <p class="eyebrow" data-i18n="signupForm.eyebrow">Crear cuenta</p>
         <h3 data-i18n="signupForm.title">Empieza tu Ritual</h3>
+
+        <!-- Google Sign Up -->
+        <button class="btn-google" id="googleSignupBtn" type="button">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+            <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
+            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+          </svg>
+          <span data-i18n="signupForm.google">Registrarse con Google</span>
+        </button>
+
+        <!-- Divider -->
+        <div class="auth-divider">
+          <span data-i18n="signupForm.or">o</span>
+        </div>
+
         <div class="info-panel" data-i18n="signupFlow.text">
           Primero crea tu cuenta. Después te dirigiremos a la plataforma de Dr. Ourian para tu análisis de piel y compra. Luego vuelves aquí para activar tu ritual personalizado.
         </div>
+
         <form id="signupForm">
           <div class="field-group">
             <label class="field-label" for="fullName" data-i18n="signupForm.nameLabel">Nombre completo</label>
@@ -205,6 +222,7 @@
     </div>
   </div>
 </div>
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="js/supabase-client.js"></script>
 <script src="js/auth.js"></script>
@@ -213,66 +231,45 @@
   document.addEventListener("DOMContentLoaded", function() {
     const form = document.getElementById("signupForm");
     if (!form) return;
-  form.addEventListener("submit", async function(e) {
-  e.preventDefault();
-  const fullName = document.getElementById("fullName")?.value || "";
-  const email    = document.getElementById("signupEmail")?.value || "";
-  const password = document.getElementById("signupPassword")?.value || "";
-  const skinGoal = document.getElementById("skinGoal")?.value || "";
 
-  const btn = form.querySelector("button[type='submit']");
-  if (btn) { btn.textContent = "Creando cuenta..."; btn.disabled = true; }
+    // Email / password signup
+    form.addEventListener("submit", async function(e) {
+      e.preventDefault();
+      const fullName = document.getElementById("fullName")?.value || "";
+      const email    = document.getElementById("signupEmail")?.value || "";
+      const password = document.getElementById("signupPassword")?.value || "";
+      const skinGoal = document.getElementById("skinGoal")?.value || "";
 
-  await window.tgr.signUp(fullName, email, password, skinGoal);
+      const btn = form.querySelector("button[type='submit']");
+      if (btn) { btn.textContent = "Creando cuenta..."; btn.disabled = true; }
 
-  const lang = localStorage.getItem("tgr-language") || "es";
+      await window.tgr.signUp(fullName, email, password, skinGoal);
 
-  const messages = {
-    es: {
-      title: "¡Casi listo!",
-      text: "Hemos enviado un correo de confirmación a",
-      instruction: "Por favor revisa tu bandeja de entrada y haz clic en el enlace para activar tu cuenta.",
-      spam: "¿No lo ves? Revisa tu carpeta de spam."
-    },
-    en: {
-      title: "Almost there!",
-      text: "We have sent a confirmation email to",
-      instruction: "Please check your inbox and click the link to activate your account.",
-      spam: "Can't find it? Check your spam folder."
-    },
-    fr: {
-      title: "Presque terminé !",
-      text: "Nous avons envoyé un e-mail de confirmation à",
-      instruction: "Veuillez vérifier votre boîte de réception et cliquer sur le lien pour activer votre compte.",
-      spam: "Vous ne le trouvez pas ? Vérifiez vos spams."
-    },
-    de: {
-      title: "Fast geschafft!",
-      text: "Wir haben eine Bestätigungs-E-Mail gesendet an",
-      instruction: "Bitte überprüfe deinen Posteingang und klicke auf den Link, um dein Konto zu aktivieren.",
-      spam: "Nicht gefunden? Schau in deinem Spam-Ordner nach."
-    }
-  };
+      const lang = localStorage.getItem("tgr-language") || "es";
+      const messages = {
+        es: { title: "¡Casi listo!", text: "Hemos enviado un correo de confirmación a", instruction: "Por favor revisa tu bandeja de entrada y haz clic en el enlace para activar tu cuenta.", spam: "¿No lo ves? Revisa tu carpeta de spam." },
+        en: { title: "Almost there!", text: "We have sent a confirmation email to", instruction: "Please check your inbox and click the link to activate your account.", spam: "Can't find it? Check your spam folder." },
+        fr: { title: "Presque terminé !", text: "Nous avons envoyé un e-mail de confirmation à", instruction: "Veuillez vérifier votre boîte de réception et cliquer sur le lien pour activer votre compte.", spam: "Vous ne le trouvez pas ? Vérifiez vos spams." },
+        de: { title: "Fast geschafft!", text: "Wir haben eine Bestätigungs-E-Mail gesendet an", instruction: "Bitte überprüfe deinen Posteingang und klicke auf den Link, um dein Konto zu aktivieren.", spam: "Nicht gefunden? Schau in deinem Spam-Ordner nach." }
+      };
+      const m = messages[lang] || messages.es;
+      form.innerHTML = `
+        <div style="text-align:center;padding:2rem 0;">
+          <div style="font-size:2rem;margin-bottom:1rem;">✉️</div>
+          <p style="font-family:'Playfair Display',serif;font-size:1.5rem;color:#1E1A16;margin-bottom:1rem;">${m.title}</p>
+          <p style="font-size:14px;color:#5C4D3E;line-height:1.75;margin-bottom:1.5rem;">${m.text}<br><strong>${email}</strong><br><br>${m.instruction}</p>
+          <p style="font-size:12px;color:#8C7B6B;">${m.spam}</p>
+        </div>`;
+    });
 
-  const m = messages[lang] || messages.es;
-
-  form.innerHTML = `
-    <div style="text-align:center;padding:2rem 0;">
-      <div style="font-size:2rem;margin-bottom:1rem;">✉️</div>
-      <p style="font-family:'Playfair Display',serif;font-size:1.5rem;color:#1E1A16;margin-bottom:1rem;">
-        ${m.title}
-      </p>
-      <p style="font-size:14px;color:#5C4D3E;line-height:1.75;margin-bottom:1.5rem;">
-        ${m.text}<br>
-        <strong>${email}</strong><br><br>
-        ${m.instruction}
-      </p>
-      <p style="font-size:12px;color:#8C7B6B;">
-        ${m.spam}
-      </p>
-    </div>
-  `;
-});
+    // Google signup
+    document.getElementById("googleSignupBtn").addEventListener("click", async function() {
+      const { error } = await window.supabaseClient.auth.signInWithOAuth({
+        provider: 'google',
+        options: { redirectTo: window.location.origin + '/dashboard.html' }
+      });
+      if (error) console.error('Google signup error:', error.message);
+    });
   });
 </script>
 </body>
