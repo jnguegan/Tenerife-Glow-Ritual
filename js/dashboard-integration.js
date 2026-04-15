@@ -8,7 +8,9 @@
 document.addEventListener('DOMContentLoaded', async function () {
 
   // Load all user data from Supabase
-  const data = await window.tgr.loadDashboardData();
+ // Wait for Supabase to process OAuth token from URL if present
+await new Promise(resolve => setTimeout(resolve, 500));
+const data = await window.tgr.loadDashboardData();
   if (!data) return; // loadDashboardData handles redirect if not logged in
 
   const {
