@@ -172,8 +172,11 @@ async function signUp(fullName, email, password, skinGoal) {
       }
     });
     
-    // FIXED: Small delay to ensure profile is fully created in the database
+    // Small delay to ensure profile is fully created in the database
     await new Promise(resolve => setTimeout(resolve, 500));
+    
+    // FIXED: Redirect to dashboard after successful sign-up
+    await redirectByOnboardingStatus(data.user.id);
   }
 
   return { ok: true, user: data?.user || null };
