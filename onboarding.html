@@ -353,36 +353,36 @@
     });
 
     form.addEventListener("submit", async function(e) {
-  e.preventDefault();
-  console.log("Form submitted");
+      e.preventDefault();
+      console.log("Form submitted");
 
-  const formData = {
-    productName:      form.productName.value.trim(),
-    orderReference:   form.orderReference.value.trim(),
-    purchaseDate:     form.purchaseDate.value,
-    amountPaid:       form.amountPaid.value.trim(),
-    skinType:         form.skinType.value,
-    skinConcern:      form.skinConcern.value.trim(),
-    goal:             form.goal.value,
-    sensitivity:      form.sensitivity.value,
-    time:             form.time.value,
-    level:            form.level.value,
-    timeline:         form.timeline.value,
-    currentRoutine:   form.currentRoutine.value.trim(),
-    notes:            form.notes.value.trim(),
-    purchaseConfirmed: document.getElementById("purchaseConfirmed").checked
-  };
+      const formData = {
+        productName:      form.productName.value.trim(),
+        orderReference:   form.orderReference.value.trim(),
+        purchaseDate:     form.purchaseDate.value,
+        amountPaid:       form.amountPaid.value.trim(),
+        skinType:         form.skinType.value,
+        skinConcern:      form.skinConcern.value.trim(),
+        goal:             form.goal.value,
+        sensitivity:      form.sensitivity.value,
+        time:             form.time.value,
+        level:            form.level.value,
+        timeline:         form.timeline.value,
+        currentRoutine:   form.currentRoutine.value.trim(),
+        notes:            form.notes.value.trim(),
+        purchaseConfirmed: document.getElementById("purchaseConfirmed").checked
+      };
 
-  console.log("Form data:", formData);
-  
-  try {
-    await window.tgr.saveOnboarding(formData);
-    console.log("Onboarding saved successfully");
-    window.location.href = "dashboard.html";
-  } catch (error) {
-    console.error("Error saving onboarding:", error);
-  }
-});
+      console.log("Form data:", formData);
+
+      try {
+        await window.tgr.saveOnboarding(formData);
+        console.log("Onboarding saved successfully");
+        window.location.href = "dashboard.html";
+      } catch (error) {
+        console.error("Error saving onboarding:", error);
+      }
+    });
   });
 </script>
 </body>
