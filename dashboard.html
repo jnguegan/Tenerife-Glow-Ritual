@@ -395,262 +395,89 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
 <script src="js/i18n.js"></script>
 <script>
-document.addEventListener("DOMContentLoaded", function() {
-  const isAuth = localStorage.getItem("tgr-auth") === "true";
-  if (!isAuth) { window.location.href = "login.html"; return; }
+document.addEventListener('DOMContentLoaded', async function () {
 
-  const user = JSON.parse(localStorage.getItem("tgr-user")||"{}");
-  const onboarding = JSON.parse(localStorage.getItem("tgr-onboarding-data")||"{}");
-  const purchase = JSON.parse(localStorage.getItem("tgr-purchase")||"{}");
-  const partnerDone = localStorage.getItem("tgr-partner-complete") === "true";
-  const onboardingDone = localStorage.getItem("tgr-onboarding-complete") === "true";
-  const daysCompleted = parseInt(localStorage.getItem("tgr-days-completed")||"0",10)||0;
-  const ritualDuration = parseInt(onboarding.timeline||"90",10)||90;
-  const rewardProgress = Math.min(daysCompleted,14);
+  // Give Supabase a moment (important after Google login redirect)
+  await new Promise(resolve => setTimeout(resolve, 400));
 
-  const safe = v => (v && String(v).trim()) ? v : "—";
+  const data = await window.tgr.loadDashboardData();
+  if (!data) return;
 
-  const goalMap = { glow:"Luminosidad", hydration:"Hidratación", antiage:"Anti-edad", acne:"Acné", balance:"Equilibrio" };
-  const skinMap = { normal:"Normal", dry:"Seca", oily:"Grasa", combination:"Mixta", sensitive:"Sensible" };
-  const timeMap = { "5":"5 min", "10":"10 min", "20":"20 min" };
-  const levelMap = { basic:"Básico", intermediate:"Intermedio", advanced:"Avanzado" };
+  const {
+    user,
+    skinAnalysis,
+    onboarding,
+    purchase,
+    completedDates,
+    daysCompleted,
+    streak,
+    rewards
+  } = data;
 
-  const formatGoal = () => goalMap[onboarding.goal] || safe(onboarding.goal || user.skinGoal);
-  const formatSkin = () => skinMap[onboarding.skinType] || "—";
-  const formatTime = () => timeMap[onboarding.time || localStorage.getItem("tgr-ritual-time")] || "—";
+  // ── HELPERS ─────────────────────────
+  const el  = id => document.getElementById(id);
+  const set = (id, val) => { const e = el(id); if (e) e.textContent = val || '—'; };
 
-  const getDashState = () => {
-    if (!partnerDone) return "partner";
-    if (!onboardingDone) return "onboarding";
-    return "ritual";
-  };
-  const state = getDashState();
+  // ── STATE ─────────────────────────
+  const partnerDone    = onboarding?.partner_complete || false;
+  const onboardingDone = onboarding?.onboarding_complete || false;
+  const ritualDuration = onboarding?.ritual_duration || 90;
+  const rewardProgress = Math.min(daysCompleted, 14);
 
-  // HERO
-  const el = id => document.getElementById(id);
+  // ── HERO ─────────────────────────
   const heroTitle = el("heroTitle");
-  const heroCopy = el("heroCopy");
+  const heroCopy  = el("heroCopy");
   const heroActions = el("heroActions");
 
-  if (state === "partner") {
+  if (!partnerDone) {
     heroTitle.innerHTML = "Completa tu análisis<br><em>de piel.</em>";
-    heroCopy.textContent = "Para comenzar tu ritual, visita la plataforma del Dr. Ourian para tu análisis y compra de productos.";
-    heroActions.innerHTML = `<a href="https://www.simonourianmd.com/BBF/?ref=tgr" target="_blank" rel="noopener" class="btn btn-gold">Ir a la plataforma →</a>`;
-  } else if (state === "onboarding") {
+    heroCopy.textContent = "Para comenzar tu ritual, visita la plataforma del Dr. Ourian.";
+    heroActions.innerHTML = `<a href="https://www.simonourianmd.com/BBF/?ref=tgr" target="_blank" class="btn btn-gold">Ir →</a>`;
+  } else if (!onboardingDone) {
     heroTitle.innerHTML = "Activa tu ritual<br><em>personalizado.</em>";
-    heroCopy.textContent = "Tu compra está completada. Ahora configura tu ritual para desbloquear tu calendario diario.";
-    heroActions.innerHTML = `<a href="onboarding.html" class="btn btn-gold">Completar onboarding →</a>`;
+    heroCopy.textContent = "Completa tu configuración para empezar.";
+    heroActions.innerHTML = `<a href="onboarding.html" class="btn btn-gold">Continuar →</a>`;
   } else {
-    const currentDay = Math.min(daysCompleted+1, ritualDuration);
-    heroTitle.innerHTML = `Bienvenida de nuevo —<br><em>día ${currentDay} de tu ritual.</em>`;
-    heroCopy.textContent = `Continúa tu ritual de ${formatTime()} de hoy. La constancia transforma.`;
-    heroActions.innerHTML = `<a href="daily.html" class="btn btn-gold">Completar ritual de hoy →</a><a href="onboarding.html" class="btn btn-outline-light">Editar perfil</a>`;
+    const currentDay = Math.min(daysCompleted + 1, ritualDuration);
+    heroTitle.innerHTML = `Bienvenida —<br><em>Día ${currentDay}</em>`;
+    heroCopy.textContent = "Continúa tu ritual diario.";
+    heroActions.innerHTML = `<a href="daily.html" class="btn btn-gold">Abrir ritual →</a>`;
   }
 
-  // REWARD RING
-  const circumference = 2 * Math.PI * 46;
-  const pct = rewardProgress / 14;
-  const offset = circumference - (pct * circumference);
-  const ring = el("rewardRingCircle");
-  if (ring) { ring.style.strokeDasharray = circumference; ring.style.strokeDashoffset = circumference; setTimeout(() => { ring.style.transition="stroke-dashoffset 1.2s ease"; ring.style.strokeDashoffset = offset; }, 200); }
-  const rNum = el("rewardRingNum"); if (rNum) rNum.textContent = rewardProgress;
-  const rMile = el("rewardMilestone"); if (rMile) rMile.textContent = rewardProgress >= 14 ? "¡Recompensa desbloqueada!" : `días hacia tu spa`;
+  // ── METRICS ─────────────────────────
+  set("metricDays", daysCompleted);
+  set("metricTotal", ritualDuration);
 
-  // METRICS
-  el("metricPurchase").textContent = partnerDone ? "Completada" : "Pendiente";
-  el("metricPurchaseBadge").textContent = partnerDone ? "✓ Hecho" : "Pendiente";
-  el("metricPurchaseBadge").className = "metric-badge " + (partnerDone ? "badge-done" : "badge-pending");
-  el("metricOnboarding").textContent = onboardingDone ? "Completada" : "Pendiente";
-  el("metricOnboardingBadge").textContent = onboardingDone ? "✓ Hecho" : "Pendiente";
-  el("metricOnboardingBadge").className = "metric-badge " + (onboardingDone ? "badge-done" : "badge-pending");
-  el("metricDays").textContent = daysCompleted;
-  el("metricTotal").textContent = ritualDuration;
   const consistency = ritualDuration > 0 ? Math.round((daysCompleted / ritualDuration) * 100) : 0;
-  el("metricConsistency").textContent = consistency + "%";
+  set("metricConsistency", consistency + "%");
 
-  // RITUAL STEPS
-  const stepsEl = el("ritualSteps");
-  if (stepsEl) {
-    stepsEl.innerHTML = `
-      <div class="ritual-step ${partnerDone ? 'done' : 'active'}">
-        <div class="step-icon ${partnerDone ? 'done' : 'active'}">${partnerDone ? '✓' : '1'}</div>
-        <div class="step-body"><p class="step-title">Análisis y compra</p><p class="step-desc">${partnerDone ? 'Completados correctamente.' : 'Visita la plataforma del Dr. Ourian para tu análisis.'}</p></div>
-      </div>
-      <div class="ritual-step ${onboardingDone ? 'done' : (partnerDone ? 'active' : 'pending')}">
-        <div class="step-icon ${onboardingDone ? 'done' : (partnerDone ? 'active' : 'pending')}">${onboardingDone ? '✓' : '2'}</div>
-        <div class="step-body"><p class="step-title">Onboarding</p><p class="step-desc">${onboardingDone ? 'Perfil ritual configurado.' : 'Configura tu ritual personalizado.'}</p></div>
-      </div>
-      <div class="ritual-step ${(onboardingDone && daysCompleted > 0) ? 'done' : (onboardingDone ? 'active' : 'pending')}">
-        <div class="step-icon ${(onboardingDone && daysCompleted > 0) ? 'done' : (onboardingDone ? 'active' : 'pending')}">${(onboardingDone && daysCompleted > 0) ? '✓' : '3'}</div>
-        <div class="step-body"><p class="step-title">Ritual diario</p><p class="step-desc">${onboardingDone ? `Día ${Math.min(daysCompleted+1,ritualDuration)} de ${ritualDuration}. ¡Sigue así!` : 'Disponible después del onboarding.'}</p></div>
-      </div>
-    `;
-  }
+  set("metricPurchase", partnerDone ? "Completada" : "Pendiente");
+  set("metricOnboarding", onboardingDone ? "Completada" : "Pendiente");
 
-  // STREAK CALENDAR (28 days)
-  const streakGrid = el("streakGrid");
-  if (streakGrid) {
-    const completedDates = JSON.parse(localStorage.getItem("tgr-completed-dates")||"[]");
-    const today = new Date(); today.setHours(0,0,0,0);
-    for (let i = 27; i >= 0; i--) {
-      const d = new Date(today); d.setDate(d.getDate() - i);
-      const key = d.toISOString().split('T')[0];
-      const isToday = i === 0;
-      const isDone = completedDates.includes(key);
-      const div = document.createElement("div");
-      div.className = "streak-day " + (isToday ? "today" : isDone ? "done" : "empty");
-      div.textContent = d.getDate();
-      streakGrid.appendChild(div);
-    }
-  }
+  // ── PROFILE ─────────────────────────
+  const fullName = user?.full_name || '';
+  const initials = fullName.split(' ').map(w => w[0]).join('').slice(0,2).toUpperCase() || '?';
 
-  // PROGRESS CHART
-  const ctx = document.getElementById("progressChart");
-  if (ctx && typeof Chart !== "undefined") {
-    const completedDates = JSON.parse(localStorage.getItem("tgr-completed-dates")||"[]");
-    const labels = [];
-    const dataPoints = [];
-    let running = 0;
-    const today = new Date(); today.setHours(0,0,0,0);
-    for (let i = 13; i >= 0; i--) {
-      const d = new Date(today); d.setDate(d.getDate() - i);
-      const key = d.toISOString().split('T')[0];
-      if (completedDates.includes(key)) running++;
-      labels.push(d.getDate() + "/" + (d.getMonth()+1));
-      dataPoints.push(running);
-    }
-    new Chart(ctx, {
-      type: "line",
-      data: {
-        labels,
-        datasets: [{
-          data: dataPoints,
-          borderColor: "#C9A96E",
-          backgroundColor: "rgba(201,169,110,0.08)",
-          borderWidth: 2,
-          pointBackgroundColor: "#C9A96E",
-          pointRadius: 3,
-          tension: 0.4,
-          fill: true
-        }]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: { legend: { display: false }, tooltip: { callbacks: { label: ctx => ctx.raw + " días" } } },
-        scales: {
-          x: { grid: { display: false }, ticks: { font: { family: "'DM Sans'" }, color: "#8C7B6B", maxTicksLimit: 7 } },
-          y: { grid: { color: "rgba(214,201,176,0.3)" }, ticks: { font: { family: "'DM Sans'" }, color: "#8C7B6B", stepSize: 1 }, min: 0 }
-        }
-      }
+  if (el("profileAvatar")) el("profileAvatar").textContent = initials;
+  set("profileName", fullName);
+  set("profileEmail", user?.email);
+
+  // ── REWARD BAR ─────────────────────────
+  const pctBar = Math.min((rewardProgress / 14) * 100, 100);
+  if (el("rewardBarFill")) el("rewardBarFill").style.width = pctBar + "%";
+  set("rewardDaysText", rewardProgress + " / 14 días");
+
+  // ── LOGOUT (IMPORTANT: Supabase logout) ─────────────────
+  const logoutBtn = el("logoutBtn");
+  if (logoutBtn) {
+    logoutBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+      window.tgr.logOut();
     });
   }
 
-  // CHART STATS
-  const streak = parseInt(localStorage.getItem("tgr-streak")||daysCompleted||"0",10)||0;
-  el("statStreak").textContent = streak;
-  el("statCompleted").textContent = daysCompleted;
-  el("statConsistency").textContent = consistency + "%";
-
-  // PRODUCT BLOCK
-  const productBlock = el("productBlock");
-  if (productBlock) {
-    const prod = purchase.productName || onboarding.productName;
-    if (prod) {
-      productBlock.innerHTML = `<div class="product-info">
-        <div class="info-row"><span class="info-label">Producto</span><span class="info-val">${safe(prod)}</span></div>
-        <div class="info-row"><span class="info-label">Referencia</span><span class="info-val">${safe(purchase.orderReference||onboarding.orderReference)}</span></div>
-        <div class="info-row"><span class="info-label">Fecha</span><span class="info-val">${safe(purchase.purchaseDate||onboarding.purchaseDate)}</span></div>
-        ${(purchase.amountPaid||onboarding.amountPaid) ? `<div class="info-row"><span class="info-label">Importe</span><span class="info-val">${safe(purchase.amountPaid||onboarding.amountPaid)}</span></div>` : ''}
-      </div>`;
-    }
-  }
-
-  // PROFILE
-  const fullName = user.fullName || "";
-  const initials = fullName.split(' ').map(w=>w[0]).join('').slice(0,2).toUpperCase() || "—";
-  const avatar = el("profileAvatar"); if (avatar) avatar.textContent = initials || "?";
-  el("profileName").textContent = safe(fullName);
-  el("profileEmail").textContent = safe(user.email);
-  const tagsEl = el("profileTags");
-  if (tagsEl) {
-    const tags = [formatGoal(), formatSkin(), formatTime()].filter(t=>t&&t!=="—");
-    tagsEl.innerHTML = tags.map(t=>`<span class="profile-tag">${t}</span>`).join('');
-  }
-
-  // REWARD BAR
-  const pctBar = Math.min((rewardProgress/14)*100,100);
-  el("rewardBarFill").style.width = pctBar + "%";
-  el("rewardDaysText").textContent = rewardProgress + " / 14 días completados";
-
-  // ACTION LINKS
-  const actionLinks = el("actionLinks");
-  if (actionLinks) {
-    const actions = state === "partner" ? [
-      { href:"https://www.simonourianmd.com/BBF/?ref=tgr", target:"_blank", title:"Ir a la plataforma asociada", desc:"Completa tu análisis y compra." },
-      { href:"index.html", title:"Volver al inicio", desc:"Información general de tu experiencia." }
-    ] : state === "onboarding" ? [
-      { href:"onboarding.html", title:"Completar onboarding", desc:"Configura tu ritual personalizado." },
-      { href:"index.html", title:"Volver al inicio", desc:"Información general de tu experiencia." }
-    ] : [
-      { href:"daily.html", title:"Completar ritual de hoy", desc:"Abre tu calendario ritual." },
-      { href:"onboarding.html", title:"Editar mi perfil ritual", desc:"Actualiza tu configuración." },
-      { href:"products.html", title:"Ver productos", desc:"Explora los productos recomendados." }
-    ];
-    actionLinks.innerHTML = actions.map(a=>`
-      <a href="${a.href}" class="action-link" ${a.target?'target="'+a.target+'" rel="noopener"':''}>
-        <div class="action-link-text"><strong>${a.title}</strong><span>${a.desc}</span></div>
-        <span class="action-arrow">→</span>
-      </a>`).join('');
-  }
-
-  // PHOTO UPLOAD
-  ["before","after"].forEach(type => {
-    const input = document.getElementById(type+"Input");
-    const preview = document.getElementById(type+"Preview");
-    const stored = localStorage.getItem("tgr-photo-"+type);
-    if (stored) { preview.innerHTML = `<img src="${stored}" alt="${type}" />`; }
-    if (input && preview) {
-      input.addEventListener("change", function() {
-        const file = this.files[0]; if (!file) return;
-        const reader = new FileReader();
-        reader.onload = function(e) {
-          preview.innerHTML = `<img src="${e.target.result}" alt="${type}" />`;
-          try { localStorage.setItem("tgr-photo-"+type, e.target.result); } catch(err) {}
-        };
-        reader.readAsDataURL(file);
-      });
-    }
-  });
-
-  // LOGOUT
-  el("logoutBtn")?.addEventListener("click", function(e) {
-    e.preventDefault();
-    localStorage.removeItem("tgr-auth");
-    window.location.href = "index.html";
-  });
-
-  if (window.applyTranslations) window.applyTranslations();
 });
 </script>
-
-  <script>
-  // Handle OAuth callback - pick up session from URL hash
-  window.addEventListener('load', async function() {
-    const { data: { session } } = await window.supabaseClient.auth.getSession();
-    if (!session) {
-      // Check if there's a hash in the URL (OAuth callback)
-      if (window.location.hash && window.location.hash.includes('access_token')) {
-        // Wait a moment for Supabase to process the token
-        setTimeout(function() {
-          window.location.reload();
-        }, 1000);
-      } else {
-        window.location.href = 'login.html';
-      }
-    }
-  });
-</script>
-  
+    
 </body>
 </html>
