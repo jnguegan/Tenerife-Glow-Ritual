@@ -226,7 +226,16 @@ console.log("LOGIN RESULT:", { data, error });
               </p>
             </div>`;
         }
-        setTimeout(() => { window.location.href = "dashboard.html"; }, 1500);
+       setTimeout(async () => {
+  const { data: sessionData } = await window.supabaseClient.auth.getSession();
+
+  if (sessionData?.session) {
+    window.location.href = "dashboard.html";
+  } else {
+    console.error("Session not ready, retrying...");
+    setTimeout(() => window.location.href = "dashboard.html", 1000);
+  }
+}, 800);
       }
     });
 
