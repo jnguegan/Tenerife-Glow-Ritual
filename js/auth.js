@@ -120,11 +120,18 @@ async function signUp(fullName, email, password, skinGoal) {
 async function logIn(email, password) {
   const { data, error } = await db.auth.signInWithPassword({ email, password });
 
-  if (error) { showError(error.message); return; }
-
-  if (data.user) {
-    await redirectByOnboardingStatus(data.user.id);
+  if (error) {
+    showError(error.message);
+    return { ok: false, error: error.message };
   }
+
+  if (data?.user) {
+    await ensureUserProfile(data.user);
+    await redirectByOnboardingStatus(data.user.id);
+    return { ok: true, user: data.user };
+  }
+
+  return { ok: false, error: "No user returned from login." };
 }
 
 // ── LOG OUT ───────────────────────────────────────────────
