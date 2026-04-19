@@ -1,5 +1,5 @@
 // ============================================================
-// TENERIFE GLOW RITUAL — Auth & User Flow
+// TENERIFE GLOW RITUAL — Auth & User Flow (FIXED)
 // ============================================================
 
 const db = window.supabaseClient;
@@ -171,6 +171,9 @@ async function signUp(fullName, email, password, skinGoal) {
         name: fullName
       }
     });
+    
+    // FIXED: Small delay to ensure profile is fully created in the database
+    await new Promise(resolve => setTimeout(resolve, 500));
   }
 
   return { ok: true, user: data?.user || null };
@@ -198,17 +201,24 @@ async function logIn(email, password) {
 // ── LOG OUT ───────────────────────────────────────────────
 
 async function logOut() {
+  console.log("Logout initiated");
   try {
     const { error } = await db.auth.signOut();
 
     if (error) {
       console.error("Supabase signOut error:", error.message);
+    } else {
+      console.log("Successfully signed out");
     }
   } catch (err) {
-    console.error("Logout failed:", err);
+    console.error("Logout error:", err);
   } finally {
     localStorage.removeItem("tgr-language");
-    window.location.href = "index.html";
+    // Use a small delay to ensure the signOut completes before redirect
+    setTimeout(() => {
+      console.log("Redirecting to home page");
+      window.location.href = "index.html";
+    }, 200);
   }
 }
 
