@@ -203,20 +203,24 @@ async function logIn(email, password) {
 async function logOut() {
   console.log("Logout initiated");
   try {
-    const { error } = await db.auth.signOut();
+    console.log("Calling db.auth.signOut()...");
+    const result = await db.auth.signOut();
+    console.log("signOut result:", result);
 
-    if (error) {
-      console.error("Supabase signOut error:", error.message);
+    if (result?.error) {
+      console.error("Supabase signOut error:", result.error.message);
     } else {
       console.log("Successfully signed out");
     }
   } catch (err) {
-    console.error("Logout error:", err);
+    console.error("Logout catch error:", err);
   } finally {
+    console.log("In finally block, removing localStorage");
     localStorage.removeItem("tgr-language");
-    // Use a small delay to ensure the signOut completes before redirect
+    
+    console.log("Setting timeout for redirect");
     setTimeout(() => {
-      console.log("Redirecting to home page");
+      console.log("Timeout fired - redirecting to home page");
       window.location.href = "index.html";
     }, 200);
   }
