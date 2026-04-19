@@ -12,8 +12,6 @@
     *, *::before, *::after { box-sizing:border-box;margin:0;padding:0; }
     :root { --sand:#F5F0E8;--sand-mid:#EDE5D6;--sand-deep:#D6C9B0;--stone:#8C7B6B;--stone-dark:#5C4D3E;--obsidian:#1E1A16;--gold:#C9A96E;--gold-light:#E8D5A8;--ivory:#FAF7F2;--white:#FFFFFF;--sage:#8A9E8A;--blush:#E8D5D0;--radius:2px;--radius-lg:6px; }
     body { font-family:'DM Sans',sans-serif;font-weight:300;background:var(--ivory);color:var(--obsidian);line-height:1.6;min-height:100vh; }
-
-    /* TOPBAR */
     .topbar { position:sticky;top:0;z-index:100;background:rgba(250,247,242,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--sand-deep);padding:0 2.5rem;display:flex;align-items:center;justify-content:space-between;height:70px; }
     .brand-wrap { display:flex;align-items:center;gap:14px; }
     .brand-mark { width:36px;height:36px;border-radius:50%;flex-shrink:0;background:linear-gradient(135deg,var(--gold) 0%,var(--sand-deep) 100%);position:relative; }
@@ -26,11 +24,7 @@
     .lang-btn:hover,.lang-btn.active { color:var(--obsidian);background:var(--sand-mid); }
     .logout-btn { font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;letter-spacing:0.06em;color:var(--stone);background:none;border:1px solid var(--sand-deep);padding:7px 16px;border-radius:var(--radius);cursor:pointer;text-decoration:none;transition:all 0.2s; }
     .logout-btn:hover { background:var(--sand);color:var(--obsidian); }
-
-    /* DASHBOARD LAYOUT */
     .dash-wrap { max-width:1440px;margin:0 auto;padding:2.5rem; }
-
-    /* HERO BANNER */
     .dash-hero { background:var(--obsidian);border-radius:var(--radius-lg);padding:2.5rem 3rem;margin-bottom:2rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;position:relative;overflow:hidden; }
     .dash-hero::before { content:'';position:absolute;top:-60px;right:80px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(201,169,110,0.12) 0%,transparent 70%);pointer-events:none; }
     .dash-hero::after { content:'';position:absolute;bottom:-80px;left:200px;width:250px;height:250px;border-radius:50%;background:radial-gradient(circle,rgba(201,169,110,0.06) 0%,transparent 70%);pointer-events:none; }
@@ -39,7 +33,7 @@
     .dash-hero-text h2 { font-family:'Playfair Display',serif;font-size:clamp(1.5rem,2.5vw,2.2rem);font-weight:400;color:var(--ivory);line-height:1.2;margin-bottom:0.75rem; }
     .dash-hero-text h2 em { font-style:italic;color:var(--gold-light); }
     .dash-hero-text p { font-size:14px;color:var(--sand-deep);max-width:500px;line-height:1.7; }
-    .dash-hero-actions { display:flex;gap:10px;margin-top:1.5rem; }
+    .dash-hero-actions { display:flex;gap:10px;margin-top:1.5rem;flex-wrap:wrap; }
     .btn { display:inline-flex;align-items:center;justify-content:center;text-decoration:none;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;letter-spacing:0.06em;height:44px;padding:0 24px;border-radius:var(--radius);transition:all 0.25s;cursor:pointer;border:none; }
     .btn-gold { background:var(--gold);color:var(--obsidian); }
     .btn-gold:hover { background:var(--gold-light); }
@@ -47,11 +41,6 @@
     .btn-outline-light:hover { background:rgba(255,255,255,0.08); }
     .btn-primary { background:var(--obsidian);color:var(--ivory); }
     .btn-primary:hover { background:var(--stone-dark); }
-    .btn-secondary { background:transparent;color:var(--obsidian);border:1px solid var(--sand-deep); }
-    .btn-secondary:hover { background:var(--sand); }
-
-    /* REWARD progress in hero */
-    .hero-reward { position:relative;z-index:1;flex-shrink:0;text-align:center; }
     .reward-ring-wrap { position:relative;width:110px;height:110px;margin:0 auto 0.75rem; }
     .reward-ring-wrap svg { transform:rotate(-90deg); }
     .reward-ring-center { position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center; }
@@ -59,8 +48,6 @@
     .reward-ring-sub { font-size:10px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold); }
     .reward-label { font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--sand-deep);margin-bottom:4px; }
     .reward-milestone { font-size:12px;color:var(--gold-light); }
-
-    /* METRICS ROW */
     .metrics-row { display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--sand-deep);border:1px solid var(--sand-deep);margin-bottom:2rem; }
     .metric-box { background:var(--white);padding:1.5rem 1.75rem; }
     .metric-box .eyebrow { margin-bottom:0.5rem; }
@@ -71,20 +58,14 @@
     .metric-badge { display:inline-block;font-size:10px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;padding:3px 10px;border-radius:50px;margin-top:6px; }
     .badge-done { background:rgba(138,158,138,0.15);color:var(--sage); }
     .badge-pending { background:rgba(201,169,110,0.12);color:var(--gold); }
-
-    /* MAIN GRID */
     .dash-grid { display:grid;grid-template-columns:1fr 1fr 340px;gap:1.5rem; }
     .dash-col { display:flex;flex-direction:column;gap:1.5rem; }
-
-    /* CARDS */
     .card { background:var(--white);border:1px solid var(--sand-deep);padding:1.75rem; }
     .card-header { margin-bottom:1.5rem; }
     .card-header .eyebrow { margin-bottom:0.4rem; }
     .card-header h3 { font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:400;color:var(--obsidian);line-height:1.3; }
     .card-link { display:inline-block;margin-top:1.25rem;font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--stone-dark);text-decoration:none;border-bottom:1px solid var(--stone-dark);padding-bottom:2px;transition:color 0.2s,border-color 0.2s; }
     .card-link:hover { color:var(--gold);border-color:var(--gold); }
-
-    /* RITUAL STEPS */
     .ritual-steps { display:flex;flex-direction:column;gap:10px; }
     .ritual-step { display:flex;align-items:flex-start;gap:14px;padding:1rem 1.25rem;border:1px solid var(--sand-deep); }
     .ritual-step.done { border-color:rgba(138,158,138,0.3);background:rgba(138,158,138,0.04); }
@@ -97,8 +78,6 @@
     .step-body { flex:1; }
     .step-title { font-size:13px;font-weight:500;color:var(--obsidian);margin-bottom:2px; }
     .step-desc { font-size:12px;color:var(--stone);line-height:1.5; }
-
-    /* STREAK CALENDAR */
     .streak-grid { display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:1rem; }
     .streak-day { aspect-ratio:1;border-radius:2px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:500;color:var(--stone); }
     .streak-day.done { background:var(--gold);color:var(--obsidian); }
@@ -106,67 +85,44 @@
     .streak-day.empty { background:var(--sand-mid);color:var(--sand-deep); }
     .streak-legend { display:flex;align-items:center;gap:16px;font-size:11px;color:var(--stone); }
     .legend-dot { width:10px;height:10px;border-radius:2px;flex-shrink:0; }
-
-    /* PROGRESS CHART */
     .chart-wrap { position:relative;height:140px;margin-bottom:1rem; }
     .chart-wrap canvas { width:100%!important; }
     .chart-stats { display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem; }
     .chart-stat { text-align:center; }
     .chart-stat-num { font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:400;color:var(--obsidian);display:block; }
     .chart-stat-label { font-size:11px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--stone); }
-
-    /* PHOTO UPLOAD */
     .photo-grid { display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem; }
     .photo-box { display:flex;flex-direction:column;gap:8px; }
     .photo-preview { aspect-ratio:3/4;background:var(--sand);border:1.5px dashed var(--sand-deep);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--stone);cursor:pointer;transition:all 0.2s;overflow:hidden; }
     .photo-preview:hover { border-color:var(--gold);background:var(--gold-light); }
     .photo-preview img { width:100%;height:100%;object-fit:cover; }
     .photo-label { font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--stone);text-align:center; }
-
-    /* PRODUCT CARD */
     .product-info { display:flex;flex-direction:column;gap:0; }
     .info-row { display:flex;justify-content:space-between;gap:1rem;padding:0.75rem 0;border-bottom:1px solid var(--sand-deep); }
     .info-row:last-child { border-bottom:none;padding-bottom:0; }
     .info-label { font-size:12px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--stone);flex-shrink:0; }
     .info-val { font-size:13px;color:var(--obsidian);text-align:right; }
-
-    /* PROFILE SIDEBAR */
     .profile-avatar { width:52px;height:52px;border-radius:50%;background:var(--sand-mid);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:400;color:var(--stone-dark);margin-bottom:1rem; }
     .profile-name { font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:400;color:var(--obsidian);margin-bottom:2px; }
     .profile-email { font-size:12px;color:var(--stone);margin-bottom:1.5rem; }
     .profile-tags { display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1.5rem; }
     .profile-tag { font-size:10px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--stone-dark);background:var(--sand);padding:4px 12px;border-radius:50px; }
-
-    /* REWARD CARD */
     .reward-card { background:var(--sand);border:1px solid var(--sand-deep); }
     .reward-progress-bar { height:6px;background:var(--sand-deep);border-radius:3px;overflow:hidden;margin:1rem 0; }
     .reward-bar-fill { height:100%;background:var(--gold);border-radius:3px;transition:width 0.8s ease; }
     .reward-days-text { font-size:13px;color:var(--stone-dark);margin-bottom:0.5rem; }
     .reward-cta { font-size:12px;color:var(--stone);line-height:1.6;margin-top:0.75rem; }
-
-    /* QUICK ACTIONS */
     .action-links { display:flex;flex-direction:column;gap:6px; }
     .action-link { display:flex;align-items:center;justify-content:space-between;padding:0.875rem 1rem;border:1px solid var(--sand-deep);background:var(--ivory);text-decoration:none;transition:all 0.2s; }
     .action-link:hover { background:var(--sand);border-color:var(--stone); }
     .action-link-text strong { display:block;font-size:13px;font-weight:500;color:var(--obsidian);margin-bottom:1px; }
     .action-link-text span { font-size:12px;color:var(--stone); }
     .action-arrow { font-size:16px;color:var(--stone);flex-shrink:0; }
-
-    /* STATUS STATES */
-    .state-banner { padding:1.25rem 1.5rem;border-left:3px solid var(--gold);background:rgba(201,169,110,0.06);margin-bottom:1.5rem; }
-    .state-banner h4 { font-family:'Playfair Display',serif;font-size:1rem;font-weight:400;color:var(--obsidian);margin-bottom:0.4rem; }
-    .state-banner p { font-size:13px;color:var(--stone-dark);line-height:1.6; }
-    .state-banner .btn { margin-top:1rem; }
-
-    /* EMPTY STATE */
     .empty { padding:1.5rem;text-align:center;font-size:13px;color:var(--stone);background:var(--sand);line-height:1.65; }
-
-    /* ANIMATIONS */
     @keyframes fadeUp { from { opacity:0;transform:translateY(16px); } to { opacity:1;transform:translateY(0); } }
     .dash-hero { animation:fadeUp 0.5s ease both; }
     .metrics-row { animation:fadeUp 0.5s 0.1s ease both; }
     .dash-grid { animation:fadeUp 0.5s 0.2s ease both; }
-
     @media(max-width:1200px) { .dash-grid{grid-template-columns:1fr 1fr} .dash-col:last-child{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:1.5rem} }
     @media(max-width:900px) { .dash-grid{grid-template-columns:1fr} .dash-col:last-child{grid-column:auto;display:flex;flex-direction:column} .metrics-row{grid-template-columns:1fr 1fr} .dash-hero{flex-direction:column;align-items:flex-start} }
     @media(max-width:600px) { .dash-wrap{padding:1.5rem} .metrics-row{grid-template-columns:1fr 1fr} .dash-hero{padding:2rem 1.5rem} }
@@ -194,8 +150,6 @@
   </header>
 
   <div class="dash-wrap">
-
-    <!-- HERO BANNER -->
     <div class="dash-hero">
       <div class="dash-hero-text">
         <p class="eyebrow" data-i18n="dashboard.heroEyebrow">Tu panel</p>
@@ -219,7 +173,6 @@
       </div>
     </div>
 
-    <!-- METRICS ROW -->
     <div class="metrics-row">
       <div class="metric-box">
         <p class="eyebrow" data-i18n="dashboard.metric1Label">Compra</p>
@@ -243,35 +196,16 @@
       </div>
     </div>
 
-    <!-- DASHBOARD GRID -->
     <div class="dash-grid">
-
-      <!-- COL 1 -->
       <div class="dash-col">
-
-        <!-- Ritual Steps -->
         <div class="card">
           <div class="card-header">
             <p class="eyebrow" data-i18n="dashboard.ritualEyebrow">Mi ritual</p>
             <h3 data-i18n="dashboard.ritualTitle">Tu estructura base</h3>
           </div>
-          <div class="ritual-steps" id="ritualSteps">
-            <div class="ritual-step pending">
-              <div class="step-icon pending">1</div>
-              <div class="step-body"><p class="step-title" data-i18n="dashboard.step1Title">Análisis y compra</p><p class="step-desc" data-i18n="dashboard.step1Pending">Debes completar el análisis y la compra.</p></div>
-            </div>
-            <div class="ritual-step pending">
-              <div class="step-icon pending">2</div>
-              <div class="step-body"><p class="step-title" data-i18n="dashboard.step2Title">Onboarding</p><p class="step-desc" data-i18n="dashboard.step2Pending">Debes completar tu onboarding.</p></div>
-            </div>
-            <div class="ritual-step pending">
-              <div class="step-icon pending">3</div>
-              <div class="step-body"><p class="step-title" data-i18n="dashboard.step3Title">Ritual diario</p><p class="step-desc" data-i18n="dashboard.step3Pending">Tu ritual estará disponible después del onboarding.</p></div>
-            </div>
-          </div>
+          <div class="ritual-steps" id="ritualSteps"></div>
         </div>
 
-        <!-- Streak Calendar -->
         <div class="card">
           <div class="card-header">
             <p class="eyebrow" data-i18n="dashboard.streakEyebrow">Constancia</p>
@@ -284,13 +218,9 @@
             <div style="display:flex;align-items:center;gap:6px"><div class="legend-dot" style="background:var(--sand-mid)"></div><span data-i18n="dashboard.legendEmpty">Vacío</span></div>
           </div>
         </div>
-
       </div>
 
-      <!-- COL 2 -->
       <div class="dash-col">
-
-        <!-- Progress Chart -->
         <div class="card">
           <div class="card-header">
             <p class="eyebrow" data-i18n="dashboard.progressEyebrow">Progreso</p>
@@ -307,7 +237,6 @@
           <a class="card-link" href="daily.html" data-i18n="dashboard.progressLink">Ver calendario ritual</a>
         </div>
 
-        <!-- Photo Progress -->
         <div class="card">
           <div class="card-header">
             <p class="eyebrow" data-i18n="dashboard.photosEyebrow">Progreso visual</p>
@@ -332,7 +261,6 @@
           <p style="font-size:12px;color:var(--stone);line-height:1.6" data-i18n="dashboard.photoNote">Añade fotos para seguir tu evolución visual. Se guardan en tu dispositivo.</p>
         </div>
 
-        <!-- Product -->
         <div class="card">
           <div class="card-header">
             <p class="eyebrow" data-i18n="dashboard.productEyebrow">Producto</p>
@@ -342,19 +270,12 @@
             <div class="empty" data-i18n="dashboard.emptyProduct">Aún no se ha registrado ninguna compra.</div>
           </div>
         </div>
-
       </div>
 
-      <!-- COL 3: SIDEBAR -->
       <div class="dash-col">
-
-        <!-- Profile -->
         <div class="card">
           <div class="card-header">
             <p class="eyebrow" data-i18n="dashboard.profileEyebrow">Perfil</p>
-            <button id="setPasswordBtn" class="btn btn-secondary" style="margin-top:10px;">
-  Set Password
-</button>
             <h3 data-i18n="dashboard.profileTitle">Tu cuenta</h3>
           </div>
           <div class="profile-avatar" id="profileAvatar">—</div>
@@ -364,7 +285,6 @@
           <a href="onboarding.html" class="card-link" data-i18n="dashboard.editProfile">Editar perfil</a>
         </div>
 
-        <!-- Reward Card -->
         <div class="card reward-card">
           <div class="card-header">
             <p class="eyebrow" data-i18n="dashboard.rewardEyebrow">Recompensa</p>
@@ -377,7 +297,6 @@
           <p class="reward-cta" data-i18n="dashboard.rewardNote">Nuestro equipo verificará tu progreso y organizará tu experiencia.</p>
         </div>
 
-        <!-- Quick Actions -->
         <div class="card">
           <div class="card-header">
             <p class="eyebrow" data-i18n="dashboard.actionsEyebrow">Acciones</p>
@@ -385,22 +304,19 @@
           </div>
           <div class="action-links" id="actionLinks"></div>
         </div>
-
       </div>
     </div>
   </div>
 </div>
 
- <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="js/supabase-client.js"></script>
 <script src="js/auth.js"></script>
-    
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
 <script src="js/i18n.js"></script>
- <script>
-document.addEventListener('DOMContentLoaded', async function () {
 
-  // Give Supabase a moment (important after Google login redirect)
+<script>
+document.addEventListener("DOMContentLoaded", async function () {
   await new Promise(resolve => setTimeout(resolve, 400));
 
   const data = await window.tgr.loadDashboardData();
@@ -413,86 +329,304 @@ document.addEventListener('DOMContentLoaded', async function () {
     purchase,
     completedDates,
     daysCompleted,
-    streak,
-    rewards
+    streak
   } = data;
 
-  // ── HELPERS ─────────────────────────
-  const el  = id => document.getElementById(id);
-  const set = (id, val) => { const e = el(id); if (e) e.textContent = val || '—'; };
+  const el = id => document.getElementById(id);
+  const set = (id, val) => {
+    const node = el(id);
+    if (node) node.textContent = val || "—";
+  };
 
-  // ── STATE ─────────────────────────
-  const partnerDone    = onboarding?.partner_complete || false;
-  const onboardingDone = onboarding?.onboarding_complete || false;
+  const goalMap = {
+    glow: "Luminosidad",
+    hydration: "Hidratación",
+    antiage: "Anti-edad",
+    acne: "Acné",
+    balance: "Equilibrio"
+  };
+
+  const skinMap = {
+    normal: "Normal",
+    dry: "Seca",
+    oily: "Grasa",
+    combination: "Mixta",
+    sensitive: "Sensible"
+  };
+
+  const timeMap = {
+    5: "5 min",
+    10: "10 min",
+    20: "20 min"
+  };
+
+  const formatGoal = () => goalMap[skinAnalysis?.goal] || skinAnalysis?.goal || "—";
+  const formatSkin = () => skinMap[skinAnalysis?.skin_type] || "—";
+  const formatTime = () => {
+    if (!onboarding?.daily_minutes) return "—";
+    return timeMap[onboarding.daily_minutes] || `${onboarding.daily_minutes} min`;
+  };
+
+  const partnerDone = !!onboarding?.partner_complete;
+  const onboardingDone = !!onboarding?.onboarding_complete;
   const ritualDuration = onboarding?.ritual_duration || 90;
   const rewardProgress = Math.min(daysCompleted, 14);
+  const consistency = ritualDuration > 0 ? Math.round((daysCompleted / ritualDuration) * 100) : 0;
 
-  // ── HERO ─────────────────────────
   const heroTitle = el("heroTitle");
-  const heroCopy  = el("heroCopy");
+  const heroCopy = el("heroCopy");
   const heroActions = el("heroActions");
 
   if (!partnerDone) {
-    heroTitle.innerHTML = "Completa tu análisis<br><em>de piel.</em>";
-    heroCopy.textContent = "Para comenzar tu ritual, visita la plataforma del Dr. Ourian.";
-    heroActions.innerHTML = `<a href="https://www.simonourianmd.com/BBF/?ref=tgr" target="_blank" class="btn btn-gold">Ir →</a>`;
+    if (heroTitle) heroTitle.innerHTML = "Completa tu análisis<br><em>de piel.</em>";
+    if (heroCopy) heroCopy.textContent = "Para comenzar tu ritual, visita la plataforma del Dr. Ourian para tu análisis y compra de productos.";
+    if (heroActions) {
+      heroActions.innerHTML = `<a href="https://www.simonourianmd.com/BBF/?ref=tgr" target="_blank" rel="noopener" class="btn btn-gold">Ir a la plataforma →</a>`;
+    }
   } else if (!onboardingDone) {
-    heroTitle.innerHTML = "Activa tu ritual<br><em>personalizado.</em>";
-    heroCopy.textContent = "Completa tu configuración para empezar.";
-    heroActions.innerHTML = `<a href="onboarding.html" class="btn btn-gold">Continuar →</a>`;
+    if (heroTitle) heroTitle.innerHTML = "Activa tu ritual<br><em>personalizado.</em>";
+    if (heroCopy) heroCopy.textContent = "Tu compra está completada. Ahora configura tu ritual para desbloquear tu calendario diario.";
+    if (heroActions) {
+      heroActions.innerHTML = `<a href="onboarding.html" class="btn btn-gold">Completar onboarding →</a>`;
+    }
   } else {
     const currentDay = Math.min(daysCompleted + 1, ritualDuration);
-    heroTitle.innerHTML = `Bienvenida —<br><em>Día ${currentDay}</em>`;
-    heroCopy.textContent = "Continúa tu ritual diario.";
-    heroActions.innerHTML = `<a href="daily.html" class="btn btn-gold">Abrir ritual →</a>`;
+    if (heroTitle) heroTitle.innerHTML = `Bienvenida de nuevo —<br><em>día ${currentDay} de tu ritual.</em>`;
+    if (heroCopy) heroCopy.textContent = `Continúa tu ritual de ${formatTime()} de hoy. La constancia transforma.`;
+    if (heroActions) {
+      heroActions.innerHTML = `<a href="daily.html" class="btn btn-gold">Completar ritual de hoy →</a><a href="onboarding.html" class="btn btn-outline-light">Editar perfil</a>`;
+    }
   }
 
-  // ── METRICS ─────────────────────────
-  set("metricDays", daysCompleted);
-  set("metricTotal", ritualDuration);
+  const circumference = 2 * Math.PI * 46;
+  const pct = rewardProgress / 14;
+  const offset = circumference - (pct * circumference);
+  const ring = el("rewardRingCircle");
 
-  const consistency = ritualDuration > 0 ? Math.round((daysCompleted / ritualDuration) * 100) : 0;
-  set("metricConsistency", consistency + "%");
+  if (ring) {
+    ring.style.strokeDasharray = circumference;
+    ring.style.strokeDashoffset = circumference;
+    setTimeout(() => {
+      ring.style.transition = "stroke-dashoffset 1.2s ease";
+      ring.style.strokeDashoffset = offset;
+    }, 300);
+  }
+
+  set("rewardRingNum", rewardProgress);
+  const milestone = el("rewardMilestone");
+  if (milestone) {
+    milestone.textContent = rewardProgress >= 14 ? "¡Recompensa desbloqueada!" : "días hacia tu spa";
+  }
 
   set("metricPurchase", partnerDone ? "Completada" : "Pendiente");
   set("metricOnboarding", onboardingDone ? "Completada" : "Pendiente");
+  set("metricDays", daysCompleted);
+  set("metricConsistency", consistency + "%");
+  set("metricTotal", ritualDuration);
 
-  // ── PROFILE ─────────────────────────
-  const fullName = user?.full_name || '';
-  const initials = fullName.split(' ').map(w => w[0]).join('').slice(0,2).toUpperCase() || '?';
+  const purchaseBadge = el("metricPurchaseBadge");
+  if (purchaseBadge) {
+    purchaseBadge.textContent = partnerDone ? "✓ Hecho" : "Pendiente";
+    purchaseBadge.className = "metric-badge " + (partnerDone ? "badge-done" : "badge-pending");
+  }
 
-  if (el("profileAvatar")) el("profileAvatar").textContent = initials;
-  set("profileName", fullName);
-  set("profileEmail", user?.email);
+  const onboardingBadge = el("metricOnboardingBadge");
+  if (onboardingBadge) {
+    onboardingBadge.textContent = onboardingDone ? "✓ Hecho" : "Pendiente";
+    onboardingBadge.className = "metric-badge " + (onboardingDone ? "badge-done" : "badge-pending");
+  }
 
-  // ── REWARD BAR ─────────────────────────
-  const pctBar = Math.min((rewardProgress / 14) * 100, 100);
-  if (el("rewardBarFill")) el("rewardBarFill").style.width = pctBar + "%";
-  set("rewardDaysText", rewardProgress + " / 14 días");
+  const stepsEl = el("ritualSteps");
+  if (stepsEl) {
+    stepsEl.innerHTML = `
+      <div class="ritual-step ${partnerDone ? "done" : "active"}">
+        <div class="step-icon ${partnerDone ? "done" : "active"}">${partnerDone ? "✓" : "1"}</div>
+        <div class="step-body">
+          <p class="step-title">Análisis y compra</p>
+          <p class="step-desc">${partnerDone ? "Completados correctamente." : "Visita la plataforma del Dr. Ourian para tu análisis."}</p>
+        </div>
+      </div>
+      <div class="ritual-step ${onboardingDone ? "done" : (partnerDone ? "active" : "pending")}">
+        <div class="step-icon ${onboardingDone ? "done" : (partnerDone ? "active" : "pending")}">${onboardingDone ? "✓" : "2"}</div>
+        <div class="step-body">
+          <p class="step-title">Onboarding</p>
+          <p class="step-desc">${onboardingDone ? "Perfil ritual configurado." : "Configura tu ritual personalizado."}</p>
+        </div>
+      </div>
+      <div class="ritual-step ${(onboardingDone && daysCompleted > 0) ? "done" : (onboardingDone ? "active" : "pending")}">
+        <div class="step-icon ${(onboardingDone && daysCompleted > 0) ? "done" : (onboardingDone ? "active" : "pending")}">${(onboardingDone && daysCompleted > 0) ? "✓" : "3"}</div>
+        <div class="step-body">
+          <p class="step-title">Ritual diario</p>
+          <p class="step-desc">${onboardingDone ? `Día ${Math.min(daysCompleted + 1, ritualDuration)} de ${ritualDuration}. ¡Sigue así!` : "Disponible después del onboarding."}</p>
+        </div>
+      </div>
+    `;
+  }
 
- 
-});
-</script>
- <script>
-document.getElementById("setPasswordBtn")?.addEventListener("click", async () => {
-  const newPassword = prompt("Enter new password:");
+  const streakGrid = el("streakGrid");
+  if (streakGrid) {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
 
-  if (!newPassword) return;
+    for (let i = 27; i >= 0; i--) {
+      const d = new Date(today);
+      d.setDate(d.getDate() - i);
+      const key = d.toISOString().split("T")[0];
+      const isToday = i === 0;
+      const isDone = completedDates.includes(key);
 
-  const { data, error } = await window.supabaseClient.auth.updateUser({
-    password: newPassword
+      const div = document.createElement("div");
+      div.className = "streak-day " + (isToday ? "today" : isDone ? "done" : "empty");
+      div.textContent = d.getDate();
+      streakGrid.appendChild(div);
+    }
+  }
+
+  const ctx = document.getElementById("progressChart");
+  if (ctx && typeof Chart !== "undefined") {
+    const labels = [];
+    const dataPoints = [];
+    let running = 0;
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    for (let i = 13; i >= 0; i--) {
+      const d = new Date(today);
+      d.setDate(d.getDate() - i);
+      const key = d.toISOString().split("T")[0];
+      if (completedDates.includes(key)) running++;
+      labels.push(d.getDate() + "/" + (d.getMonth() + 1));
+      dataPoints.push(running);
+    }
+
+    new Chart(ctx, {
+      type: "line",
+      data: {
+        labels,
+        datasets: [{
+          data: dataPoints,
+          borderColor: "#C9A96E",
+          backgroundColor: "rgba(201,169,110,0.08)",
+          borderWidth: 2,
+          pointBackgroundColor: "#C9A96E",
+          pointRadius: 3,
+          tension: 0.4,
+          fill: true
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: {
+          x: { grid: { display: false }, ticks: { font: { family: "'DM Sans'" }, color: "#8C7B6B", maxTicksLimit: 7 } },
+          y: { grid: { color: "rgba(214,201,176,0.3)" }, ticks: { font: { family: "'DM Sans'" }, color: "#8C7B6B", stepSize: 1 }, min: 0 }
+        }
+      }
+    });
+  }
+
+  set("statStreak", streak);
+  set("statCompleted", daysCompleted);
+  set("statConsistency", consistency + "%");
+
+  const productBlock = el("productBlock");
+  if (productBlock) {
+    if (purchase) {
+      productBlock.innerHTML = `
+        <div class="product-info">
+          <div class="info-row"><span class="info-label">Producto</span><span class="info-val">${purchase.product_name || "—"}</span></div>
+          <div class="info-row"><span class="info-label">Referencia</span><span class="info-val">${purchase.order_reference || "—"}</span></div>
+          <div class="info-row"><span class="info-label">Fecha</span><span class="info-val">${purchase.purchase_date || "—"}</span></div>
+          ${purchase.amount_paid ? `<div class="info-row"><span class="info-label">Importe</span><span class="info-val">${purchase.amount_paid} €</span></div>` : ""}
+        </div>`;
+    } else {
+      productBlock.innerHTML = `<div class="empty">Aún no se ha registrado ninguna compra.</div>`;
+    }
+  }
+
+  const fullName = user?.full_name || "";
+  const userEmail = user?.email || "";
+  const initials = fullName
+    ? fullName.split(" ").map(w => w[0]).join("").slice(0, 2).toUpperCase()
+    : (userEmail ? userEmail.slice(0, 2).toUpperCase() : "?");
+
+  const avatar = el("profileAvatar");
+  if (avatar) avatar.textContent = initials;
+
+  set("profileName", fullName || "Usuario");
+  set("profileEmail", userEmail);
+
+  const tagsEl = el("profileTags");
+  if (tagsEl) {
+    const tags = [formatGoal(), formatSkin(), formatTime()].filter(t => t && t !== "—");
+    tagsEl.innerHTML = tags.map(t => `<span class="profile-tag">${t}</span>`).join("");
+  }
+
+  const rewardBarFill = el("rewardBarFill");
+  if (rewardBarFill) {
+    rewardBarFill.style.width = Math.min((rewardProgress / 14) * 100, 100) + "%";
+  }
+  set("rewardDaysText", rewardProgress + " / 14 días completados");
+
+  const actionLinks = el("actionLinks");
+  if (actionLinks) {
+    const state = !partnerDone ? "partner" : !onboardingDone ? "onboarding" : "ritual";
+    const actions = state === "partner"
+      ? [
+          { href: "https://www.simonourianmd.com/BBF/?ref=tgr", target: "_blank", title: "Ir a la plataforma asociada", desc: "Completa tu análisis y compra." },
+          { href: "index.html", title: "Volver al inicio", desc: "Información general." }
+        ]
+      : state === "onboarding"
+      ? [
+          { href: "onboarding.html", title: "Completar onboarding", desc: "Configura tu ritual personalizado." },
+          { href: "index.html", title: "Volver al inicio", desc: "Información general." }
+        ]
+      : [
+          { href: "daily.html", title: "Completar ritual de hoy", desc: "Abre tu calendario ritual." },
+          { href: "onboarding.html", title: "Editar mi perfil ritual", desc: "Actualiza tu configuración." },
+          { href: "products.html", title: "Ver productos", desc: "Explora los productos recomendados." }
+        ];
+
+    actionLinks.innerHTML = actions.map(a => `
+      <a href="${a.href}" class="action-link" ${a.target ? `target="${a.target}" rel="noopener"` : ""}>
+        <div class="action-link-text"><strong>${a.title}</strong><span>${a.desc}</span></div>
+        <span class="action-arrow">→</span>
+      </a>
+    `).join("");
+  }
+
+  ["before", "after"].forEach(type => {
+    const input = document.getElementById(type + "Input");
+    const preview = document.getElementById(type + "Preview");
+    const stored = localStorage.getItem("tgr-photo-" + type);
+
+    if (preview && stored) {
+      preview.innerHTML = `<img src="${stored}" alt="${type}" />`;
+    }
+
+    if (input && preview) {
+      input.addEventListener("change", function () {
+        const file = this.files[0];
+        if (!file) return;
+
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          preview.innerHTML = `<img src="${e.target.result}" alt="${type}" />`;
+          try {
+            localStorage.setItem("tgr-photo-" + type, e.target.result);
+          } catch (err) {}
+        };
+        reader.readAsDataURL(file);
+      });
+    }
   });
 
-  console.log("PASSWORD UPDATE:", { data, error });
-
-  if (error) {
-    alert("Error: " + error.message);
-  } else {
-    alert("Password set successfully. You can now login with email.");
+  if (window.applyTranslations) {
+    const lang = user?.preferred_lang || localStorage.getItem("tgr-language") || "es";
+    window.applyTranslations(lang);
   }
 });
 </script>
-
-  
 </body>
 </html>
