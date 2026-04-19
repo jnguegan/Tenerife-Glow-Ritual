@@ -142,7 +142,6 @@
         <p class="eyebrow" data-i18n="signupForm.eyebrow">Crear cuenta</p>
         <h3 data-i18n="signupForm.title">Empieza tu Ritual</h3>
 
-        <!-- Google Sign Up -->
         <button class="btn-google" id="googleSignupBtn" type="button">
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
@@ -197,107 +196,107 @@
 <script src="js/supabase-client.js"></script>
 <script src="js/auth.js"></script>
 <script src="js/i18n.js"></script>
+
 <script>
-  document.addEventListener("DOMContentLoaded", async function() {
+document.addEventListener("DOMContentLoaded", async function () {
+  await window.tgr.checkSession();
+
   const form = document.getElementById("signupForm");
+  const googleBtn = document.getElementById("googleSignupBtn");
 
-  // ✅ ADD THIS BLOCK RIGHT HERE
-  const statusBox = document.createElement("div");
-  statusBox.id = "authStatusBox";
-  statusBox.style.marginBottom = "1rem";
-  statusBox.style.padding = "12px 14px";
-  statusBox.style.border = "1px solid #EDE5D6";
-  statusBox.style.background = "#F5F0E8";
-  statusBox.style.color = "#5C4D3E";
-  statusBox.style.fontSize = "13px";
-  statusBox.style.lineHeight = "1.6";
-  statusBox.style.display = "none";
+  if (!form) return;
 
-  const authFormWrap = document.querySelector(".auth-form-wrap");
-  const heading = authFormWrap?.querySelector("h3");
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
 
-  if (authFormWrap && heading) {
-    heading.insertAdjacentElement("afterend", statusBox);
-  }
+    const fullName = document.getElementById("fullName")?.value || "";
+    const email = document.getElementById("signupEmail")?.value || "";
+    const password = document.getElementById("signupPassword")?.value || "";
+    const skinGoal = document.getElementById("skinGoal")?.value || "";
 
-  async function handleExistingSession() {
-    const { data, error } = await window.supabaseClient.auth.getSession();
+    const btn = form.querySelector("button[type='submit']");
+    if (btn) {
+      btn.textContent = "Creando cuenta...";
+      btn.disabled = true;
+    }
 
-    if (error) {
-      console.error("Session check error:", error.message);
+    const result = await window.tgr.signUp(fullName, email, password, skinGoal);
+
+    if (!result?.ok) {
+      if (btn) {
+        btn.textContent = "Crear cuenta y continuar al análisis";
+        btn.disabled = false;
+      }
       return;
     }
 
-    if (data?.session?.user) {
-      const user = data.session.user;
+    const lang = localStorage.getItem("tgr-language") || "es";
+    const messages = {
+      es: {
+        title: "¡Casi listo!",
+        text: "Hemos enviado un correo de confirmación a",
+        instruction: "Por favor revisa tu bandeja de entrada y haz clic en el enlace para activar tu cuenta.",
+        spam: "¿No lo ves? Revisa tu carpeta de spam."
+      },
+      en: {
+        title: "Almost there!",
+        text: "We have sent a confirmation email to",
+        instruction: "Please check your inbox and click the link to activate your account.",
+        spam: "Can't find it? Check your spam folder."
+      },
+      fr: {
+        title: "Presque terminé !",
+        text: "Nous avons envoyé un e-mail de confirmation à",
+        instruction: "Veuillez vérifier votre boîte de réception et cliquer sur le lien pour activer votre compte.",
+        spam: "Vous ne le trouvez pas ? Vérifiez vos spams."
+      },
+      de: {
+        title: "Fast geschafft!",
+        text: "Wir haben eine Bestätigungs-E-Mail gesendet an",
+        instruction: "Bitte überprüfe deinen Posteingang und klicke auf den Link, um dein Konto zu aktivieren.",
+        spam: "Nicht gefunden? Schau in deinem Spam-Ordner nach."
+      }
+    };
 
-      statusBox.style.display = "block";
-      statusBox.innerHTML = `
-        <strong>Cuenta conectada correctamente.</strong><br>
-        ${user.email ? `Has iniciado sesión como <strong>${user.email}</strong>.` : "Has iniciado sesión correctamente."}<br>
-        Redirigiendo a tu panel...
-      `;
+    const m = messages[lang] || messages.es;
 
-      setTimeout(() => {
-        window.location.href = "dashboard.html";
-      }, 1200);
-    }
-  }
+    form.innerHTML = `
+      <div style="text-align:center;padding:2rem 0;">
+        <div style="font-size:2rem;margin-bottom:1rem;">✉️</div>
+        <p style="font-family:'Playfair Display',serif;font-size:1.5rem;color:#1E1A16;margin-bottom:1rem;">${m.title}</p>
+        <p style="font-size:14px;color:#5C4D3E;line-height:1.75;margin-bottom:1.5rem;">${m.text}<br><strong>${email}</strong><br><br>${m.instruction}</p>
+        <p style="font-size:12px;color:#8C7B6B;">${m.spam}</p>
+      </div>`;
+  });
 
-  await handleExistingSession();
-
-    if (!form) return;
-
-    // Email / password signup
-    form.addEventListener("submit", async function(e) {
-      e.preventDefault();
-      const fullName = document.getElementById("fullName")?.value || "";
-      const email    = document.getElementById("signupEmail")?.value || "";
-      const password = document.getElementById("signupPassword")?.value || "";
-      const skinGoal = document.getElementById("skinGoal")?.value || "";
-
-      const btn = form.querySelector("button[type='submit']");
-      if (btn) { btn.textContent = "Creando cuenta..."; btn.disabled = true; }
-
-      await window.tgr.signUp(fullName, email, password, skinGoal);
-
-      const lang = localStorage.getItem("tgr-language") || "es";
-      const messages = {
-        es: { title: "¡Casi listo!", text: "Hemos enviado un correo de confirmación a", instruction: "Por favor revisa tu bandeja de entrada y haz clic en el enlace para activar tu cuenta.", spam: "¿No lo ves? Revisa tu carpeta de spam." },
-        en: { title: "Almost there!", text: "We have sent a confirmation email to", instruction: "Please check your inbox and click the link to activate your account.", spam: "Can't find it? Check your spam folder." },
-        fr: { title: "Presque terminé !", text: "Nous avons envoyé un e-mail de confirmation à", instruction: "Veuillez vérifier votre boîte de réception et cliquer sur le lien pour activer votre compte.", spam: "Vous ne le trouvez pas ? Vérifiez vos spams." },
-        de: { title: "Fast geschafft!", text: "Wir haben eine Bestätigungs-E-Mail gesendet an", instruction: "Bitte überprüfe deinen Posteingang und klicke auf den Link, um dein Konto zu aktivieren.", spam: "Nicht gefunden? Schau in deinem Spam-Ordner nach." }
-      };
-      const m = messages[lang] || messages.es;
-      form.innerHTML = `
-        <div style="text-align:center;padding:2rem 0;">
-          <div style="font-size:2rem;margin-bottom:1rem;">✉️</div>
-          <p style="font-family:'Playfair Display',serif;font-size:1.5rem;color:#1E1A16;margin-bottom:1rem;">${m.title}</p>
-          <p style="font-size:14px;color:#5C4D3E;line-height:1.75;margin-bottom:1.5rem;">${m.text}<br><strong>${email}</strong><br><br>${m.instruction}</p>
-          <p style="font-size:12px;color:#8C7B6B;">${m.spam}</p>
-        </div>`;
-    });
-
-    // Google signup — redirects to Google then back to dashboard
-    document.getElementById("googleSignupBtn").addEventListener("click", async function() {
+  if (googleBtn) {
+    googleBtn.addEventListener("click", async function () {
       this.textContent = "Conectando con Google...";
       this.disabled = true;
 
       const { error } = await window.supabaseClient.auth.signInWithOAuth({
-        provider: 'google',
+        provider: "google",
         options: {
-          redirectTo: 'https://tenerifeglowritual.netlify.app/dashboard.html',
-          skipBrowserRedirect: false
+          redirectTo: "https://tenerifeglowritual.netlify.app/dashboard.html"
         }
       });
 
       if (error) {
-        console.error('Google signup error:', error.message);
-        this.innerHTML = `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width:18px;height:18px"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg> Registrarse con Google`;
+        console.error("Google signup error:", error.message);
+        let errBox = document.getElementById("tgr-error");
+        if (!errBox) {
+          errBox = document.createElement("div");
+          errBox.id = "tgr-error";
+          errBox.style.cssText = "background:#fee;border:1px solid #fcc;color:#900;padding:12px 16px;margin-bottom:1rem;font-size:13px;border-radius:2px;";
+          form?.prepend(errBox);
+        }
+        errBox.textContent = error.message;
+        this.textContent = "Registrarse con Google";
         this.disabled = false;
       }
     });
-  });
+  }
+});
 </script>
 </body>
 </html>
