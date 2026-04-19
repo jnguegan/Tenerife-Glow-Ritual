@@ -200,31 +200,24 @@ async function logIn(email, password) {
 
 // ── LOG OUT ───────────────────────────────────────────────
 
-async function logOut() {
+function logOut() {
   console.log("Logout initiated");
-  try {
-    console.log("Calling db.auth.signOut()...");
-    const result = await db.auth.signOut();
-    console.log("signOut result:", result);
-
-    if (result?.error) {
-      console.error("Supabase signOut error:", result.error.message);
-    } else {
-      console.log("Successfully signed out");
-    }
-  } catch (err) {
-    console.error("Logout catch error:", err);
-  } finally {
-    console.log("In finally block, removing localStorage");
-    localStorage.removeItem("tgr-language");
-    
-    console.log("Setting timeout for redirect");
-    setTimeout(() => {
-      console.log("Timeout fired - redirecting to home page");
-      window.location.href = "index.html";
-    }, 200);
-  }
+  
+  // Clear the session without waiting for Supabase response
+  localStorage.removeItem("tgr-language");
+  localStorage.clear();
+  
+  // Sign out in the background (don't wait for it)
+  db.auth.signOut().catch(err => console.error("SignOut error:", err));
+  
+  // Redirect immediately
+  setTimeout(() => {
+    console.log("Redirecting to home page");
+    window.location.href = "index.html";
+  }, 100);
 }
+
+
 
 // ── SAVE ONBOARDING ───────────────────────────────────────
 
