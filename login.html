@@ -130,7 +130,6 @@
         <p class="eyebrow" data-i18n="loginForm.eyebrow">Iniciar sesión</p>
         <h3 data-i18n="loginForm.title">Accede a tu cuenta</h3>
 
-        <!-- Google Sign In -->
         <button class="btn-google" id="googleLoginBtn" type="button">
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
@@ -156,7 +155,7 @@
           </div>
           <div class="login-row">
             <label class="remember-row"><input type="checkbox" /><span data-i18n="loginForm.remember">Recordarme</span></label>
-            <a href="#" class="inline-link" data-i18n="loginForm.forgot">¿Olvidaste tu contraseña?</a>
+            <a href="#" class="inline-link" id="forgotPasswordLink" data-i18n="loginForm.forgot">¿Olvidaste tu contraseña?</a>
           </div>
           <div class="btn-group">
             <button type="submit" class="btn btn-primary" data-i18n="loginForm.primary">Iniciar sesión</button>
@@ -175,87 +174,100 @@
 <script src="js/i18n.js"></script>
 
 <script>
-  document.addEventListener("DOMContentLoaded", async function() {
+document.addEventListener("DOMContentLoaded", async function () {
+  await window.tgr.checkSession();
 
-    // Check if already logged in
-    const { data } = await window.supabaseClient.auth.getSession();
-    if (data?.session?.user) {
-      window.location.href = "dashboard.html";
-      return;
-    }
+  const form = document.getElementById("loginForm");
+  const googleBtn = document.getElementById("googleLoginBtn");
+  const forgotLink = document.getElementById("forgotPasswordLink");
 
-    // Email login
-    document.getElementById("loginForm").addEventListener("submit", async function(e) {
+  if (form) {
+    form.addEventListener("submit", async function (e) {
       e.preventDefault();
 
-      const email    = document.getElementById("email")?.value || "";
+      const email = (document.getElementById("email")?.value || "").trim();
       const password = document.getElementById("password")?.value || "";
-      const btn      = this.querySelector("button[type='submit']");
+      const btn = form.querySelector("button[type='submit']");
 
-      if (btn) { btn.textContent = "Conectando..."; btn.disabled = true; }
-
-      const { data, error } = await window.supabaseClient.auth.signInWithPassword({ email, password });
-console.log("LOGIN RESULT:", { data, error });
-      if (error) {
-        // Show error message
-        let errBox = document.getElementById("tgr-error");
-        if (!errBox) {
-          errBox = document.createElement("div");
-          errBox.id = "tgr-error";
-          errBox.style.cssText = "background:#fee;border:1px solid #fcc;color:#900;padding:12px 16px;margin-bottom:1rem;font-size:13px;border-radius:2px;";
-          this.prepend(errBox);
-        }
-        errBox.textContent = error.message;
-        if (btn) { btn.textContent = "Iniciar sesión"; btn.disabled = false; }
-        return;
+      if (btn) {
+        btn.textContent = "Conectando...";
+        btn.disabled = true;
       }
 
-      if (data?.user) {
-        // Show success message
-        const wrap = document.querySelector(".auth-form-wrap");
-        if (wrap) {
-          wrap.innerHTML = `
-            <div style="text-align:center;padding:2rem 0;">
-              <div style="font-size:2rem;margin-bottom:1rem;">✅</div>
-              <p style="font-family:'Playfair Display',serif;font-size:1.5rem;color:#1E1A16;margin-bottom:1rem;">
-                ¡Bienvenido de nuevo!
-              </p>
-              <p style="font-size:14px;color:#5C4D3E;line-height:1.75;">
-                Has iniciado sesión como<br><strong>${data.user.email}</strong><br><br>
-                Redirigiendo a tu panel...
-              </p>
-            </div>`;
-        }
-       setTimeout(async () => {
-  const { data: sessionData } = await window.supabaseClient.auth.getSession();
+      const result = await window.tgr.logIn(email, password);
 
-  if (sessionData?.session) {
-    window.location.href = "dashboard.html";
-  } else {
-    console.error("Session not ready, retrying...");
-    setTimeout(() => window.location.href = "dashboard.html", 1000);
-  }
-}, 800);
+      if (!result?.ok && btn) {
+        btn.textContent = "Iniciar sesión";
+        btn.disabled = false;
       }
     });
+  }
 
-    // Google login
-    document.getElementById("googleLoginBtn").addEventListener("click", async function() {
+  if (googleBtn) {
+    googleBtn.addEventListener("click", async function () {
       this.textContent = "Conectando con Google...";
       this.disabled = true;
+
       const { error } = await window.supabaseClient.auth.signInWithOAuth({
         provider: "google",
-        options: { redirectTo: "https://tenerifeglowritual.netlify.app/dashboard.html" }
+        options: {
+          redirectTo: "https://tenerifeglowritual.netlify.app/dashboard.html"
+        }
       });
+
       if (error) {
         console.error("Google login error:", error.message);
+        showInlineError(error.message);
         this.textContent = "Continuar con Google";
         this.disabled = false;
       }
     });
+  }
 
-  });
+  if (forgotLink) {
+    forgotLink.addEventListener("click", async function (e) {
+      e.preventDefault();
+
+      const emailInput = document.getElementById("email");
+      const email = (emailInput?.value || prompt("Introduce tu correo electrónico"))?.trim();
+
+      if (!email) return;
+
+      const { error } = await window.supabaseClient.auth.resetPasswordForEmail(email, {
+        redirectTo: "https://tenerifeglowritual.netlify.app/login.html"
+      });
+
+      if (error) {
+        showInlineError(error.message);
+        return;
+      }
+
+      showInlineSuccess("Te hemos enviado un correo para restablecer tu contraseña.");
+    });
+  }
+
+  function showInlineError(message) {
+    let box = document.getElementById("tgr-error");
+    if (!box) {
+      box = document.createElement("div");
+      box.id = "tgr-error";
+      box.style.cssText = "background:#fee;border:1px solid #fcc;color:#900;padding:12px 16px;margin-bottom:1rem;font-size:13px;border-radius:2px;";
+      form?.prepend(box);
+    }
+    box.textContent = message;
+  }
+
+  function showInlineSuccess(message) {
+    let box = document.getElementById("tgr-success");
+    if (!box) {
+      box = document.createElement("div");
+      box.id = "tgr-success";
+      box.style.cssText = "background:#eef8ee;border:1px solid #b7dbb7;color:#2f6b2f;padding:12px 16px;margin-bottom:1rem;font-size:13px;border-radius:2px;";
+      form?.prepend(box);
+    }
+    box.textContent = message;
+  }
+});
 </script>
-
 </body>
 </html>
