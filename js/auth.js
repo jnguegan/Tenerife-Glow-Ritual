@@ -22,28 +22,42 @@ db.auth.onAuthStateChange(async function(event, session) {
 // ── ENSURE USER PROFILE EXISTS ────────────────────────────
 
 async function ensureUserProfile(user) {
-  const { data: existing } = await db
+  const { data: existing, error } = await db
     .from('users')
     .select('id')
     .eq('id', user.id)
-    .single();
+    .maybeSingle();
+
+  if (error) {
+    console.error('Error checking existing user:', error.message);
+    return;
+  }
 
   if (!existing) {
     const fullName = user.user_metadata?.full_name || user.user_metadata?.name || '';
-    const email    = user.email || '';
+    const email = user.email || '';
 
-    await db.from('users').insert({
-      id:             user.id,
-      full_name:      fullName,
-      email:          email,
+    const { error: insertUserError } = await db.from('users').insert({
+      id: user.id,
+      full_name: fullName,
+      email: email,
       preferred_lang: localStorage.getItem('tgr-language') || 'es'
     });
 
-    await db.from('onboarding').insert({
-      user_id:             user.id,
+    if (insertUserError) {
+      console.error('Error creating user profile:', insertUserError.message);
+      return;
+    }
+
+    const { error: insertOnboardingError } = await db.from('onboarding').insert({
+      user_id: user.id,
       onboarding_complete: false,
-      partner_complete:    false
+      partner_complete: false
     });
+
+    if (insertOnboardingError) {
+      console.error('Error creating onboarding row:', insertOnboardingError.message);
+    }
   }
 }
 
