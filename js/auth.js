@@ -184,21 +184,36 @@ async function signUp(fullName, email, password, skinGoal) {
 
 // ── LOG IN ────────────────────────────────────────────────
 
-async function logIn(email, password) {
-  const { data, error } = await db.auth.signInWithPassword({ email, password });
+function logIn(email, password) {
+  console.log("Login initiated");
+  
+  db.auth.signInWithPassword({ email, password })
+    .then(({ data, error }) => {
+      console.log("SignIn result:", { data, error });
+      
+      if (error) {
+        console.error("Login error:", error.message);
+        showError(error.message);
+        return;
+      }
 
-  if (error) {
-    showError(error.message);
-    return { ok: false, error: error.message };
-  }
-
-  if (data?.user) {
-    await ensureUserProfile(data.user);
-    await redirectByOnboardingStatus(data.user.id);
-    return { ok: true, user: data.user };
-  }
-
-  return { ok: false, error: "No user returned from login." };
+      if (data?.user) {
+        console.log("User logged in:", data.user.email);
+        
+        // Ensure profile exists
+        ensureUserProfile(data.user);
+        
+        // Redirect after a delay
+        setTimeout(() => {
+          console.log("Redirecting to dashboard");
+          window.location.href = "dashboard.html";
+        }, 500);
+      }
+    })
+    .catch(err => {
+      console.error("Login catch error:", err);
+      showError(err.message);
+    });
 }
 
 // ── LOG OUT ───────────────────────────────────────────────
