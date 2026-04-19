@@ -189,7 +189,7 @@
         <button class="lang-btn" data-lang="fr" type="button">FR</button>
         <button class="lang-btn" data-lang="de" type="button">DE</button>
       </div>
-      <a href="#" class="logout-btn" id="logoutBtn" data-i18n="dashboard.logout">Cerrar sesión</a>
+      <a href="#" class="logout-btn" id="logoutBtn" data-i18n="dashboard.logout" onclick="event.preventDefault(); window.tgr.logOut(); return false;">Cerrar sesión</a>
     </div>
   </header>
 
@@ -470,16 +470,7 @@ document.addEventListener('DOMContentLoaded', async function () {
   if (el("rewardBarFill")) el("rewardBarFill").style.width = pctBar + "%";
   set("rewardDaysText", rewardProgress + " / 14 días");
 
-  // ── LOGOUT (IMPORTANT: Supabase logout) ─────────────────
-const logoutBtn = document.getElementById("logoutBtn");
-
-if (logoutBtn) {
-  logoutBtn.addEventListener("click", async function (e) {
-    e.preventDefault();
-    await window.tgr.logOut();
-  });
-}
-
+ 
 });
 </script>
  <script>
