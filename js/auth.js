@@ -224,59 +224,75 @@ function logOut() {
 
 // ── SAVE ONBOARDING ───────────────────────────────────────
 
-async function saveOnboarding(formData) {
-  const {
-    data: { session }
-  } = await db.auth.getSession();
+function saveOnboarding(formData) {
+  console.log("saveOnboarding called with:", formData);
+  
+  const getSession = async () => {
+    const {
+      data: { session }
+    } = await db.auth.getSession();
+    return session;
+  };
 
-  if (!session) {
-    window.location.href = "login.html";
-    return;
-  }
+  getSession().then(session => {
+    if (!session) {
+      console.log("No session, redirecting to login");
+      window.location.href = "login.html";
+      return;
+    }
 
-  const userId = session.user.id;
+    const userId = session.user.id;
+    console.log("Saving onboarding for user:", userId);
 
-  await db.from("skin_analysis").upsert(
-    {
-      user_id: userId,
-      skin_type: formData.skinType,
-      skin_concern: formData.skinConcern,
-      goal: formData.goal,
-      sensitivity: formData.sensitivity,
-      notes: formData.notes
-    },
-    { onConflict: "user_id" }
-  );
+    // Save skin analysis
+    db.from("skin_analysis").upsert(
+      {
+        user_id: userId,
+        skin_type: formData.skinType,
+        skin_concern: formData.skinConcern,
+        goal: formData.goal,
+        sensitivity: formData.sensitivity,
+        notes: formData.notes
+      },
+      { onConflict: "user_id" }
+    ).catch(err => console.error("Skin analysis error:", err));
 
-  if (formData.productName || formData.orderReference || formData.purchaseDate) {
-    await db.from("purchases").insert({
-      user_id: userId,
-      product_name: formData.productName || null,
-      order_reference: formData.orderReference || null,
-      purchase_date: formData.purchaseDate || null,
-      amount_paid: formData.amountPaid
-        ? parseFloat(String(formData.amountPaid).replace(",", "."))
-        : null,
-      confirmed: !!formData.purchaseConfirmed
-    });
-  }
+    // Save purchase
+    if (formData.productName || formData.orderReference || formData.purchaseDate) {
+      db.from("purchases").insert({
+        user_id: userId,
+        product_name: formData.productName || null,
+        order_reference: formData.orderReference || null,
+        purchase_date: formData.purchaseDate || null,
+        amount_paid: formData.amountPaid
+          ? parseFloat(String(formData.amountPaid).replace(",", ".").replace("£", "").replace("€", ""))
+          : null,
+        confirmed: !!formData.purchaseConfirmed
+      }).catch(err => console.error("Purchase error:", err));
+    }
 
-  await db.from("onboarding").upsert(
-    {
-      user_id: userId,
-      daily_minutes: formData.time ? parseInt(formData.time, 10) : null,
-      routine_level: formData.level || null,
-      ritual_duration: formData.timeline ? parseInt(formData.timeline, 10) : 90,
-      current_routine: formData.currentRoutine || null,
-      additional_notes: formData.notes || null,
-      onboarding_complete: true,
-      partner_complete: true,
-      completed_at: new Date().toISOString()
-    },
-    { onConflict: "user_id" }
-  );
-
-  window.location.href = "dashboard.html";
+    // Save onboarding and redirect
+    db.from("onboarding").upsert(
+      {
+        user_id: userId,
+        daily_minutes: formData.time ? parseInt(formData.time, 10) : null,
+        routine_level: formData.level || null,
+        ritual_duration: formData.timeline ? parseInt(formData.timeline, 10) : 90,
+        current_routine: formData.currentRoutine || null,
+        additional_notes: formData.notes || null,
+        onboarding_complete: true,
+        partner_complete: true,
+        completed_at: new Date().toISOString()
+      },
+      { onConflict: "user_id" }
+    ).then(() => {
+      console.log("Onboarding saved successfully");
+      setTimeout(() => {
+        console.log("Redirecting to dashboard");
+        window.location.href = "dashboard.html";
+      }, 500);
+    }).catch(err => console.error("Onboarding error:", err));
+  });
 }
 
 // ── COMPLETE RITUAL DAY ───────────────────────────────────
