@@ -195,7 +195,7 @@
       if (btn) { btn.textContent = "Conectando..."; btn.disabled = true; }
 
       const { data, error } = await window.supabaseClient.auth.signInWithPassword({ email, password });
-
+console.log("LOGIN RESULT:", { data, error });
       if (error) {
         // Show error message
         let errBox = document.getElementById("tgr-error");
