@@ -11,10 +11,10 @@ const db = window.supabaseClient;
 
 db.auth.onAuthStateChange(async function(event, session) {
   if (event === 'SIGNED_IN' && session) {
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-    if (currentPage === 'login.html' || currentPage === 'signup.html') {
+    try {
       await ensureUserProfile(session.user);
-      await redirectByOnboardingStatus(session.user.id);
+    } catch (err) {
+      console.error('Error ensuring user profile:', err);
     }
   }
 });
