@@ -256,15 +256,8 @@ document.addEventListener("DOMContentLoaded", async function () {
       }
     };
 
-    const m = messages[lang] || messages.es;
-
-    form.innerHTML = `
-      <div style="text-align:center;padding:2rem 0;">
-        <div style="font-size:2rem;margin-bottom:1rem;">✉️</div>
-        <p style="font-family:'Playfair Display',serif;font-size:1.5rem;color:#1E1A16;margin-bottom:1rem;">${m.title}</p>
-        <p style="font-size:14px;color:#5C4D3E;line-height:1.75;margin-bottom:1.5rem;">${m.text}<br><strong>${email}</strong><br><br>${m.instruction}</p>
-        <p style="font-size:12px;color:#8C7B6B;">${m.spam}</p>
-      </div>`;
+    
+    window.location.href = "dashboard.html";
   });
 
   if (googleBtn) {
