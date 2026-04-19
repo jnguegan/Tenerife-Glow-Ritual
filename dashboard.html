@@ -468,13 +468,14 @@ document.addEventListener('DOMContentLoaded', async function () {
   set("rewardDaysText", rewardProgress + " / 14 días");
 
   // ── LOGOUT (IMPORTANT: Supabase logout) ─────────────────
-  const logoutBtn = el("logoutBtn");
-  if (logoutBtn) {
-    logoutBtn.addEventListener("click", function (e) {
-      e.preventDefault();
-      window.tgr.logOut();
-    });
-  }
+const logoutBtn = document.getElementById("logoutBtn");
+
+if (logoutBtn) {
+  logoutBtn.addEventListener("click", async function (e) {
+    e.preventDefault();
+    await window.tgr.logOut();
+  });
+}
 
 });
 </script>
