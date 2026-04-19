@@ -145,7 +145,7 @@
         <button class="lang-btn" data-lang="fr" type="button">FR</button>
         <button class="lang-btn" data-lang="de" type="button">DE</button>
       </div>
-      <a href="#" class="logout-btn" id="logoutBtn" data-i18n="dashboard.logout" onclick="event.preventDefault(); window.tgr.logOut(); return false;">Cerrar sesión</a>
+     <button type="button" class="logout-btn" id="logoutBtn" data-i18n="dashboard.logout">Cerrar sesión</button>
     </div>
   </header>
 
@@ -627,6 +627,18 @@ document.addEventListener("DOMContentLoaded", async function () {
     window.applyTranslations(lang);
   }
 });
+
+// Logout button handler
+const logoutBtn = document.getElementById('logoutBtn');
+if (logoutBtn) {
+  logoutBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    this.disabled = true;
+    this.textContent = 'Cerrando sesión...';
+    window.tgr.logOut();
+  });
+}  
+  
 </script>
 </body>
 </html>
