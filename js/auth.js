@@ -185,12 +185,10 @@ async function signUp(fullName, email, password, skinGoal) {
 // ── LOG IN ────────────────────────────────────────────────
 
 function logIn(email, password) {
-  console.log("Login initiated");
+  console.log("Login initiated with:", email);
   
   db.auth.signInWithPassword({ email, password })
     .then(({ data, error }) => {
-      console.log("SignIn result:", { data, error });
-      
       if (error) {
         console.error("Login error:", error.message);
         showError(error.message);
@@ -198,21 +196,18 @@ function logIn(email, password) {
       }
 
       if (data?.user) {
-        console.log("User logged in:", data.user.email);
+        console.log("User logged in successfully");
+        localStorage.setItem("tgr-user", JSON.stringify(data.user));
         
-        // Ensure profile exists
-        ensureUserProfile(data.user);
-        
-        // Redirect after a delay
+        // Go directly to dashboard without checking status
         setTimeout(() => {
-          console.log("Redirecting to dashboard");
           window.location.href = "dashboard.html";
-        }, 500);
+        }, 300);
       }
     })
     .catch(err => {
-      console.error("Login catch error:", err);
-      showError(err.message);
+      console.error("Login error:", err);
+      showError(err.message || "Login failed");
     });
 }
 
