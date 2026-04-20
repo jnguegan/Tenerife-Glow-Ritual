@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tu Perfil | Tenerife Glow Ritual</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --sand: #F5F0E8; --sand-mid: #EDE5D6; --sand-deep: #D6C9B0;
+      --stone: #8C7B6B; --stone-dark: #5C4D3E; --obsidian: #1E1A16;
+      --gold: #C9A96E; --gold-light: #E8D5A8; --ivory: #FAF7F2; --white: #FFFFFF;
+      --radius: 2px; --radius-lg: 6px;
+    }
+    body { font-family: 'DM Sans', sans-serif; font-weight: 300; background: var(--ivory); color: var(--obsidian); line-height: 1.6; min-height: 100vh; }
+    
+    .topbar { position: sticky; top: 0; z-index: 100; background: rgba(250,247,242,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--sand-deep); padding: 0 3rem; display: flex; align-items: center; justify-content: space-between; height: 70px; }
+    .brand-wrap { display: flex; align-items: center; gap: 14px; }
+    .brand-mark { width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0; background: linear-gradient(135deg, var(--gold) 0%, var(--sand-deep) 100%); }
+    .eyebrow { font-size: 10px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--stone); }
+    .brand-title { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 400; color: var(--obsidian); }
+    
+    .page-hero { background: var(--sand); padding: 3rem 3rem 2rem; border-bottom: 1px solid var(--sand-deep); }
+    .page-hero .eyebrow { margin-bottom: 0.5rem; }
+    .page-hero h2 { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 400; color: var(--obsidian); margin-bottom: 0.5rem; }
+    .page-hero p { font-size: 14px; color: var(--stone-dark); max-width: 600px; }
+    
+    .form-wrap { max-width: 700px; margin: 0 auto; padding: 3rem; }
+    
+    .section-divider { border: none; border-top: 1px solid var(--sand-mid); margin: 2.5rem 0; }
+    .section-label { font-size: 10px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem; }
+    .section-heading { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 400; color: var(--obsidian); margin-bottom: 0.5rem; }
+    .section-copy { font-size: 13px; color: var(--stone); line-height: 1.65; margin-bottom: 1.75rem; }
+    
+    .field-group { margin-bottom: 1.25rem; }
+    .field-label { display: block; font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--stone-dark); margin-bottom: 8px; }
+    .styled-input, .styled-select { 
+      width: 100%; height: 50px; padding: 0 18px; 
+      border: 1px solid var(--sand-deep); border-radius: var(--radius); 
+      background: var(--ivory); font-family: 'DM Sans', sans-serif; 
+      font-size: 14px; font-weight: 300; color: var(--obsidian); 
+      outline: none; transition: border-color 0.2s; appearance: none;
+    }
+    .styled-input:focus, .styled-select:focus { 
+      border-color: var(--gold); box-shadow: 0 0 0 3px rgba(201,169,110,0.12); background: var(--white); 
+    }
+    .styled-select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238C7B6B' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 16px center; padding-right: 42px;
+    }
+    
+    .field-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-bottom: 1.25rem; }
+    
+    .form-actions { display: flex; gap: 12px; margin-top: 2.5rem; flex-wrap: wrap; }
+    .btn { display: flex; align-items: center; justify-content: center; text-decoration: none; font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; letter-spacing: 0.06em; height: 50px; padding: 0 32px; border-radius: var(--radius); transition: all 0.25s; cursor: pointer; border: none; }
+    .btn-primary { background: var(--obsidian); color: var(--ivory); flex: 1; min-width: 200px; }
+    .btn-primary:hover { background: var(--stone-dark); }
+    .btn-secondary { background: transparent; color: var(--obsidian); border: 1px solid var(--sand-deep); flex: 1; min-width: 200px; }
+    .btn-secondary:hover { background: var(--sand); }
+    
+    .error-message { background: #fee; border: 1px solid #fcc; color: #900; padding: 12px 16px; margin-bottom: 1rem; font-size: 13px; border-radius: var(--radius); display: none; }
+    .error-message.show { display: block; }
+    .success-message { background: #eef8ee; border: 1px solid #b7dbb7; color: #2f6b2f; padding: 12px 16px; margin-bottom: 1rem; font-size: 13px; border-radius: var(--radius); display: none; }
+    .success-message.show { display: block; }
+    
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+    .form-wrap { animation: fadeUp 0.5s ease both; }
+    
+    @media (max-width: 768px) { 
+      .topbar { padding: 0 1.5rem; } 
+      .page-hero { padding: 2rem 1.5rem 1.5rem; } 
+      .form-wrap { padding: 2rem 1.5rem; }
+      .field-grid-2 { grid-template-columns: 1fr; }
+      .form-actions { flex-direction: column; }
+      .btn { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand-wrap">
+      <div class="brand-mark"></div>
+      <div>
+        <p class="eyebrow">Ritual de Piel de la Isla</p>
+        <h1 class="brand-title">Tenerife Glow Ritual</h1>
+      </div>
+    </div>
+  </header>
+
+  <div class="page-hero">
+    <p class="eyebrow">Personaliza tu ritual</p>
+    <h2>Tu Perfil de Piel</h2>
+    <p>Cuéntanos sobre tu piel y tus objetivos. Esto nos ayuda a personalizar tu ritual diario.</p>
+  </div>
+
+  <div class="form-wrap">
+    <div class="error-message" id="errorMessage"></div>
+    <div class="success-message" id="successMessage"></div>
+
+    <form id="profileForm">
+      <!-- Basic info -->
+      <p class="section-label">Información básica</p>
+      <h3 class="section-heading">Sobre ti</h3>
+      <p class="section-copy">Necesitamos tu nombre para personalizar tu experiencia.</p>
+
+      <div class="field-group">
+        <label class="field-label" for="fullName">Nombre completo</label>
+        <input id="fullName" name="fullName" class="styled-input" type="text" placeholder="Tu nombre" required />
+      </div>
+
+      <hr class="section-divider" />
+
+      <!-- Skin profile -->
+      <p class="section-label">Tu piel</p>
+      <h3 class="section-heading">Define tu tipo de piel y objetivo</h3>
+      <p class="section-copy">Esta información nos ayuda a recomendar productos y rituales específicos para ti.</p>
+
+      <div class="field-grid-2">
+        <div class="field-group">
+          <label class="field-label" for="skinType">Tipo de piel</label>
+          <select class="styled-select" id="skinType" name="skinType" required>
+            <option value="">Selecciona una opción</option>
+            <option value="Normal">Normal</option>
+            <option value="Seca">Seca</option>
+            <option value="Grasa">Grasa</option>
+            <option value="Mixta">Mixta</option>
+            <option value="Sensible">Sensible</option>
+          </select>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label" for="goal">Objetivo principal</label>
+          <select class="styled-select" id="goal" name="goal" required>
+            <option value="">Selecciona una opción</option>
+            <option value="Luminosidad">Luminosidad</option>
+            <option value="Hidratación">Hidratación</option>
+            <option value="Anti-edad">Anti-edad</option>
+            <option value="Acné">Acné</option>
+            <option value="Equilibrio">Equilibrio</option>
+          </select>
+        </div>
+      </div>
+
+      <hr class="section-divider" />
+
+      <!-- Ritual setup -->
+      <p class="section-label">Tu ritual</p>
+      <h3 class="section-heading">Tiempo disponible</h3>
+      <p class="section-copy">¿Cuánto tiempo tienes cada día para tu ritual?</p>
+
+      <div class="field-group">
+        <label class="field-label" for="dailyMinutes">Minutos disponibles diariamente</label>
+        <select class="styled-select" id="dailyMinutes" name="dailyMinutes" required>
+          <option value="">Selecciona una opción</option>
+          <option value="5">5 minutos</option>
+          <option value="10">10 minutos</option>
+          <option value="20">20 minutos</option>
+        </select>
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary">Guardar perfil</button>
+        <a href="dashboard-new.html" class="btn btn-secondary">Volver al panel</a>
+      </div>
+    </form>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase-client.js"></script>
+  <script src="auth-new.js"></script>
+
+  <script>
+  document.addEventListener("DOMContentLoaded", async function() {
+    const form = document.getElementById("profileForm");
+    const errorDiv = document.getElementById("errorMessage");
+    const successDiv = document.getElementById("successMessage");
+
+    // Check session
+    const session = await window.tgrNew.getSessionNew();
+    if (!session) {
+      window.location.href = "login-new.html";
+      return;
+    }
+
+    // Load existing profile
+    const profile = await window.tgrNew.getUserProfileNew();
+    if (profile) {
+      document.getElementById("fullName").value = profile.full_name || "";
+      document.getElementById("skinType").value = profile.skin_type || "";
+      document.getElementById("goal").value = profile.goal || "";
+      document.getElementById("dailyMinutes").value = profile.daily_minutes || "";
+    }
+
+    // Form submission
+    form.addEventListener("submit", async function(e) {
+      e.preventDefault();
+      errorDiv.classList.remove("show");
+      successDiv.classList.remove("show");
+
+      const fullName = document.getElementById("fullName").value.trim();
+      const skinType = document.getElementById("skinType").value;
+      const goal = document.getElementById("goal").value;
+      const dailyMinutes = document.getElementById("dailyMinutes").value;
+
+      if (!fullName || !skinType || !goal || !dailyMinutes) {
+        errorDiv.textContent = "Por favor completa todos los campos.";
+        errorDiv.classList.add("show");
+        return;
+      }
+
+      const btn = form.querySelector("button[type='submit']");
+      btn.disabled = true;
+      btn.textContent = "Guardando...";
+
+      // Update profile
+      const result = await window.tgrNew.updateProfileNew(fullName, skinType, goal);
+
+      if (!result.ok) {
+        errorDiv.textContent = "Error al guardar el perfil: " + result.error;
+        errorDiv.classList.add("show");
+        btn.disabled = false;
+        btn.textContent = "Guardar perfil";
+      } else {
+        // Also save daily_minutes to database
+        try {
+          const dbSession = await window.tgrNew.getSessionNew();
+          await window.supabaseClient.from("users_simple").update({
+            daily_minutes: parseInt(dailyMinutes, 10)
+          }).eq("id", dbSession.user.id);
+
+          successDiv.textContent = "¡Perfil guardado correctamente!";
+          successDiv.classList.add("show");
+
+          setTimeout(() => {
+            window.location.href = "dashboard-new.html";
+          }, 1500);
+        } catch (err) {
+          errorDiv.textContent = "Error: " + err.message;
+          errorDiv.classList.add("show");
+          btn.disabled = false;
+          btn.textContent = "Guardar perfil";
+        }
+      }
+    });
+  });
+  </script>
+</body>
+</html>
