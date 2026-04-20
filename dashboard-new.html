@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mi Panel | Tenerife Glow Ritual</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --sand: #F5F0E8; --sand-mid: #EDE5D6; --sand-deep: #D6C9B0;
+      --stone: #8C7B6B; --stone-dark: #5C4D3E; --obsidian: #1E1A16;
+      --gold: #C9A96E; --gold-light: #E8D5A8; --ivory: #FAF7F2; --white: #FFFFFF;
+      --sage: #8A9E8A; --radius: 2px; --radius-lg: 6px;
+    }
+    body { font-family: 'DM Sans', sans-serif; font-weight: 300; background: var(--ivory); color: var(--obsidian); line-height: 1.6; min-height: 100vh; }
+    
+    .topbar { position: sticky; top: 0; z-index: 100; background: rgba(250,247,242,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--sand-deep); padding: 0 2.5rem; display: flex; align-items: center; justify-content: space-between; height: 70px; }
+    .brand-wrap { display: flex; align-items: center; gap: 14px; }
+    .brand-mark { width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0; background: linear-gradient(135deg, var(--gold) 0%, var(--sand-deep) 100%); }
+    .eyebrow { font-size: 10px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--stone); }
+    .brand-title { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 400; color: var(--obsidian); }
+    .topbar-right { display: flex; align-items: center; gap: 1.5rem; }
+    .logout-btn { font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 0.06em; color: var(--stone); background: none; border: 1px solid var(--sand-deep); padding: 7px 16px; border-radius: var(--radius); cursor: pointer; text-decoration: none; transition: all 0.2s; }
+    .logout-btn:hover { background: var(--sand); color: var(--obsidian); }
+    
+    .dash-wrap { max-width: 1200px; margin: 0 auto; padding: 2.5rem; }
+    
+    .dash-hero { background: var(--obsidian); border-radius: var(--radius-lg); padding: 3rem; margin-bottom: 2rem; display: flex; align-items: center; justify-content: space-between; position: relative; overflow: hidden; }
+    .dash-hero::before { content: ''; position: absolute; top: -60px; right: 80px; width: 300px; height: 300px; border-radius: 50%; background: radial-gradient(circle, rgba(201,169,110,0.12) 0%, transparent 70%); pointer-events: none; }
+    .dash-hero-text { position: relative; z-index: 1; }
+    .dash-hero-text .eyebrow { color: var(--gold); margin-bottom: 0.5rem; }
+    .dash-hero-text h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 400; color: var(--ivory); line-height: 1.2; margin-bottom: 0.75rem; }
+    .dash-hero-text p { font-size: 14px; color: var(--sand-deep); max-width: 500px; line-height: 1.7; }
+    
+    .dash-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 2rem; }
+    .dash-card { background: var(--white); border: 1px solid var(--sand-deep); border-radius: var(--radius-lg); padding: 2rem; }
+    .card-label { font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem; }
+    .card-title { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 400; color: var(--obsidian); margin-bottom: 1rem; }
+    .card-content { font-size: 14px; color: var(--stone-dark); line-height: 1.7; }
+    
+    .stat-block { background: var(--sand); border-radius: var(--radius-lg); padding: 1.5rem; text-align: center; }
+    .stat-number { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 500; color: var(--obsidian); }
+    .stat-label { font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--stone); margin-top: 0.5rem; }
+    
+    .btn { display: inline-flex; align-items: center; justify-content: center; text-decoration: none; font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; letter-spacing: 0.06em; height: 50px; padding: 0 28px; border-radius: var(--radius); transition: all 0.25s; cursor: pointer; border: none; }
+    .btn-primary { background: var(--obsidian); color: var(--ivory); width: 100%; }
+    .btn-primary:hover { background: var(--stone-dark); }
+    .btn-secondary { background: transparent; color: var(--obsidian); border: 1px solid var(--sand-deep); width: 100%; }
+    .btn-secondary:hover { background: var(--sand); }
+    
+    .ritual-section { background: var(--white); border: 1px solid var(--sand-deep); border-radius: var(--radius-lg); padding: 2rem; margin-bottom: 2rem; }
+    .ritual-section h3 { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 400; color: var(--obsidian); margin-bottom: 1.5rem; }
+    
+    .ritual-steps { display: flex; flex-direction: column; gap: 12px; margin-bottom: 2rem; }
+    .ritual-step { display: flex; align-items: flex-start; gap: 14px; padding: 1rem 1.25rem; border: 1px solid var(--sand-deep); border-radius: var(--radius); }
+    .step-checkbox { width: 24px; height: 24px; border-radius: 50%; border: 2px solid var(--sand-deep); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; cursor: pointer; transition: all 0.2s; font-size: 12px; font-weight: bold; }
+    .step-checkbox.checked { background: var(--sage); border-color: var(--sage); color: var(--white); }
+    .step-body { flex: 1; }
+    .step-title { font-size: 14px; font-weight: 500; color: var(--obsidian); margin-bottom: 3px; }
+    .step-time { font-size: 12px; color: var(--stone); }
+    
+    .profile-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-bottom: 2rem; }
+    
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+    .dash-hero { animation: fadeUp 0.5s ease both; }
+    .dash-card { animation: fadeUp 0.5s 0.1s ease both; }
+    
+    @media (max-width: 768px) { 
+      .topbar { padding: 0 1.5rem; } 
+      .dash-wrap { padding: 1.5rem; } 
+      .dash-hero { padding: 2rem 1.5rem; } 
+      .dash-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <div class="brand-wrap">
+        <div class="brand-mark"></div>
+        <div>
+          <p class="eyebrow">Ritual de Piel de la Isla</p>
+          <h1 class="brand-title">Tenerife Glow Ritual</h1>
+        </div>
+      </div>
+      <div class="topbar-right">
+        <button type="button" class="logout-btn" id="logoutBtn">Cerrar sesión</button>
+      </div>
+    </header>
+
+    <div class="dash-wrap">
+      <!-- Hero section -->
+      <div class="dash-hero">
+        <div class="dash-hero-text">
+          <p class="eyebrow">Bienvenido de vuelta</p>
+          <h2 id="heroName">Tu Panel</h2>
+          <p id="heroSubtitle">Aquí está tu resumen diario. Completa tu ritual y sigue tu progreso.</p>
+        </div>
+      </div>
+
+      <!-- Stats grid -->
+      <div class="dash-grid">
+        <div class="stat-block">
+          <div class="stat-number" id="daysCompleted">0</div>
+          <div class="stat-label">Días completados</div>
+        </div>
+        <div class="stat-block">
+          <div class="stat-number" id="currentStreak">0</div>
+          <div class="stat-label">Racha actual</div>
+        </div>
+        <div class="stat-block">
+          <div class="stat-number" id="completionRate">0%</div>
+          <div class="stat-label">Tasa de cumplimiento</div>
+        </div>
+      </div>
+
+      <!-- Profile info -->
+      <div class="dash-card" id="profileCard">
+        <div class="card-label">Tu perfil</div>
+        <div class="card-title">Tu información de ritual</div>
+        <div class="profile-grid">
+          <div>
+            <p style="font-size: 11px; color: var(--stone); text-transform: uppercase; font-weight: 500; margin-bottom: 4px;">Nombre</p>
+            <p style="font-size: 14px; color: var(--obsidian);" id="profileName">—</p>
+          </div>
+          <div>
+            <p style="font-size: 11px; color: var(--stone); text-transform: uppercase; font-weight: 500; margin-bottom: 4px;">Tipo de piel</p>
+            <p style="font-size: 14px; color: var(--obsidian);" id="profileSkinType">—</p>
+          </div>
+          <div>
+            <p style="font-size: 11px; color: var(--stone); text-transform: uppercase; font-weight: 500; margin-bottom: 4px;">Objetivo</p>
+            <p style="font-size: 14px; color: var(--obsidian);" id="profileGoal">—</p>
+          </div>
+          <div>
+            <p style="font-size: 11px; color: var(--stone); text-transform: uppercase; font-weight: 500; margin-bottom: 4px;">Correo</p>
+            <p style="font-size: 14px; color: var(--obsidian);" id="profileEmail">—</p>
+          </div>
+        </div>
+        <button type="button" class="btn btn-secondary" style="margin-top: 1.5rem;" onclick="window.location.href='profile-new.html'">Editar perfil</button>
+      </div>
+
+      <!-- Daily ritual section -->
+      <div class="ritual-section">
+        <h3>Tu Ritual de Hoy</h3>
+        <div class="ritual-steps" id="ritualSteps"></div>
+        <button type="button" class="btn btn-primary" id="completeBtn">Marcar ritual como completado</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase-client.js"></script>
+  <script src="auth-new.js"></script>
+
+  <script>
+  document.addEventListener("DOMContentLoaded", async function() {
+    const logoutBtn = document.getElementById("logoutBtn");
+    const completeBtn = document.getElementById("completeBtn");
+
+    // Check session
+    const session = await window.tgrNew.getSessionNew();
+    if (!session) {
+      window.location.href = "login-new.html";
+      return;
+    }
+
+    console.log("User logged in:", session.user.email);
+
+    // Load user profile
+    const profile = await window.tgrNew.getUserProfileNew();
+    const stats = await window.tgrNew.getRitualStatsNew();
+
+    if (profile) {
+      document.getElementById("heroName").textContent = `Hola, ${profile.full_name || "Usuario"}`;
+      document.getElementById("profileName").textContent = profile.full_name || "—";
+      document.getElementById("profileSkinType").textContent = profile.skin_type || "No definido";
+      document.getElementById("profileGoal").textContent = profile.goal || "No definido";
+      document.getElementById("profileEmail").textContent = profile.email || "—";
+    }
+
+    if (stats) {
+      document.getElementById("daysCompleted").textContent = stats.daysCompleted;
+      document.getElementById("currentStreak").textContent = stats.streak;
+      const rate = stats.daysCompleted > 0 ? Math.round((stats.daysCompleted / 90) * 100) : 0;
+      document.getElementById("completionRate").textContent = rate + "%";
+    }
+
+    // Generate ritual steps
+    const dailyMinutes = profile?.daily_minutes || 10;
+    const ritualSteps = [];
+    
+    if (dailyMinutes >= 5) {
+      ritualSteps.push({ title: "Limpieza suave", time: "2-3 min" });
+    }
+    if (dailyMinutes >= 10) {
+      ritualSteps.push({ title: "Tónico o esencia", time: "1 min" });
+      ritualSteps.push({ title: "Sérum o tratamiento", time: "2 min" });
+    }
+    if (dailyMinutes >= 20) {
+      ritualSteps.push({ title: "Hidratante o crema", time: "2 min" });
+      ritualSteps.push({ title: "Protección solar (día) o aceite (noche)", time: "1 min" });
+    }
+
+    const stepsContainer = document.getElementById("ritualSteps");
+    stepsContainer.innerHTML = ritualSteps.map((step, idx) => `
+      <div class="ritual-step" data-step="${idx}">
+        <div class="step-checkbox" onclick="toggleStep(${idx})"></div>
+        <div class="step-body">
+          <p class="step-title">${step.title}</p>
+          <p class="step-time">${step.time}</p>
+        </div>
+      </div>
+    `).join("");
+
+    // Logout handler
+    logoutBtn.addEventListener("click", function() {
+      this.disabled = true;
+      this.textContent = "Cerrando sesión...";
+      window.tgrNew.logOutNew();
+    });
+
+    // Complete ritual handler
+    completeBtn.addEventListener("click", async function() {
+      this.disabled = true;
+      this.textContent = "Guardando...";
+
+      const result = await window.tgrNew.completeRitualNew();
+      if (result.ok) {
+        this.textContent = "¡Completado!";
+        setTimeout(() => {
+          location.reload();
+        }, 1000);
+      } else {
+        this.disabled = false;
+        this.textContent = "Marcar ritual como completado";
+        alert("Error al guardar. Intenta de nuevo.");
+      }
+    });
+  });
+
+  function toggleStep(idx) {
+    const step = document.querySelector(`[data-step="${idx}"]`);
+    const checkbox = step.querySelector(".step-checkbox");
+    
+    step.classList.toggle("completed");
+    checkbox.classList.toggle("checked");
+    
+    if (checkbox.classList.contains("checked")) {
+      checkbox.textContent = "✓";
+    } else {
+      checkbox.textContent = "";
+    }
+  }
+  </script>
+</body>
+</html>
