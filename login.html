@@ -234,7 +234,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     if (!email) return;
 
     window.supabaseClient.auth.resetPasswordForEmail(email, {
-      redirectTo: "https://tenerifeglowritual.netlify.app/login.html"
+      redirectTo: "https://tenerifeglowritual.netlify.app/password-reset.html"
     }).then(() => {
       alert("Check your email for the password reset link");
     }).catch(err => {
