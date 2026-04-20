@@ -224,27 +224,25 @@ document.addEventListener("DOMContentLoaded", async function () {
     });
   }
 
-  if (forgotLink) {
-    forgotLink.addEventListener("click", async function (e) {
-      e.preventDefault();
+ if (forgotLink) {
+  forgotLink.addEventListener("click", function (e) {
+    e.preventDefault();
 
-      const emailInput = document.getElementById("email");
-      const email = (emailInput?.value || prompt("Introduce tu correo electrónico"))?.trim();
+    const emailInput = document.getElementById("email");
+    const email = (emailInput?.value || prompt("Introduce tu correo electrónico"))?.trim();
 
-      if (!email) return;
+    if (!email) return;
 
-      const { error } = await window.supabaseClient.auth.resetPasswordForEmail(email, {
-        redirectTo: "https://tenerifeglowritual.netlify.app/login.html"
-      });
-
-      if (error) {
-        showInlineError(error.message);
-        return;
-      }
-
-      showInlineSuccess("Te hemos enviado un correo para restablecer tu contraseña.");
+    window.supabaseClient.auth.resetPasswordForEmail(email, {
+      redirectTo: "https://tenerifeglowritual.netlify.app/login.html"
+    }).then(() => {
+      alert("Check your email for the password reset link");
+    }).catch(err => {
+      console.error("Reset password error:", err);
+      alert("Error: " + err.message);
     });
-  }
+  });
+}
 
   function showInlineError(message) {
     let box = document.getElementById("tgr-error");
